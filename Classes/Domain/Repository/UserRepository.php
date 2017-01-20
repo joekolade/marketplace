@@ -33,15 +33,6 @@ namespace JS\Marketplace\Domain\Repository;
 
 class UserRepository extends \TYPO3\CMS\Extbase\Domain\Repository\FrontendUserRepository {
 
-  /**
-   * defaultOrderings
-   *
-   * @var array
-   */
-  protected $defaultOrderings = array(
-    'username' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
-  );
-
     /**
      * defaultOrderings
      *
