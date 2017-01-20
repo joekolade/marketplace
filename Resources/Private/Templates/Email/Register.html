@@ -1,0 +1,9 @@
+Please confirm your registration to {settings.sitename} by clicking the following link or copying it to your browser adressbar:
+
+Confirmation link:
+<f:uri.action action="confirmUser" extensionName="marketplace" controller="Register" pluginName="registeruser" pageUid="{settings.register.confirmationPID}" arguments="{hash: user.hash}">
+</f:uri.action>
+
+<f:format.stripTags>
+<f:cObject typoscriptObjectPath="lib.emailCloser" />
+</f:format.stripTags>

@@ -1,0 +1,617 @@
+$gutter-width: 15px;
+$border-color: #CDD0D0;
+
+$color-blau: #223a81;
+$color-blau-hell: #223a81;
+$color-blau-helli: #0070c0;
+$color-braun-dunkel: #a1a07a;
+$color-braun: #dbd8bd;
+$color-rot: #a71719;
+$color-orange: #E49D01;
+$color-dgrau: #6a6a6a;
+$color-hgrau: rgba($color-dgrau, 0.05);
+$color-gelb: #FAAE07;
+
+$stars-color: #fff;
+$stars-color-before: #FFE63D;
+$stars-color-actual: #ffe65b;
+
+$red: #a94442;
+$red-light: #f2dede;
+
+$color-primary: #337ab7;
+
+$star-shadow: rgba(0, 0, 0, 0.3);
+
+@import 'stars';
+
+// Customs
+.top-buffer {
+  margin-top: 2em;
+}
+.bottom-buffer {
+  margin-bottom: 2em;
+}
+
+.has-feedback.has-clear {
+    /* Remove Internet Explorer native clear button */
+    input::-ms-clear {
+        display: none;
+    }
+
+    .form-control-clear {
+        color: #bbb;
+        color: rgba(0, 0, 0, 0.4);
+        line-height: 32px;
+
+        /*
+         * Enable pointer events as they have been disabled since Bootstrap 3.3
+         * See https://github.com/twbs/bootstrap/pull/14104
+         */
+        pointer-events: auto;
+
+        &:hover {
+            color: #777;
+            color: rgba(0, 0, 0, 0.7);
+            cursor: pointer;
+        }
+    }
+
+    &.has-empty-value {
+        /* Do not display clear button if field has empty value */
+        .form-control-clear {
+            display: none;
+        }
+    }
+}
+
+.f3-form-error {
+  input&, textarea&, button {
+    border-color: $red;
+    background-color: $red-light;
+  }
+  + label {
+    color: $red;
+  }
+  &.ratingContainer {
+    label {
+      color: $red;
+    }
+
+    .caption {
+      // margin-top: 0.4em;
+    }
+  }
+}
+
+.tx-marketplace {
+
+  // .checkbx input[type="checkbox"],
+  // .checkbox input[type="checkbox"] {
+  //   position: static;
+  //   margin-left: 0;
+  //   margin-right: 10px;
+  //   + label {
+  //     padding-left: 1px;
+  //   }
+  // }
+
+  // Toggle panel (bs collapse)
+  .panel {
+    &.active {
+
+      .panel-heading {
+
+        i.fa.fa-plus {
+
+          &:before {
+            content: "";
+          }
+        }
+      }
+    }
+
+    .panel-heading {
+      position: relative;
+
+      i.fa {
+        position: absolute;
+        right: 15px;
+      }
+
+      [data-toggle="collapse"] {
+        text-align: left;
+      }
+    }
+
+    margin-bottom: 10px;
+  }
+
+  .producerLogo {
+    margin-bottom: 8px;
+    position: relative;
+  }
+
+  /*
+    Produktliste
+   */
+  &.tx-marketplace-list {
+    .list-item {
+      border-bottom: thin solid $border-color;
+      width: 100%;
+      margin-bottom: 2.2em;
+      padding-bottom: 1em;
+
+      float: left;
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  /*
+    Produktdetail
+  */
+  &.tx-marketplace-detail {
+    .filter .image {
+        margin-top: 1em;
+    }
+  }
+
+  /*
+    Toggle Product description
+   */
+  .buttonText-show {
+    .text-show {
+      display: block;
+    }
+    .text-unshow {
+      display: none;
+    }
+  }
+  .buttonText-unshow {
+    .text-show {
+      display: none;
+    }
+    .text-unshow {
+      display: block;
+    }
+  }
+
+  /*
+    Filter
+   */
+  .filter {
+    background: $color-hgrau;
+
+    // Productgroup
+
+    // Productsubgroup
+    .subgroups {
+      margin-left: 1em;
+
+      .checkbox {
+        i.fa-minus {
+          display: none;
+        }
+
+        input:checked  + label {
+
+          color: $color-primary;
+
+          i.fa-plus {
+            display: none;
+          }
+          i.fa-minus {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+  /*
+    Filter reset
+   */
+  .reset {
+    display: none;
+  }
+
+  // Ratinglist items
+  // have a rating block
+  // that has to get some special
+  // treatment
+  .ratingBlock {
+    @media screen and (min-width: 768px) and (max-width: 1090px) {
+      width: 100%;
+      clear: both;
+
+      .btn-group-vertical {
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    @media screen and (min-width: 768px) and (max-width: 870px) {
+      .btn-group-vertical {
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .tx-marketplace {
+    /*
+      Produktliste
+     */
+    &.tx-marketplace-list {
+      .list-item {
+        // min-height: 120px;
+      }
+    }
+  }
+}
+
+
+// Adapt Bootstrap Tables
+.contenttable {
+   width: 100%;
+   max-width: 100%;
+   margin-bottom: 18px;
+
+   >tbody>tr>td, >tbody>tr>th, >tfoot>tr>td, >tfoot>tr>th, >thead>tr>td, >thead>tr>th {
+     padding: 8px;
+     line-height: 1.4;
+     vertical-align: top;
+     border-top: 1px solid $border-color;
+   }
+}
+.contenttable tr td {
+  vertical-align: middle;
+}
+
+// Radios to direktlink
+.no-radios {
+
+  .checkbox,
+  .radio {
+    padding-left: 0;
+
+    label {
+
+      left: 0;
+      padding-left: 0;
+
+      &:before, &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+.rating {
+    float:left;
+  &:not(:checked) {
+
+    > input {
+      position:absolute;
+      top:-9999px;
+      clip:rect(0,0,0,0);
+
+      &:checked ~ label {
+        color: $stars-color-before;
+        //text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+      }
+    }
+
+    > label {
+      float: right;
+      width: 1em;
+      padding:0 .1em;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 200%;
+      line-height: 1.2;
+      color: $stars-color;
+      text-shadow:
+        1px 1px 0 #515151,
+        -1px -1px 0 #515151,
+        -1px 1px 0 #515151,
+        1px -1px 0 #515151;
+    text-shadow:  1px  1px 1px $star-shadow,
+                      1px -1px 1px $star-shadow,
+                     -1px  1px 1px $star-shadow,
+                     -1px -1px 1px $star-shadow;
+
+      &:before {
+        content: '★ ';
+      }
+    }
+    &:not(.overallRating) {
+      > label:hover,
+      > label:hover ~ label {
+          cursor:pointer;
+          color: $stars-color-actual;
+      }
+    }
+  }
+
+  &:not(.overallRating) {
+    > input:checked + label:hover,
+    > input:checked + label:hover ~ label,
+    > input:checked ~ label:hover,
+    > input:checked ~ label:hover ~ label,
+    > label:hover ~ input:checked ~ label {
+      color: lighten($stars-color-actual, 10%);
+    }
+  }
+
+  > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+  }
+}
+
+// Rating Sonnen
+div.rating-container {
+  .filled-stars {
+    color: $stars-color-actual;
+  }
+  i.fa {
+    // width: 15px;
+    // height: 15px;
+    // font-size: 15px;
+  }
+}
+div.rating-md {
+  font-size: 1em;
+  font-size: 1.5em;
+}
+
+.ratingContainer {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+
+  br {
+    width: 100%;
+  }
+
+
+  .rating-count {
+    margin-left: .5em;
+  }
+
+  &.btn {
+    padding: 0;
+    padding-bottom: .5em;
+  }
+  &.overAllRating {
+    font-size: 1.7em;
+    margin-bottom: 1em;
+
+    // in sidebar
+    .aside & {
+      font-size: 1em;
+      &.pull-right {
+        float: none !important;
+      }
+    }
+  }
+}
+
+//   .rating-xs & {
+//     width: 25px;
+//     height: 25px;
+//   }
+
+.fullDescription {
+  border: solid $color-dgrau;
+  border-width: 1px 0;
+
+  margin: 1em 0 2em;
+
+  > :first-child {
+    margin-top: 1em;
+  }
+  > :last-child {
+    margin-bottom: 1em;
+  }
+}
+
+//
+// Report a rating
+//
+.report {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  font-size: 1.3em;
+  padding: 2px 3px;
+  color: $color-rot;
+  transition: background-color 0.5s linear;
+
+
+  .fa {
+    position: relative;
+    top: -1px;
+  }
+
+  .slide-out {
+    display: inline-block;
+    max-width: 0;
+    overflow: hidden;
+    transition: max-width 0.5s linear;
+    margin-right: 12px;
+    font-weight: normal;
+  }
+
+  &:hover {
+    color: white;
+    background-color: $color-rot;
+
+    .slide-out {
+      max-width: 100vh;
+    }
+  }
+}
+
+//
+// Buttons
+//
+.btn.btn {
+  // All
+  &-proposeProduct, &-backToRatingList, &-search, &-reset, &-toggle {
+    margin-bottom: 1em;
+  }
+  // Filter search
+  &-search {}
+  // Filter reset
+  &-reset {}
+
+  // Toggle button
+  &-toggle {
+    margin-top: 1em;
+  }
+
+  // Propose Product
+  &-proposeProduct {
+  }
+  .pull-right &-proposeProduct {
+    margin-right: -15px;
+  }
+  // Back to rating
+  &-backToRatingList {
+    padding-left: 0;
+  }
+}
+
+.btn {
+  // If icon is used
+  i.fa {
+    margin-left: 1em;
+
+    &.fa-chevron-left {
+      margin-left: 0;
+      margin-right: 1em;
+    }
+
+    .btn-group &.fa-certificate,
+    .btn-group-vertical &.fa-certificate {
+      margin-left: 0;
+    }
+  }
+  // If icon is left
+  &.icon-left i.fa {
+    margin-left: 0;
+    margin-right: 0.5em;
+  }
+}
+.paginator {
+  .btn {
+    padding: 6px 12px;
+    i.fa {
+      margin-left: 0;
+      line-height: 18px;
+    }
+  }
+}
+
+.tx-marketplace {
+
+
+  // Filter / aside
+  .filter {
+    padding-top: $gutter-width;
+    padding-bottom: $gutter-width;
+  }
+
+
+  //
+  // Rating list
+  // Product detail
+  //
+  .ratingsListContainer {
+    margin-top: 2em;
+  }
+
+  .list-group {
+    border-top: thin solid $border-color;
+    margin-top: 1.2em;
+
+    // Row in rating liste
+    .list-item {
+      border-bottom: thin solid $border-color;
+      width: 100%;
+      margin-bottom: 2.2em;
+      padding: 1.2em 0.5em 1em;
+    }
+
+    // Heading
+    .list-group-item-heading {
+      padding-bottom: 1em;
+      position: relative;
+    }
+  }
+
+  .list {
+
+    h1 {
+      position: relative;
+      z-index: 8;
+    }
+
+    .imageSlider {
+      text-align: center;
+      img.img-responsive {
+        display: inline-block;
+        width: auto;
+        max-width: 100%;
+     }
+    }
+  }
+  //
+  // Rate product
+  //
+  .ratingForm {
+
+    // Size of stars
+    // div.rating-md {
+    //   font-size
+    // }
+    .ratingContainer.overAllRating {
+      label {
+        font-size: 0.7em;
+
+        position: relative;
+        top: 4px;
+        display: block;
+        text-align: right;
+
+        &.text-left {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+
+// Sortby
+@media screen and (min-width: 768px) {
+  .sortby-select {
+    position: absolute;
+    left: 100%;
+    width: 100%;
+    top: 0;
+    padding-left: 5.2em;
+  }
+}

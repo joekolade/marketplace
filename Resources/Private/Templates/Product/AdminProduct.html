@@ -1,0 +1,44 @@
+<f:layout name="Default" />
+
+<f:section name="header">
+    <!-- No header here -->
+</f:section>
+
+<f:section name="main">
+  <h2>
+      <f:if condition="{error}">
+      <f:then>
+        Error!
+      </f:then>
+      <f:else>
+        Success!
+      </f:else>
+    </f:if>
+  </h2>
+
+  <f:flashMessages renderMode="div" />
+  
+  <f:if condition="{error}">
+    <f:then>
+      Error! The link you used is obsolete since it is wrong or was used before!
+    </f:then>
+    <f:else>
+      <!-- Nothing to show here - all comes from the flashmessage -->
+    </f:else>
+  </f:if>
+  
+</f:section>
+
+<f:section name="bottom">
+  <!-- Footer -->
+</f:section>
+
+<f:section name="aside">
+    
+    <f:render partial="Product/Buttons/BackToRatingList"></f:render>
+
+    <f:render partial="Product/ProductMini" arguments="{product: product}"></f:render>
+    
+    <f:render partial="Product/Buttons/RateButton" arguments="{product: product}"></f:render>
+
+</f:section>

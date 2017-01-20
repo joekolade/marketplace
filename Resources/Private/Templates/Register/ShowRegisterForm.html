@@ -1,0 +1,87 @@
+<f:layout name="TwoCols"></f:layout>
+
+<f:section name="header">
+  <h2>
+    <f:if condition="{settings.title}">
+      <f:then>
+        {settings.title}
+      </f:then>
+      <f:else>
+        <f:translate key="registerHeader">Show register form</f:translate>
+      </f:else>
+    </f:if>
+  </h2>
+</f:section>
+
+<f:section name="main">
+  
+  <f:flashMessages renderMode="div" />
+  <f:render partial="FormErrors" arguments="{for: 'user'}"></f:render>
+
+  <f:form action="registerUser" object="{user}" objectName="user">
+    <f:form.hidden name="rating" value="{rating}"></f:form.hidden>
+    <f:form.hidden name="product" value="{product}"></f:form.hidden>
+    <div class="form-group">
+      <label for="firstName"><f:translate key="tx_marketplace_domain_model_user.firstName">Firstname</f:translate> {settings.requiredSign -> f:format.raw()}</label>
+      <f:form.textfield property="firstName" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="lastName"><f:translate key="tx_marketplace_domain_model_user.lastName">Lastname</f:translate> {settings.requiredSign -> f:format.raw()}</label>
+      <f:form.textfield property="lastName" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="email"><f:translate key="tx_marketplace_domain_model_user.email">email</f:translate> {settings.requiredSign -> f:format.raw()}</label>
+      <f:form.textfield property="email" class="form-control" />
+    </div>
+    
+    <div class="form-group">
+      <label for="username"><f:translate key="tx_marketplace_domain_model_user.username">Username</f:translate> {settings.requiredSign -> f:format.raw()}</label>
+      <f:form.textfield property="username" class="form-control" />
+    </div>
+
+    <div class="form-group row">
+      <div class="col-xs-4">
+        <label for="zip"><f:translate key="tx_marketplace_domain_model_user.zip">ZIP</f:translate></label>
+        <f:form.textfield property="zip" class="form-control" />
+      </div>
+      <div class="col-xs-8">
+        <label for="city"><f:translate key="tx_marketplace_domain_model_user.city">City</f:translate></label>
+        <f:form.textfield property="city" class="form-control" />
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="country"><f:translate key="tx_marketplace_domain_model_user.country">country</f:translate></label>
+      <f:form.textfield property="country" class="form-control" />
+    </div>
+    
+    <div class="form-group">
+      <label for="password"><f:translate key="tx_marketplace_domain_model_user.password">password</f:translate> {settings.requiredSign -> f:format.raw()}</label>
+      <f:form.password property="password" class="form-control" />
+    </div>
+    <div class="form-group confirmPassword">
+      <label for="confirmpassword"><f:translate key="tx_marketplace_domain_model_user.confirmpassword">confirm password</f:translate> {settings.requiredSign -> f:format.raw()}</label>
+      <f:form.password property="confirmpassword" class="form-control" />
+    </div>
+
+    <div class="checkbox">
+      <f:form.checkbox property="legals" id="legals" value="1" />
+      <label for="legals">
+        <f:translate key="register.legalsText">I accept the legals</f:translate>
+      </label>
+    </div>
+
+    <p>
+      <br>
+      Fields with <b>{settings.requiredSign -> f:format.raw()}</b> are required.
+      <br>
+    </p>
+
+
+    <f:form.submit name="submit" value="Register" class="btn btn-default btn-registerUserButton" />
+
+  </f:form>
+</f:section>
+
+<f:section name="aside">
+</f:section>

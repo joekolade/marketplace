@@ -1,0 +1,23 @@
+Hello {user.name},
+
+The product you proposed at {settings.sitename} was declined!
+
+This happens when:
+
+- you did not fill out all necessary infomration about the product properly
+- your product already listed at {settings.sitename}
+- your product was proposed at the same time by another user
+- your product did not match our terms & agreements
+
+Please be sure that your product is not already part of {settings.sitename}.
+
+You can find all products here:
+<f:uri.action pageUid="{settings.ratingList.pid}"
+  action="ratinglist" controller="Product" extensionName="marketplace" pluginName="ratingsearch"
+  absolute="1"
+  arguments="{product: product}"
+></f:uri.action>
+
+<f:format.stripTags>
+<f:cObject typoscriptObjectPath="lib.emailCloser" />
+</f:format.stripTags>

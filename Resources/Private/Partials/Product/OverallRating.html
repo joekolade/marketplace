@@ -1,0 +1,5 @@
+  <input 
+    type="number" id="rating_{product.uid}" name="rating" class="ratingStars ratingRead"
+    value="{product.overallRating -> f:format.number()}"
+  >
+  <span class="rating-count">({product.ratings -> f:count()})</span>

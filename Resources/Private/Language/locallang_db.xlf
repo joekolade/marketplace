@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-04-26T22:01:51Z" product-name="marketplace">
+		<header/>
+		<body>
+			<trans-unit id="tx_marketplace_domain_model_product">
+				<source>Product</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.teaser">
+				<source>Teaser</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.contentright">
+				<source>Content right</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.contentleft">
+				<source>Content left</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.images">
+				<source>Images</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.productgroup">
+				<source>Productgroup</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.productsubgroup">
+				<source>Productsubgroup</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.articles">
+				<source>Articles</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.producer">
+				<source>Producer</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.ratings">
+				<source>Ratings</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.proposinguser">
+				<source>Proposing user</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.averagerating">
+				<source>Average rating</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_productgroup">
+				<source>Productgroup</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_productgroup.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_productgroup.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_productgroup.products">
+				<source>Products</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_productgroup.productsubgroups">
+				<source>Productsubgroups</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_productsubgroup">
+				<source>Productsubgroup</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_productsubgroup.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_productsubgroup.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_productsubgroup.products">
+				<source>Products</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_dealer">
+				<source>Dealer</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_dealer.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_dealer.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_dealer.address">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_dealer.country">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_dealer.fob">
+				<source>FOB</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_country">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_country.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_country.dealers">
+				<source>Dealers</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_country.continent">
+				<source>Continent</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_article">
+				<source>Article</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_article.price">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_article.currency">
+				<source>Currency</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_article.dealer">
+				<source>Dealer</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_article.product">
+				<source>Product</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_producer">
+				<source>Producer</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_producer.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_producer.logo">
+				<source>Logo</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_producer.products">
+				<source>Products</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_continent">
+				<source>Continent</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_continent.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_continent.countries">
+				<source>Countries</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_filter">
+				<source>Filter</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_filter.country">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_filter.productgroup">
+				<source>Productgroup</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_filter.productsubgroup">
+				<source>Productsubgroup</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_filter.producer">
+				<source>Producer</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_filter.searchphrase">
+				<source>Searchphrase</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_filter.sortby">
+				<source>Sortby</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_lead">
+				<source>Lead</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_lead.gender">
+				<source>Gender</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_lead.gender.male">
+				<source>Mr.</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_lead.gender.female">
+				<source>Mrs.</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_lead.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_lead.firstname">
+				<source>Firstname</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_lead.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_lead.message">
+				<source>Message</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_lead.article">
+				<source>Article</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_currency">
+				<source>Currency</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_currency.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_currency.short">
+				<source>Short</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_currency.exchangerate">
+				<source>Exchangerate</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_currency.articles">
+				<source>Articles</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating">
+				<source>Rating</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.criteria1">
+				<source>Quality</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.criteria2">
+				<source>Durability</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.criteria3">
+				<source>Ease of use</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.ratinguser">
+				<source>Ratinguser</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.product">
+				<source>Product</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.country">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.position">
+				<source>Position</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.ratingtext">
+				<source>Ratingtext</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.legals">
+				<source>Legals</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.star.1">
+				<source>1</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.star.2">
+				<source>2</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.star.3">
+				<source>3</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.star.4">
+				<source>4</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.star.5">
+				<source>5</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_user.legals">
+				<source>Legals</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_user.hash">
+				<source>Hash</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_user.confirmpassword">
+				<source>Confirm password</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_user.gender">
+				<source>gender</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_user.gender.male">
+				<source>Mr.</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_user.gender.female">
+				<source>Mrs.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

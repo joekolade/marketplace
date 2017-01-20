@@ -1,0 +1,36 @@
+The user {user.name} <{user.email}> has proposed the following product:
+
+{product.title}
+---------------------------------------------------------------------------
+{product.description -> f:format.raw()}
+---------------------------------------------------------------------------
+Productgroup:  {product.productgroup.name}
+Producer:  {product.producer.name}<f:if condition="{product.productsubgroup.name}">
+Productsubgroup:  {product.productsubgroup.name}
+</f:if>
+---------------------------------------------------------------------------
+
+You can now:
+
+Accept the product:
+<f:uri.action pageUid="{settings.adminster.adminPid}"
+  action="adminProduct" controller="Product" extensionName="marketplace" pluginName="ratingsearch"
+  absolute="1"
+  arguments="{hash: hash, do: 'accept', product: product.uid}"
+></f:uri.action>
+The product will be activated. Please be sure to review the content of the product in the TYPO3 CMS Backend.
+
+Decline the product:
+<f:uri.action pageUid="{settings.adminster.adminPid}"
+  action="adminProduct" controller="Product" extensionName="marketplace" pluginName="ratingsearch"
+  absolute="1"
+  arguments="{hash: hash, do: 'decline', product: product.uid}"
+></f:uri.action>
+The product will be DELETED!!
+
+The proposing user ({user.name} <{user.email}>) will be informed about your decision via email.
+
+
+
+Thanks for your attention!
+Sendea-Automator-Service

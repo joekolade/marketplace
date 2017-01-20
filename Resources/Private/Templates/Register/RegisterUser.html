@@ -1,0 +1,29 @@
+<f:layout name="TwoCols"></f:layout>
+
+<f:section name="header">
+  <h2>
+    <f:if condition="{settings.title}">
+      <f:then>
+        {settings.title}
+      </f:then>
+      <f:else>
+        <f:translate key="registerHeader">Register user</f:translate>
+      </f:else>
+    </f:if>
+  </h2>
+</f:section>
+
+<f:section name="main">
+  
+  <f:flashMessages renderMode="div" />
+  <p>Thank you for your registration to {settings.sitename}.</p>
+  
+  <p>Please check your inbox and confirm your registration by clicking the link sent to you via email!</p>
+  
+  <f:cObject typoscriptObjectPath="lib.emailCloser" />
+
+</f:section>
+
+<f:section name="aside">
+  
+</f:section>

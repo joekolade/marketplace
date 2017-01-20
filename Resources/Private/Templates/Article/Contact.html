@@ -1,0 +1,86 @@
+<f:layout name="FilterLayout" />
+
+<f:section name="header">
+</f:section>
+
+<f:section name="main">
+  <h2><small>{f:translate(key: 'articleContact.leadHeader')}</small></h2>
+  <h2>{lead.article.product.title}</h2>
+  <p>
+    <b>{f:translate(key: 'tx_marketplace_domain_model_producer')}:</b> {lead.article.product.producer.name}
+  </p>
+  <p>
+    <b>{f:translate(key: 'tx_marketplace_domain_model_dealer')}:</b> {lead.article.dealer.name}, {lead.article.dealer.country.name}
+  </p>
+  <p>
+    <b>{f:translate(key: 'tx_marketplace_domain_model_dealer.fob')}:</b> {f:if(condition: lead.article.dealer.fob,then: lead.article.dealer.fob,else: lead.article.dealer.country.name)}
+  </p>
+  <p>
+    <b>{f:translate(key: 'tx_marketplace_domain_model_article.price')}:</b> 
+    <f:format.currency prependCurrency="1" currencySign="{f:if(condition: lead.article.currency, then: lead.article.currency.short, else: settings.currencySign)}">{lead.article.price}</f:format.currency>
+  </p>
+  <f:form object="{lead}" name="lead" action="sendlead">
+      
+      <f:form.hidden property="article" value="{lead.article}"></f:form.hidden>
+
+      <div class="form-group">
+        <f:form.select class="form-control" property="gender" 
+          options="{0: '{f:translate(key: \'tx_marketplace_domain_model_lead.gender.male\')}', 1: '{f:translate(key: \'tx_marketplace_domain_model_lead.gender.female\')}'}">
+        </f:form.select>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="form-group">
+            <label for="tx_marketplace_articlesearch[lead][firstname]" class="control-label">
+                {f:translate(key: 'tx_marketplace_domain_model_lead.firstname')}
+            </label>
+            <br>
+            <f:form.textfield class="form-control" property="firstname" />
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="form-group">
+            <label for="tx_marketplace_articlesearch[lead][name]" class="control-label">
+                {f:translate(key: 'tx_marketplace_domain_model_lead.name')}
+                <span class="text-danger">*</span>
+            </label>
+            <br>
+            <f:form.textfield class="form-control" property="name" required="required" />
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="tx_marketplace_articlesearch[lead][email]" class="control-label">
+            {f:translate(key: 'tx_marketplace_domain_model_lead.email')}
+            <span class="text-danger">*</span>
+        </label>
+        <br>
+        <f:form.textfield class="form-control" property="email" type="email" required="required" />
+      </div>
+
+      <div class="form-group">
+        <label for="tx_marketplace_articlesearch[lead][message]" class="control-label">
+            {f:translate(key: 'tx_marketplace_domain_model_lead.message')}
+        </label>
+        <br>
+        <f:form.textarea class="form-control" property="message" />
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-default">
+          {f:translate(key: 'articleContact.leadSend')}
+        </button>
+      </div>
+  </f:form>
+</f:section>
+
+<f:section name="aside">
+  <div>
+    <f:link.action class="" action="show" controller="Product" arguments="{product: lead.article.product}">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      {f:translate(key: 'articleContact.backToProduct', arguments: {0: ''})}
+    </f:link.action>
+  </div>
+</f:section>

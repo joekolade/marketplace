@@ -1,0 +1,32 @@
+<f:layout name="FilterLayout" />
+
+<f:section name="header">
+    <h1>{settings.title}</h1>
+</f:section>
+
+<f:section name="main">
+  <f:flashMessages renderMode="div" />
+  
+  <f:if condition="{products}">
+      <f:then>
+        <div class="row">
+          <f:for each="{products}" as="product" iteration="i">
+              <f:render partial="Product/ListItem" arguments="{product: product}"></f:render>
+          </f:for>
+        </div>
+      </f:then>
+      <f:else>
+          {f:translate(key: 'productList.noProducts')}
+
+          <!-- TODO: reset Filter -->
+      </f:else>
+  </f:if>
+
+</f:section>
+
+
+<f:section name="aside">
+    
+    <f:render partial="Product/Filter" arguments="{_all}"></f:render>
+
+</f:section>

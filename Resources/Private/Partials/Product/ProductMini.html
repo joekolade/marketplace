@@ -1,0 +1,8 @@
+  <h2>{product.title}</h2>
+  <p>
+    <f:render partial="Product/Image" arguments="{product: product, width: settings.productList.image.width, height: settings.productList.image.height}"></f:render>
+  </p>
+<p>
+  <f:render partial="Product/Data" arguments="{_all}"></f:render>
+</p>
+

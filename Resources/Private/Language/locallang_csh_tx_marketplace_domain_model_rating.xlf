@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-04-19T22:12:25Z" product-name="marketplace">
+		<header/>
+		<body>
+			<trans-unit id="criteria1.description">
+				<source>Rate the overall quality of the product (1-5)</source>
+			</trans-unit>
+			<trans-unit id="criteria2.description">
+				<source>Rate the overall durability of the used product (1-5)</source>
+			</trans-unit>
+			<trans-unit id="criteria3.description">
+				<source>Rate the ease of use of the product (1-5)</source>
+			</trans-unit>
+			<trans-unit id="ratinguser.description">
+				<source>ratinguser</source>
+			</trans-unit>
+			<trans-unit id="product.description">
+				<source>product</source>
+			</trans-unit>
+			<trans-unit id="country.description">
+				<source>The country where the product was used</source>
+			</trans-unit>
+			<trans-unit id="position.description">
+				<source>Your position</source>
+			</trans-unit>
+			<trans-unit id="ratingtext.description">
+				<source>Free text to explain and illustrate your rating</source>
+			</trans-unit>
+			<trans-unit id="legals.description">
+				<source>Legals</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
+

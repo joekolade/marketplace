@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-04-19T22:12:25Z" product-name="marketplace">
+		<header/>
+		<body>
+			<trans-unit id="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="teaser.description">
+				<source>teaser (optional). description is used if not set.</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>Description of the product. Shows on full width.</source>
+			</trans-unit>
+			<trans-unit id="contentright.description">
+				<source>2 Col content: right column</source>
+			</trans-unit>
+			<trans-unit id="contentleft.description">
+				<source>2 Col content: left column</source>
+			</trans-unit>
+			<trans-unit id="images.description">
+				<source>images</source>
+			</trans-unit>
+			<trans-unit id="productgroup.description">
+				<source>productgroup</source>
+			</trans-unit>
+			<trans-unit id="productsubgroup.description">
+				<source>productsubgroup</source>
+			</trans-unit>
+			<trans-unit id="articles.description">
+				<source>articles</source>
+			</trans-unit>
+			<trans-unit id="producer.description">
+				<source>producer</source>
+			</trans-unit>
+			<trans-unit id="ratings.description">
+				<source>Ratings</source>
+			</trans-unit>
+			<trans-unit id="proposinguser.description">
+				<source>Proposing user</source>
+			</trans-unit>
+			<trans-unit id="averagerating.description">
+				<source>Average rating</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

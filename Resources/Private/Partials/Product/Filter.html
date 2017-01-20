@@ -1,0 +1,83 @@
+<h2>
+    <small>
+<f:if condition="{settings.filtertitle}">
+    <f:then>
+        {settings.filtertitle}
+    </f:then>
+    <f:else>
+        {f:translate(key: 'productList.filterHeader')}
+    </f:else>
+</f:if>
+    </small>
+</h2>
+<f:form object="{filter}" name="filter" method="GET">
+    
+    <div class="form-group has-feedback has-clear">
+        <f:form.textfield class="form-control" property="searchphrase" placeholder="{f:translate(key: 'tx_marketplace_domain_model_filter.searchphrase')}" />
+        <span class="fa fa-remove form-control-feedback form-control-clear" aria-hidden="true"></span>
+        <span class="sr-only">Clear input content</span>
+    </div>
+
+    <div class="input-group-btn">
+        <button type="submit" class="btn btn-default btn-search">
+            {f:translate(key: 'productList.filterButton')}
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+
+    <f:if condition="{productgroups -> f:count()}">
+        <h3 class="text-primary">{f:translate(key: 'tx_marketplace_domain_model_filter.productgroup')}</h3>
+        <f:for each="{productgroups}" as="productgroup">
+            <div class="checkbox">
+                <f:form.checkbox property="productgroup" id="productgroup-{productgroup.uid}" value="{productgroup.uid}" />
+                <label for="productgroup-{productgroup.uid}">
+                    {productgroup.name}
+                </label>
+            </div>
+        </f:for>
+    </f:if>
+    <f:comment>
+        <f:if condition="{productsubgroups -> f:count()}">
+            <h3 class="text-primary">{f:translate(key: 'tx_marketplace_domain_model_filter.productsubgroup')}</h3>
+            <f:for each="{productsubgroups}" as="productsubgroup">
+                <div class="checkbox">
+                    <label>
+                        <f:form.checkbox property="productsubgroup" value="{productsubgroup.uid}" /> {productsubgroup.name}
+                    </label>
+                </div>
+            </f:for>
+        </f:if>
+    </f:comment>
+    <f:if condition="{countries -> f:count()}">
+        <h3 class="text-primary">{f:translate(key: 'tx_marketplace_domain_model_filter.country')}</h3>
+        <f:for each="{countries}" as="country">
+            <div class="checkbox">
+                <f:form.checkbox property="country" id="country-{country.uid}" value="{country.uid}" />
+                <label for="country-{country.uid}">
+                    {country.name}
+                </label>
+            </div>
+        </f:for>
+    </f:if>
+    <div class="reset">
+        <f:link.action action="list" class="btn btn-default btn-reset">
+        {f:translate(key: 'productList.filterResetButton')}
+        <i class="fa fa-cancel"></i>
+        </f:link.action>
+    </div>
+    <button type="submit" class="btn btn-default btn-search">
+        {f:translate(key: 'productList.filterButton')}
+        <i class="fa fa-search"></i>
+    </button>
+
+    <!-- Sorting (ausgestellt) -->
+    <f:alias map="{sortbyArray: {0: '{f:translate(key: \'productList.filter.sortby.0\')}', 1: '{f:translate(key: \'productList.filter.sortby.1\')}', 2: '{f:translate(key: \'productList.filter.sortby.2\')}', 3: '{f:translate(key: \'productList.filter.sortby.3\')}', 4: '{f:translate(key: \'productList.filter.sortby.4\')}', 5: '{f:translate(key: \'productList.filter.sortby.5\')}'}}">
+    <div class="sortby-select form-inline">
+        <div class="form-group">
+            <f:translate key="productList.filter.sortbyLabel">Sort by</f:translate>
+            <f:form.select class="form-control selectpicker" property="sortby" options="{sortbyArray}" />
+        </div>
+    </div>
+    </f:alias>
+
+</f:form>

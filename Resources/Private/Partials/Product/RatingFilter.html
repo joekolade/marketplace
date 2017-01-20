@@ -1,0 +1,133 @@
+<h2>
+    <small>
+        <f:if condition="{settings.filtertitle}">
+            <f:then>
+                {settings.filtertitle}
+            </f:then>
+            <f:else>
+                {f:translate(key: 'productList.filterHeader')}
+            </f:else>
+        </f:if>
+    </small>
+</h2>
+<f:form object="{filter}" pageUid="{settings.ratingList.pid}" objectName="filter" name="filter" method="GET" action="ratinglist">
+    <div class="form-group has-feedback has-clear">
+        <f:form.textfield class="form-control" property="searchphrase" placeholder="{f:translate(key: 'tx_marketplace_domain_model_filter.searchphrase')}" />
+        <span class="fa fa-remove form-control-feedback form-control-clear" aria-hidden="true"></span>
+        <span class="sr-only">Clear input content</span>
+    </div>
+    <div class="input-group-btn hide-xs">
+        <f:if condition="{filterActive}">
+            <f:link.action action="ratinglist" class="btn btn-default btn-reset pull-right">
+                {f:translate(key: 'productList.resetButton')}
+                <i class="fa fa-times-circle"></i>
+            </f:link.action>
+        </f:if>
+
+        <button type="submit" class="btn btn-warning btn-search">
+            {f:translate(key: 'productList.filterButton')}
+            <i class="fa fa-search"></i>
+        </button>
+        
+    </div>
+    <div class="panel panel-default active">
+        <div class="panel-heading" role="tab">
+            <h4 class="panel-title">
+                <a class="btn btn-block" data-toggle="collapse" href="#collapseProductgroup">
+                    {f:translate(key: 'tx_marketplace_domain_model_filter.productgroup')}
+                    <i class="fa fa-plus"></i>
+                </a>
+            </h4>
+        </div>
+        <div id="collapseProductgroup" class="panel-collapse collapse in" role="tabpanel">
+            <div class="panel-body">
+                <div class="no-radios">
+                    <f:if condition="{productgroups -> f:count()} == 1">
+                        <f:then>
+                            <div class="checkbox">
+                                <f:form.checkbox property="productgroup" id="productgroup-{filter.productgroup.uid}" value="{filter.productgroup.uid}" checked="true" multiple="false" />
+                                <label for="productgroup-{filter.productgroup.uid}">
+                                    <span class="btn btn-default">
+                                <i class="fa fa-chevron-left"></i> {filter.productgroup.name} 
+                                </span>
+                                </label>
+                            </div>
+                            <div class="subgroups">
+                                <f:for each="{productsubgroups}" as="productsubgroup">
+                                    <div class="checkbox">
+                                        <f:form.checkbox property="productsubgroup" id="productsubgroup-{productsubgroup.uid}" value="{productsubgroup.uid}" />
+                                        <label for="productsubgroup-{productsubgroup.uid}">
+                                            <span class="btn">
+                                            {productsubgroup.name}
+                                            <i class="fa fa-minus"></i>
+                                            <i class="fa fa-plus"></i>
+                                        </span>
+                                        </label>
+                                    </div>
+                                </f:for>
+                            </div>
+                        </f:then>
+                        <f:else>
+                            <f:if condition="{productgroups -> f:count()}">
+                                <f:for each="{productgroups}" as="productgroup">
+                                    <div class="radio">
+                                        <f:form.radio property="productgroup" id="productgroup-{productgroup.uid}" value="{productgroup.uid}" />
+                                        <label for="productgroup-{productgroup.uid}">
+                                            <span class="btn btn-default">
+                                        {productgroup.name} <i class="fa fa-chevron-right"></i>
+                                        </span>
+                                        </label>
+                                    </div>
+                                </f:for>
+                            </f:if>
+                        </f:else>
+                    </f:if>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab">
+            <h4 class="panel-title">
+                <a class="btn btn-block" data-toggle="collapse" href="#collapseProducer">
+                    {f:translate(key: 'tx_marketplace_domain_model_filter.producer')}
+                    <i class="fa fa-plus"></i>
+                </a>
+            </h4>
+        </div>
+        <div id="collapseProducer" class="panel-collapse collapse" role="tabpanel">
+            <div class="panel-body">
+                <f:for each="{producers}" as="producer" iteration="it">
+                    <div class="checkbox">
+                        <f:form.checkbox property="producer" id="producer-{producer.uid}" value="{producer.uid}" multiple="true" />
+                        <label for="producer-{producer.uid}">
+                            {producer.name}
+                        </label>
+                    </div>
+                </f:for>
+            </div>
+        </div>
+    </div>
+    <div class="function">
+        <f:if condition="{filterActive}">
+            <f:link.action action="ratinglist" class="btn btn-default btn-reset pull-right">
+                {f:translate(key: 'productList.resetButton')}
+                <i class="fa fa-times-circle"></i>
+            </f:link.action>
+        </f:if>
+
+        <button type="submit" class="btn btn-warning btn-search">
+            {f:translate(key: 'productList.filterButton')}
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+    <!-- Sorting (ausgestellt) -->
+    <f:alias map="{sortbyArray: {0: '{f:translate(key: \'productList.filter.sortby.0\')}', 1: '{f:translate(key: \'productList.filter.sortby.1\')}', 2: '{f:translate(key: \'productList.filter.sortby.2\')}', 3: '{f:translate(key: \'productList.filter.sortby.3\')}', 4: '{f:translate(key: \'productList.filter.sortby.4\')}', 5: '{f:translate(key: \'productList.filter.sortby.5\')}'}}">
+        <div class="sortby-select form-inline">
+            <div class="form-group">
+                <f:translate key="productList.filter.sortbyLabel">Sort by</f:translate>
+                <f:form.select class="form-control selectpicker" property="sortby" options="{sortbyArray}" />
+            </div>
+        </div>
+    </f:alias>
+</f:form>

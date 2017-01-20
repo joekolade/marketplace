@@ -1,0 +1,80 @@
+<f:layout name="FilterLayout" />
+
+<f:section name="header">
+    <h1>{settings.title}</h1>
+</f:section>
+
+<f:section name="main">
+  <f:flashMessages renderMode="div" />
+  <div class="row list-item">
+    <div class="col-xs-12">
+      <div class="pull-right">
+        <f:render partial="Product/Buttons/ProposeProduct" arguments="{_all}"></f:render>
+      </div>
+    </div>
+  </div>
+  
+  <f:if condition="{products}">
+      <f:then>
+        <f:widget.paginate objects="{products}" as="paginatedProducts" 
+          configuration="{itemsPerPage: settings.pagination.itemsPerPage, insertAbove: settings.pagination.insertAbove, insertBelow: settings.pagination.insertBelow, maximumNumberOfLinks: settings.pagination.pageLinks}"
+        >
+          <f:render section="advertise" arguments="{page: bar}" />
+
+          <f:for each="{paginatedProducts}" as="product" iteration="i">
+              <f:render partial="Product/RatinglistItem" arguments="{product: product}"></f:render>
+          </f:for>
+        </f:widget.paginate>
+      </f:then>
+      <f:else>
+        <p>
+          <b>{f:translate(key: 'productList.noProducts')}</b>
+        </p>
+        <h3>
+          {f:translate(key: 'productList.filterCriteria')}
+        </h3>
+        <p>
+          <f:if condition="{filter.searchphrase}">
+          {f:translate(key: 'tx_marketplace_domain_model_filter.searchphrase')}: <b>{filter.searchphrase}</b><br>
+          </f:if>
+          <f:if condition="{filter.productgroup}">
+          {f:translate(key: 'tx_marketplace_domain_model_filter.productgroup')}: <b>{filter.productgroup.name}</b><br>
+          </f:if>
+          <f:if condition="{filter.productsubgroup}">
+            {f:translate(key: 'tx_marketplace_domain_model_filter.productsubgroup')}: 
+            <f:for each="{filter.productsubgroup}" as="group" iteration="i">
+              <b>{group.name}</b>{f:if( condition: '{i.isLast}', then: '', else: ', ')}
+            </f:for>
+            <br>
+          </f:if>
+          <f:if condition="{filter.country}">
+            {f:translate(key: 'tx_marketplace_domain_model_filter.country')}: <b>{filter.country}</b><br>
+          </f:if>
+          <f:if condition="{filter.producer}">
+            {f:translate(key: 'tx_marketplace_domain_model_filter.producer')}:
+            <f:for each="{filter.producer}" as="producer" iteration="i">
+            <b>{producer.name}</b>{f:if( condition: '{i.isLast}', then: '', else: ', ')}
+            </f:for>
+            <br>
+          </f:if>
+        </p>
+        <p>
+          <f:render partial="Product/Buttons/ProposeProduct" arguments="{_all}"></f:render>
+        </p>
+      </f:else>
+  </f:if>
+
+</f:section>
+
+
+<f:section name="aside">
+    
+    <f:render partial="Product/RatingFilter" arguments="{_all}"></f:render>
+
+</f:section>
+
+<f:section name="advertise">
+  <div class="advertise">
+    <f:cObject typoscriptObjectPath="lib.advertisement" />
+  </div>
+</f:section>

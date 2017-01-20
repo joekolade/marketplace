@@ -1,0 +1,9 @@
+There is a new lead on {settings.sitename}!
+
+<div>Dealer: {lead.article.dealer.name}, {lead.article.dealer.country.name}</div>
+<div>Article: {lead.article.product.title}</div>
+<div>Lead: {lead.name} <{lead.email}></div>
+
+<f:format.stripTags>
+<f:cObject typoscriptObjectPath="lib.emailCloser" />
+</f:format.stripTags>

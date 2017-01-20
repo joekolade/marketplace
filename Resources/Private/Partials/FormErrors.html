@@ -1,0 +1,23 @@
+<f:form.validationResults for="{for}">
+  <f:if condition="{validationResults.flattenedErrors}">
+    <div class="error">
+      <ul class="list-group">
+        <f:for each="{validationResults.flattenedErrors}" key="propertyName" as="errors">
+          <li class="list-group-item list-group-item-danger">
+            <f:translate key="tx_marketplace_domain_model_{for}.{propertyName}">{propertyName}</f:translate>
+            <ul>
+              <f:for each="{errors}" as="propertyError">
+                <li>
+                  <f:translate
+                      key="error.{propertyError.code}"
+                      arguments="{propertyError.arguments}">{propertyError.message} (error.{propertyError.code})
+                  </f:translate>
+                </li>
+              </f:for>
+            </ul>
+          </li>
+        </f:for>
+      </ul>
+    </div>
+  </f:if>
+</f:form.validationResults>

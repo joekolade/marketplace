@@ -1,0 +1,65 @@
+{namespace js=JS\Marketplace\ViewHelpers}
+<f:layout name="FilterLayout" />
+
+
+<f:section name="header">
+  <f:flashMessages renderMode="div" />
+</f:section>
+
+
+<f:section name="main">
+  <f:if condition="{rating}">
+    <f:then>
+      <p>
+        Your new rating for {rating.product.title}
+      </p>
+      <f:render partial="Rating/RatingMini" arguments="{rating: rating, showLabels: 'true'}"></f:render>
+      
+      <f:if condition="{rating.country}">
+        <div class="form-group">
+          <label for="country"><f:translate key="tx_marketplace_domain_model_rating.country">country</f:translate></label>
+          <f:form.textfield disabled="disabled" class="form-control" property="country" placeholder="" value="{rating.country}" />
+        </div>
+      </f:if>
+      <f:if condition="{rating.position}">
+        <div class="form-group">
+          <label for="position"><f:translate key="tx_marketplace_domain_model_rating.position">position</f:translate></label>
+          <f:form.textfield disabled="disabled" class="form-control" property="position" value="{rating.position}" />
+        </div>
+      </f:if>
+      <f:if condition="{rating.ratingtext}">
+        <div class="form-group">
+          <label for="ratingtext"><f:translate key="tx_marketplace_domain_model_rating.ratingtext">ratingtext</f:translate></label>
+          <f:form.textarea disabled="disabled" class="form-control" cols="20" rows="5" property="ratingtext" value="{rating.ratingtext -> f:format.raw()}">
+            {rating.ratingtext -> f:format.raw()}
+          </f:form.textarea>
+        </div>
+      </f:if>
+    </f:then>
+    <f:else>
+      <p>
+        Your rating could not be saved!
+      </p>
+      <div class="row">
+        <div class="col-xs-12">
+          <f:render partial="Product/Buttons/BackToRatingList"></f:render>
+        </div>
+      </div>
+
+    </f:else>
+  </f:if>
+</f:section>
+
+
+<f:section name="aside">
+  
+  <f:render partial="Product/ProductMini" arguments="{product: product}"></f:render>
+  <legend class=""><f:translate key="txt_overall">Overall rating</f:translate></legend>
+  <div class="ratingContainer overAllRating pull-right">
+    <f:render partial="Product/OverallRating" arguments="{product: product}"></f:render>
+  </div>
+  <p>
+    <f:link.action pageUid="{settings.ratingList.singlePid}" class="btn btn-default" action="showProductRatings" arguments="{product: product}" pluginName="ratingsearch"><i class="fa fa-chevron-left"></i> Show product ratings</f:link.action>
+  </p>
+</f:section>
+

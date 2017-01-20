@@ -1,0 +1,27 @@
+<T3DataStructure>
+    <meta type="array">
+    <langChildren>0</langChildren>
+    <langDisable>1</langDisable>
+    </meta>
+    <ROOT>
+        <type>array</type>
+        <el>
+            <settings.title>
+                <TCEforms>
+                  <label>Title of Plugin</label>
+                    <config>
+                       <type>input</type>
+                    </config>
+                </TCEforms>
+            </settings.title>
+            <settings.filtertitle>
+                <TCEforms>
+                  <label>Header of Filterrow</label>
+                    <config>
+                       <type>input</type>
+                    </config>
+                </TCEforms>
+            </settings.filtertitle>
+        </el>
+    </ROOT>
+</T3DataStructure>

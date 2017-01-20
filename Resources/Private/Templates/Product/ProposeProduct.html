@@ -1,0 +1,30 @@
+{namespace js=JS\Marketplace\ViewHelpers}
+<f:layout name="FilterLayout" />
+
+
+<f:section name="header">
+  <f:flashMessages renderMode="div" />
+</f:section>
+
+
+<f:section name="main">
+  <p>
+    You succesfully proposed a new product: <strong>{product.title}</strong>.
+  </p>
+  <p>
+    After the product has been reviewed by the admin team it will be published or declined.
+  </p>
+  <p>
+    You will be informed about further action via email.
+  </p>
+  
+</f:section>
+
+
+<f:section name="aside">
+  
+  <f:render partial="Product/ProductMini" arguments="{product: product}"></f:render>
+
+  <f:render partial="Product/Buttons/BackToRatingList"></f:render>
+</f:section>
+

@@ -1,0 +1,44 @@
+{namespace js=JS\Marketplace\ViewHelpers}
+
+<div class="row list-item">
+    <div class="col-xs-3">
+        <f:link.action action="showProductRatings" pageUid="{settings.ratingList.singlePid}" class="" arguments="{product : product}">
+            <f:image src="{product.images.originalResource.originalFile.uid}" width="{settings.productList.image.width}" maxHeight="{settings.productList.image.height}" class="img-responsive"></f:image>
+        </f:link.action>
+    </div>
+    <div class="col-xs-6">
+        <f:if condition="{product.producer.logo}">
+            <div class="producerLogo" title="{product.producer.name}">
+                <f:image src="{product.producer.logo.uid}" alt="{product.producer.logo.originalResource.originalFile.alternative}" title="{product.producer.logo.originalResource.originalFile.title}" treatIdAsReference="TRUE" maxWidth="{settings.productList.producerLogoMaxWidth}" maxHeight="{settings.productList.producerLogoMaxHeight}" />
+            </div>
+        </f:if>
+        <h2>
+            <f:link.action action="showProductRatings" class="" pageUid="{settings.ratingList.singlePid}" arguments="{product : product}">
+            {product.title}
+            </f:link.action>
+        </h2>
+        <f:if condition="{product.teaser}">
+            <f:then>
+                <f:format.html>{product.teaser}</f:format.html>
+            </f:then>
+            <f:else>
+                <f:format.crop maxCharacters="{settings.list.cropDescLimit}">
+                    <f:format.html>{product.description}</f:format.html>
+                </f:format.crop>
+            </f:else>
+        </f:if>
+    </div>
+    <div class="col-xs-3 ratingBlock">
+        <div class="btn-group-vertical" role="group" aria-label="...">
+            <div class="btn ratingContainer">
+                <f:render partial="Product/OverallRating" arguments="{product: product}"></f:render>
+            </div>
+            <f:link.action action="showProductRatings" class="btn btn-default" pageUid="{settings.ratingList.singlePid}" arguments="{product : product}">
+                <f:translate key="0">Show all ratings</f:translate>
+                <i class="fa fa-chevron-right"></i>
+            </f:link.action>
+        
+            <f:render partial="Product/Buttons/RateButton" arguments="{product: product}"></f:render>
+        </div>
+    </div>
+</div>

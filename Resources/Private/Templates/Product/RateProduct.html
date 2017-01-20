@@ -1,0 +1,123 @@
+{namespace js=JS\Marketplace\ViewHelpers}
+<f:layout name="FilterLayout" />
+
+<f:section name="header">
+  <!-- Header? -->
+</f:section>
+
+<f:section name="main">
+  <f:flashMessages renderMode="div" />
+  <f:render partial="FormErrors" arguments="{for: 'rating'}"></f:render>
+
+  <!-- Product -->
+  <!-- Productlistitem -->
+  <div class="row">
+    <div class="col-xs-12">
+      <f:if condition="{product.producer.logo}">
+        <div class="producerLogo">
+          <f:image src="{product.producer.logo.uid}"
+            alt="{product.producer.logo.originalResource.originalFile.alternative}"
+            title="{product.producer.logo.originalResource.originalFile.title}"
+            treatIdAsReference="TRUE" width="{settings.productDetail.producerLogoWidth}" maxHeight="" />
+        </div>
+      </f:if>
+      <h1>{product.title}</h1>
+      <div class="row">
+        <div class="col-xs-8">
+          <f:render partial="Product/Data" arguments="{product: product}"></f:render>
+        </div>
+      </div>
+
+      <!-- Rating Form -->
+      <f:form object="{rating}" objectName="rating" action="sendRating" arguments="{product: product}">
+
+        <div class="form-group row ratingForm">
+          <div class="ratingContainer overAllRating">
+            <div class="col-xs-12">
+              <label class="text-left" for="rating_{product.uid}_1">{f:translate(key:'rating.criteriaText.1')}</label>
+            </div>
+            <br>
+            <div class="col-xs-12">
+                <f:form.textfield
+                  property="criteria1" id="rating_{product.uid}_1" class="ratingStars"
+                ></f:form.textfield>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="form-group row ratingForm">
+          <div class="ratingContainer overAllRating">
+
+            <div class="col-xs-12">
+              <label class="text-left" for="rating_{product.uid}_2">{f:translate(key:'rating.criteriaText.2')}</label>
+            </div>
+            <br>
+            <div class="col-xs-12">
+              <f:form.textfield
+                property="criteria2" id="rating_{product.uid}_2" class="ratingStars"
+              ></f:form.textfield>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="form-group row ratingForm">
+          <div class="ratingContainer overAllRating">
+            <div class="col-xs-12">
+              <label class="text-left" for="rating_{product.uid}_3">{f:translate(key:'rating.criteriaText.3')}</label>
+            </div>
+            <br>
+            <div class="col-xs-12">
+              <f:form.textfield
+                property="criteria3" id="rating_{product.uid}_3" class="ratingStars"
+              ></f:form.textfield>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="form-group">
+          <label for="country"><f:translate key="rate.countryInfoText">country</f:translate></label>
+          <f:form.textfield class="form-control" property="country" placeholder="" />
+        </div>
+        <div class="form-group">
+          <label for="position"><f:translate key="rate.positionInfoText">position</f:translate></label>
+          <f:form.textfield class="form-control" property="position" />
+        </div>
+        <div class="form-group">
+          <label for="ratingtext"><f:translate key="rate.commentInfoText">ratingtext</f:translate></label>
+          <f:form.textarea class="form-control" cols="20" rows="5" property="ratingtext" />
+        </div>
+
+        <div class="checkbox">
+          <f:form.checkbox property="legals" value="accepted" />
+          <label for="legals">
+            <f:translate key="tx_marketplace_domain_model_rating.legalsText" arguments="{
+              0: '{f:uri.page(pageUid: settings.pageIds.policy)}',
+              1: '{f:uri.page(pageUid: settings.pageIds.guidelines)}'
+            }">I accept the legals</f:translate>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-success btn-sendRating">
+          <f:translate key="btn-sendRating">Submit</f:translate>
+          <i class="fa fa-chevron-right"></i>
+        </button>
+      </f:form>
+
+    </div>
+
+
+  </div>
+
+
+</f:section>
+
+<f:section name="aside">
+    <f:render partial="Product/Buttons/BackToRatingList" arguments="{product: product}"></f:render>
+
+    <legend class=""><f:translate key="txt_overall">Overall rating</f:translate></legend>
+    <div class="ratingContainer overAllRating pull-right">
+      <f:render partial="Product/OverallRating" arguments="{product: product}"></f:render>
+    </div>
+
+</f:section>

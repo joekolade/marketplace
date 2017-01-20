@@ -1,0 +1,25 @@
+config.tx_extbase.persistence.classes {
+    JS\Marketplace\Domain\Model\Rating {
+        mapping {
+            columns.crdate.mapOnProperty = crdate
+            columns.cruser.mapOnProperty = cruser    
+        }
+    }
+    JS\Marketplace\Domain\Model\User {
+        mapping {
+            tableName = fe_users
+        }
+    }
+    
+    TYPO3\CMS\Extbase\Domain\Model\FrontendUser {
+        mapping {
+            tableName = fe_users
+        }
+    }
+    
+    TYPO3\CMS\Extbase\Domain\Model\UserGroup {
+        mapping {
+            tableName = fe_groups
+        }
+    }
+}

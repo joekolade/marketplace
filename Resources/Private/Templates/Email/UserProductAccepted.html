@@ -1,0 +1,14 @@
+Hello {user.name},
+
+The product you proposed at {settings.sitename} was accepted!
+
+You can find details to your product here:
+<f:uri.action pageUid="{settings.ratingList.pid}"
+  action="showProductRatings" controller="Product" extensionName="marketplace" pluginName="ratingsearch"
+  absolute="1"
+  arguments="{product: product}"
+></f:uri.action>
+
+<f:format.stripTags>
+<f:cObject typoscriptObjectPath="lib.emailCloser" />
+</f:format.stripTags>

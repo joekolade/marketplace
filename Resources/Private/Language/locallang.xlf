@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-04-26T22:01:51Z" product-name="marketplace">
+		<header/>
+		<body>
+			<trans-unit id="tx_marketplace_domain_model_product">
+				<source>Product</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.teaser">
+				<source>Teaser</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.contentright">
+				<source>Content right</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.contentleft">
+				<source>Content left</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.images">
+				<source>Images</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.productgroup">
+				<source>Product group</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.productsubgroup">
+				<source>Product subgroup</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.articles">
+				<source>Articles</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.producer">
+				<source>Producer</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.ratings">
+				<source>Ratings</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.proposinguser">
+				<source>Proposing user</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.averagerating">
+				<source>Average rating</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_productgroup">
+				<source>Product group</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_productgroup.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_productgroup.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_productgroup.products">
+				<source>Products</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_productgroup.productsubgroups">
+				<source>Product subgroups</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_productsubgroup">
+				<source>Product subgroup</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_productsubgroup.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_productsubgroup.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_productsubgroup.products">
+				<source>Products</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_dealer">
+				<source>Dealer</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_dealer.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_dealer.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_dealer.address">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_dealer.country">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_dealer.fob">
+				<source>FOB</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_country">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_country.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_country.dealers">
+				<source>Dealers</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_country.continent">
+				<source>Continent</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_article">
+				<source>Article</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_article.price">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_article.currency">
+				<source>Currency</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_article.dealer">
+				<source>Dealer</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_article.product">
+				<source>Product</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_producer">
+				<source>Producer</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_producer.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_producer.logo">
+				<source>Logo</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_producer.products">
+				<source>Products</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_continent">
+				<source>Continent</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_continent.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_continent.countries">
+				<source>Countries</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_filter">
+				<source>Filter</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_filter.country">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_filter.productgroup">
+				<source>Product group</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_filter.productsubgroup">
+				<source>Product subgroup</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_filter.producer">
+				<source>Producer</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_filter.searchphrase">
+				<source>Searchphrase</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_filter.sortby">
+				<source>Sortby</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_lead">
+				<source>Lead</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_lead.gender">
+				<source>Gender</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_lead.gender.male">
+				<source>Mr.</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_lead.gender.female">
+				<source>Mrs.</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_lead.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_lead.firstname">
+				<source>Firstname</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_lead.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_lead.message">
+				<source>Message</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_lead.article">
+				<source>Article</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_currency">
+				<source>Currency</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_currency.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_currency.short">
+				<source>Short</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_currency.exchangerate">
+				<source>Exchangerate</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_currency.articles">
+				<source>Articles</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating">
+				<source>Rating</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.criteria1">
+				<source>Quality</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.criteria2">
+				<source>Durability</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.criteria3">
+				<source>Ease of use</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.ratinguser">
+				<source>Ratinguser</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.product">
+				<source>Product</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.country">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.position">
+				<source>Your position</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.ratingtext">
+				<source>Comment</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_rating.legals">
+				<source>Terms and conditions</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_user.firstName">
+				<source>Firstname</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_user.lastName">
+				<source>Lastname</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_user.username">
+				<source>Username</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_user.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_user.legals">
+				<source>Terms and conditions</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_user.hash">
+				<source>Hash</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_user.password">
+				<source>Password</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_user.confirmpassword">
+				<source>Confirm password</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_user.country">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_user.gender">
+				<source>gender</source>
+			</trans-unit>
+
+			<!-- Strings and Textblocks -->
+			<trans-unit id="productList.filterHeader">
+				<source>Refine selection</source>
+			</trans-unit>
+			<trans-unit id="productList.noProducts">
+				<source>There are no Articles matching your criteria!</source>
+			</trans-unit>
+			<trans-unit id="productList.filterCriteria">
+				<source>You searched for the following criteria</source>
+			</trans-unit>
+			<trans-unit id="productList.filterButton">
+				<source>search</source>
+			</trans-unit>
+			<trans-unit id="productList.resetButton">
+				<source>reset</source>
+			</trans-unit>
+			<trans-unit id="productList.filterResetButton">
+				<source>Reset selection</source>
+			</trans-unit>
+			<trans-unit id="productShow.backToList">
+				<source>Go back to list</source>
+			</trans-unit>
+			<trans-unit id="productList.filter.sortbyLabel">
+				<source>Sort by</source>
+			</trans-unit>
+			<trans-unit id="productList.filter.sortby.0">
+				<source>Title (A-Z)</source>
+			</trans-unit>
+			<trans-unit id="productList.filter.sortby.1">
+				<source>Title (Z-A)</source>
+			</trans-unit>
+			<trans-unit id="productList.filter.sortby.2">
+				<source>Overall Rating</source>
+			</trans-unit>
+			<trans-unit id="productList.filter.sortby.3">
+				<source>Most rated</source>
+			</trans-unit>
+			<trans-unit id="productList.filter.sortby.4">
+				<source>Producer (A-Z)</source>
+			</trans-unit>
+			<trans-unit id="productList.filter.sortby.5">
+				<source>Producer (Z-A)</source>
+			</trans-unit>
+
+			<trans-unit id="articleContact.leadHeader">
+				<source>Contact dealer</source>
+			</trans-unit>
+			<trans-unit id="articleContact.leadSend">
+				<source>Contact dealer</source>
+			</trans-unit>
+			<trans-unit id="articleContact.backToProduct">
+				<source><![CDATA[Go back to product <em>%s</em>]]></source>
+			</trans-unit>
+			<trans-unit id="loginFirstTitle">
+				<source>Login required!</source>
+			</trans-unit>
+			<trans-unit id="loginToRateText">
+				<source>You need an account to continue! Please register or log in with your credentials.</source>
+			</trans-unit>
+			<trans-unit id="loginErrorTitle">
+				<source>Login error!</source>
+			</trans-unit>
+			<trans-unit id="loginErrorText">
+				<source>Please retry to login.</source>
+			</trans-unit>
+
+			<trans-unit id="rateButtonText">
+				<source>Rate product</source>
+			</trans-unit>
+			<trans-unit id="button.showProposeProductForm">
+				<source>Propose a new product</source>
+			</trans-unit>
+			<trans-unit id="noRatings">
+				<source>There are no ratings for this product so far.</source>
+			</trans-unit>
+			<trans-unit id="product.showDescription">
+				<source>See full description</source>
+			</trans-unit>
+			<trans-unit id="product.unshowDescription">
+				<source>Hide full description</source>
+			</trans-unit>
+
+			<trans-unit id="propose.choseProducer">
+				<source>Please chose</source>
+			</trans-unit>
+
+			<trans-unit id="rate.countryInfoText">
+				<source>In which country did you had the experience with the product?</source>
+			</trans-unit>
+			<trans-unit id="rate.positionInfoText">
+				<source>Type of experience (e.g. user, technician, plumber, project organisation, MFI, NGO)</source>
+			</trans-unit>
+			<trans-unit id="rate.commentInfoText">
+				<source>Comment your rating</source>
+			</trans-unit>
+
+			<trans-unit id="tx_marketplace_domain_model_rating.legalsText">
+				<source><![CDATA[
+					I certify that this review is based on my own experience and is my genuine opinion of this product, and that I'm not working as employee for the manufacturer of this product, and have not been offered any incentive or payment originating from the manufacturer to write this review. I understand that Sendea has a zero-tolerance policy on fake reviews.<br>For more information read our <a href="%1$s" target="_blank">Content Integrity Policy</a> and our <a href="%2$s" target="_blank">Guidelines for Product Reviews</a>.
+				]]></source>
+			</trans-unit>
+
+
+			<trans-unit id="registerHeader">
+				<source>Create an account</source>
+			</trans-unit>
+			<trans-unit id="register.legalsText">
+				<source><![CDATA[
+					By creating an account, you agree that you've read and accepted our Content Integrity Policy and Guidelines for Product Reviews, and you consent to receiving marketing communications from us.
+				]]></source>
+			</trans-unit>
+
+			<!-- Fehlermeldung -->
+			<trans-unit id="error.1221560718">
+				<!-- Empty field -->
+				<source>You must fill out this field!</source>
+			</trans-unit>
+			<trans-unit id="error.1221561046">
+				<!-- Not in span (1,5) -->
+				<source>Please rate between 1 and 5 suns!</source>
+			</trans-unit>
+			<trans-unit id="error.1361959228">
+				<!-- Checkbox empty -->
+				<source>This field must be filled!</source>
+			</trans-unit>
+			<trans-unit id="error.1221560910">
+				<!-- Checkbox empty -->
+				<source>This field must be filled!</source>
+			</trans-unit>
+			<trans-unit id="error.1238108068">
+				<!-- To short (8) -->
+				<source>The password must be at least 8 long.</source>
+			</trans-unit>
+			<trans-unit id="error.1221559976">
+				<!-- No valid email -->
+				<source>Your email is not valid!</source>
+			</trans-unit>
+			<trans-unit id="error.1473714027">
+				<!-- No valid email -->
+				<source>This email has already been registered - try reseting your password!</source>
+			</trans-unit>
+			<trans-unit id="error.1473712185">
+				<!-- No password confirmation -->
+				<source>Password and confirmation do not match!</source>
+			</trans-unit>
+			<trans-unit id="error.1221565130">
+				<!-- No digits in password -->
+				<source>Your password is to weak! Please use at least 8 letters, upper and lowercase and at least one digit!</source>
+			</trans-unit>
+
+			<trans-unit id="rating.criteriaText.1">
+			    <source>Quality: Did you get what you expected?</source>
+			</trans-unit>
+			<trans-unit id="rating.criteriaText.2">
+			    <source>Durability and maintainability</source>
+			</trans-unit>
+			<trans-unit id="rating.criteriaText.3">
+			    <source>Ease of installation and use</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

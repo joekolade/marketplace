@@ -1,0 +1,51 @@
+{namespace js=JS\Marketplace\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="header">
+  <!-- Header? -->
+  <h1>Login form</h1>
+</f:section>
+
+
+<f:section name="main">
+  <f:flashMessages renderMode="div" />
+
+  <div class="row">
+    <div class="col-sm-5">
+      <f:form action="login">
+        <h2>
+          <f:translate key="loginHeader">Log In</f:translate>
+        </h2>
+        <f:form.hidden name="rating" value="{rating}"></f:form.hidden>
+        <f:form.hidden name="product" value="{product}"></f:form.hidden>
+        <div class="form-group">
+          <label for="uname"><f:translate key="loginUname">Username</f:translate></label>
+          <f:form.textfield class="form-control" name="uname" id="uname" />
+        </div>
+        <div class="form-group">
+          <label for="password"><f:translate key="loginPassword">Password</f:translate></label>
+          <f:form.textfield type="password" class="form-control" name="password" id="password" />
+        </div>
+        <button type="submit" class="btn btn-default"><f:translate key="loginSubmit">Login</f:translate></button>
+      </f:form>
+    </div>
+    <div class="col-sm-6 col-sm-offset-1">
+      <h2>Register new user</h2>
+      
+      <f:link.action pageUid="{settings.register.formPid}" action="showRegisterForm" controller="Register" class="btn btn-default" arguments="{rating: rating, product: product}">
+        <f:translate key="registerButtonText">Register new account</f:translate>
+      </f:link.action>
+
+    </div>
+  </div>
+
+  
+</f:section>
+
+<f:section name="aside">
+
+</f:section>
+
+<f:section name="bottom">
+
+</f:section>

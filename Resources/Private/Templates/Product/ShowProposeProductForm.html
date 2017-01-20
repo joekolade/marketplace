@@ -1,0 +1,67 @@
+{namespace js=JS\Marketplace\ViewHelpers}
+<f:layout name="FilterLayout" />
+
+<f:section name="header">
+  <h2>Propose new Product</h2>
+</f:section>
+
+<f:section name="main">
+  <f:flashMessages renderMode="div" />
+  <f:render partial="FormErrors" arguments="{for: 'product'}"></f:render>
+    
+  <!-- Proposing Form -->
+  <f:form object="{product}" objectName="product" action="proposeProduct">
+    
+    <div class="form-group">
+      <label for="title"><f:translate key="tx_marketplace_domain_model_product.title">title</f:translate></label>
+      <f:form.textfield class="form-control" property="title" placeholder="" />
+    </div>
+    <div class="form-group">
+      <label for="description"><f:translate key="tx_marketplace_domain_model_product.description">description</f:translate></label>
+      <f:form.textarea class="form-control" 
+        property="description" placeholder=""
+        rows="10"
+      />
+    </div>
+    <div class="form-group">
+      <label for="productgroup"><f:translate key="tx_marketplace_domain_model_product.productgroup">productgroup</f:translate></label>
+      <br>
+      <f:form.select class="selectpicker" property="productgroup"
+        options="{productgroups}" optionValueField="uid" optionLabelField="name"
+        prependOptionLabel="{f:translate(key: 'propose.choseProducer')}" prependOptionValue=""
+      />
+    </div>
+    <div class="form-group">
+      <label for="producer"><f:translate key="tx_marketplace_domain_model_product.producer">producer</f:translate></label>
+      <br>
+      <f:form.select class="selectpicker" property="producer" 
+        options="{producers}" optionValueField="uid" optionLabelField="name"
+        prependOptionLabel="{f:translate(key: 'propose.choseProducer')}" prependOptionValue=""
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-proposeProduct">
+      <f:translate key="btn-proposeProduct">Propose this product</f:translate>
+      <i class="fa fa-chevron-right"></i>
+    </button>
+
+    <bute
+  </f:form>
+  
+</f:section>
+
+<f:section name="aside">
+  <f:comment>
+    TODO: preview of the product?
+  </f:comment>
+
+  <f:if condition="{settings.productDetail.showBacklink}">
+    <div class="row">
+      <div class="col-xs-12">
+
+        <f:render partial="Product/Buttons/BackToRatingList"></f:render>
+        
+      </div>
+    </div>
+  </f:if>
+</f:section>

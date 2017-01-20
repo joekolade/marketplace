@@ -1,0 +1,40 @@
+<f:layout name="TwoCols"></f:layout>
+
+<f:section name="header">
+  <h2>
+    Finally, you made it!
+  </h2>
+</f:section>
+
+<f:section name="main">
+  
+  <f:flashMessages renderMode="div" />
+  
+  <f:if condition="{error}">
+    <f:then>
+      An error occured – did you use the link before?
+    </f:then>
+    <f:else>
+      Congratulations<f:if condition="{user.name}"> {user.name}</f:if>, you are now registered.
+    </f:else>
+  </f:if>
+
+</f:section>
+
+<f:section name="aside">
+  <f:if condition="{error}">
+    <f:then>
+    </f:then>
+    <f:else>
+      <f:if condition="{product}">
+      <legend class=""><f:translate key="txt_overall">Overall rating</f:translate></legend>
+      <div class="ratingContainer overAllRating pull-right">
+        <f:render partial="Product/OverallRating" arguments="{product: product}"></f:render>
+      </div>
+      <p>
+        <f:link.action pageUid="{settings.ratingList.singlePid}" class="btn btn-default" action="showProductRatings" arguments="{product: product}" pluginName="ratingsearch"><i class="fa fa-chevron-left"></i> Show product ratings</f:link.action>
+      </p>
+      </f:if>
+    </f:else>
+  </f:if>
+</f:section>

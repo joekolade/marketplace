@@ -1,0 +1,15 @@
+Please answer to this email to inform the customer about the following product:
+
+<div>Article: {lead.article.product.title}</div>
+
+<div>Lead: {lead.name} <{lead.email}></div>
+
+<div>Message:
+  <f:format.raw>
+  {lead.message}
+  </f:format.raw>
+</div>
+
+<f:format.stripTags>
+<f:cObject typoscriptObjectPath="lib.emailCloser" />
+</f:format.stripTags>

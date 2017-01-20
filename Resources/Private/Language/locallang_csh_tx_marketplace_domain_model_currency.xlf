@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-04-19T22:12:25Z" product-name="marketplace">
+		<header/>
+		<body>
+			<trans-unit id="name.description">
+				<source>name</source>
+			</trans-unit>
+			<trans-unit id="short.description">
+				<source>short</source>
+			</trans-unit>
+			<trans-unit id="exchangerate.description">
+				<source>exchangerate (currency to USD)</source>
+			</trans-unit>
+			<trans-unit id="articles.description">
+				<source>articles</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

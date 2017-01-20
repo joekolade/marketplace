@@ -1,0 +1,67 @@
+<div class="ratingMini">
+  <div class="form-group row">
+    <f:if condition="{showLabels}">
+      <f:then>
+        <div class="col-xs-12 col-sm-4">
+          <label
+          for="rating_{product.uid}_1"
+          title="{f:translate(key:'rating.criteriaText.1')}"
+          data-toggle="tooltip" data-placement="top"
+          ><f:translate key="tx_marketplace_domain_model_rating.criteria1">Criteria 1</f:translate></label>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+      </f:then>
+      <f:else>
+        <div class="col-xs-12">
+      </f:else>
+    </f:if>
+      <f:form.textfield
+        property="criteria1" id="rating_{product.uid}_1" class="ratingStars ratingRead"
+        value="{rating.criteria1}"
+      ></f:form.textfield>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="form-group row">
+    <f:if condition="{showLabels}">
+      <f:then>
+        <div class="col-xs-12 col-sm-4">
+          <label for="rating_{product.uid}_2"
+          title="{f:translate(key:'rating.criteriaText.2')}"
+          data-toggle="tooltip" data-placement="top"><f:translate key="tx_marketplace_domain_model_rating.criteria2">Criteria2</f:translate></label>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+      </f:then>
+      <f:else>
+        <div class="col-xs-12">
+      </f:else>
+    </f:if>
+      <f:form.textfield
+        property="criteria2" id="rating_{product.uid}_2" class="ratingStars ratingRead"
+        value="{rating.criteria2}"
+      ></f:form.textfield>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="form-group row">
+    <f:if condition="{showLabels}">
+      <f:then>
+        <div class="col-xs-12 col-sm-4">
+          <label for="rating_{product.uid}_3"
+          title="{f:translate(key:'rating.criteriaText.3')}"
+          data-toggle="tooltip" data-placement="top"><f:translate key="tx_marketplace_domain_model_rating.criteria3">Criteria3</f:translate></label>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+      </f:then>
+      <f:else>
+        <div class="col-xs-12">
+      </f:else>
+    </f:if>
+    <f:form.textfield
+      property="criteria3" id="rating_{product.uid}_3" class="ratingStars ratingRead"
+      value="{rating.criteria3}"
+    ></f:form.textfield>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>
