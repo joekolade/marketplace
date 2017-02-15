@@ -25,8 +25,21 @@ plugin.tx_marketplace_articlesearch {
 
 		requiredSign = <small>*</small>
 
-		proposeProductUid = 156
+		productDetail.pid = 152
+		productDetail{
+			# cat=market/detail/b; type=boolean; label=Show header above article listing:Article listing not necessaryly needs a header
+			showHeader = false
+
+			# cat=market/detail/b; type=boolean; label=Show back link:the back link repeats the browser own back function
+			showBacklink = true
+
+			# cat=market/detail/b; type=boolean; label=Width (px) of producer logo in detail view if set
+			producerLogoWidth = 80
+
+			imageWidth = 225
+		}
 		productRatingUid = 157
+		proposeProductUid = 156
 		productRatingDetailUid = 158
 
 		otherProducerUid = 0
@@ -68,19 +81,7 @@ plugin.tx_marketplace_articlesearch {
 
 		productList.pid = 139
 
-		productDetail.pid = 152
-		productDetail{
-			# cat=market/detail/b; type=boolean; label=Show header above article listing:Article listing not necessaryly needs a header
-			showHeader = false
 
-			# cat=market/detail/b; type=boolean; label=Show back link:the back link repeats the browser own back function
-			showBacklink = true
-
-			# cat=market/detail/b; type=boolean; label=Width (px) of producer logo in detail view if set
-			producerLogoWidth = 80
-
-			imageWidth = 225
-		}
 
 		ratingList {
 			#pid = 155

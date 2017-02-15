@@ -33,9 +33,9 @@ use JS\Marketplace\Domain\Model\Filter;
  */
 class ProductController extends \JS\Marketplace\Controller\AbstractController
 {
-    
+
     public function initializeAction(){
-        
+
     }
 
 
@@ -48,50 +48,67 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      */
     public function listAction(\JS\Marketplace\Domain\Model\Filter $filter = NULL)
     {
-      // Paging
-      $page = 1;
-      $itemsPerPage = $this->settings['itemsPerPage'] ? $this->settings['itemsPerPage'] : 10;
+        $filterActive = true;
 
-      //Parameter abfragen
-      if($this->request->hasArgument('page')){
-          $page = intval($this->request->getArgument('page'));
-      }
-
-      if(!$filter) {
+        if(!$filter) {
           $filter = new \JS\Marketplace\Domain\Model\Filter();
-      }
+          $filterActive = false;
+        }
 
-      // Count all possible results
-      $countResults = $this->productRepository->countByFilter($filter);
-      return;
-      //fetch Data
-      $offset = ($page -1) * $itemsPerPage;
-      $results = $this->productRepository->findByFilter($filter, $offset, $itemsPerPage);
+        $cookie_name = 'sendea_marketplace_listSortby';
 
-      if ($countResults > $itemsPerPage) {
-          $toatalPages = ceil($countResults / $itemsPerPage);
-          $paginator = $this->buildPagination($page, $totalPages);
-      }
-      else {
-          // $products = $this->productRepository->findAll();
-          $products = $this->productRepository->findByFilter($filter, TRUE);
-      }        
+        if($filter->getSortby()){
+          setcookie($cookie_name, $filter->getSortby(),NULL ,'/');
+        }
+        else if($filter->getSortby() == 0){
+          setcookie($cookie_name, 0,NULL ,'/');
+        }
+        else if($_COOKIE[$cookie_name]){
+          $filter->setSortby($_COOKIE[$cookie_name]);
+        }
 
-      $this->view->assignMultiple([
-          // The filtered articles
-          'products' => $products,
-          // all Productgroups & Productsubgroups
-          'productgroups' => $this->productgroupRepository->findAll(),
-          'productsubgroups' => $this->productsubgroupRepository->findAll(),
-          'countries' => $this->countryRepository->findAll(),
-          // Filter
-          'filter' => $filter,
-          // View
-          'view' => 'list',
-          // Paginator
-          'paginator' => $paginator,
-          'action' => 'list',
-      ]);
+        // Get the products
+        $products = $this->productRepository->findByFilter($filter, FALSE);
+
+        // if filtered by productgroup
+        if( count($filter->getProductgroup()) ) {
+          $productgroups = array($filter->getProductgroup());
+          $productsubgroups = $this->productsubgroupRepository->findByProductgroup($filter->getProductgroup());
+        }
+        else {
+          $productsubgroups = NULL;
+          $productgroups = $this->productgroupRepository->findAll();
+        }
+
+        // Sort Products if overallrating
+        // second filtering: most rated
+        if($filter->getSortby() == 2){
+          $products = $products->toArray();
+          usort ($products, array($this, 'compareRatingsAfterOverall'));
+        }
+        // Sort Products if most rated
+        if($filter->getSortby() == 3){
+          $products = $products->toArray();
+          usort ($products, array($this, 'compareRatings'));
+        }
+
+        $this->view->assignMultiple([
+            // The filtered articles
+            'products' => $products,
+
+            // all Productgroups & Productsubgroups (for the filter)
+            'productgroups' => $productgroups,
+            'productsubgroups' => $productsubgroups,
+            'countries' => $this->countryRepository->findAll(),
+            'producers' => $this->producerRepository->findAll(),
+
+            // Filter
+            'filter' => $filter,
+            'filterActive' => $filterActive,
+
+            // View
+            'view' => 'list',
+        ]);
     }
 
 
@@ -144,9 +161,9 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
           $productsubgroups = $this->productsubgroupRepository->findByProductgroup($filter->getProductgroup());
         }
         else {
-          $productsubgroups = NULL; 
+          $productsubgroups = NULL;
           $productgroups = $this->productgroupRepository->findAll();
-        } 
+        }
 
         // Sort Products if overallrating
         // second filtering: most rated
@@ -173,7 +190,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             // Filter
             'filter' => $filter,
             'filterActive' => $filterActive,
-            
+
             // View
             'view' => 'list',
         ]);
@@ -194,7 +211,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
       }
       $this->view->assign('product', $product);
     }
-    
+
     /**
      * action show
      *
@@ -214,7 +231,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      *
      * @param \JS\Marketplace\Domain\Model\Product $product
      * @param \JS\Marketplace\Domain\Model\Rating $rating
-     * 
+     *
      * @return void
      */
     public function rateProductAction($product, $rating = NULL)
@@ -225,22 +242,22 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         }
         // Show rating form
         // no matter if logged in or not
-        
+
         $this->view->assign('rating', $rating);
         $this->view->assign('product', $product);
     }
-    
+
     // public function initializeSendRatingAction()
     // {
     //   \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->request->getArguments());
     // }
-  
+
     /**
      * Rate a product
      *
      * @param \JS\Marketplace\Domain\Model\Product $product
      * @param \JS\Marketplace\Domain\Model\Rating $rating
-     * 
+     *
      * @return void
      */
     public function sendRatingAction($product, $rating = NULL)
@@ -252,13 +269,13 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         $rating->setCountry($this->sanitize($rating->getCountry()));
         $rating->setPosition($this->sanitize($rating->getPosition()));
         $rating->setRatingtext($this->sanitize($rating->getRatingtext()));
-        
+
         $this->view->assign('product', $product);
 
-        // 
+        //
         // Logged in?
         // Persistance of rating
-        // 
+        //
         $user = $this->forwardIfNotLoggedIn($rating);
 
         if( $user ) {
@@ -267,12 +284,12 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
 
           if(
             // There is a rating other than the actual rating
-            $d && 
+            $d &&
             // And it lies not long enogh in the past
             $d <= $this->settings['daysbetweenRatings']
           ){
             // No Rating allowed!
-            
+
             $this->ratingRepository->remove($rating);
             $this->sendMessage(
               'You are not allowed to rate this product!',
@@ -281,12 +298,12 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
               'warning'
             );
 
-            // 
+            //
             // Date an User
-            // 
+            //
           }
           else {
-          
+
             $rating->setRatinguser($user);
             // Hidden is TRUE by default
             $rating->setHidden(FALSE);
@@ -295,13 +312,13 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             // Set overall/average rating
             $product->setAverageRating($product->getOverallrating());
             $this->productRepository->update($product);
-            
+
             $this->sendMessage('Thank you '.$user->getName(), 'Your rating has been saved.', 'ok');
             // Send to view
             $this->view->assign('rating', $rating);
           }
         }
-        
+
     }
 
     /**
@@ -331,12 +348,12 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      * Propose a product
      *
      * @param \JS\Marketplace\Domain\Model\Product $product
-     * 
+     *
      * @return void
      */
     public function proposeProductAction($product = NULL)
     {
-        // Handle product 
+        // Handle product
         // from registration confirmation
         if(!$product) {
           if($this->request->hasArgument('product')) {
@@ -344,9 +361,9 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
           }
         }
 
-        // 
+        //
         // Use product teaser as "hash"-field
-        // 
+        //
         $hash = sha1($product->getTitle().date('U'));
         $product->setTeaser($hash);
 
@@ -354,19 +371,19 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         // Sanitize
         $product->setTitle($this->sanitize($product->getTitle()));
         $product->setDescription($this->sanitize($product->getDescription()));
-        
+
         //
         // Login/Register user
-        // 
+        //
         $user = $this->forwardIfNotLoggedIn(NULL, $product);
         $product->setProposinguser($user);
         $this->productRepository->update($product);
-        
+
         //
         // send email to admin to approve the product
-        // 
+        //
         $emailSettings = $this->settings['adminster']['email'];
-        
+
         $recipients = array($emailSettings['receiver'] => $emailSettings['receiverName']);
         $sender = array($emailSettings['sender'] => $emailSettings['senderName']);
         $subject = $emailSettings['subjectReceiver'];
@@ -382,7 +399,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         if(!$this->sendTemplateEmail($recipients, $sender, $subject, $templateName, $arguments)){
             $error = true;
         }
-        
+
         // Feed the view
         $this->view->assign('product', $product);
     }
@@ -404,7 +421,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
 
         $hash = $this->request->getArgument('hash');
         $product = $this->productRepository->findHiddenByUid($this->request->getArgument('product'));
-        
+
         // Check if hash is ok
         if($product && $product->getTeaser() === $hash){
             // Email basics
@@ -417,19 +434,19 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
                 'hash' => $hash,
                 'product' => $product,
             );
-            
+
             // So far no errors
             $error = FALSE;
             switch($this->request->getArgument('do')){
                 case 'accept':
                     // OPTIONAL: edit product
-                    
+
                     // Product unhide
                     $product->setHidden(FALSE);
                     // Remove "hash"
                     $product->setTeaser('');
                     $this->productRepository->update($product);
-                    
+
                     // email settings
                     $templateName = 'UserProductAccepted';
                     $subject = $emailSettings['userProductAcceptedSubject'];
@@ -442,7 +459,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
                     break;
                 case 'decline':
                     // OPTIONAL: reason for decline
-                    
+
                     // Remove "hash"
                     $product->setTeaser('');
                     $this->productRepository->update($product);
@@ -464,14 +481,14 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
                     $error = TRUE;
             }
 
-            // 
+            //
             // send email to user
-            // 
+            //
             if(!$error && !$this->sendTemplateEmail($recipients, $sender, $subject, $templateName, $arguments)){
                 $error = TRUE;
             }
         }
-        
+
         $this->sendMessage($title, $body, $severity);
 
         $this->view->assignMultiple(array(
@@ -485,7 +502,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      * Sort Query result by comparable price
      *
      * @var array $query
-     * 
+     *
      * @return array
      */
     private function sortByPrice($query)
@@ -536,7 +553,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      * @return void
      */
     public function loginAction()
-    {    
+    {
         $rating = NULL;
         $product = NULL;
 
@@ -556,7 +573,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         //       array('rating' => $rating, 'product' => $product)
         //   );
         // }
-        
+
 
         if($this->loginUser($this->request->getArgument('uname'), $this->request->getArgument('password'))) {
           // login successfull
