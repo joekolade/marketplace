@@ -13,13 +13,13 @@ plugin.tx_marketplace_articlesearch {
 	persistence {
 		# cat=market//a; type=string; label=Default storage PID
 		storagePid =
-		
+
 		recursive = 3
 	}
 
 	settings {
 		sitename = Sendea.biz
-		
+
 		currencySign = USD
 		currencyDefaultUid = 1
 
@@ -28,7 +28,7 @@ plugin.tx_marketplace_articlesearch {
 		proposeProductUid = 156
 		productRatingUid = 157
 		productRatingDetailUid = 158
-		
+
 		otherProducerUid = 0
 
 		pageIds {
@@ -57,25 +57,25 @@ plugin.tx_marketplace_articlesearch {
 			image.width = 150
 			# cat=market/detail/b; type=boolean; label=Product image heigt (px) in list view
 			image.height = 150c
-			
+
 			# cat=market/detail/b; type=boolean; label=Width (px) of producer logo in detail view if set
 			producerLogoMaxWidth = 100
 			# cat=market/detail/b; type=boolean; label=Maxheight (px) of producer logo in detail view if set
 			producerLogoMaxHeight = 35
 		}
-		
+
 		list.cropDescLimit = 120
 
 		productList.pid = 139
-		
+
 		productDetail.pid = 152
 		productDetail{
 			# cat=market/detail/b; type=boolean; label=Show header above article listing:Article listing not necessaryly needs a header
 			showHeader = false
-			
+
 			# cat=market/detail/b; type=boolean; label=Show back link:the back link repeats the browser own back function
 			showBacklink = true
-			
+
 			# cat=market/detail/b; type=boolean; label=Width (px) of producer logo in detail view if set
 			producerLogoWidth = 80
 
@@ -100,13 +100,13 @@ plugin.tx_marketplace_articlesearch {
 
 		email {
 			receiver = hs@stiftung-solarenergie.org
-			
+
 			receiverName = Sendea Inbox (Admin)
 
 			sender = no-reply@sendea.biz
 			senderName = Sendea - Product rating and marketplace
 
-			subjectReceiver = New contact for 
+			subjectReceiver = New contact for
 			subjectDealer = Contact - Article
 
 			userProductAcceptedSubject = Your proposed Product was accepted
@@ -142,5 +142,7 @@ plugin.tx_marketplace_articlesearch {
 				senderName = Sendea-Automator-Service
 			}
 		}
+
+		useMarket = 0
 	}
 }
