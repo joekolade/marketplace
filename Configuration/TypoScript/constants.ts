@@ -28,7 +28,7 @@ plugin.tx_marketplace_articlesearch {
 		productDetail.pid = 152
 		productDetail{
 			# cat=market/detail/b; type=boolean; label=Show header above article listing:Article listing not necessaryly needs a header
-			showHeader = false
+			showHeader = true
 
 			# cat=market/detail/b; type=boolean; label=Show back link:the back link repeats the browser own back function
 			showBacklink = true

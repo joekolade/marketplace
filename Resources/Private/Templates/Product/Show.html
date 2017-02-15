@@ -1,10 +1,13 @@
 <f:layout name="FilterLayout" />
 
 <f:section name="header">
-  <!-- Header? -->
+    <f:comment>
+      <h1>{product.title}</h1>
+    </f:comment>
 </f:section>
 
 <f:section name="main">
+
   <f:flashMessages renderMode="div" />
 
   <!-- Product -->
@@ -30,45 +33,136 @@
           <f:link.action pageUid="#articles" class="btn btn-default">Show offers</f:link.action> -->
         </div>
       </div>
-
-      <f:format.html>
-        {product.description}
-      </f:format.html>
     </div>
 
-    <!-- render articles -->
-    <a id="articles"></a>
-    <f:if condition="{settings.productDetail.showHeader}">
+    <div class="col-xs-12 collapse fullDescription" id="collapseDescription">
+
       <div class="row">
         <div class="col-xs-12">
-          <h3>Articles</h3>
-        </div>  
+          <f:format.html>{product.description}</f:format.html>
+        </div>
       </div>
-    </f:if>
-    <div class="row">
-      <div class="col-xs-12">
-        <table class="table table-hover">
-        <thead>
-          <tr>
-            <th><f:translate key="tx_marketplace_domain_model_article.dealer" /></th>
-            <th><f:translate key="tx_marketplace_domain_model_dealer.country" /></th>
-            <th><f:translate key="tx_marketplace_domain_model_dealer.fob">FOB</f:translate></th>
-            <th><f:translate key="tx_marketplace_domain_model_article.price" /></th>
-            <th></th>
-          </tr>
-          </thead>
-          <tbody>
-            <f:for each="{articles}" as="article">
-              <f:render partial="Article/ListItem" arguments="{article: article, product: product}"></f:render>
-            </f:for>
-          
-          </tbody>
-        </table>
+      <br>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <f:format.html>{product.contentleft}</f:format.html>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <f:format.html>{product.contentright}</f:format.html>
+        </div>
       </div>
+    </div>
+    <div class="col-xs-12">
+      <a class="btn btn-primary btn-toggle buttonText-show" role="button" data-toggle="collapse" href="#collapseDescription" aria-expanded="false" aria-controls="collapseDescription">
+        <span class="text-show"><f:translate key="product.showDescription">Show full description</f:translate></span>
+        <span class="text-unshow"><f:translate key="product.unshowDescription">Unshow full description</f:translate></span>
+      </a>
     </div>
   </div>
 
-  
+  <!-- render articles -->
+  <div class="row">
+    <div class="col-xs-12">
+        <a id="articles"></a>
+        <f:if condition="{settings.productDetail.showHeader}">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2><f:translate key="txt_articles">Articles</f:translate></h2>
+                </div>
+            </div>
+        </f:if>
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                <f:translate key="tx_marketplace_domain_model_article.dealer" />
+                            </th>
+                            <th>
+                                <f:translate key="tx_marketplace_domain_model_dealer.country" />
+                            </th>
+                            <th>
+                                <f:translate key="tx_marketplace_domain_model_dealer.fob">FOB</f:translate>
+                            </th>
+                            <th>
+                                <f:translate key="tx_marketplace_domain_model_article.price" />
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <f:for each="{articles}" as="article">
+                            <f:render partial="Article/ListItem" arguments="{article: article, product: product}"></f:render>
+                        </f:for>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <!--
+    Ratings
+   -->
+  <div class="row ratingsListContainer">
+    <div class="col-xs-12">
+      <h2><f:translate key="txt_ratings">Ratings</f:translate></h2>
+      <f:if condition="{product.ratings}">
+        <f:then>
+            <div class="list-group">
+              <f:for each="{product.ratings}" as="rating">
+                <div class="list-item">
+                  <h5 class="list-group-item-heading">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <f:render section="listitemheader" arguments="{rating: rating, user: rating.ratinguser}"></f:render>
+                      </div>
+                    </div>
+                    <f:if condition="{settings.useReportForRatings}">
+                    <f:link.action
+                      action="reportRating" pageUid="{settings.productRatingDetailUid}" controller="Rating"
+                      arguments="{rating: rating}" target="_blank" class="report" title="Report this rating"
+                    >
+                     <span class="slide-out"> report </span><i class="fa fa-ban"></i>
+                    </f:link.action>
+                    </f:if>
+                  </h5>
+                  <div class="list-group-item-text">
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-4">
+                        <f:render partial="Rating/RatingMini" arguments="{rating: rating, showLabels: 'true'}"></f:render>
+                      </div>
+                      <div class="col-xs-12 col-sm-8">
+                        <f:if condition="{rating.ratingtext}">
+                          <f:then>
+                            <div class="well">
+                              {rating.ratingtext -> f:format.html()}
+                            </div>
+                          </f:then>
+                          <f:else>
+                            <em><f:translate key="txt_nomsg">No descrition given</f:translate></em>
+                          </f:else>
+                        </f:if>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </f:for>
+            </div>
+        </f:then>
+        <f:else>
+          <p>
+            <f:translate key="noRatings">no ratings</f:translate>
+          </p>
+          <f:render partial="Product/Buttons/RateButton" arguments="{product: product}"></f:render>
+        </f:else>
+      </f:if>
+    </div>
+  </div>
+
 </f:section>
 
 <f:section name="aside">
@@ -83,6 +177,17 @@
     </div>
   </f:if>
   <div class="col-xs-12 image">
-    <f:render partial="Product/Image" arguments="{product: product, width: settings.productList.image.width, height: settings.productList.image.height}"></f:render>
+    <f:render partial="Product/ImageSlider" arguments="{product: product}"></f:render>
+  </div>
+
+  <div class="col-xs-12">
+  <br>
+
+    <legend class=""><f:translate key="txt_overall">Overall rating</f:translate></legend>
+    <div class="ratingContainer overAllRating pull-right">
+      <f:render partial="Product/OverallRating" arguments="{product: product}"></f:render>
+
+    </div>
+    <f:render partial="Product/Buttons/RateButton" arguments="{product: product}"></f:render>
   </div>
 </f:section>
