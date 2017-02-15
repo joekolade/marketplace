@@ -22,7 +22,7 @@
           <f:render section="advertise" arguments="{page: bar}" />
 
           <f:for each="{paginatedProducts}" as="product" iteration="i">
-              <f:render partial="Product/RatinglistItem" arguments="{product: product}"></f:render>
+              <f:render partial="Product/ListItem" arguments="{product: product}"></f:render>
           </f:for>
         </f:widget.paginate>
       </f:then>

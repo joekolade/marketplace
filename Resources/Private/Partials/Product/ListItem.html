@@ -32,14 +32,19 @@
             <div class="btn ratingContainer">
                 <f:render partial="Product/OverallRating" arguments="{product: product}"></f:render>
             </div>
+
             <f:link.action action="show" class="btn btn-default" pageUid="{settings.productDetail.pid}" arguments="{product : product}">
-                <f:translate key="0">Show prices</f:translate>
+                <f:if condition="{product.articles -> f:count()}">
+                    <js:pricerange articles="{product.articles}">
+                        <small>available from</small><br>
+                        <span class="lead">{lowInUSD} USD</span>
+                    </js:pricerange>
+                    <br>
+                </f:if>
+                <f:translate key="0">Show details</f:translate>
                 <i class="fa fa-chevron-right"></i>
             </f:link.action>
-            <f:link.action action="showProductRatings" class="btn btn-default" pageUid="{settings.ratingList.singlePid}" arguments="{product : product}">
-                <f:translate key="0">Show all ratings</f:translate>
-                <i class="fa fa-chevron-right"></i>
-            </f:link.action>
+
 
             <f:render partial="Product/Buttons/RateButton" arguments="{product: product}"></f:render>
         </div>
