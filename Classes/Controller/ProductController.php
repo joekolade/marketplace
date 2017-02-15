@@ -34,8 +34,21 @@ use JS\Marketplace\Domain\Model\Filter;
 class ProductController extends \JS\Marketplace\Controller\AbstractController
 {
 
-    public function initializeAction(){
+    /**
+     * cacheUtility
+     *
+     * @var \TYPO3\CMS\Core\Cache\CacheManager
+     */
+    protected $cacheInstance;
 
+    /**
+     * @var \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
+     */
+    protected $cObj;
+
+    public function initializeAction() {
+       $this->cacheInstance = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Cache\\CacheManager')->getCache("marketplace");
+       $this->cObj = $this->configurationManager->getContentObject();
     }
 
 
@@ -43,7 +56,6 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      * action list
      *
      * @param \JS\Marketplace\Domain\Model\Filter $filter
-     * @ignorevalidation $filter
      * @return void
      */
     public function listAction(\JS\Marketplace\Domain\Model\Filter $filter = NULL)
@@ -55,10 +67,16 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
           $filterActive = false;
         }
 
+
         $cookie_name = 'sendea_marketplace_listSortby';
+        $cacheId = $GLOBALS['TSFE']->id . "-" .
+              $this->cObj->data['uid']. "-" .
+              $GLOBALS['TSFE']->sys_language_uid . "-" .
+              $this->actionMethodName;
 
         if($filter->getSortby()){
           setcookie($cookie_name, $filter->getSortby(),NULL ,'/');
+          $cacheId .= "-" . $filter->getSortby();
         }
         else if($filter->getSortby() == 0){
           setcookie($cookie_name, 0,NULL ,'/');
@@ -67,38 +85,62 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
           $filter->setSortby($_COOKIE[$cookie_name]);
         }
 
-        // Get the products
-        $products = $this->productRepository->findByFilter($filter, FALSE);
+        if(count($filter->getProductgroup())) {
+          $cacheId .= '-group' .$filter->getProductgroup()->getUid();
+        }
+        if(count($filter->getProductsubgroup())) {
+          $cacheId .= '-subgroups';
+          foreach ($filter->getProductsubgroup() as $sg) {
+            $cacheId .= $sg->getUid();
+          }
+        }
+        // Cache identifier
+        $cacheIdentifier = md5($cacheId);
 
-        // if filtered by productgroup
-        if( count($filter->getProductgroup()) ) {
-          $productgroups = array($filter->getProductgroup());
-          $productsubgroups = $this->productsubgroupRepository->findByProductgroup($filter->getProductgroup());
-        }
-        else {
-          $productsubgroups = NULL;
-          $productgroups = $this->productgroupRepository->findAll();
-        }
+        $cacheData = array();
+        // Is there a cache?
+        if ($this->cacheInstance->has($cacheIdentifier) ) {
+          // Cache vorhanden
+          $cacheData = $this->cacheInstance->get($cacheIdentifier);
+        } else {
+            // Get the products and put them to the filter data
+            $products = $this->productRepository->findByFilter($filter, FALSE);
 
-        // Sort Products if overallrating
-        // second filtering: most rated
-        if($filter->getSortby() == 2){
-          $products = $products->toArray();
-          usort ($products, array($this, 'compareRatingsAfterOverall'));
-        }
-        // Sort Products if most rated
-        if($filter->getSortby() == 3){
-          $products = $products->toArray();
-          usort ($products, array($this, 'compareRatings'));
+            // Sort Products if overallrating
+            // second filtering: most rated
+            if($filter->getSortby() == 2){
+              $products = $products->toArray();
+              usort ($products, array($this, 'compareRatingsAfterOverall'));
+            }
+            // Sort Products if most rated
+            if($filter->getSortby() == 3){
+              $products = $products->toArray();
+              usort ($products, array($this, 'compareRatings'));
+            }
+
+            $cacheData['products'] = $products;
+
+            // if filtered by productgroup
+            if( count($filter->getProductgroup()) ) {
+              $cacheData['productgroups'] = array($filter->getProductgroup());
+              $cacheData['productsubgroups'] = $this->productsubgroupRepository->findByProductgroup($filter->getProductgroup());
+            }
+            else {
+              $cacheData['productgroups'] = $this->productgroupRepository->findAll();
+              $cacheData['productsubgroups'] = NULL;
+            }
+
+            // Write Data to cache
+            $this->cacheInstance->set($cacheIdentifier, $cacheData, array('marketplaceTag'));
         }
 
         $this->view->assignMultiple([
             // The filtered articles
-            'products' => $products,
+            'products' => $cacheData['products'],
 
             // all Productgroups & Productsubgroups (for the filter)
-            'productgroups' => $productgroups,
-            'productsubgroups' => $productsubgroups,
+            'productgroups' => $cacheData['productgroups'],
+            'productsubgroups' => $cacheData['productsubgroups'],
             'countries' => $this->countryRepository->findAll(),
             'producers' => $this->producerRepository->findAll(),
 
@@ -218,12 +260,18 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      * @param \JS\Marketplace\Domain\Model\Product $product
      * @return void
      */
-    public function showAction(\JS\Marketplace\Domain\Model\Product $product)
+    public function showAction(\JS\Marketplace\Domain\Model\Product $product = NULL)
     {
-        $articles = $this->articleRepository->findByProduct($product);
-        $this->view->assign('product', $product);
-        $this->view->assign('articles', $this->sortByPrice($articles->toArray()));
-        $this->view->assign('view','detail');
+      if(!$product) {
+        $this->redirect(
+            'list'
+        );
+      }
+      $articles = $this->articleRepository->findByProduct($product);
+
+      $this->view->assign('product', $product);
+      $this->view->assign('articles', $this->sortByPrice($articles->toArray()));
+      $this->view->assign('view','detail');
     }
 
     /**
