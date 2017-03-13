@@ -9,6 +9,7 @@ return array(
 		'dividers2tabs' => TRUE,
 		'versioningWS' => 2,
 		'versioning_followPages' => TRUE,
+		'sortby' => 'name',
 
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',
@@ -32,7 +33,7 @@ return array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-	
+
 		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
@@ -75,7 +76,7 @@ return array(
 				'max' => 255,
 			)
 		),
-	
+
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -191,12 +192,12 @@ return array(
 				),
 			),
 		),
-		
+
 		'products' => array(
 			'config' => array(
 				'type' => 'passthrough',
 			),
 		),
-		
+
 	),
 );
