@@ -130,8 +130,6 @@ class ArticleController extends \JS\Marketplace\Controller\AbstractController
         $templateName = 'Dealer';
         $arguments = array('lead' => $lead);
 
-        return $this->sendTemplateEmail($recipients, $sender, $subject, $templateName, $arguments);
-
         if(!$this->sendTemplateEmail($recipients, $sender, $subject, $templateName, $arguments)){
             $error = true;
         }
