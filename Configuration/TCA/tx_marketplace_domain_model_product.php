@@ -274,6 +274,7 @@ return array(
         ),
 				'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_marketplace_domain_model_producer',
+				'foreign_table_where' => 'AND 1=1 ORDER BY name ASC',
 				'minitems' => 0,
 				'maxitems' => 1,
 			),
