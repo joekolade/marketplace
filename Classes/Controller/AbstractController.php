@@ -166,6 +166,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
         // Catch receipient in dev mode
         if($this->settings['dev']['emailCatcher']){
             $recipient = array($this->settings['dev']['emailCatcher'] => '(DEV Catcher) ' . $recipient[0]);
+            $subject = '(DEV email-catcher) ' . $subject;
         }
 
         /** @var $message \TYPO3\CMS\Core\Mail\MailMessage */
