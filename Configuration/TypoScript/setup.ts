@@ -121,6 +121,10 @@ plugin.tx_marketplace_articlesearch {
 		}
 
 		useMarket = {$plugin.tx_marketplace_articlesearch.settings.useMarket}
+
+
+		dev.emailCatcher = {$plugin.tx_marketplace_articlesearch.settings.dev.emailCatcher}
+
 	}
 
 }

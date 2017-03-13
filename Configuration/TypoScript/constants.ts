@@ -81,8 +81,6 @@ plugin.tx_marketplace_articlesearch {
 
 		productList.pid = 139
 
-
-
 		ratingList {
 			#pid = 155
 			pid = 49
@@ -145,5 +143,9 @@ plugin.tx_marketplace_articlesearch {
 		}
 
 		useMarket = 0
+
+		dev {
+			emailCatcher = 0
+		}
 	}
 }
