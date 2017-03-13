@@ -223,6 +223,7 @@ return array(
 				'type' => 'select',
 				'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_marketplace_domain_model_productgroup',
+				'foreign_table_where' => 'AND 1=1 ORDER BY name ASC',
 				'minitems' => 0,
 				'maxitems' => 1,
 				'eval' => 'required'
@@ -238,6 +239,7 @@ return array(
         ),
 				'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_marketplace_domain_model_productsubgroup',
+				'foreign_table_where' => 'AND 1=1 ORDER BY name ASC',
 				'minitems' => 0,
 				'maxitems' => 1,
 			),
