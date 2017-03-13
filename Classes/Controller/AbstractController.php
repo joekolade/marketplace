@@ -168,6 +168,8 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
             $recipient = array($this->settings['dev']['emailCatcher'] => '(DEV Catcher) ' . $recipient[0]);
         }
 
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->settings['dev']['emailCatcher']);
+
         /** @var $message \TYPO3\CMS\Core\Mail\MailMessage */
         $message = $this->objectManager->get('TYPO3\\CMS\\Core\\Mail\\MailMessage');
         $message->setTo($recipient)
@@ -175,7 +177,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
         ->setSubject($subject);
 
       // Plain text email
-        $message->setBody($emailBody, 'text/plain');
+        return $message->setBody($emailBody, 'text/plain');
 
       // HTML email
       // $message->setBody($emailBody, 'text/html');

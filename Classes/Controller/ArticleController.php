@@ -32,7 +32,7 @@ use JS\Marketplace\Domain\Model\Filter;
  * ArticleController
  */
 class ArticleController extends \JS\Marketplace\Controller\AbstractController
-{    
+{
     public function initializeListAction(){
         // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->arguments->getArgument('productgroupFilter'));
     }
@@ -67,7 +67,7 @@ class ArticleController extends \JS\Marketplace\Controller\AbstractController
             'filter' => $filter,
         ]);
     }
-    
+
     /**
      * action show
      *
@@ -78,7 +78,7 @@ class ArticleController extends \JS\Marketplace\Controller\AbstractController
     {
         $this->view->assign('article', $article);
     }
-    
+
     /**
      * contact dealer of an article
      *
@@ -92,7 +92,7 @@ class ArticleController extends \JS\Marketplace\Controller\AbstractController
         $this->view->assign('lead', $lead);
         $this->view->assign('view','lead');
     }
-    
+
     /**
      * send off lead
      *
@@ -101,7 +101,7 @@ class ArticleController extends \JS\Marketplace\Controller\AbstractController
      * @return void
      */
     public function sendleadAction(\JS\Marketplace\Domain\Model\Lead $lead)
-    {   
+    {
         // Send Template Emails
         $emailSettings = $this->settings['email'];
 
@@ -111,7 +111,7 @@ class ArticleController extends \JS\Marketplace\Controller\AbstractController
         $lead->setMessage(htmlspecialchars($lead->getMessage()));
         $lead->setName(htmlspecialchars($lead->getName()));
         $lead->setFirstname(htmlspecialchars($lead->getFirstname()));
-        
+
         # E-Mail to Sendea.biz
         $recipients = array($emailSettings['receiver'] => $emailSettings['receiverName']);
         $sender = array($emailSettings['sender'] => $emailSettings['senderName']);
@@ -130,6 +130,8 @@ class ArticleController extends \JS\Marketplace\Controller\AbstractController
         $templateName = 'Dealer';
         $arguments = array('lead' => $lead);
 
+        return $this->sendTemplateEmail($recipients, $sender, $subject, $templateName, $arguments);
+
         if(!$this->sendTemplateEmail($recipients, $sender, $subject, $templateName, $arguments)){
             $error = true;
         }
@@ -145,7 +147,7 @@ class ArticleController extends \JS\Marketplace\Controller\AbstractController
             $messageTitle = 'Thank you, ' . $lead->getName();
             $severity = 'ok';
         }
-        
+
         $this->sendMessage($messageTitle, $messageBody, $severity);
 
         $this->redirect('show', 'Product', NULL, array('product' => $lead->getArticle()->getProduct()));
