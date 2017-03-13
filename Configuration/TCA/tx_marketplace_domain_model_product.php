@@ -7,7 +7,7 @@ return array(
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
-		'sortby' => 'productgroup.name',
+		'sortby' => 'title',
 		'versioningWS' => 2,
 		'versioning_followPages' => TRUE,
 

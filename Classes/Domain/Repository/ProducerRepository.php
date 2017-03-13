@@ -38,7 +38,7 @@ class ProducerRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
    * @var array
    */
   protected $defaultOrderings = array(
-    'name' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
+    'productgroup.name' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
   );
-    
+
 }
