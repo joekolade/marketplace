@@ -7,7 +7,7 @@ return array(
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
-		'sortby' => 'sorting',
+		'sortby' => 'productgroup.title',
 		'versioningWS' => 2,
 		'versioning_followPages' => TRUE,
 
@@ -33,7 +33,7 @@ return array(
 		'1' => array('showitem' => ''),
 	),
 	'columns' => array(
-	
+
 		'sys_language_uid' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
@@ -76,7 +76,7 @@ return array(
 				'max' => 255,
 			)
 		),
-	
+
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -220,7 +220,7 @@ return array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_product.productgroup',
 			'config' => array(
-				'type' => 'select',    
+				'type' => 'select',
 				'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_marketplace_domain_model_productgroup',
 				'minitems' => 0,
@@ -235,7 +235,7 @@ return array(
 				'type' => 'select',
 				'items' => Array (
             Array("-- none --", 0),
-        ),     
+        ),
 				'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_marketplace_domain_model_productsubgroup',
 				'minitems' => 0,
@@ -271,7 +271,7 @@ return array(
 				'type' => 'select',
         'items' => Array (
             Array("-- none --", 0),
-        ),     
+        ),
 				'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_marketplace_domain_model_producer',
 				'minitems' => 0,
@@ -298,7 +298,7 @@ return array(
 			),
 
 		),
-		'proposinguser' => array( 
+		'proposinguser' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xml:tx_marketplace_domain_model_product.proposinguser',
 			'config' => Array (
@@ -318,8 +318,8 @@ return array(
 				'eval' => 'Double2With4DecimalsFormat'
 			)
 		),
-		
-		
+
+
 		// 'articles' => array(
 		// 	'config' => array(
 		// 		'type' => 'passthrough',
