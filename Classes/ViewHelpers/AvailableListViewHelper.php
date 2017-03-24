@@ -7,7 +7,8 @@ class AvailableListViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractV
 
 
   /**
-   * @param mixed $articles
+   * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Article> $articles
+   *
    * @return string the pricerange in HTML structure
    */
   public function render($articles = NULL) {
