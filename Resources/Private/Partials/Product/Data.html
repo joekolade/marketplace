@@ -13,10 +13,11 @@
             {country}
         </f:for>
     </p>
-
-    <p>getAvailablein2:
-        <f:for each="{product.articles}" as="article">
-            {article.dealer.country}
-        </f:for>
-    </p>
+    <f:if condition="{product.articles}">
+        <p>getAvailablein2:
+            <f:for each="{product.articles}" as="article" iteration="i">
+                {article.dealer.country.title}<f:if condition="!{i.isLast}">, </f:if>
+            </f:for>
+        </p>
+    </f>
 </div>
