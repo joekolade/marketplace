@@ -35,9 +35,8 @@
                   <f:groupedFor each="{continents}" as="continent" groupBy="name" groupKey="name">
                     <b>{name}</b>
                     <br>
-                    continent.countries: {continent.countries}
-                    <f:for each="{continent.countries}" as="c">
-                      {country}; {c}
+                    <f:for each="{continent}" as="c">
+                      c.countries: {c.countries}
                     </f:for>
                   </f:groupedFor>
                 </js:availableList>
