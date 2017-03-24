@@ -8,9 +8,9 @@
     <br>
     <b><f:translate key="tx_marketplace_domain_model_product.productsubgroup" />:</b> {product.productsubgroup.name}
   </f:if>
-  <f:debug>{product.getAvailablein}</f:debug>
+  <f:debug>{product.availablein}</f:debug>
     <p>getAvailablein:
-        <f:for each="{product.getAvailablein}" as="country">
+        <f:for each="{product.availablein}" as="country">
         {country}
         </f:for>
         </p>
