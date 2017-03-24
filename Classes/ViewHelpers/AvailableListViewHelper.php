@@ -20,7 +20,17 @@ class AvailableListViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractV
       return 'No articles given';
     }
 
-    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($product->getArticles());
+    $continents = array();
+    $countries = array();
+
+    foreach ($product->getArticles() as $article) {
+      $c = $article->getDealer()->getCountry()->getContinent()->getName();
+      $continents[] = $c;
+      $countries[$c] = $article->getDealer()->getCountry()->getName();
+    }
+
+    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($continents, '$continents');
+    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($countries, '$countries');
 
 
     // if($low && $high){
