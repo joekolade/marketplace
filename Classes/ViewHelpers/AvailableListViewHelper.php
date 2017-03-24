@@ -1,25 +1,26 @@
 <?php
 namespace JS\Marketplace\ViewHelpers;
 
+use \JS\Marketplace\Domain\Model\Product;
 // use \JS\Marketplace\Domain\Model\Article;
 
 class AvailableListViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
 
 
   /**
-   * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $articles
+   * @param Product $product
    *
    * @return string the pricerange in HTML structure
    */
-  public function render($articles = NULL) {
+  public function render($product = NULL) {
 
     $output = 'out';
 
-    if(!$articles){
+    if(!$product){
       return 'No articles given';
     }
 
-    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($articles);
+    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($product);
 
 
     // if($low && $high){

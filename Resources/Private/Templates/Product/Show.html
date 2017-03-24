@@ -30,7 +30,7 @@
           <f:if condition="{product.articles}">
               <h3>Available in:</h3>
               <p>
-                <js:availableList articles="{product.articles}">
+                <js:availableList product="{product}">
                   <f:comment>
                   <f:for each="{continents}" as="continent">
                     {continent.name}
