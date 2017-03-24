@@ -29,25 +29,7 @@
           <f:render partial="Product/Data" arguments="{product: product}"></f:render>
 
           <f:if condition="{product.articles}">
-              <h3>Available in:</h3>
-              <p>
-                <js:availableList product="{product}">
-                  <f:groupedFor each="{continents}" as="continent" groupBy="name" groupKey="name">
-                    <b>{name}: </b>
-                    <f:for each="{continent}" as="c">
-                      <f:for each="{c.countries}" as="country" iteration="i">
-                        {country}{f:if(condition: '{i.isLast}', then: '<br>', else: ', ')}
-                      </f:for>
-                    </f:for>
-                  </f:groupedFor>
-                </js:availableList>
-
-                <hr>
-
-                <f:for each="{product.articles}" as="article" iteration="i">
-                {article.dealer.country.name}{f:if(condition: "{i.isLast}",then: "", else: ", ")}
-                </f:for>
-              </p>
+              <f:render partial="Product/Availablelist" arguments="{product: product}"></f:render>
           </f:if>
         </div>
         <div class="col-xs-4 text-center">
