@@ -28,7 +28,7 @@ class AvailableListViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractV
       if(!count($countries[$c])){
         $continents[] = $c;
       }
-      $countries[$c] = $article->getDealer()->getCountry()->getName();
+      $countries[$c][] = $article->getDealer()->getCountry()->getName();
     }
 
     \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($continents, '$continents');
