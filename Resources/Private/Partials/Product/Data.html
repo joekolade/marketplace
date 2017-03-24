@@ -8,16 +8,13 @@
         <br>
         <b><f:translate key="tx_marketplace_domain_model_product.productsubgroup" />:</b> {product.productsubgroup.name}
     </f:if>
-    <p>getAvailablein:
-        <f:for each="{product.availablein}" as="country">
-            {country}
-        </f:for>
-    </p>
+
     <f:if condition="{product.articles}">
-        <p>getAvailablein2:
+        <p>
+            <b>Available in:</b>
             <f:for each="{product.articles}" as="article" iteration="i">
                 {article.dealer.country.title}<f:if condition="!{i.isLast}">, </f:if>
             </f:for>
         </p>
-    </f>
+    </f:if>
 </div>
