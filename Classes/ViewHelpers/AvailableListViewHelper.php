@@ -20,7 +20,7 @@ class AvailableListViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractV
       return 'No articles given';
     }
 
-    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($product);
+    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($product->getArticles());
 
 
     // if($low && $high){
