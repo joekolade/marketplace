@@ -24,13 +24,15 @@ class AvailableListViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractV
 
     foreach ($product->getArticles() as $article) {
       $c = $article->getDealer()->getCountry()->getContinent()->getName();
+      $country = $article->getDealer()->getCountry()->getName();
       if(count($continents[$c])) {
-        $continents[$c]['countries'][] = $article->getDealer()->getCountry()->getName();
+        if(!in_array($country, $continents[$c]['countries']))
+          $continents[$c]['countries'][] = $country;
       }
       else {
         $continents[$c] = array(
           'name' => $c,
-          'countries' => array($article->getDealer()->getCountry()->getName())
+          'countries' => array($country)
         );
       }
     }
