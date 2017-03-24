@@ -34,8 +34,8 @@
                 <js:availableList product="{product}">
                   <f:groupedFor each="{continents}" as="continent" groupBy="continent" groupKey="continent">
                     {continent}
-                    <f:for each="{continent}">
-                      {country}
+                    <f:for each="{continent}" as="c">
+                      {country}; {c}
                     </f:for>
                   </f:groupedFor>
                 </js:availableList>
