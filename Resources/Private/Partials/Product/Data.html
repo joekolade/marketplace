@@ -1,17 +1,22 @@
 <div class="data">
-  <f:if condition="{product.producer}">
-    <b><f:translate key="tx_marketplace_domain_model_producer" />:</b> {product.producer.name}
-  </f:if>
-  <f:if condition="{product.productsubgroup}">
-    <br>
-    <b><f:translate key="tx_marketplace_domain_model_product.productgroup" />:</b> {product.productsubgroup.productgroup.name}
-    <br>
-    <b><f:translate key="tx_marketplace_domain_model_product.productsubgroup" />:</b> {product.productsubgroup.name}
-  </f:if>
-  <f:debug>{product.availablein}</f:debug>
+    <f:if condition="{product.producer}">
+        <b><f:translate key="tx_marketplace_domain_model_producer" />:</b> {product.producer.name}
+    </f:if>
+    <f:if condition="{product.productsubgroup}">
+        <br>
+        <b><f:translate key="tx_marketplace_domain_model_product.productgroup" />:</b> {product.productsubgroup.productgroup.name}
+        <br>
+        <b><f:translate key="tx_marketplace_domain_model_product.productsubgroup" />:</b> {product.productsubgroup.name}
+    </f:if>
     <p>getAvailablein:
         <f:for each="{product.availablein}" as="country">
-        {country}
+            {country}
         </f:for>
-        </p>
+    </p>
+
+    <p>getAvailablein2:
+        <f:for each="{product.articles}" as="article">
+            {article.dealer.country}
+        </f:for>
+    </p>
 </div>
