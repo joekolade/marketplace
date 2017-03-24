@@ -32,10 +32,10 @@
               <h3>Available in:</h3>
               <p>
                 <js:availableList product="{product}">
-                  <f:groupedFor each="{continents}" as="continent" groupBy="continent" groupKey="continent">
+                  <f:groupedFor each="{countries}" as="country" groupBy="continent" groupKey="continent">
                     continent:
                     {continent.name}
-                    <f:for each="{continent}" as="c">
+                    <f:for each="{country}" as="c">
                       {country}; {c}
                     </f:for>
                   </f:groupedFor>
