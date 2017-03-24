@@ -36,7 +36,8 @@
                     <b>{name}</b>
                     <br>
                     <f:for each="{continent}" as="c">
-                      c.countries: {c.countries}
+                    <f:for each="{c.countries}" as="country" iteration="i">
+                      {country}{f:if(condition: 'i.isLast', then: '<br>', else: ', ')}
                     </f:for>
                   </f:groupedFor>
                 </js:availableList>
