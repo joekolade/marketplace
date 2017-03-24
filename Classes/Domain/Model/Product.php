@@ -102,7 +102,6 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Article>
      * @cascade remove
-     * @lazy
      */
     protected $articles = null;
 
