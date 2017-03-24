@@ -32,14 +32,18 @@
               <h3>Available in:</h3>
               <p>
                 <js:availableList product="{product}">
-                  <f:groupedFor each="{countries}" as="country" groupBy="continent" groupKey="continent">
-                    continent:
-                    {continent}, {continent.countries}
+                  <f:groupedFor each="{continents}" as="continent" groupBy="name" groupKey="continent">
+                    continent: {continent}<br>
+                    continent.name: {continent.name}<br>
+
                     <f:for each="{continent.countries}" as="c">
                       {country}; {c}
                     </f:for>
                   </f:groupedFor>
                 </js:availableList>
+
+                <hr>
+
                 <f:for each="{product.articles}" as="article" iteration="i">
                 {article.dealer.country.name}{f:if(condition: "{i.isLast}",then: "", else: ", ")}
                 </f:for>
