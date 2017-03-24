@@ -26,6 +26,20 @@
       <div class="row">
         <div class="col-xs-8">
           <f:render partial="Product/Data" arguments="{product: product}"></f:render>
+
+          <f:if condition="{product.articles}">
+              <h3>Available in:</h3>
+              <p>
+                <js:availableList articles="{product.articles}">
+                  <f:for each="{continents}" as="continent">
+                    {continent.name}
+                  </f:for>
+                </js:availableList>
+                <f:for each="{product.articles}" as="article" iteration="i">
+                {article.dealer.country.name}{f:if(condition: "{i.isLast}",then: "", else: ", ")}
+                </f:for>
+              </p>
+          </f:if>
         </div>
         <div class="col-xs-4 text-center">
           <!--
