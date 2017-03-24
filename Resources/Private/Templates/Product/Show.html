@@ -33,10 +33,9 @@
               <p>
                 <js:availableList product="{product}">
                   <f:groupedFor each="{continents}" as="continent" groupBy="name" groupKey="name">
-                    continent: {continent}<br>
-                    continent.name: {continent.name}<br>
-                    name: {name}<br>
-
+                    <b>{name}</b>
+                    <br>
+                    continent.countries: {continent.countries}
                     <f:for each="{continent.countries}" as="c">
                       {country}; {c}
                     </f:for>
