@@ -13,7 +13,7 @@
         <p>
             <b>Available in:</b>
             <f:for each="{product.articles}" as="article" iteration="i">
-                {article.dealer.country.title}<f:if condition="!{i.isLast}">, </f:if>
+                {article.dealer.country.name}<f:if condition="!{i.isLast}">, </f:if>
             </f:for>
         </p>
     </f:if>
