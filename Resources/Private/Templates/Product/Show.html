@@ -33,11 +33,10 @@
               <p>
                 <js:availableList product="{product}">
                   <f:groupedFor each="{continents}" as="continent" groupBy="name" groupKey="name">
-                    <b>{name}</b>
-                    <br>
+                    <b>{name}: </b>
                     <f:for each="{continent}" as="c">
                       <f:for each="{c.countries}" as="country" iteration="i">
-                        {country}{f:if(condition: 'i.isLast', then: '...', else: ', ')}
+                        {country}{f:if(condition: '{i.isLast}', then: '<br>', else: ', ')}
                       </f:for>
                     </f:for>
                   </f:groupedFor>

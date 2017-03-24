@@ -35,8 +35,6 @@ class AvailableListViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractV
       }
     }
 
-    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($continents, '$continents');
-
     $this->templateVariableContainer->add('continents', $continents);
 
     $output .= $this->renderChildren();
