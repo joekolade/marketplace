@@ -38,7 +38,7 @@ class AvailableListViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractV
 
     $this->templateVariableContainer->remove('countries');
 
-    $output .= parent::render();
+    // $output .= parent::render();
 
     return $output;
   }
