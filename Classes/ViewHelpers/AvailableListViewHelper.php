@@ -20,23 +20,23 @@ class AvailableListViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractV
       return 'No articles given';
     }
 
-    $continents = array();
+    $countries = array();
 
     foreach ($product->getArticles() as $article) {
       $c = $article->getDealer()->getCountry()->getContinent()->getName();
-      if(!count($continents[$c])){
-        $continents[$c] = array($c);
-      }
-      $continents[$c][1][] = $article->getDealer()->getCountry()->getName();
+      $countries[$c] = array(
+        'continent' => $c,
+        'country' => $article->getDealer()->getCountry()->getName()
+      );
     }
 
-    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($continents, '$continents');
+    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($countries, '$countries');
 
-    $this->templateVariableContainer->add('continents', $continents);
+    $this->templateVariableContainer->add('countries', $countries);
 
     $output .= $this->renderChildren();
 
-    $this->templateVariableContainer->remove('continents');
+    $this->templateVariableContainer->remove('countries');
 
     $output .= parent::render();
 
