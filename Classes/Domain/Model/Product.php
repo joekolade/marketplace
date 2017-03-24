@@ -32,9 +32,9 @@ namespace JS\Marketplace\Domain\Model;
 class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
-     * hidden 
-     * 
-     * @var boolean 
+     * hidden
+     *
+     * @var boolean
      */
     protected $hidden = TRUE;
 
@@ -45,42 +45,42 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @validate NotEmpty
      */
     protected $title = '';
-    
+
     /**
      * teaser
      *
      * @var string
      */
     protected $teaser = '';
-    
+
     /**
      * description
      *
      * @var string
      */
     protected $description = '';
-    
+
     /**
      * contentright
      *
      * @var string
      */
     protected $contentright = '';
-    
+
     /**
      * contentleft
      *
      * @var string
      */
     protected $contentleft = '';
-    
+
     /**
      * images
      *
      * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
      */
     protected $images = null;
-    
+
     /**
      * productgroup
      *
@@ -88,7 +88,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @lazy
      */
     protected $productgroup = null;
-    
+
     /**
      * productsubgroup
      *
@@ -96,7 +96,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @lazy
      */
     protected $productsubgroup = null;
-    
+
     /**
      * articles
      *
@@ -105,7 +105,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @lazy
      */
     protected $articles = null;
-    
+
     /**
      * producer
      *
@@ -113,7 +113,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @lazy
      */
     protected $producer = null;
-    
+
     /**
      * ratings
      *
@@ -122,7 +122,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @lazy
      */
     protected $ratings = null;
-    
+
     /**
      * proposinguser
      *
@@ -130,7 +130,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @lazy
      */
     protected $proposinguser = null;
-    
+
     /**
      * averagerating
      *
@@ -138,10 +138,10 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     protected $averagerating = 0;
 
-    /** 
-     * Returns hidden 
-     * 
-     * @return boolean $hidden 
+    /**
+     * Returns hidden
+     *
+     * @return boolean $hidden
      */
     public function getHidden() {
         return $this->hidden;
@@ -149,25 +149,25 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
 
     /**
-     * Sets hidden 
-     * 
-     * @param boolean $hidden 
-     * @return void 
+     * Sets hidden
+     *
+     * @param boolean $hidden
+     * @return void
      */
-    public function setHidden($hidden) {    
+    public function setHidden($hidden) {
         $this->hidden = $hidden;
     }
 
 
-    /** 
-     * Returns the boolean state of hidden 
-     * 
-     * @return boolean 
+    /**
+     * Returns the boolean state of hidden
+     *
+     * @return boolean
      */
-    public function isHidden() {    
+    public function isHidden() {
         return $this->getHidden();
     }
-    
+
     /**
      * Returns the productgroup
      *
@@ -177,7 +177,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return $this->productgroup;
     }
-    
+
     /**
      * Sets the productgroup
      *
@@ -188,7 +188,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->productgroup = $productgroup;
     }
-    
+
     /**
      * Returns the productsubgroup
      *
@@ -198,7 +198,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return $this->productsubgroup;
     }
-    
+
     /**
      * Sets the productsubgroup
      *
@@ -209,7 +209,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->productsubgroup = $productsubgroup;
     }
-    
+
     /**
      * Returns the title
      *
@@ -219,7 +219,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return $this->title;
     }
-    
+
     /**
      * Sets the title
      *
@@ -230,7 +230,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->title = $title;
     }
-    
+
     /**
      * Returns the teaser
      *
@@ -240,7 +240,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return $this->teaser;
     }
-    
+
     /**
      * Sets the teaser
      *
@@ -251,7 +251,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->teaser = $teaser;
     }
-    
+
     /**
      * Returns the description
      *
@@ -261,7 +261,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return $this->description;
     }
-    
+
     /**
      * Sets the description
      *
@@ -272,7 +272,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->description = $description;
     }
-    
+
     /**
      * Returns the contentright
      *
@@ -282,7 +282,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return $this->contentright;
     }
-    
+
     /**
      * Sets the contentright
      *
@@ -293,7 +293,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->contentright = $contentright;
     }
-    
+
     /**
      * Returns the contentleft
      *
@@ -303,7 +303,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return $this->contentleft;
     }
-    
+
     /**
      * Sets the contentleft
      *
@@ -314,7 +314,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->contentleft = $contentleft;
     }
-    
+
     /**
      * Returns the images
      *
@@ -324,7 +324,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return $this->images;
     }
-    
+
     /**
      * Sets the images
      *
@@ -335,7 +335,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->images = $images;
     }
-    
+
     /**
      * __construct
      */
@@ -344,7 +344,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         //Do not remove the next line: It would break the functionality
         $this->initStorageObjects();
     }
-    
+
     /**
      * Initializes all ObjectStorage properties
      * Do not modify this method!
@@ -358,7 +358,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->articles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->ratings = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
-    
+
     /**
      * Adds a Article
      *
@@ -369,7 +369,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->articles->attach($article);
     }
-    
+
     /**
      * Removes a Article
      *
@@ -380,7 +380,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->articles->detach($articleToRemove);
     }
-    
+
     /**
      * Returns the articles
      *
@@ -390,7 +390,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return $this->articles;
     }
-    
+
     /**
      * Sets the articles
      *
@@ -401,7 +401,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->articles = $articles;
     }
-    
+
     /**
      * Returns the producer
      *
@@ -411,7 +411,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return $this->producer;
     }
-    
+
     /**
      * Sets the producer
      *
@@ -482,7 +482,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
         return ($oa / (count($this->ratings) * 3));
     }
-    
+
     /**
      * Returns the averagerating
      *
@@ -492,7 +492,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         return $this->averagerating;
     }
-    
+
     /**
      * Sets the averagerating
      *
@@ -502,5 +502,9 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setAveragerating($averagerating)
     {
         $this->averagerating = $averagerating;
+    }
+
+    public function getAvailablein(){
+        return array('Egypt');
     }
 }
