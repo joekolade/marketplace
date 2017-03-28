@@ -297,7 +297,7 @@ $star-shadow: rgba(0, 0, 0, 0.3);
 
 
 .rating {
-    float:left;
+  float:left;
   &:not(:checked) {
 
     > input {
