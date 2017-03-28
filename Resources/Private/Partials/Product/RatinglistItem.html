@@ -2,9 +2,11 @@
 
 <div class="row list-item">
     <div class="col-xs-3">
-        <f:link.action action="showProductRatings" pageUid="{settings.ratingList.singlePid}" class="" arguments="{product : product}">
-            <f:image src="{product.images.originalResource.originalFile.uid}" width="{settings.productList.image.width}" maxHeight="{settings.productList.image.height}" class="img-responsive"></f:image>
-        </f:link.action>
+        <f:if condition="{product.images}">
+            <f:link.action action="showProductRatings" pageUid="{settings.ratingList.singlePid}" class="" arguments="{product : product}">
+                <f:image src="{product.images.originalResource.originalFile.uid}" width="{settings.productList.image.width}" maxHeight="{settings.productList.image.height}" class="img-responsive"></f:image>
+            </f:link.action>
+        </f:if>
     </div>
     <div class="col-xs-6">
         <f:if condition="{product.producer.logo}">
@@ -14,7 +16,7 @@
         </f:if>
         <h2>
             <f:link.action action="showProductRatings" class="" pageUid="{settings.ratingList.singlePid}" arguments="{product : product}">
-            {product.title}
+                {product.title}
             </f:link.action>
         </h2>
         <f:if condition="{product.teaser}">
@@ -37,7 +39,7 @@
                 <f:translate key="0">Show all ratings</f:translate>
                 <i class="fa fa-chevron-right"></i>
             </f:link.action>
-        
+
             <f:render partial="Product/Buttons/RateButton" arguments="{product: product}"></f:render>
         </div>
     </div>
