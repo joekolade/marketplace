@@ -423,6 +423,9 @@
 			<trans-unit id="txt_articles">
 			    <source>Dealers and Prices</source>
 			</trans-unit>
+			<trans-unit id="txt_ratings">
+			    <source>Ratings</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

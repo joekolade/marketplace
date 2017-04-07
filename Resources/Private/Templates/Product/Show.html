@@ -62,7 +62,9 @@
         </div>
     </div>
 
-    <!-- render articles -->
+    <!--
+        render articles
+    -->
     <div class="row">
         <div class="col-xs-12">
             <a id="articles"></a>
@@ -112,70 +114,84 @@
 
 
     <!--
-      Ratings
+      render Ratings
      -->
     <div class="row ratingsListContainer">
         <div class="col-xs-12">
-            <h2>
-                <f:translate key="txt_ratings">Ratings</f:translate>
-            </h2>
-            <f:if condition="{product.ratings}">
-                <f:then>
-                    <div class="list-group">
-                        <f:for each="{product.ratings}" as="rating">
-                            <div class="list-item">
-                                <h5 class="list-group-item-heading">
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <f:render section="listitemheader"
-                                                      arguments="{rating: rating, user: rating.ratinguser}"></f:render>
-                                        </div>
-                                    </div>
-                                    <f:if condition="{settings.useReportForRatings}">
-                                        <f:link.action
-                                                action="reportRating" pageUid="{settings.productRatingDetailUid}"
-                                                controller="Rating"
-                                                arguments="{rating: rating}" target="_blank" class="report"
-                                                title="Report this rating"
-                                        >
-                                            <span class="slide-out"> report </span><i class="fa fa-ban"></i>
-                                        </f:link.action>
-                                    </f:if>
-                                </h5>
-                                <div class="list-group-item-text">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-4">
-                                            <f:render partial="Rating/RatingMini"
-                                                      arguments="{rating: rating, showLabels: 'true'}"></f:render>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-8">
-                                            <f:if condition="{rating.ratingtext}">
-                                                <f:then>
-                                                    <div class="well">
-                                                        {rating.ratingtext -> f:format.html()}
-                                                    </div>
-                                                </f:then>
-                                                <f:else>
-                                                    <em>
-                                                        <f:translate key="txt_nomsg">No descrition given</f:translate>
-                                                    </em>
-                                                </f:else>
-                                            </f:if>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <a id="articles"></a>
 
-                        </f:for>
+            <a class="btn btn-primary btn-toggle" role="button" data-toggle="collapse" href="#collapseDealers" aria-expanded="false" aria-controls="collapseRatings">
+                <f:translate key="txt_ratings">Ratings</f:translate> <i class="fa fa-chevron-right"></i>
+            </a>
+
+            <div class="row collapse" id="collapseRatings">
+                    <div class="col-xs-12">
+                        <h2>
+                            <f:translate key="txt_ratings">Ratings</f:translate>
+                        </h2>
                     </div>
-                </f:then>
-                <f:else>
-                    <p>
-                        <f:translate key="noRatings">no ratings</f:translate>
-                    </p>
-                    <f:render partial="Product/Buttons/RateButton" arguments="{product: product}"></f:render>
-                </f:else>
-            </f:if>
+                <div class="col-xs-12">
+                    <f:if condition="{product.ratings}">
+                        <f:then>
+                            <div class="list-group">
+                                <f:for each="{product.ratings}" as="rating">
+                                    <div class="list-item">
+                                        <h5 class="list-group-item-heading">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <f:render section="listitemheader"
+                                                              arguments="{rating: rating, user: rating.ratinguser}"></f:render>
+                                                </div>
+                                            </div>
+                                            <f:if condition="{settings.useReportForRatings}">
+                                                <f:link.action
+                                                        action="reportRating" pageUid="{settings.productRatingDetailUid}"
+                                                        controller="Rating"
+                                                        arguments="{rating: rating}" target="_blank" class="report"
+                                                        title="Report this rating"
+                                                >
+                                                    <span class="slide-out"> report </span><i class="fa fa-ban"></i>
+                                                </f:link.action>
+                                            </f:if>
+                                        </h5>
+                                        <div class="list-group-item-text">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-4">
+                                                    <f:render partial="Rating/RatingMini"
+                                                              arguments="{rating: rating, showLabels: 'true'}"></f:render>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-8">
+                                                    <f:if condition="{rating.ratingtext}">
+                                                        <f:then>
+                                                            <div class="well">
+                                                                {rating.ratingtext -> f:format.html()}
+                                                            </div>
+                                                        </f:then>
+                                                        <f:else>
+                                                            <em>
+                                                                <f:translate key="txt_nomsg">No descrition given</f:translate>
+                                                            </em>
+                                                        </f:else>
+                                                    </f:if>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </f:for>
+                            </div>
+                        </f:then>
+                        <f:else>
+                            <p>
+                                <f:translate key="noRatings">no ratings</f:translate>
+                            </p>
+                        </f:else>
+                    </f:if>
+                </div>
+            </div>
+
+
+            <f:render partial="Product/Buttons/RateButton" arguments="{product: product}"></f:render>
         </div>
     </div>
 
