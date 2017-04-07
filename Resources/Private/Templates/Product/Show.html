@@ -238,4 +238,29 @@
         </div>
     </f:section>
 
+
+
+
+
+    <f:section name="listitemheader">
+        <f:if condition="{user.username}">
+            <f:then>
+                {user.username}
+            </f:then>
+            <f:else>
+                {user.name}
+            </f:else>
+        </f:if>
+        <f:if condition="{rating.position} || {rating.country}"><small>[</f:if>
+        <f:if condition="{rating.position}">
+            <em>{rating.position}</em>
+        </f:if>
+        <f:if condition="{rating.country}">
+            in <em>{rating.country}</em>
+        </f:if>
+        <f:if condition="{rating.position} || {rating.country}">]</small></f:if>
+        rated on
+        <f:format.date format="y/m/d" date="{rating.crdate}"></f:format.date>
+    </f:section>
+
 </div>
