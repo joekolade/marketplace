@@ -69,13 +69,15 @@
             <f:if condition="{settings.productDetail.showHeader}">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h2>
-                            <f:translate key="txt_articles">Articles</f:translate>
-                        </h2>
+                        <a class="btn btn-primary btn-toggle" role="button" data-toggle="collapse" href="#collapseDealers" aria-expanded="false" aria-controls="collapseDealers">
+                            <h2>
+                                <f:translate key="txt_articles">Articles</f:translate>
+                            </h2>
+                        </a>
                     </div>
                 </div>
             </f:if>
-            <div class="row">
+            <div class="row collapse" id="collapseDealers">
                 <div class="col-xs-12">
                     <table class="table table-hover">
                         <thead>

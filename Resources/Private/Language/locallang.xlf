@@ -418,6 +418,11 @@
 			<trans-unit id="rating.criteriaText.3">
 			    <source>Ease of installation and use</source>
 			</trans-unit>
+
+			<!-- Text parts -->
+			<trans-unit id="txt_articles">
+			    <source>Dealers and Prices</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
