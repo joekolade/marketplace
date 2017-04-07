@@ -338,10 +338,7 @@
 				<source>There are no ratings for this product so far.</source>
 			</trans-unit>
 			<trans-unit id="product.showDescription">
-				<source>See full description</source>
-			</trans-unit>
-			<trans-unit id="product.unshowDescription">
-				<source>Hide full description</source>
+				<source>Product details</source>
 			</trans-unit>
 
 			<trans-unit id="propose.choseProducer">
