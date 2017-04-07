@@ -66,14 +66,17 @@
     <div class="row">
         <div class="col-xs-12">
             <a id="articles"></a>
+
+            <a class="btn btn-primary btn-toggle" role="button" data-toggle="collapse" href="#collapseDealers" aria-expanded="false" aria-controls="collapseDealers">
+                <f:translate key="txt_articles">Articles</f:translate>
+            </a>
+
             <f:if condition="{settings.productDetail.showHeader}">
                 <div class="row">
                     <div class="col-xs-12">
-                        <a class="btn btn-primary btn-toggle" role="button" data-toggle="collapse" href="#collapseDealers" aria-expanded="false" aria-controls="collapseDealers">
                             <h2>
                                 <f:translate key="txt_articles">Articles</f:translate>
                             </h2>
-                        </a>
                     </div>
                 </div>
             </f:if>
