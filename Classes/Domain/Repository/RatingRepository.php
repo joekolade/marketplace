@@ -36,7 +36,7 @@ class RatingRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      * @var array
      */
     protected $defaultOrderings = array(
-        'user' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
+//        'user' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
         'crdate' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
         'tstamp' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
     );
