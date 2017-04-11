@@ -1,3 +1,5 @@
+config.contentObjectExceptionHandler = 0
+
 plugin.tx_marketplace_articlesearch {
 	view {
 		templateRootPaths.0 = {$plugin.tx_marketplace_articlesearch.view.templateRootPath}
@@ -24,24 +26,24 @@ plugin.tx_marketplace_articlesearch {
 		}
 
 		recursive = {$plugin.tx_marketplace_articlesearch.persistence.recursive}
-	
+
 	}
 	#features.rewrittenPropertyMapper = 0
 	settings {
 		sitename = {$plugin.tx_marketplace_articlesearch.settings.sitename}
 		currencySign = {$plugin.tx_marketplace_articlesearch.settings.currencySign}
 		currencyDefaultUid = {$plugin.tx_marketplace_articlesearch.settings.currencyDefaultUid}
-		
+
 		requiredSign = {$plugin.tx_marketplace_articlesearch.settings.requiredSign}
 
 		list.cropDescLimit = {$plugin.tx_marketplace_articlesearch.settings.list.cropDescLimit}
-		
+
 		proposeProductUid = {$plugin.tx_marketplace_articlesearch.settings.proposeProductUid}
 		productRatingUid = {$plugin.tx_marketplace_articlesearch.settings.productRatingUid}
 		productRatingDetailUid = {$plugin.tx_marketplace_articlesearch.settings.productRatingDetailUid}
-		
+
 		otherProducerUid = {$plugin.tx_marketplace_articlesearch.settings.otherProducerUid}
-		
+
 		useReportForRatings = {$plugin.tx_marketplace_articlesearch.settings.useReportForRatings}
 		showProduerLogoOnDetailPage = {$plugin.tx_marketplace_articlesearch.settings.showProduerLogoOnDetailPage}
 
@@ -51,20 +53,20 @@ plugin.tx_marketplace_articlesearch {
 
 		productList {
 			pid = {$plugin.tx_marketplace_articlesearch.settings.productList.pid}
-		
+
 			image.width = {$plugin.tx_marketplace_articlesearch.settings.productList.image.width}
 			image.height = {$plugin.tx_marketplace_articlesearch.settings.productList.image.height}
 			producerLogoMaxWidth = {$plugin.tx_marketplace_articlesearch.settings.productList.producerLogoMaxWidth}
 			producerLogoMaxHeight = {$plugin.tx_marketplace_articlesearch.settings.productList.producerLogoMaxHeight}
 		}
-		
+
 		productDetail {
 			pid = {$plugin.tx_marketplace_articlesearch.settings.productDetail.pid}
-			
+
 			showHeader = {$plugin.tx_marketplace_articlesearch.settings.productDetail.showHeader}
 			showBacklink = {$plugin.tx_marketplace_articlesearch.settings.productDetail.showBacklink}
 			producerLogoWidth = {$plugin.tx_marketplace_articlesearch.settings.productDetail.producerLogoWidth}
-			
+
 			imageWidth = {$plugin.tx_marketplace_articlesearch.settings.productDetail.imageWidth}
 		}
 
@@ -74,7 +76,7 @@ plugin.tx_marketplace_articlesearch {
 		}
 
 		daysbetweenRatings = {$plugin.tx_marketplace_articlesearch.settings.daysbetweenRatings}
-		
+
 		register {
 			formPid = {$plugin.tx_marketplace_articlesearch.settings.register.formPid}
 			confirmationPID = {$plugin.tx_marketplace_articlesearch.settings.register.confirmationPID}
@@ -93,7 +95,7 @@ plugin.tx_marketplace_articlesearch {
 
 			userProductAcceptedSubject = {$plugin.tx_marketplace_articlesearch.settings.email.userProductAcceptedSubject}
 			userProductDeclinedSubject = {$plugin.tx_marketplace_articlesearch.settings.email.userProductDeclinedSubject}
-			
+
 			enderCeUid = {$plugin.tx_marketplace_articlesearch.settings.email.enderCeUid}
 		}
 		registerEmail < .email
@@ -104,12 +106,12 @@ plugin.tx_marketplace_articlesearch {
 		pagination {
 			itemsPerPage = {$plugin.tx_marketplace_articlesearch.settings.pagination.itemsPerPage}
 			pageLinks = {$plugin.tx_marketplace_articlesearch.settings.pagination.pageLinks}
-			
+
 			insertAbove = {$plugin.tx_marketplace_articlesearch.settings.pagination.insertAbove}
 			insertBelow = {$plugin.tx_marketplace_articlesearch.settings.pagination.insertBelow}
 		}
 
-		adminster.email < .email 
+		adminster.email < .email
 		adminster {
 			adminPid = {$plugin.tx_marketplace_articlesearch.settings.adminster.adminPid}
 			email {

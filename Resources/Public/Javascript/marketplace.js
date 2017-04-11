@@ -138,6 +138,7 @@ $(function(){
 
     // Change radio/check => submit form
     $noradios.change(function(e){
+      console.log($('form', $filter).first());
       $('form', $filter).first().submit();
     });
   }
