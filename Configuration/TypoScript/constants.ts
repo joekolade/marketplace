@@ -118,7 +118,7 @@ plugin.tx_marketplace_articlesearch {
 			subjectReceiver = Confirm your registration
 		}
 
-		# Todo: noch nicht eingbundnen ts constants
+		# Todo: noch nicht eingebundnen ts constants
 		pagination {
 			# How many items per page
 			itemsPerPage = 7
@@ -145,7 +145,7 @@ plugin.tx_marketplace_articlesearch {
 		useMarket = 0
 
 		dev {
-			emailCatcher = 0
+			emailCatcher = nande@suntransfer.com
 		}
 	}
 }
