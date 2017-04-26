@@ -142,7 +142,7 @@ plugin.tx_marketplace_articlesearch {
 			}
 		}
 
-		useMarket = 1
+        useMarket = 1
 
 		dev {
 			emailCatcher = nande@suntransfer.com
