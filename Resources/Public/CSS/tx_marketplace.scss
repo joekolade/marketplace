@@ -222,6 +222,17 @@ $star-shadow: rgba(0, 0, 0, 0.3);
   // that has to get some special
   // treatment
   .ratingBlock {
+
+    .btn {
+      display: flex;
+      align-items: center;
+
+      i {
+        position: relative;
+        top: 2px;
+      }
+    }
+
     @media screen and (min-width: 768px) and (max-width: 1090px) {
       width: 100%;
       clear: both;
