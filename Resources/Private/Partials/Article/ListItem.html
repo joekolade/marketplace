@@ -1,9 +1,9 @@
 <tr>
 
-  <td><b>{article.dealer.name}</b></td>
-  <td>{article.dealer.country.name}</td>
-  <td>{f:if(condition: article.dealer.fob, then: article.dealer.fob, else: article.dealer.country.name)}</td>
-  <td>
+  <td class="col-sm-3"><b>{article.dealer.name}</b></td>
+  <td class="col-sm-3">{article.dealer.country.name}</td>
+  <td class="col-sm-3">{f:if(condition: article.dealer.fob, then: article.dealer.fob, else: article.dealer.country.name)}</td>
+  <td class="col-sm-5">
     <f:if condition="{article.currency.uid} > {settings.currencyDefaultUid}">
       <f:then>
         <f:format.currency prependCurrency="1" currencySign="{f:if(condition: article.currency.short, then: article.currency.short, else: article.currency.name)}">{article.price}</f:format.currency>
