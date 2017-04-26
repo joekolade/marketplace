@@ -108,7 +108,7 @@
                             <tbody>
                             <f:for each="{articles}" as="article">
                                 <f:render partial="Article/ListItem"
-                                          arguments="{article: article, product: product}" />
+                                          arguments="{article: article, product: product}"/>
                             </f:for>
                             </tbody>
                         </table>
@@ -124,17 +124,17 @@
         <div class="row ratingsListContainer">
             <div class="col-xs-12">
                 <a id="ratings"></a>
+                <a class="btn btn-primary btn-toggle" role="button" data-toggle="collapse"
+                   href="#collapseRatings"
+                   aria-expanded="false" aria-controls="collapseRatings">
+                    <f:translate key="txt_ratings">Ratings</f:translate>
+                    <i class="fa fa-chevron-right"></i>
+                </a>
 
-                <f:if condition="{product.ratings}">
-                    <f:then>
-                        <a class="btn btn-primary btn-toggle" role="button" data-toggle="collapse"
-                           href="#collapseRatings"
-                           aria-expanded="false" aria-controls="collapseRatings">
-                            <f:translate key="txt_ratings">Ratings</f:translate>
-                            <i class="fa fa-chevron-right"></i>
-                        </a>
+                <div class="row collapse" id="collapseRatings">
+                    <f:if condition="{product.ratings}">
+                        <f:then>
 
-                        <div class="row collapse" id="collapseRatings">
                             <div class="col-xs-12">
                                 <h2>
                                     <f:translate key="txt_ratings">Ratings</f:translate>
@@ -148,7 +148,7 @@
                                                 <div class="row">
                                                     <div class="col-xs-12">
                                                         <f:render section="listitemheader"
-                                                                  arguments="{rating: rating, user: rating.ratinguser}" />
+                                                                  arguments="{rating: rating, user: rating.ratinguser}"/>
                                                     </div>
                                                 </div>
                                                 <f:if condition="{settings.useReportForRatings}">
@@ -167,7 +167,7 @@
                                                 <div class="row">
                                                     <div class="col-xs-12 col-sm-4">
                                                         <f:render partial="Rating/RatingMini"
-                                                                  arguments="{rating: rating, showLabels: 'true'}" />
+                                                                  arguments="{rating: rating, showLabels: 'true'}"/>
                                                     </div>
                                                     <div class="col-xs-12 col-sm-8">
                                                         <f:if condition="{rating.ratingtext}">
@@ -191,17 +191,17 @@
                                     </f:for>
                                 </div>
                             </div>
-                        </div>
 
-                    </f:then>
-                    <f:else>
-                        <p>
-                            <f:translate key="noRatings">no ratings</f:translate>
-                        </p>
-                    </f:else>
-                </f:if>
+                        </f:then>
+                        <f:else>
+                            <p>
+                                <f:translate key="noRatings">no ratings</f:translate>
+                            </p>
+                        </f:else>
+                    </f:if>
+                </div>
                 <div>
-                    <f:render partial="Product/Buttons/RateButton" arguments="{product: product}" />
+                    <f:render partial="Product/Buttons/RateButton" arguments="{product: product}"/>
                 </div>
             </div>
         </div>
@@ -224,24 +224,22 @@
             </div>
         </f:if>
         <div class="col-xs-12 image">
-            <f:render partial="Product/ImageSlider" arguments="{product: product}" />
+            <f:render partial="Product/ImageSlider" arguments="{product: product}"/>
         </div>
 
         <div class="col-xs-12">
             <br>
 
             <legend
-                <f:translate key="txt_overall">Overall rating</f:translate>
+            <f:translate key="txt_overall">Overall rating</f:translate>
             </legend>
             <div class="ratingContainer overAllRating pull-right">
-                <f:render partial="Product/OverallRating" arguments="{product: product}" />
+                <f:render partial="Product/OverallRating" arguments="{product: product}"/>
 
             </div>
-            <f:render partial="Product/Buttons/RateButton" arguments="{product: product}" />
+            <f:render partial="Product/Buttons/RateButton" arguments="{product: product}"/>
         </div>
     </f:section>
-
-
 
 
     <!-- Rating list item header -->
@@ -255,7 +253,9 @@
                 {user.name}
             </f:else>
         </f:if>
-        <f:if condition="{rating.position} || {rating.country}"><small>[</f:if>
+        <f:if condition="{rating.position} || {rating.country}">
+            <small>[
+        </f:if>
         <f:if condition="{rating.position}">
             <em>{rating.position}</em>
         </f:if>
