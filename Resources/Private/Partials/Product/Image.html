@@ -1,4 +1,11 @@
-<f:image src="{product.images.originalResource.originalFile.uid}"
-      width="{width}"
-      maxHeight="{height}"
-      class="img-responsive"></f:image>
+<f:if condition="{product.images}">
+    <f:then>
+        <f:image src="{product.images.originalResource.originalFile.uid}"
+                 width="{width}"
+                 maxHeight="{height}"
+                 class="img-responsive"></f:image>
+    </f:then>
+    <f:else>
+        <!-- No Image available -->
+    </f:else>
+</f:if>
