@@ -142,7 +142,7 @@ return array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
-				'eval' => 'Double2With4DecimalsFormat'
+				'eval' => 'Double2With8DecimalsFormat'
 			)
 		),
 		'articles' => array(

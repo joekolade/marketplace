@@ -41,7 +41,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      * @inject
      */
     protected $productRepository = NULL;
-    
+
     /**
      * articleRepository
      *
@@ -106,7 +106,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      * @inject
      */
     protected $feUserGroupRepository = NULL;
-    
+
 
 
     /**
@@ -142,7 +142,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
             $conjunctionValidator->addValidator($newValidator);
         }
     }
-    
+
     /**
     * @param array $recipient recipient of the email in the format array('recipient@domain.tld' => 'Recipient Name')
     * @param array $sender sender of the email in the format array('sender@domain.tld' => 'Sender Name')
@@ -162,6 +162,12 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
         $emailView->assignMultiple($variables);
 
         $emailBody = $emailView->render();
+
+        // Catch receipient in dev mode
+        if($this->settings['dev']['emailCatcher']){
+            $recipient = array($this->settings['dev']['emailCatcher'] => '(DEV Catcher) ' . $recipient[0]);
+            $subject = '(DEV email-catcher) ' . $subject;
+        }
 
         /** @var $message \TYPO3\CMS\Core\Mail\MailMessage */
         $message = $this->objectManager->get('TYPO3\\CMS\\Core\\Mail\\MailMessage');
@@ -185,10 +191,11 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      * @param string $uname
      * @param string $pwd
      * @param boolean $passthrough
-     * 
+     *
      * @return boolean
      */
-    protected function loginUser($uname, $pwd = '', $passthrough = FALSE) {
+    protected function loginUser($uname, $pwd = '', $passthrough = FALSE)
+    {
 
 
         $success = FALSE;
@@ -201,12 +208,12 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 
         $frontEndUser = $GLOBALS['TSFE']->fe_user;
         $frontEndUser->checkPid = FALSE;
-        
+
 
         $authenticationData = $GLOBALS['TSFE']->fe_user->getAuthInfoArray();
         $userData = $frontEndUser->fetchUserRecord($authenticationData['db_user'], $uname);
         $frontEndUser->user = $userData;
-        
+
         $saltedPassword = '';
         if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('saltedpasswords')) {
             if (\TYPO3\CMS\Saltedpasswords\Utility\SaltedPasswordsUtility::isUsageEnabled('FE')) {
@@ -269,7 +276,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
                 $body,
                 $title,
                 $severity,
-                $storeInSession            
+                $storeInSession
                 )
             );
     }
@@ -279,7 +286,8 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      *
      * @return bool|string
      */
-    public function getErrorFlashMessage() {
+    public function getErrorFlashMessage()
+    {
         return FALSE;
     }
 
@@ -302,7 +310,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      * @return array
      */
     protected function buildPagination($actualPage, $totalPages)
-    {    
+    {
 
         //Anzahl der Seiten die im Paginator angezeigt werden sollen:
         $pageLinks = $this->settings['pagination']['pageLinks'] ? intval( $this->settings['pagination']['pageLinks'] ) : 3;
@@ -312,7 +320,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 
         $i = 1;
 
-        // case 1 
+        // case 1
         // Es können alle Seiten dierekt in der Paginierung angezeigt werden
         // Paginierung: 1 | 2 | 3 | 4 | 5 | 6 | 7
         if($totalPages <= $pageLinks) {
@@ -350,11 +358,11 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
         if($actualPage >= $upper && $actualPage < $totalPages - $lower) {
             //beginn der Paginierung berechnen:
             $i = $actualPage - $lower + 1;
-            
+
             // link to first page
             $pagination[0]['value'] = 1;
             if($i != 2) $pagination[0]['class'] = 'first';
-            
+
             while ($i < $actualPage - $lower + $pageLinks) {
                 $pagination[$i]['value'] = $i;
                 if ($i == $actualPage) {

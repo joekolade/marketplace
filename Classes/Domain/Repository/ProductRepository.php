@@ -90,7 +90,7 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     )
     {
       $query = $this->createQuery();
-      
+
       // Constraints initialisieren
       $constraints = array();
       $filterActive = false;
@@ -100,14 +100,14 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $constraints[] = $query->greaterThanOrEqual('articles', 1);
       }
 
-      
-      // 
+
+      //
       // get Articles/Products by filter
       // Phrase, Country, Dealer, Continent, Tradebloc
-      // 
+      //
       if(count($filter->getCountry())){
         $filterActive = true;
-        
+
         $filteredArticles = $this->articleRepository->findByFilter($filter);
 
         if(count($filteredArticles)){
@@ -115,37 +115,37 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         }
       }
 
-      
-      // 
+
+      //
       // Filter by productgroup
       // -------------------------------------------
-      // 
+      //
       if(count($filter->getProductgroup())){
         $filterActive = true;
 
-        // 
+        //
         // Filter only by productsubgroup
         // if productsubgroup is set
         // -------------------------------------------
-        // 
+        //
         if(count($filter->getProductsubgroup())){
-          
+
           $constraints[] = $query->in('productsubgroup', $filter->getProductsubgroup());
         }
-        // 
+        //
         // Else filter only by productgroup
         // -------------------------------------------
-        // 
+        //
         else if( count($filter->getProductgroup()->getProductsubgroups()) ){
           $constraints[] = $query->in('productsubgroup', $filter->getProductgroup()->getProductsubgroups());
-        } 
+        }
         else {
           $constraints[] = $query->equals('productgroup', $filter->getProductgroup());
-        } 
+        }
       }
-      
 
-      // 
+
+      //
       // Filter by producer
       // -------------------------------------------
       //
@@ -153,15 +153,15 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $filterActive = true;
         $constraints[] = $query->in('producer', $filter->getProducer());
       }
-      
 
-      // 
+
+      //
       // Filter by searchphrase
       // -------------------------------------------
       //
       if ($filter->getSearchphrase() != '') {
           $columns = 'title,teaser,description,producer.name';
-          
+
           foreach (explode(',', $columns) as $key => $col) {
               foreach (explode(' ', $filter->getSearchphrase()) as $text) {
                   $c[] = $query->like($col, '%' . $text . '%');
@@ -172,8 +172,8 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
       }
 
 
-      
-      // 
+
+      //
       // Sort by filter
       // -------------------------------------------
       //
@@ -220,17 +220,17 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
         default:
           break;
-        # 
+        #
         # Sorting
         # 0: no sorting (alphabetical)
         # 1: rating
         # 2: alphabet
       }
 
-      // 
+      //
       // Use given constraints
       // -------------------------------------------
-      // 
+      //
       if(count($constraints)){
         $query->matching($query->logicalAnd($constraints));
       }
@@ -255,12 +255,12 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     )
    {
      return $this->findByFilter($filter, $needsArticles)->count();
-   } 
+   }
 
     /**
      * find all products (really)
      * @param \integer $uid
-     * 
+     *
      * @return [type]
      */
     public function findHiddenByUid($uid)
@@ -278,7 +278,7 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     /**
      * find the proposed product by a user to send it to the admin crew when a user finishes registration
      * @param \JS\Marketplace\Domain\Model\User $ratinguser
-     * 
+     *
      * @return [type]
      */
     public function findHiddenByUser($ratinguser)

@@ -338,10 +338,7 @@
 				<source>There are no ratings for this product so far.</source>
 			</trans-unit>
 			<trans-unit id="product.showDescription">
-				<source>See full description</source>
-			</trans-unit>
-			<trans-unit id="product.unshowDescription">
-				<source>Hide full description</source>
+				<source>Product details</source>
 			</trans-unit>
 
 			<trans-unit id="propose.choseProducer">
@@ -420,6 +417,14 @@
 			</trans-unit>
 			<trans-unit id="rating.criteriaText.3">
 			    <source>Ease of installation and use</source>
+			</trans-unit>
+
+			<!-- Text parts -->
+			<trans-unit id="txt_articles">
+			    <source>Dealers and Prices</source>
+			</trans-unit>
+			<trans-unit id="txt_ratings">
+			    <source>Ratings</source>
 			</trans-unit>
 		</body>
 	</file>

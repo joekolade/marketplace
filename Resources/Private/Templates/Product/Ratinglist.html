@@ -13,10 +13,10 @@
       </div>
     </div>
   </div>
-  
+
   <f:if condition="{products}">
       <f:then>
-        <f:widget.paginate objects="{products}" as="paginatedProducts" 
+        <f:widget.paginate objects="{products}" as="paginatedProducts"
           configuration="{itemsPerPage: settings.pagination.itemsPerPage, insertAbove: settings.pagination.insertAbove, insertBelow: settings.pagination.insertBelow, maximumNumberOfLinks: settings.pagination.pageLinks}"
         >
           <f:render section="advertise" arguments="{page: bar}" />
@@ -41,7 +41,7 @@
           {f:translate(key: 'tx_marketplace_domain_model_filter.productgroup')}: <b>{filter.productgroup.name}</b><br>
           </f:if>
           <f:if condition="{filter.productsubgroup}">
-            {f:translate(key: 'tx_marketplace_domain_model_filter.productsubgroup')}: 
+            {f:translate(key: 'tx_marketplace_domain_model_filter.productsubgroup')}:
             <f:for each="{filter.productsubgroup}" as="group" iteration="i">
               <b>{group.name}</b>{f:if( condition: '{i.isLast}', then: '', else: ', ')}
             </f:for>
@@ -68,7 +68,7 @@
 
 
 <f:section name="aside">
-    
+
     <f:render partial="Product/RatingFilter" arguments="{_all}"></f:render>
 
 </f:section>

@@ -1,11 +1,11 @@
 <div class="data">
-  <f:if condition="{product.producer}">
-    <b><f:translate key="tx_marketplace_domain_model_producer" />:</b> {product.producer.name}
-  </f:if>
-  <f:if condition="{product.productsubgroup}">
-    <br>
-    <b><f:translate key="tx_marketplace_domain_model_product.productgroup" />:</b> {product.productsubgroup.productgroup.name}
-    <br>
-    <b><f:translate key="tx_marketplace_domain_model_product.productsubgroup" />:</b> {product.productsubgroup.name}
-  </f:if>
+    <f:if condition="{product.producer}">
+        <b><f:translate key="tx_marketplace_domain_model_producer" />:</b> {product.producer.name}
+    </f:if>
+    <f:if condition="{product.productsubgroup}">
+        <br>
+        <b><f:translate key="tx_marketplace_domain_model_product.productgroup" />:</b> {product.productsubgroup.productgroup.name}
+        <br>
+        <b><f:translate key="tx_marketplace_domain_model_product.productsubgroup" />:</b> {product.productsubgroup.name}
+    </f:if>
 </div>

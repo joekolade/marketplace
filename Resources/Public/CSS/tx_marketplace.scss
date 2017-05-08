@@ -29,40 +29,41 @@ $star-shadow: rgba(0, 0, 0, 0.3);
 .top-buffer {
   margin-top: 2em;
 }
+
 .bottom-buffer {
   margin-bottom: 2em;
 }
 
 .has-feedback.has-clear {
-    /* Remove Internet Explorer native clear button */
-    input::-ms-clear {
-        display: none;
-    }
+  /* Remove Internet Explorer native clear button */
+  input::-ms-clear {
+    display: none;
+  }
 
+  .form-control-clear {
+    color: #bbb;
+    color: rgba(0, 0, 0, 0.4);
+    line-height: 32px;
+
+    /*
+     * Enable pointer events as they have been disabled since Bootstrap 3.3
+     * See https://github.com/twbs/bootstrap/pull/14104
+     */
+    pointer-events: auto;
+
+    &:hover {
+      color: #777;
+      color: rgba(0, 0, 0, 0.7);
+      cursor: pointer;
+    }
+  }
+
+  &.has-empty-value {
+    /* Do not display clear button if field has empty value */
     .form-control-clear {
-        color: #bbb;
-        color: rgba(0, 0, 0, 0.4);
-        line-height: 32px;
-
-        /*
-         * Enable pointer events as they have been disabled since Bootstrap 3.3
-         * See https://github.com/twbs/bootstrap/pull/14104
-         */
-        pointer-events: auto;
-
-        &:hover {
-            color: #777;
-            color: rgba(0, 0, 0, 0.7);
-            cursor: pointer;
-        }
+      display: none;
     }
-
-    &.has-empty-value {
-        /* Do not display clear button if field has empty value */
-        .form-control-clear {
-            display: none;
-        }
-    }
+  }
 }
 
 .f3-form-error {
@@ -155,7 +156,7 @@ $star-shadow: rgba(0, 0, 0, 0.3);
   */
   &.tx-marketplace-detail {
     .filter .image {
-        margin-top: 1em;
+      margin-top: 1em;
     }
   }
 
@@ -196,7 +197,7 @@ $star-shadow: rgba(0, 0, 0, 0.3);
           display: none;
         }
 
-        input:checked  + label {
+        input:checked + label {
 
           color: $color-primary;
 
@@ -222,6 +223,30 @@ $star-shadow: rgba(0, 0, 0, 0.3);
   // that has to get some special
   // treatment
   .ratingBlock {
+
+    padding: 0;
+
+    .btn {
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+      text-align: center;
+
+      .lead {
+        white-space: normal;
+      }
+    }
+    .btn-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      i {
+        position: relative;
+        top: 2px;
+      }
+    }
+
     @media screen and (min-width: 768px) and (max-width: 1090px) {
       width: 100%;
       clear: both;
@@ -252,20 +277,20 @@ $star-shadow: rgba(0, 0, 0, 0.3);
   }
 }
 
-
 // Adapt Bootstrap Tables
 .contenttable {
-   width: 100%;
-   max-width: 100%;
-   margin-bottom: 18px;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 18px;
 
-   >tbody>tr>td, >tbody>tr>th, >tfoot>tr>td, >tfoot>tr>th, >thead>tr>td, >thead>tr>th {
-     padding: 8px;
-     line-height: 1.4;
-     vertical-align: top;
-     border-top: 1px solid $border-color;
-   }
+  > tbody > tr > td, > tbody > tr > th, > tfoot > tr > td, > tfoot > tr > th, > thead > tr > td, > thead > tr > th {
+    padding: 8px;
+    line-height: 1.4;
+    vertical-align: top;
+    border-top: 1px solid $border-color;
+  }
 }
+
 .contenttable tr td {
   vertical-align: middle;
 }
@@ -289,21 +314,14 @@ $star-shadow: rgba(0, 0, 0, 0.3);
   }
 }
 
-
-
-
-
-
-
-
 .rating {
-  float:left;
+  float: left;
   &:not(:checked) {
 
     > input {
-      position:absolute;
-      top:-9999px;
-      clip:rect(0,0,0,0);
+      position: absolute;
+      top: -9999px;
+      clip: rect(0, 0, 0, 0);
 
       &:checked ~ label {
         color: $stars-color-before;
@@ -314,21 +332,20 @@ $star-shadow: rgba(0, 0, 0, 0.3);
     > label {
       float: right;
       width: 1em;
-      padding:0 .1em;
+      padding: 0 .1em;
       overflow: hidden;
       white-space: nowrap;
       font-size: 200%;
       line-height: 1.2;
       color: $stars-color;
-      text-shadow:
-        1px 1px 0 #515151,
-        -1px -1px 0 #515151,
-        -1px 1px 0 #515151,
-        1px -1px 0 #515151;
-    text-shadow:  1px  1px 1px $star-shadow,
-                      1px -1px 1px $star-shadow,
-                     -1px  1px 1px $star-shadow,
-                     -1px -1px 1px $star-shadow;
+      text-shadow: 1px 1px 0 #515151,
+      -1px -1px 0 #515151,
+      -1px 1px 0 #515151,
+      1px -1px 0 #515151;
+      text-shadow: 1px 1px 1px $star-shadow,
+      1px -1px 1px $star-shadow,
+      -1px 1px 1px $star-shadow,
+      -1px -1px 1px $star-shadow;
 
       &:before {
         content: '★ ';
@@ -337,8 +354,8 @@ $star-shadow: rgba(0, 0, 0, 0.3);
     &:not(.overallRating) {
       > label:hover,
       > label:hover ~ label {
-          cursor:pointer;
-          color: $stars-color-actual;
+        cursor: pointer;
+        color: $stars-color-actual;
       }
     }
   }
@@ -354,9 +371,9 @@ $star-shadow: rgba(0, 0, 0, 0.3);
   }
 
   > label:active {
-    position:relative;
-    top:2px;
-    left:2px;
+    position: relative;
+    top: 2px;
+    left: 2px;
   }
 }
 
@@ -371,6 +388,7 @@ div.rating-container {
     // font-size: 15px;
   }
 }
+
 div.rating-md {
   font-size: 1em;
   font-size: 1.5em;
@@ -384,7 +402,6 @@ div.rating-md {
   br {
     width: 100%;
   }
-
 
   .rating-count {
     margin-left: .5em;
@@ -439,7 +456,6 @@ div.rating-md {
   color: $color-rot;
   transition: background-color 0.5s linear;
 
-
   .fa {
     position: relative;
     top: -1px;
@@ -473,9 +489,11 @@ div.rating-md {
     margin-bottom: 1em;
   }
   // Filter search
-  &-search {}
+  &-search {
+  }
   // Filter reset
-  &-reset {}
+  &-reset {
+  }
 
   // Toggle button
   &-toggle {
@@ -515,6 +533,7 @@ div.rating-md {
     margin-right: 0.5em;
   }
 }
+
 .paginator {
   .btn {
     padding: 6px 12px;
@@ -527,13 +546,11 @@ div.rating-md {
 
 .tx-marketplace {
 
-
   // Filter / aside
   .filter {
     padding-top: $gutter-width;
     padding-bottom: $gutter-width;
   }
-
 
   //
   // Rating list
@@ -567,6 +584,7 @@ div.rating-md {
     h1 {
       position: relative;
       z-index: 8;
+      margin-top: 1em;
     }
 
     .imageSlider {
@@ -575,7 +593,7 @@ div.rating-md {
         display: inline-block;
         width: auto;
         max-width: 100%;
-     }
+      }
     }
   }
   //
@@ -603,7 +621,6 @@ div.rating-md {
     }
   }
 }
-
 
 // Sortby
 @media screen and (min-width: 768px) {
