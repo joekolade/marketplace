@@ -10,7 +10,7 @@ plugin.tx_marketplace_articlesearch {
 		widget.TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper.templateRootPath = EXT:marketplace/Resources/Private/Templates/
 	}
 	features {
-		skipDefaultArguments = 1
+		#skipDefaultArguments = 1
 	}
 	persistence {
 		storagePid = {$plugin.tx_marketplace_articlesearch.persistence.storagePid}
