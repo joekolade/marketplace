@@ -142,10 +142,11 @@ plugin.tx_marketplace_articlesearch {
 			}
 		}
 
-        useMarket = 1
+        useMarket = 0
 
 		dev {
-			emailCatcher = nande@suntransfer.com
+			#emailCatcher = nande@suntransfer.com
+			emailCatcher = 0
 		}
 	}
 }
