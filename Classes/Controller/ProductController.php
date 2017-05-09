@@ -242,6 +242,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      * action showProductRatings
      *
      * @param \JS\Marketplace\Domain\Model\Product $product
+     * @ignorevalidation $product
      * @return void
      */
     public function showProductRatingsAction(\JS\Marketplace\Domain\Model\Product $product = NULL)
