@@ -3,7 +3,7 @@
 <div class="row list-item">
     <div class="col-xs-3">
         <f:if condition="{product.images}">
-            <f:link.action action="show" pageUid="{settings.productDetail.pid}" arguments="{product : product}">
+            <f:link.action action="showProductRatings" pageUid="{settings.ratingList.singlePid}" class="" arguments="{product : product}">
                 <f:image src="{product.images.originalResource.originalFile.uid}" width="{settings.productList.image.width}" maxHeight="{settings.productList.image.height}" class="img-responsive"></f:image>
             </f:link.action>
         </f:if>

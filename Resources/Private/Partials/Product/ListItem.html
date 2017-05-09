@@ -2,7 +2,7 @@
 <div class="row list-item">
     <div class="col-xs-3">
         <f:if condition="{product.images}">
-            <f:link.action action="show" pageUid="{settings.productDetail.pid}" arguments="{product : product}">
+            <f:link.action action="show" class="btn btn-default" pageUid="{settings.productDetail.pid}" arguments="{product : product}">
                 <f:image src="{product.images.originalResource.originalFile.uid}"
                          width="{settings.productList.image.width}" maxHeight="{settings.productList.image.height}"
                          class="img-responsive" />
