@@ -18,7 +18,7 @@ tx_csseo {
     # enable evaluation for products
     2.evaluation {
         # additional params to initialize the detail view, the pipe will be replaced by the uid
-        getParams = &tx_marketplace_articlesearch[controller]=Product&tx_marketplace_articlesearch[action]=Show&tx_marketplace_articlesearch[product]=|&L=0
+        getParams = &L=&tx_marketplace_articlesearch[controller]=Product&tx_marketplace_articlesearch[action]=Show&tx_marketplace_articlesearch[product]=|
 
         # detail pid for the current records, only if set the table will be available
         detailPid = 152
