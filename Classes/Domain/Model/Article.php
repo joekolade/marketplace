@@ -52,7 +52,6 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * dealer
      *
      * @var \JS\Marketplace\Domain\Model\Dealer
-     * @lazy
      */
     protected $dealer = null;
     
