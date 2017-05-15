@@ -58,7 +58,7 @@ class Rating extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var int
      * @validate NumberRange(minimum = 1, maximum = 5)
      */
-    protected $criteria2;
+    protected $criteria2 = 0;
 
     /**
      * Criteria 3
@@ -66,7 +66,7 @@ class Rating extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @var int
      * @validate NumberRange(minimum = 1, maximum = 5)
      */
-    protected $criteria3;
+    protected $criteria3 = 0;
     
     /**
      * ratinguser

@@ -94,7 +94,7 @@ $(function(){
     $('.rating-container')
       .each(function(){
         let v = ($('input', $(this)).val() < ratingOptions.max) ? $('input', $(this)).val() / ratingOptions.max * 100 : 0;
-        if(v > 5){
+        if(v >= 5){
           v -= 5;
         } else {
           v = 0;
