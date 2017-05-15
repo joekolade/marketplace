@@ -797,7 +797,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump(count($bArt));
 
         if(count($aArt) == 0){
-            return -1;
+            return 1;
         }
         if(count($bArt) == 0){
             return -1;
