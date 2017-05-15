@@ -66,8 +66,6 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
           $filter = new \JS\Marketplace\Domain\Model\Filter();
           $filterActive = false;
         }
-        
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($filter);
 
         $cookie_name = 'sendea_marketplace_listSortby';
         $cacheId = $GLOBALS['TSFE']->id . "-" .
