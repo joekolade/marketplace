@@ -9,7 +9,7 @@ tx_csseo {
     2.fallback {
 
         # cs_seo title field fallback = product title field
-        title = title
+        title = CONCAT(title, ', ', producer.name)
 
         # cs_seo description field fallback = product description field
         description = description
