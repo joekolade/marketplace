@@ -97,16 +97,7 @@
         </div>
         <div id="collapseProducer" class="panel-collapse collapse" role="tabpanel">
             <div class="panel-body">
-                <f:for each="{producers}" as="producer" iteration="it">
-                    <div class="checkbox">
-                        <f:form.checkbox property="producer" id="producer-{producer.uid}" value="{producer.uid}" multiple="true" />
-                        <label for="producer-{producer.uid}">
-                            {producer.name}
-                        </label>
-                    </div>
-                </f:for>
-
-                <f:form.select property="producer" multiple="TRUE" options="{producers}" optionValueField="uid" optionLabelField="name" class="selectpicker"></f:form.select>
+                <f:form.select property="producer" multiple="TRUE" options="{producers}" optionValueField="uid" optionLabelField="name" class="form-control selectpicker" data="{live-search: 'true'}"></f:form.select>
             </div>
         </div>
     </div>
