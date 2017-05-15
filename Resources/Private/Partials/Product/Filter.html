@@ -39,7 +39,7 @@
                 </a>
             </h4>
         </div>
-        <div id="collapseProductgroup" class="panel-collapse collapse in" role="tabpanel">
+        <div id="collapseProductgroup" class="panel-collapse collapse{f:if(condition: filter.productgroup, then: ' in')}" role="tabpanel">
             <div class="panel-body">
                 <div class="no-radios">
                     <f:if condition="{productgroups -> f:count()} == 1">
