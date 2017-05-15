@@ -795,7 +795,11 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         }
 
         \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($aLowestPrice);
-        
+
+        if(!count($bArt)){
+            return -1;
+        }
+
         // Switch/Swap ordering
         if(!$asc) {
             $tmp = $aLowestPrice;
