@@ -62,7 +62,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
     {
         $filterActive = true;
 
-        if(!$filter) {
+        if($filter == NULL) {
           $filter = new \JS\Marketplace\Domain\Model\Filter();
           $filterActive = false;
         }
