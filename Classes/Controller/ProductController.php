@@ -784,8 +784,8 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
     {
         $aArt = $a->getArticles();
         $bArt = $b->getArticles();
-        $aLowestPrice = 1000000000;
-        $bLowestPrice = 1000000000;
+        $aLowestPrice = (float) 1000000000;
+        $bLowestPrice = (float) 1000000000;
 
         foreach ($aArt as $article) {
             $aLowestPrice = min($article->getComparablePrice(), $aLowestPrice);
