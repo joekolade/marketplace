@@ -323,8 +323,9 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      *
      * @return void
      */
-    public function sendRatingAction($product, $rating = null)
+    public function sendRatingAction($product, $rating = NULL)
     {
+        
 
         $rating->setProduct($product);
 

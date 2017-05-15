@@ -27,18 +27,24 @@ class AvailableListViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractV
         $continents = array();
 
         foreach ($product->getArticles() as $article) {
+            \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($article);
+            if($article->getDealer()) {
 
-            $c = $article->getDealer()->getCountry()->getContinent()->getName();
-            $country = $article->getDealer()->getCountry()->getName();
-            if (count($continents[$c])) {
-                if (!in_array($country, $continents[$c]['countries'])) {
-                    $continents[$c]['countries'][] = $country;
+                $c = $article->getDealer()->getCountry()->getContinent()->getName();
+                $country = $article->getDealer()->getCountry()->getName();
+                if (count($continents[$c])) {
+                    if (!in_array($country, $continents[$c]['countries'])) {
+                        $continents[$c]['countries'][] = $country;
+                    }
+                } else {
+                    $continents[$c] = array(
+                        'name' => $c,
+                        'countries' => array($country)
+                    );
                 }
-            } else {
-                $continents[$c] = array(
-                    'name' => $c,
-                    'countries' => array($country)
-                );
+            }
+            else {
+                // no Dealer set
             }
         }
 
