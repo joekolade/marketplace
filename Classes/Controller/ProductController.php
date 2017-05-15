@@ -803,7 +803,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             $bLowestPrice = $tmp;
         }
 
-        return ($aLowestPrice >= $bLowestPrice) ? -1 : 1;
+        return ($aLowestPrice >= $bLowestPrice) ? 1 : -1;
     }
 
     protected function comparePriceDesc($a, $b)
