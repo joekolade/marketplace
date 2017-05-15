@@ -788,10 +788,10 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         $bLowestPrice = 1000000000;
 
         foreach ($aArt as $article) {
-            $aLowestPrice = Math.min($article->getComparablePrice(), $aLowestPrice);
+            $aLowestPrice = min($article->getComparablePrice(), $aLowestPrice);
         }
         foreach ($bArt as $article) {
-            $bLowestPrice = Math.min($article->getComparablePrice(), $bLowestPrice);
+            $bLowestPrice = min($article->getComparablePrice(), $bLowestPrice);
         }
 
         \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($aLowestPrice);
