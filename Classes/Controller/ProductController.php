@@ -1,4 +1,5 @@
 <?php
+
 namespace JS\Marketplace\Controller;
 
 use JS\Marketplace\Domain\Model\Filter;
@@ -46,9 +47,10 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      */
     protected $cObj;
 
-    public function initializeAction() {
-       $this->cacheInstance = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Cache\\CacheManager')->getCache("marketplace");
-       $this->cObj = $this->configurationManager->getContentObject();
+    public function initializeAction()
+    {
+        $this->cacheInstance = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Cache\\CacheManager')->getCache("marketplace");
+        $this->cObj = $this->configurationManager->getContentObject();
     }
 
 
@@ -58,79 +60,85 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      * @param \JS\Marketplace\Domain\Model\Filter $filter
      * @return void
      */
-    public function listAction(\JS\Marketplace\Domain\Model\Filter $filter = NULL)
+    public function listAction(\JS\Marketplace\Domain\Model\Filter $filter = null)
     {
         $filterActive = true;
 
-        if(!$filter) {
-          $filter = new \JS\Marketplace\Domain\Model\Filter();
-          $filterActive = false;
+        if (!$filter) {
+            $filter = new \JS\Marketplace\Domain\Model\Filter();
+            $filterActive = false;
         }
-        
+
         \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($filter);
 
         $cookie_name = 'sendea_marketplace_listSortby';
         $cacheId = $GLOBALS['TSFE']->id . "-" .
-              $this->cObj->data['uid']. "-" .
-              $GLOBALS['TSFE']->sys_language_uid . "-" .
-              $filter->getSearchphrase() . "_" .
-              $filter->getProducer()->first()->getUid() . "_" .
-              $this->actionMethodName;
+            $this->cObj->data['uid'] . "-" .
+            $GLOBALS['TSFE']->sys_language_uid . "-" .
+            $this->actionMethodName;
 
-        if($filter->getSortby()){
-          setcookie($cookie_name, $filter->getSortby(),NULL ,'/');
-          $cacheId .= "-" . $filter->getSortby();
+        if ($filter->getSearchphrase()) {
+            $cacheId .= $filter->getSearchphrase();
         }
-        else if($filter->getSortby() == 0){
-          setcookie($cookie_name, 0,NULL ,'/');
-        }
-        else if($_COOKIE[$cookie_name]){
-          $filter->setSortby($_COOKIE[$cookie_name]);
+        if ($filter->getSortby()) {
+            setcookie($cookie_name, $filter->getSortby(), null, '/');
+            $cacheId .= "-" . $filter->getSortby();
+        } else {
+            if ($filter->getSortby() == 0) {
+                setcookie($cookie_name, 0, null, '/');
+            } else {
+                if ($_COOKIE[$cookie_name]) {
+                    $filter->setSortby($_COOKIE[$cookie_name]);
+                }
+            }
         }
 
-        if(count($filter->getProductgroup())) {
-          $cacheId .= '-group' .$filter->getProductgroup()->getUid();
+        if (count($filter->getProducer())) {
+            $cacheId .= '-prod' . $filter->getProducer()->getUid();
         }
-        if(count($filter->getProductsubgroup())) {
-          $cacheId .= '-subgroups';
-          foreach ($filter->getProductsubgroup() as $sg) {
-            $cacheId .= $sg->getUid();
-          }
+
+        if (count($filter->getProductgroup())) {
+            $cacheId .= '-group' . $filter->getProductgroup()->getUid();
+        }
+        if (count($filter->getProductsubgroup())) {
+            $cacheId .= '-subgroups';
+            foreach ($filter->getProductsubgroup() as $sg) {
+                $cacheId .= $sg->getUid();
+            }
         }
         // Cache identifier
         $cacheIdentifier = md5($cacheId);
 
         $cacheData = array();
         // Is there a cache?
-        if ($this->cacheInstance->has($cacheIdentifier) ) {
-          // Cache vorhanden
-          $cacheData = $this->cacheInstance->get($cacheIdentifier);
+        if ($this->cacheInstance->has($cacheIdentifier)) {
+            // Cache vorhanden
+            $cacheData = $this->cacheInstance->get($cacheIdentifier);
         } else {
             // Get the products and put them to the filter data
-            $products = $this->productRepository->findByFilter($filter, FALSE);
+            $products = $this->productRepository->findByFilter($filter, false);
 
             // Sort Products if overallrating
             // second filtering: most rated
-            if($filter->getSortby() == 2){
-              $products = $products->toArray();
-              usort ($products, array($this, 'compareRatingsAfterOverall'));
+            if ($filter->getSortby() == 2) {
+                $products = $products->toArray();
+                usort($products, array($this, 'compareRatingsAfterOverall'));
             }
             // Sort Products if most rated
-            if($filter->getSortby() == 3){
-              $products = $products->toArray();
-              usort ($products, array($this, 'compareRatings'));
+            if ($filter->getSortby() == 3) {
+                $products = $products->toArray();
+                usort($products, array($this, 'compareRatings'));
             }
 
             $cacheData['products'] = $products;
 
             // if filtered by productgroup
-            if( count($filter->getProductgroup()) ) {
-              $cacheData['productgroups'] = array($filter->getProductgroup());
-              $cacheData['productsubgroups'] = $this->productsubgroupRepository->findByProductgroup($filter->getProductgroup());
-            }
-            else {
-              $cacheData['productgroups'] = $this->productgroupRepository->findAll();
-              $cacheData['productsubgroups'] = NULL;
+            if (count($filter->getProductgroup())) {
+                $cacheData['productgroups'] = array($filter->getProductgroup());
+                $cacheData['productsubgroups'] = $this->productsubgroupRepository->findByProductgroup($filter->getProductgroup());
+            } else {
+                $cacheData['productgroups'] = $this->productgroupRepository->findAll();
+                $cacheData['productsubgroups'] = null;
             }
 
             // Write Data to cache
@@ -159,14 +167,14 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
 
     public function initializeRatinglistAction()
     {
-      // $propertyMappingConfiguration = $this->arguments['filter']->getPropertyMappingConfiguration();
-      //  $propertyMappingConfiguration->allowProperties('productgroup');
-      // set sctual overallRating for all products
-      $prods = $this->productRepository->findAll();
-      foreach ($prods as $p) {
-        $p->setAverageRating($p->getOverallrating());
-        $this->productRepository->update($p);
-      }
+        // $propertyMappingConfiguration = $this->arguments['filter']->getPropertyMappingConfiguration();
+        //  $propertyMappingConfiguration->allowProperties('productgroup');
+        // set sctual overallRating for all products
+        $prods = $this->productRepository->findAll();
+        foreach ($prods as $p) {
+            $p->setAverageRating($p->getOverallrating());
+            $this->productRepository->update($p);
+        }
     }
 
     /**
@@ -176,50 +184,51 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      * @ignorevalidation $filter
      * @return void
      */
-    public function ratinglistAction(\JS\Marketplace\Domain\Model\Filter $filter = NULL)
+    public function ratinglistAction(\JS\Marketplace\Domain\Model\Filter $filter = null)
     {
         $filterActive = true;
 
-        if(!$filter) {
-          $filter = new \JS\Marketplace\Domain\Model\Filter();
-          $filterActive = false;
+        if (!$filter) {
+            $filter = new \JS\Marketplace\Domain\Model\Filter();
+            $filterActive = false;
         }
 
         $cookie_name = 'sendea_marketplace_listSortby';
 
-        if($filter->getSortby()){
-          setcookie($cookie_name, $filter->getSortby(),NULL ,'/');
-        }
-        else if($filter->getSortby() == 0){
-          setcookie($cookie_name, 0,NULL ,'/');
-        }
-        else if($_COOKIE[$cookie_name]){
-          $filter->setSortby($_COOKIE[$cookie_name]);
+        if ($filter->getSortby()) {
+            setcookie($cookie_name, $filter->getSortby(), null, '/');
+        } else {
+            if ($filter->getSortby() == 0) {
+                setcookie($cookie_name, 0, null, '/');
+            } else {
+                if ($_COOKIE[$cookie_name]) {
+                    $filter->setSortby($_COOKIE[$cookie_name]);
+                }
+            }
         }
 
         // Get the products
-        $products = $this->productRepository->findByFilter($filter, FALSE);
+        $products = $this->productRepository->findByFilter($filter, false);
 
         // if filtered by productgroup
-        if( count($filter->getProductgroup()) ) {
-          $productgroups = array($filter->getProductgroup());
-          $productsubgroups = $this->productsubgroupRepository->findByProductgroup($filter->getProductgroup());
-        }
-        else {
-          $productsubgroups = NULL;
-          $productgroups = $this->productgroupRepository->findAll();
+        if (count($filter->getProductgroup())) {
+            $productgroups = array($filter->getProductgroup());
+            $productsubgroups = $this->productsubgroupRepository->findByProductgroup($filter->getProductgroup());
+        } else {
+            $productsubgroups = null;
+            $productgroups = $this->productgroupRepository->findAll();
         }
 
         // Sort Products if overallrating
         // second filtering: most rated
-        if($filter->getSortby() == 2){
-          $products = $products->toArray();
-          usort ($products, array($this, 'compareRatingsAfterOverall'));
+        if ($filter->getSortby() == 2) {
+            $products = $products->toArray();
+            usort($products, array($this, 'compareRatingsAfterOverall'));
         }
         // Sort Products if most rated
-        if($filter->getSortby() == 3){
-          $products = $products->toArray();
-          usort ($products, array($this, 'compareRatings'));
+        if ($filter->getSortby() == 3) {
+            $products = $products->toArray();
+            usort($products, array($this, 'compareRatings'));
         }
 
         $this->view->assignMultiple([
@@ -248,14 +257,14 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      * @ignorevalidation $product
      * @return void
      */
-    public function showProductRatingsAction(\JS\Marketplace\Domain\Model\Product $product = NULL)
+    public function showProductRatingsAction(\JS\Marketplace\Domain\Model\Product $product = null)
     {
-      if(!$product) {
-        $this->redirect(
-            'ratinglist'
-        );
-      }
-      $this->view->assign('product', $product);
+        if (!$product) {
+            $this->redirect(
+                'ratinglist'
+            );
+        }
+        $this->view->assign('product', $product);
     }
 
     /**
@@ -265,18 +274,18 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      * @ignorevalidation $product
      * @return void
      */
-    public function showAction(\JS\Marketplace\Domain\Model\Product $product = NULL)
+    public function showAction(\JS\Marketplace\Domain\Model\Product $product = null)
     {
-      if(!$product) {
-        $this->redirect(
-            'list'
-        );
-      }
-      $articles = $this->articleRepository->findByProduct($product);
+        if (!$product) {
+            $this->redirect(
+                'list'
+            );
+        }
+        $articles = $this->articleRepository->findByProduct($product);
 
-      $this->view->assign('product', $product);
-      $this->view->assign('articles', $this->sortByPrice($articles->toArray()));
-      $this->view->assign('view','detail');
+        $this->view->assign('product', $product);
+        $this->view->assign('articles', $this->sortByPrice($articles->toArray()));
+        $this->view->assign('view', 'detail');
     }
 
     /**
@@ -287,9 +296,9 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      *
      * @return void
      */
-    public function rateProductAction($product, $rating = NULL)
+    public function rateProductAction($product, $rating = null)
     {
-        if(!$rating){
+        if (!$rating) {
             $rating = new \JS\Marketplace\Domain\Model\Rating();
             $rating->setProduct($product);
         }
@@ -313,7 +322,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      *
      * @return void
      */
-    public function sendRatingAction($product, $rating = NULL)
+    public function sendRatingAction($product, $rating = null)
     {
 
         $rating->setProduct($product);
@@ -331,45 +340,44 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         //
         $user = $this->forwardIfNotLoggedIn($rating);
 
-        if( $user ) {
-          // Allowed to rate?
-          $d = $this->daysSinceLastRating($user, $product);
+        if ($user) {
+            // Allowed to rate?
+            $d = $this->daysSinceLastRating($user, $product);
 
-          if(
-            // There is a rating other than the actual rating
-            $d &&
-            // And it lies not long enogh in the past
-            $d <= $this->settings['daysbetweenRatings']
-          ){
-            // No Rating allowed!
+            if (
+                // There is a rating other than the actual rating
+                $d &&
+                // And it lies not long enogh in the past
+                $d <= $this->settings['daysbetweenRatings']
+            ) {
+                // No Rating allowed!
 
-            $this->ratingRepository->remove($rating);
-            $this->sendMessage(
-              'You are not allowed to rate this product!',
-              $user->getName().', you may rate this product again '
-              . ( ($this->settings['daysbetweenRatings'] - $d) ? 'in ' . ($this->settings['daysbetweenRatings'] - $d)  . ' days!' : ' tomorrow'),
-              'warning'
-            );
+                $this->ratingRepository->remove($rating);
+                $this->sendMessage(
+                    'You are not allowed to rate this product!',
+                    $user->getName() . ', you may rate this product again '
+                    . (($this->settings['daysbetweenRatings'] - $d) ? 'in ' . ($this->settings['daysbetweenRatings'] - $d) . ' days!' : ' tomorrow'),
+                    'warning'
+                );
 
-            //
-            // Date an User
-            //
-          }
-          else {
+                //
+                // Date an User
+                //
+            } else {
 
-            $rating->setRatinguser($user);
-            // Hidden is TRUE by default
-            $rating->setHidden(FALSE);
-            // Send update to DB
-            $this->ratingRepository->update($rating);
-            // Set overall/average rating
-            $product->setAverageRating($product->getOverallrating());
-            $this->productRepository->update($product);
+                $rating->setRatinguser($user);
+                // Hidden is TRUE by default
+                $rating->setHidden(false);
+                // Send update to DB
+                $this->ratingRepository->update($rating);
+                // Set overall/average rating
+                $product->setAverageRating($product->getOverallrating());
+                $this->productRepository->update($product);
 
-            $this->sendMessage('Thank you '.$user->getName(), 'Your rating has been saved.', 'ok');
-            // Send to view
-            $this->view->assign('rating', $rating);
-          }
+                $this->sendMessage('Thank you ' . $user->getName(), 'Your rating has been saved.', 'ok');
+                // Send to view
+                $this->view->assign('rating', $rating);
+            }
         }
 
     }
@@ -378,12 +386,11 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      * Show form to propose a product
      *
      * @param \JS\Marketplace\Domain\Model\Product $product
-
      * @return void
      */
-    public function showProposeProductFormAction($product = NULL)
+    public function showProposeProductFormAction($product = null)
     {
-        if(!$product){
+        if (!$product) {
             $product = new \JS\Marketplace\Domain\Model\Product();
         }
 
@@ -404,20 +411,20 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      *
      * @return void
      */
-    public function proposeProductAction($product = NULL)
+    public function proposeProductAction($product = null)
     {
         // Handle product
         // from registration confirmation
-        if(!$product) {
-          if($this->request->hasArgument('product')) {
-            $product = $this->productRepository->findHiddenByUid($this->request->getArgument('product'));
-          }
+        if (!$product) {
+            if ($this->request->hasArgument('product')) {
+                $product = $this->productRepository->findHiddenByUid($this->request->getArgument('product'));
+            }
         }
 
         //
         // Use product teaser as "hash"-field
         //
-        $hash = sha1($product->getTitle().date('U'));
+        $hash = sha1($product->getTitle() . date('U'));
         $product->setTeaser($hash);
 
 
@@ -428,7 +435,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         //
         // Login/Register user
         //
-        $user = $this->forwardIfNotLoggedIn(NULL, $product);
+        $user = $this->forwardIfNotLoggedIn(null, $product);
         $product->setProposinguser($user);
         $this->productRepository->update($product);
 
@@ -449,7 +456,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         );
 
         // send email to admin team
-        if(!$this->sendTemplateEmail($recipients, $sender, $subject, $templateName, $arguments)){
+        if (!$this->sendTemplateEmail($recipients, $sender, $subject, $templateName, $arguments)) {
             $error = true;
         }
 
@@ -465,7 +472,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
     public function adminProductAction()
     {
         // Error switch
-        $error = TRUE;
+        $error = true;
 
         // Prepare flashmessage
         $title = 'An error occured!';
@@ -476,7 +483,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         $product = $this->productRepository->findHiddenByUid($this->request->getArgument('product'));
 
         // Check if hash is ok
-        if($product && $product->getTeaser() === $hash){
+        if ($product && $product->getTeaser() === $hash) {
             // Email basics
             $emailSettings = $this->settings['email'];
             $recipients = array($product->getProposinguser()->getEmail() => $product->getProposinguser()->getName());
@@ -489,13 +496,13 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             );
 
             // So far no errors
-            $error = FALSE;
-            switch($this->request->getArgument('do')){
+            $error = false;
+            switch ($this->request->getArgument('do')) {
                 case 'accept':
                     // OPTIONAL: edit product
 
                     // Product unhide
-                    $product->setHidden(FALSE);
+                    $product->setHidden(false);
                     // Remove "hash"
                     $product->setTeaser('');
                     $this->productRepository->update($product);
@@ -505,7 +512,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
                     $subject = $emailSettings['userProductAcceptedSubject'];
 
                     // Flashmessage
-                    $title = 'Product ('.$product->getTitle().') accepted!';
+                    $title = 'Product (' . $product->getTitle() . ') accepted!';
                     $body = 'The product was accepted and activated.<br />The proposing user was informed about this action.';
                     $severity = 'ok';
 
@@ -521,7 +528,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
                     $subject = $emailSettings['userProductDeclinedSubject'];
 
                     // Flashmessage
-                    $title = 'Product ('.$product->getTitle().') declined!';
+                    $title = 'Product (' . $product->getTitle() . ') declined!';
                     $body = 'The product was declined and deleted.<br />The proposing user was informed about this action.';
                     $severity = 'warning';
 
@@ -531,14 +538,14 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
                     break;
                 default:
                     // OPTIONAL: chose action?!?
-                    $error = TRUE;
+                    $error = true;
             }
 
             //
             // send email to user
             //
-            if(!$error && !$this->sendTemplateEmail($recipients, $sender, $subject, $templateName, $arguments)){
-                $error = TRUE;
+            if (!$error && !$this->sendTemplateEmail($recipients, $sender, $subject, $templateName, $arguments)) {
+                $error = true;
             }
         }
 
@@ -560,7 +567,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      */
     private function sortByPrice($query)
     {
-        usort($query, function($a, $b) {
+        usort($query, function ($a, $b) {
             if ($a->getComparablePrice() == $b->getComparablePrice()) {
                 return 0;
             }
@@ -582,15 +589,15 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      * @ignorevalidation $product
      * @return void
      */
-    public function loginFormAction($rating = NULL, $product = NULL, $message = FALSE)
+    public function loginFormAction($rating = null, $product = null, $message = false)
     {
-      if(!$message){
-        $this->sendMessage(
-            \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('loginFirstTitle', 'marketplace'),
-            \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('loginToRateText', 'marketplace'),
-            'warning'
-        );
-      }
+        if (!$message) {
+            $this->sendMessage(
+                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('loginFirstTitle', 'marketplace'),
+                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('loginToRateText', 'marketplace'),
+                'warning'
+            );
+        }
 
         // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($rating);
         $this->view->assignMultiple(array(
@@ -607,13 +614,13 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      */
     public function loginAction()
     {
-        $rating = NULL;
-        $product = NULL;
+        $rating = null;
+        $product = null;
 
-        if(!empty($this->request->getArgument('rating'))){
+        if (!empty($this->request->getArgument('rating'))) {
             $rating = $this->ratingRepository->findHiddenByUid(intval($this->request->getArgument('rating')['__identity']));
         }
-        if(!empty($this->request->getArgument('product'))){
+        if (!empty($this->request->getArgument('product'))) {
             $product = $this->productRepository->findHiddenByUid(intval($this->request->getArgument('product')['__identity']));
         }
 
@@ -628,57 +635,54 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         // }
 
 
-        if($this->loginUser($this->request->getArgument('uname'), $this->request->getArgument('password'))) {
-          // login successfull
-          $user = $this->userRepository->findByUid($GLOBALS['TSFE']->fe_user->user['uid']);
+        if ($this->loginUser($this->request->getArgument('uname'), $this->request->getArgument('password'))) {
+            // login successfull
+            $user = $this->userRepository->findByUid($GLOBALS['TSFE']->fe_user->user['uid']);
 
-          if($product) {
-              // product is not switched on, since it has to be reviewd
-              $product->setProposinguser($user);
-              $this->productRepository->update($product);
-              $this->forward(
-                'proposeProduct',
-                NULL,
-                NULL,
-                array(
-                    'product' => $product,
-                    'rating' => $rating
-                )
-              );
-          }
-          elseif($rating) {
-            // switches rating not on
-            // $rating->setHidden(0);
-            $rating->setRatinguser($user);
-            $this->ratingRepository->update($rating);
-            $product = $rating->getProduct();
+            if ($product) {
+                // product is not switched on, since it has to be reviewd
+                $product->setProposinguser($user);
+                $this->productRepository->update($product);
+                $this->forward(
+                    'proposeProduct',
+                    null,
+                    null,
+                    array(
+                        'product' => $product,
+                        'rating' => $rating
+                    )
+                );
+            } elseif ($rating) {
+                // switches rating not on
+                // $rating->setHidden(0);
+                $rating->setRatinguser($user);
+                $this->ratingRepository->update($rating);
+                $product = $rating->getProduct();
 
-            $this->forward(
-              'sendRating',
-              NULL,
-              NULL,
-              array(
-                  'rating' => $rating,
-                  'product' => $product
-              )
+                $this->forward(
+                    'sendRating',
+                    null,
+                    null,
+                    array(
+                        'rating' => $rating,
+                        'product' => $product
+                    )
+                );
+            } else {
+                die('Error while logging in!');
+            }
+        } else {
+            $this->sendMessage(
+                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('loginErrorTitle', 'marketplace'),
+                \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('loginErrorText', 'marketplace'),
+                'error'
             );
-          }
-          else {
-            die('Error while logging in!');
-          }
-        }
-        else {
-          $this->sendMessage(
-              \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('loginErrorTitle', 'marketplace'),
-              \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('loginErrorText', 'marketplace'),
-              'error'
-          );
-          $this->forward(
-              'loginForm',
-              NULL,
-              NULL,
-              array('rating' => $rating, 'product' => $product, 'message' => TRUE)
-          );
+            $this->forward(
+                'loginForm',
+                null,
+                null,
+                array('rating' => $rating, 'product' => $product, 'message' => true)
+            );
         }
     }
 
@@ -692,28 +696,27 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      * @ignorevalidation $product
      * @return \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
      */
-    private function forwardIfNotLoggedIn($rating = NULL, $product = NULL)
+    private function forwardIfNotLoggedIn($rating = null, $product = null)
     {
         // Persistance of objects
-        if($rating){
+        if ($rating) {
             $this->ratingRepository->add($rating);
         }
-        if($product){
+        if ($product) {
             $this->productRepository->add($product);
         }
         $persistenceManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance("TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager");
         $persistenceManager->persistAll();
 
-        if($GLOBALS['TSFE']->fe_user->user){
+        if ($GLOBALS['TSFE']->fe_user->user) {
             // return $userObject = $feUserRepository->findByUid($GLOBALS['TSFE']->fe_user->user['uid']);
             return $this->userRepository->findByUid($GLOBALS['TSFE']->fe_user->user['uid']);
-        }
-        else {
+        } else {
             // redirect to login/register action
             $this->forward(
                 'loginForm',
-                NULL,
-                NULL,
+                null,
+                null,
                 array('rating' => $rating, 'product' => $product)
             );
         }
@@ -729,26 +732,26 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      */
     protected function daysSinceLastRating($user, $product)
     {
-      // Get last rating
-      $lastRating = $this->ratingRepository->findLastByProductAndUser($product, $user);
+        // Get last rating
+        $lastRating = $this->ratingRepository->findLastByProductAndUser($product, $user);
 
-      if($lastRating){
-        $secs = time() - $lastRating->getCrdate();
-        if($secs < 5) {
-          return false;
+        if ($lastRating) {
+            $secs = time() - $lastRating->getCrdate();
+            if ($secs < 5) {
+                return false;
+            }
+            $days = ceil($secs / (86400));
+            return $days;
         }
-        $days = ceil ($secs / (86400));
-        return $days;
-      }
 
-      return false;
+        return false;
     }
 
     protected function compareRatings($a, $b)
     {
         $ar = count($a->getRatings());
         $br = count($b->getRatings());
-        if ( $ar == $br) {
+        if ($ar == $br) {
             return 0;
         }
         return ($ar > $br) ? -1 : 1;
@@ -756,12 +759,12 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
 
     protected function compareRatingsAfterOverall($a, $b)
     {
-      $ar = $a->getAveragerating();
-      $br = $b->getAveragerating();
+        $ar = $a->getAveragerating();
+        $br = $b->getAveragerating();
 
-      if ( $ar == $br) {
-          return $this->compareRatings($a, $b);
-      }
-      return ($ar >= $br) ? -1 : 1;
+        if ($ar == $br) {
+            return $this->compareRatings($a, $b);
+        }
+        return ($ar >= $br) ? -1 : 1;
     }
 }
