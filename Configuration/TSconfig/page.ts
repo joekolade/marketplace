@@ -8,7 +8,7 @@ tx_csseo {
     2.fallback {
         title = title
         description = description
-        og:image = images
+        image = images
     }
 
     2.evaluation {
