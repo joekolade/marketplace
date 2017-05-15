@@ -136,7 +136,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
                 usort($products, array($this, 'comparePrice'));
             }
             // Sort by price (desc)
-            if ($filter->getSortby() == 6) {
+            if ($filter->getSortby() == 7) {
                 $products = $products->toArray();
                 usort($products, array($this, 'comparePriceDesc'));
             }
