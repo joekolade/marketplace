@@ -95,7 +95,7 @@
                 </a>
             </h4>
         </div>
-        <div id="collapseProducer" class="panel-collapse collapse" role="tabpanel">
+        <div id="collapseProducer" class="panel-collapse collapse{f:if(condition: filter.producer, then: ' in')}" role="tabpanel">
             <div class="panel-body">
                 <f:form.select property="producer" multiple="TRUE" options="{producers}" optionValueField="uid" optionLabelField="name" class="form-control selectpicker" data="{live-search: 'true'}"></f:form.select>
             </div>
