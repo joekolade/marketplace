@@ -92,15 +92,15 @@ $(function(){
     });
 
     $('.rating-container')
-      // .each(function(){
-      //   let v = ($('input', $(this)).val() < ratingOptions.max) ? $('input', $(this)).val() / ratingOptions.max * 100 : 0;
-      //   if(v >= 5){
-      //     v -= 5;
-      //   } else {
-      //     v = 0;
-      //   }
-      //   $('.filled-stars', $(this)).css({width: v+"%"});
-      // })
+      .each(function(){
+        var v = ($('input', $(this)).val() < ratingOptions.max) ? $('input', $(this)).val() / ratingOptions.max * 100 : 0;
+        if(v = 5){
+          v -= 5;
+        } else {
+          v -= 0;
+        }
+        $('.filled-stars', $(this)).css({width: v+"%"});
+      })
       .mouseenter(function(){
         $(this).attr('title', $('input', $(this)).val());
     });
