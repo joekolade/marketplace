@@ -73,7 +73,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         $cacheId = $GLOBALS['TSFE']->id . "-" .
               $this->cObj->data['uid']. "-" .
               $GLOBALS['TSFE']->sys_language_uid . "-" .
-              $this->filter->getSearchphrase() . "-" .
+              ($filter ? $this->filter->getSearchphrase() . "-" : '_').
               $this->actionMethodName;
 
         if($filter->getSortby()){
