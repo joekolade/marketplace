@@ -173,3 +173,5 @@ lib.emailCloser {
         }
     }
 }
+
+config.tx_realurl_enable = 0
