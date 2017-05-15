@@ -783,23 +783,14 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
     {
         $aArt = $a->getArticles();
         $bArt = $b->getArticles();
-        $aLowestPrice = (float) 1000000000;
-        $bLowestPrice = (float) 1000000000;
+        $aLowestPrice = (float) 1000000000 * count($aArt);
+        $bLowestPrice = (float) 1000000000 * count($bArt);
 
         foreach ($aArt as $article) {
             $aLowestPrice = min($article->getComparablePrice(), $aLowestPrice);
         }
         foreach ($bArt as $article) {
             $bLowestPrice = min($article->getComparablePrice(), $bLowestPrice);
-        }
-
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump(count($bArt));
-
-        if(count($aArt) == 0){
-            return ($asc ? 1 : 0);
-        }
-        if(count($bArt) == 0){
-            return ($asc ? 0 : 1
         }
 
         // Switch/Swap ordering
