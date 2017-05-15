@@ -796,10 +796,10 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump(count($bArt));
 
         if(count($aArt) == 0){
-            return $asc;
+            return !$asc;
         }
         if(count($bArt) == 0){
-            return !$asc;
+            return $asc;
         }
 
         // Switch/Swap ordering
