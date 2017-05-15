@@ -787,10 +787,10 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         $bLowestPrice = 1000000000;
 
         foreach ($aArt as $article) {
-            $aLowestPrice = Math.min($article->getCompareablePrice(), $aLowestPrice);
+            $aLowestPrice = Math.min($article->getComparablePrice(), $aLowestPrice);
         }
         foreach ($bArt as $article) {
-            $bLowestPrice = Math.min($article->getCompareablePrice(), $bLowestPrice);
+            $bLowestPrice = Math.min($article->getComparablePrice(), $bLowestPrice);
         }
 
         // Switch/Swap ordering
