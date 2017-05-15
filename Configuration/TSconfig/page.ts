@@ -1,26 +1,37 @@
 tx_csseo {
-    # new index and table name of the model
-    2 = tx_marketplace_domain_model_product
+    // Products
+    //
 
-    # if the get parameter is set in the URL the cs_seo properties will be shown
+    2 = tx_marketplace_domain_model_product
     2.enable = GP:tx_marketplace_articlesearch|product
 
-    # if the model already has fields like title etc. define them as fallback
     2.fallback {
-
-        # cs_seo title field fallback = product title field
         title = title
-
-        # cs_seo description field fallback = product description field
         description = description
     }
 
-    # enable evaluation for products
     2.evaluation {
-        # additional params to initialize the detail view, the pipe will be replaced by the uid
-        getParams = &L=0&tx_marketplace_articlesearch[action]=Show&tx_marketplace_articlesearch[product]=|
+        getParams = &tx_marketplace_articlesearch[action]=show&tx_marketplace_articlesearch[product]=|
+        detailPid = 152
+    }
+
+
+    // Productgroups
+    //
+    2 = tx_marketplace_domain_model_productgroup
+
+    3.enable = GP:tx_marketplace_articlesearch|productgroup
+
+    3.fallback {
+
+        title = name
+        description =
+    }
+
+    3.evaluation {
+        getParams = &tx_marketplace_articlesearch[controller]=Product&tx_marketplace_articlesearch[action]=list&tx_marketplace_articlesearch[productgroup]=|
 
         # detail pid for the current records, only if set the table will be available
-        detailPid = 152
+        detailPid = 184
     }
 }
