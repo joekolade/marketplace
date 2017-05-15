@@ -784,14 +784,21 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
     {
         $aArt = $a->getArticles();
         $bArt = $b->getArticles();
-        $aLowestPrice = (float) 1000000000 * count($aArt);
-        $bLowestPrice = (float) 1000000000 * count($bArt);
+        $aLowestPrice = (float) 1000000000;
+        $bLowestPrice = (float) 1000000000;
 
         foreach ($aArt as $article) {
             $aLowestPrice = min($article->getComparablePrice(), $aLowestPrice);
         }
         foreach ($bArt as $article) {
             $bLowestPrice = min($article->getComparablePrice(), $bLowestPrice);
+        }
+
+        if(count($aArt) == 0){
+            return ($asc ? 1 : -1);
+        }
+        if(count($bArt) == 0){
+            return ($asc ? -1 : 1);
         }
 
         // Switch/Swap ordering
