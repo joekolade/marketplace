@@ -130,6 +130,16 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
                 $products = $products->toArray();
                 usort($products, array($this, 'compareRatings'));
             }
+            // Sort by price (asc)
+            if ($filter->getSortby() == 6) {
+                $products = $products->toArray();
+                usort($products, array($this, 'comparePrice'));
+            }
+            // Sort by price (desc)
+            if ($filter->getSortby() == 6) {
+                $products = $products->toArray();
+                usort($products, array($this, 'comparePriceDesc'));
+            }
 
             $cacheData['products'] = $products;
 
@@ -768,5 +778,34 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             return $this->compareRatings($a, $b);
         }
         return ($ar >= $br) ? -1 : 1;
+    }
+
+    protected function comparePrice($a, $b, $asc = true)
+    {
+        $aArt = $a->getArticles();
+        $bArt = $b->getArticles();
+        $aLowestPrice = 1000000000;
+        $bLowestPrice = 1000000000;
+
+        foreach ($aArt as $article) {
+            $aLowestPrice = Math.min($article->getCompareablePrice(), $aLowestPrice);
+        }
+        foreach ($bArt as $article) {
+            $bLowestPrice = Math.min($article->getCompareablePrice(), $bLowestPrice);
+        }
+
+        // Switch/Swap ordering
+        if(!$asc) {
+            $tmp = $aLowestPrice;
+            $aLowestPrice = $bLowestPrice;
+            $bLowestPrice = $tmp;
+        }
+
+        return ($aLowestPrice >= $bLowestPrice) ? -1 : 1;
+    }
+
+    protected function comparePriceDesc($a, $b)
+    {
+        return $this->comparePrice($a, $b, false);
     }
 }
