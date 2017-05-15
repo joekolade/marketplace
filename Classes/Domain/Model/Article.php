@@ -44,7 +44,6 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * currency
      *
      * @var \JS\Marketplace\Domain\Model\Currency
-     * @lazy
      */
     protected $currency = '';
     
@@ -86,9 +85,9 @@ class Article extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
     
     /**
-     * Returns the price
+     * Returns the comparablePrice
      *
-     * @return float $price
+     * @return float $comparablePrice
      */
     public function getComparablePrice()
     {
