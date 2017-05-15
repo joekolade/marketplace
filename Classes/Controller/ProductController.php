@@ -794,6 +794,8 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             $bLowestPrice = Math.min($article->getComparablePrice(), $bLowestPrice);
         }
 
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($aLowestPrice);
+        
         // Switch/Swap ordering
         if(!$asc) {
             $tmp = $aLowestPrice;
