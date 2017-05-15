@@ -58,6 +58,7 @@ plugin.tx_marketplace_articlesearch {
             image.height = {$plugin.tx_marketplace_articlesearch.settings.productList.image.height}
             producerLogoMaxWidth = {$plugin.tx_marketplace_articlesearch.settings.productList.producerLogoMaxWidth}
             producerLogoMaxHeight = {$plugin.tx_marketplace_articlesearch.settings.productList.producerLogoMaxHeight}
+            search = {$plugin.tx_marketplace_articlesearch.settings.productList.search}
         }
 
         productDetail {

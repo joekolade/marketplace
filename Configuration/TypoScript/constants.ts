@@ -51,6 +51,8 @@ plugin.tx_marketplace_articlesearch {
 			policy = 163
 			guidelines = 164
 
+			search = 185
+
 		}
 
 		storagePids {
