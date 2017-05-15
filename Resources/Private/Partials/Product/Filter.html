@@ -105,7 +105,8 @@
                         </label>
                     </div>
                 </f:for>
-                <f:select options="{producers}" class="selectpicker"></f:select>
+
+                <f:form.select multiple="TRUE" options="{producers}" optionValueField="uid" optionLabelField="name" class="selectpicker"></f:form.select>
             </div>
         </div>
     </div>
