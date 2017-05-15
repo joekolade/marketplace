@@ -174,10 +174,4 @@ lib.emailCloser {
     }
 }
 
-
-// Seo
-//
-
-[globalVar = GP:tx_marketplace_articlesearch|productgroup > 0]
-    page.meta.title =
-[global]
+config.tx_realurl_enable = 0
