@@ -74,7 +74,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
               $this->cObj->data['uid']. "-" .
               $GLOBALS['TSFE']->sys_language_uid . "-" .
               $filter->getSearchphrase() . "_" .
-              $filter->getProducer()->getUid() . "_" .
+              $filter->getProducer()->first()->getUid() . "_" .
               $this->actionMethodName;
 
         if($filter->getSortby()){
