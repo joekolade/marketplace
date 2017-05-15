@@ -26,8 +26,9 @@ class AvailableListViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractV
 
         $continents = array();
 
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($product->getArticles());
+        
         foreach ($product->getArticles() as $article) {
-            \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($article);
             if($article->getDealer()) {
 
                 $c = $article->getDealer()->getCountry()->getContinent()->getName();
