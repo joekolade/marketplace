@@ -794,10 +794,10 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         }
 
         if(count($aArt) == 0){
-            return ($asc ? 1 : -1);
+            return ($asc ? -1 : 1);
         }
         if(count($bArt) == 0){
-            return ($asc ? -1 : 1);
+            return ($asc ? 1 : -1);
         }
 
         // Switch/Swap ordering
