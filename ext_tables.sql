@@ -623,3 +623,8 @@ CREATE TABLE fe_users (
 CREATE TABLE tx_marketplace_domain_model_product (
         tx_csseo int(11) unsigned NOT NULL default '0',
 );
+
+
+CREATE TABLE tx_marketplace_domain_model_productgroup (
+        tx_csseo int(11) unsigned NOT NULL default '0',
+);
