@@ -73,6 +73,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         $cacheId = $GLOBALS['TSFE']->id . "-" .
               $this->cObj->data['uid']. "-" .
               $GLOBALS['TSFE']->sys_language_uid . "-" .
+              $this->filter->getSearchphrase() . "-" .
               $this->actionMethodName;
 
         if($filter->getSortby()){
@@ -260,6 +261,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      * action show
      *
      * @param \JS\Marketplace\Domain\Model\Product $product
+     * @ignorevalidation $product
      * @return void
      */
     public function showAction(\JS\Marketplace\Domain\Model\Product $product = NULL)
