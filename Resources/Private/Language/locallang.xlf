@@ -305,6 +305,12 @@
 			<trans-unit id="productList.filter.sortby.5">
 				<source>Producer (Z-A)</source>
 			</trans-unit>
+			<trans-unit id="productList.filter.sortby.6">
+				<source>Price (ascending)</source>
+			</trans-unit>
+			<trans-unit id="productList.filter.sortby.7">
+				<source>Price (descending)</source>
+			</trans-unit>
 
 			<trans-unit id="articleContact.leadHeader">
 				<source>Contact dealer</source>
