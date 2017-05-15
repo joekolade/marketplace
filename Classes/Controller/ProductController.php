@@ -794,7 +794,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             $bLowestPrice = min($article->getComparablePrice(), $bLowestPrice);
         }
 
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($aLowestPrice);
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump(count($bArt));
 
         if(!count($bArt)){
             return -1;
