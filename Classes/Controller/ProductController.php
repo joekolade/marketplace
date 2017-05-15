@@ -94,7 +94,10 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         }
 
         if (count($filter->getProducer())) {
-            $cacheId .= '-prod' . $filter->getProducer()->getUid();
+            $cacheId .= '-prod';
+            foreach ($filter->getProducer() as $prod) {
+                $cacheId .= $prod->getUid();
+            }
         }
 
         if (count($filter->getProductgroup())) {
