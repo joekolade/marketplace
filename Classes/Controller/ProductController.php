@@ -62,7 +62,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
     {
         $filterActive = true;
 
-        if($filter == NULL) {
+        if(!$filter) {
           $filter = new \JS\Marketplace\Domain\Model\Filter();
           $filterActive = false;
         }
@@ -73,7 +73,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         $cacheId = $GLOBALS['TSFE']->id . "-" .
               $this->cObj->data['uid']. "-" .
               $GLOBALS['TSFE']->sys_language_uid . "-" .
-              ($filter ? $this->filter->getSearchphrase() . "-" : '_').
+              $filter->getSearchphrase() . "_" .
               $this->actionMethodName;
 
         if($filter->getSortby()){
