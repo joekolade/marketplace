@@ -228,7 +228,7 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         case 7:
           // Sort by price (desc)
           $query->setOrderings(array(
-              'articles' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING,
+              'article.comparablePrice' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING,
               'title' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
               'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
           ));
