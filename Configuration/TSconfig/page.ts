@@ -32,6 +32,6 @@ tx_csseo {
         getParams = &tx_marketplace_articlesearch[controller]=Product&tx_marketplace_articlesearch[action]=list&tx_marketplace_articlesearch[productgroup]=|
 
         # detail pid for the current records, only if set the table will be available
-        detailPid = 184
+        detailPid = 185
     }
 }
