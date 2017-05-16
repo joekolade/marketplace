@@ -287,7 +287,7 @@
 			<trans-unit id="productList.filter.sortbyLabel">
 				<source>Sort by</source>
 			</trans-unit>
-			<trans-unit id="productList.filter.sortby.0">
+			<trans-unit id="productList.filter.sortby.10">
 				<source>Title (A-Z)</source>
 			</trans-unit>
 			<trans-unit id="productList.filter.sortby.1">
