@@ -314,6 +314,9 @@
 			<trans-unit id="productList.filter.sortby.7">
 				<source>highest price (descending)</source>
 			</trans-unit>
+			<trans-unit id="productList.noProductImage">
+				<source>no image in database</source>
+			</trans-unit>
 
 			<trans-unit id="articleContact.leadHeader">
 				<source>Contact dealer</source>
