@@ -45,6 +45,7 @@ class PricerangeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractView
     }
 
     if($low && $high){
+      setlocale(LC_MONETARY, 'en_US');
       $this->templateVariableContainer->add('low', $low);
       $this->templateVariableContainer->add('high', $high);
       $this->templateVariableContainer->add('lowCurrency', $lowCurrency);
