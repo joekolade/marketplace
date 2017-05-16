@@ -10,7 +10,7 @@
         </f:if>
     </small>
 </h2>
-<f:form object="{filter}" pageUid="{settings.pageIds.search}" objectName="filter" name="filter" method="POST" action="list" noCacheHash="1">
+<f:form object="{filter}" pageUid="{settings.pageIds.search}" objectName="filter" name="filter" method="GET" action="list" noCacheHash="1">
     <div class="form-group has-feedback has-clear">
         <f:form.textfield class="form-control" property="searchphrase" placeholder="{f:translate(key: 'tx_marketplace_domain_model_filter.searchphrase')}" />
         <span class="fa fa-remove form-control-feedback form-control-clear" aria-hidden="true"></span>
