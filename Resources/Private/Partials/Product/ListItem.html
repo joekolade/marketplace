@@ -1,6 +1,6 @@
 {namespace js=JS\Marketplace\ViewHelpers}
 <div class="row list-item">
-    <div class="col-xs-10 col-xs-offset-2 col-sm-3 col-sm-offset-0">
+    <div class="col-xs-10 col-sm-3">
         <f:if condition="{product.images}">
             <f:link.action action="show" class="btn btn-default" pageUid="{settings.productDetail.pid}" arguments="{product : product}">
                 <f:image src="{product.images.originalResource.originalFile.uid}"
@@ -9,7 +9,7 @@
             </f:link.action>
         </f:if>
     </div>
-    <div class="col-xs-10 col-xs-offset-2 col-sm-6 col-sm-offset-0">
+    <div class="col-xs-10 col-sm-6">
         <f:if condition="{product.producer.logo}">
             <div class="producerLogo" title="{product.producer.name}">
                 <f:image src="{product.producer.logo.uid}"
