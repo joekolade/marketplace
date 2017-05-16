@@ -229,6 +229,7 @@ $star-shadow: rgba(0, 0, 0, 0.3);
   // that has to get some special
   // treatment
   .ratingBlock {
+    text-align: center;
 
     padding: 0;
 
@@ -253,8 +254,11 @@ $star-shadow: rgba(0, 0, 0, 0.3);
       }
     }
 
+    @media screen and (min-width: 768px) {
+      text-align: left;
+    }
     @media screen and (min-width: 768px) and (max-width: 1090px) {
-      width: 100%;
+      max-width: 100%;
       clear: both;
 
       .btn-group-vertical {
