@@ -178,6 +178,14 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
       // -------------------------------------------
       //
       switch($filter->getSortby()) {
+        case 0:
+          // Sort by article count
+            $query->setOrderings(array(
+                'articles' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING,
+                'title' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING,
+                'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+            ));
+
         case 1:
           // titel desc
           $query->setOrderings(array(
