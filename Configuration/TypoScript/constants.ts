@@ -40,6 +40,8 @@ plugin.tx_marketplace_articlesearch {
             imageWidth = 225
         }
 
+        productDummyImage = EXT:marketplace/Resources/Public/Images/sendea-dummy.svg
+
         productRatingUid = 157
         proposeProductUid = 156
         productRatingDetailUid = 158

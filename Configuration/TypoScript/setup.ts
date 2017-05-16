@@ -52,6 +52,8 @@ plugin.tx_marketplace_articlesearch {
         pageIds.guidelines = {$plugin.tx_marketplace_articlesearch.settings.pageIds.guidelines}
         pageIds.search = {$plugin.tx_marketplace_articlesearch.settings.pageIds.search}
 
+        productDummyImage = {$plugin.tx_marketplace_articlesearch.settings.productDummyImage}
+
         productList {
             pid = {$plugin.tx_marketplace_articlesearch.settings.productList.pid}
 
