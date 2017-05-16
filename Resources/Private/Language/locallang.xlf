@@ -309,7 +309,7 @@
 				<source>lowest Price (ascending)</source>
 			</trans-unit>
 			<trans-unit id="productList.filter.sortby.7">
-				<source>lowest Price (descending)</source>
+				<source>highest price (descending)</source>
 			</trans-unit>
 
 			<trans-unit id="articleContact.leadHeader">
