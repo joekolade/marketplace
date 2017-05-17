@@ -71,7 +71,7 @@ plugin.tx_marketplace_articlesearch {
 
         productList {
             # cat=market/detail/b; type=boolean; label=Product image width (px) in list view
-            image.width = 150
+            image.width = 320
             # cat=market/detail/b; type=boolean; label=Product image heigt (px) in list view
             image.height = 150c
 
