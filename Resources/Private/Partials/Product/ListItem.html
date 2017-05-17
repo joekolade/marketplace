@@ -1,22 +1,25 @@
 {namespace js=JS\Marketplace\ViewHelpers}
 <div class="row list-item">
     <div class="col-xs-10 col-sm-3">
-        <f:link.action action="show" class="btn btn-default" pageUid="{settings.productDetail.pid}"
-                       arguments="{product : product}">
             <f:if condition="{product.images}">
                 <f:then>
+                    <f:link.action action="show" class="btn btn-default" pageUid="{settings.productDetail.pid}"
+                                   arguments="{product : product}">
                     <f:image src="{product.images.originalResource.originalFile.uid}"
                              width="{settings.productList.image.width}" maxHeight="{settings.productList.image.height}"
                              class="img-responsive"/>
+                    </f:link.action>
                 </f:then>
                 <f:else>
+                    <f:link.action action="show" class="btn btn-default img-responsive" pageUid="{settings.productDetail.pid}"
+                                   arguments="{product : product}">
                     <f:image src="{settings.productDummyImage}"
                              width="{settings.productList.image.width}" maxHeight="{settings.productList.image.height}"
                              class="img-responsive"/>
                     <p class="small text-muted"><f:translate key="productList.noProductImage" /></p>
+                    </f:link.action>
                 </f:else>
             </f:if>
-        </f:link.action>
     </div>
     <div class="col-xs-10 col-sm-6">
         <f:if condition="{product.producer.logo}">

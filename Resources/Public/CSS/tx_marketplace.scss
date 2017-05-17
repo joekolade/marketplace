@@ -154,6 +154,10 @@ $star-shadow: rgba(0, 0, 0, 0.3);
       p {
         margin-bottom: 0;
       }
+      .img-responsive p {
+        white-space: normal;
+        width: 100%;
+      }
     }
   }
 
