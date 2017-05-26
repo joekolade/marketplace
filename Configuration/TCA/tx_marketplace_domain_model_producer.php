@@ -9,7 +9,7 @@ return array(
 		'dividers2tabs' => TRUE,
 		'versioningWS' => 2,
 		'versioning_followPages' => TRUE,
-		'sortby' => 'name',
+		'sortby' => 'sorting',
 
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',
