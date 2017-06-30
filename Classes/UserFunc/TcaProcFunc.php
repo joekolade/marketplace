@@ -12,8 +12,6 @@ class TcaProcFunc
     {
         $selects = $this->_getCategory($config['row']['category'][0])->getSelects();
         
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($selects);
-
         $itemList = [];
         foreach ($selects as $select) {
 
