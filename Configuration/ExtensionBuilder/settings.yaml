@@ -45,23 +45,34 @@ overwriteSettings:
     Domain:
       Model: merge
       Repository: merge
-
   Configuration:
+    Flexform: keep
     TCA: merge
-    #TypoScript: keep
-
+    TSconfig: keep
+    TypoScript: keep
   Resources:
     Private:
-      #Language: merge
+      Language: merge
+      #Layouts: keep
+      #Partials: keep
       #Templates: keep
+      Templates:
+        Article: keep
+        Email: keep
+        Product: keep
+        Rating: keep
+        Register: keep
+        ViewHelpers: keep
 
   ext_icon.gif: keep
 
-#  ext_localconf.php: merge
+  ext_localconf.php: merge
 
-#  ext_tables.php: merge
+  ext_tables.php: merge
 
-#  ext_tables.sql: merge
+  ext_tables.sql: merge
+
+  ext_typoscript_setup.txt: keep
 
 ## use static date attribute in xliff files ##
 #staticDateInXliffFiles: 2016-04-17T22:08:00Z
@@ -83,7 +94,7 @@ overwriteSettings:
 classBuilder:
 
   Controller:
-    parentClass: \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+    parentClass: \JS\Marketplace\Controller\AbstractController
 
   Model:
     AbstractEntity:
