@@ -11,6 +11,8 @@ return array(
         'versioningWS' => 2,
         'versioning_followPages' => true,
 
+        'requestUpdate' => 'category',
+
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
