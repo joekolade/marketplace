@@ -10,7 +10,7 @@ class TcaProcFunc
      */
     public function productOptions($config)
     {
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($config);
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($config['row']['category']);
         $itemList = [];
         $rows = $this->_getSelectsByPid(188);
         foreach ($rows as $row) {
