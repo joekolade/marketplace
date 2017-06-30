@@ -171,7 +171,6 @@ return array(
                 'foreign_sortby' => 'sorting',
                 'minitems' => 0,
                 'maxitems' => 12,
-                'multiple' => 1,
             ],
         ],
     ),
