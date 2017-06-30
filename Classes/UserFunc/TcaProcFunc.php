@@ -10,7 +10,9 @@ class TcaProcFunc
      */
     public function productOptions($config)
     {
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->_getCategory($config['row']['category'][0]));
+        $selects = $this->_getCategory($config['row']['category'][0])->getSelects();
+        
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($selects);
 
         $itemList = [];
         $rows = $this->_getSelectsByPid(188);
@@ -26,18 +28,8 @@ class TcaProcFunc
     {
         $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
         $categoryRepository = $objectManager->get('JS\\Marketplace\\Domain\\Repository\\CategoryRepository');
-        $items = $categoryRepository->findByUid($id);
+        $category = $categoryRepository->findByUid($id);
 
-        return $items;
-    }
-
-
-    private function _getSelectsByPid($pid = 0)
-    {
-        $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
-        $selectRepository = $objectManager->get('JS\\Marketplace\\Domain\\Repository\\SelectRepository');
-        $items = $selectRepository->findByPid($pid);
-
-        return $items;
+        return $category;
     }
 }
