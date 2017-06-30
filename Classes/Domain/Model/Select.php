@@ -213,7 +213,7 @@ class Select extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      */
     public function getOutput()
     {
-        return $this->output;
+        return $this->output ? $this->output : $this->title;
     }
 
     /**
