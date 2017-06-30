@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-04-19T22:12:25Z" product-name="marketplace">
+		<header/>
+		<body>
+			<trans-unit id="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="image.description">
+				<source>image</source>
+			</trans-unit>
+			<trans-unit id="products.description">
+				<source>products</source>
+			</trans-unit>
+			<trans-unit id="parentcategory.description">
+				<source>parentcategory</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

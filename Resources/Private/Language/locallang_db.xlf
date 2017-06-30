@@ -145,6 +145,7 @@
 				<source>Country</source>
 			</trans-unit>
 			<trans-unit id="tx_marketplace_domain_model_filter.productgroup">
+			<trans-unit id="tx_marketplace_domain_model_filter.productgroup">
 				<source>Productgroup</source>
 			</trans-unit>
 			<trans-unit id="tx_marketplace_domain_model_filter.productsubgroup">
@@ -263,6 +264,21 @@
 			</trans-unit>
 			<trans-unit id="tx_marketplace_domain_model_user.gender.female">
 				<source>Mrs.</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_category">
+				<source>Productgroup</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_category.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_category.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_category.products">
+				<source>Products</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_category.parentcategory">
+				<source>Parent category</source>
 			</trans-unit>
 		</body>
 	</file>

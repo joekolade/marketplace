@@ -78,3 +78,6 @@ $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_marketplace_domain_model_rating', 'EXT:marketplace/Resources/Private/Language/locallang_csh_tx_marketplace_domain_model_rating.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_marketplace_domain_model_rating');
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_marketplace_domain_model_category', 'EXT:marketplace/Resources/Private/Language/locallang_csh_tx_marketplace_domain_model_category.xlf');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_marketplace_domain_model_category');
