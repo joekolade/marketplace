@@ -18,7 +18,7 @@ class TcaProcFunc
         foreach ($selects as $select) {
 
             foreach ($select->getOptions() as $option) {
-                $itemList[] = [$select->getOutput() . ': ' . $select->getTitle(), $select->getUid()];
+                $itemList[] = [$select->getOutput() . ': ' . $option->getTitle(), $option->getUid()];
             }
 
         }
