@@ -34,6 +34,7 @@ class TcaProcFunc extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $this->selectRepository = $objectManager->get('JS\\Marketplace\\Domain\\Repository\\SelectRepository');
         $items = $this->selectRepository->findAll();
 
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($pid);
         \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($items);
 
         return $items;
