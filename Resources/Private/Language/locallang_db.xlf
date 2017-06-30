@@ -290,6 +290,9 @@
 			<trans-unit id="tx_marketplace_domain_model_select.type">
 				<source>Type</source>
 			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_select.output">
+				<source>Output</source>
+			</trans-unit>
 			<trans-unit id="tx_marketplace_domain_model_select.options">
 				<source>Options</source>
 			</trans-unit>

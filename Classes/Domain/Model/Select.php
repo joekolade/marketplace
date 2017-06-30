@@ -49,6 +49,13 @@ class Select extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $selects = null;
 
     /**
+     * output
+     *
+     * @var string
+     */
+    protected $output = '';
+
+    /**
      * __construct
      */
     public function __construct()
@@ -197,5 +204,26 @@ class Select extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setSelects(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $selects)
     {
         $this->selects = $selects;
+    }
+
+    /**
+     * Returns the output
+     *
+     * @return string $output
+     */
+    public function getOutput()
+    {
+        return $this->output;
+    }
+
+    /**
+     * Sets the output
+     *
+     * @param string $output
+     * @return void
+     */
+    public function setOutput($output)
+    {
+        $this->output = $output;
     }
 }

@@ -17,14 +17,14 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title,type,options,selects',
+        'searchFields' => 'title,type,output,options,selects',
         'iconfile' => 'EXT:marketplace/Resources/Public/Icons/tx_marketplace_domain_model_select.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, type, options, selects',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, type, output, options, selects',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, type, options, selects, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, type, output, options, selects, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -129,6 +129,15 @@ return [
                 'size' => 1,
                 'maxitems' => 1,
                 'eval' => ''
+            ],
+        ],
+        'output' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_select.output',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
             ],
         ],
         'options' => [
