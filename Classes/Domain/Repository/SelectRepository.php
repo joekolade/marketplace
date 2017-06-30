@@ -32,6 +32,7 @@ class SelectRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
         // don't add the pid constraint
         $querySettings->setRespectStoragePage(FALSE);
+
         // set the storagePids to respect
         #$querySettings->setStoragePageIds(array(1, 26, 989));
 
@@ -52,5 +53,18 @@ class SelectRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         #$querySettings->setRespectSysLanguage(FALSE);
 
         $this->setDefaultQuerySettings($querySettings);
+    }
+
+    public function findByPid($pid)
+    {
+        $query => $this->createQuery();
+        $query->setRespectStoragePage(FALSE);
+        // set the storagePids to respect
+
+        if($pid > 0) {
+            $query->setStoragePageIds(array($pid));
+        }
+
+        return $query->execute();
     }
 }
