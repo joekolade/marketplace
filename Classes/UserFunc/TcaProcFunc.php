@@ -11,7 +11,7 @@ class TcaProcFunc
     public function productOptions($config)
     {
         \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->_getCategory($config['row']['category'][0]));
-        
+
         $itemList = [];
         $rows = $this->_getSelectsByPid(188);
         foreach ($rows as $row) {
@@ -25,8 +25,8 @@ class TcaProcFunc
     private function _getCategory($id = 0)
     {
         $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
-        $selectRepository = $objectManager->get('JS\\Marketplace\\Domain\\Repository\\SelectRepository');
-        $items = $selectRepository->findByPid($pid);
+        $categoryRepository = $objectManager->get('JS\\Marketplace\\Domain\\Repository\\CategoryRepository');
+        $items = $categoryRepository->findByUid($id);
 
         return $items;
     }
