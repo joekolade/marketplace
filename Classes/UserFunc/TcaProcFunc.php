@@ -1,7 +1,7 @@
 <?php
 namespace JS\Marketplace\UserFunc;
 
-class TcaProcFunc
+class TcaProcFunc extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
 
     /**
