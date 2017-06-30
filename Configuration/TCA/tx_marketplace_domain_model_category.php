@@ -166,6 +166,9 @@ return array(
 				'foreign_table' => 'tx_marketplace_domain_model_category',
 				'minitems' => 0,
 				'maxitems' => 1,
+                'items' => array(
+                    array('--- chose a parent cat if you like ---', 0),
+                ),
 			),
 		),
 
