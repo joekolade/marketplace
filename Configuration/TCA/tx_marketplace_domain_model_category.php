@@ -167,6 +167,7 @@ return array(
             'config' => [
                 'type' => 'select',
                 'foreign_table' => 'tx_marketplace_domain_model_select',
+                'foreign_field' => 'category',
                 'foreign_sortby' => 'sorting',
                 'minitems' => 0,
                 'maxitems' => 12,
