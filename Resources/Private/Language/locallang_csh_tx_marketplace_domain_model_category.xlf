@@ -12,6 +12,10 @@
 			<trans-unit id="products.description">
 				<source>products</source>
 			</trans-unit>
+			<trans-unit id="selects.description">
+				<source>selects</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

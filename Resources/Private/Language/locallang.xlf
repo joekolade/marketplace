@@ -453,6 +453,9 @@
 			<trans-unit id="tx_marketplace_domain_model_category.products">
 				<source>Products</source>
 			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_category.selects">
+				<source>Selects</source>
+			</trans-unit>
 
 			<trans-unit id="tx_marketplace_domain_model_select">
 				<source>Select</source>

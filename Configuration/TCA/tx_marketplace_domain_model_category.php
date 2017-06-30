@@ -159,6 +159,19 @@ return array(
 		),
 
 		'products' => array('config' => array('type' => 'passthrough')),
+
+
+        'selects' => [
+            'exclude' => false,
+            'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_category.selects',
+            'config' => [
+                'type' => 'select',
+                'foreign_table' => 'tx_marketplace_domain_model_select',
+                'foreign_sortby' => 'sorting',
+                'minitems' => 0,
+                'maxitems' => 12,
+            ],
+        ],
 		
 	),
 );
