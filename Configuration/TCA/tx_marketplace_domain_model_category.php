@@ -7,8 +7,6 @@ return array(
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
-		'versioningWS' => 2,
-		'versioning_followPages' => TRUE,
 
 		'languageField' => 'sys_language_uid',
 		'transOrigPointerField' => 'l10n_parent',
