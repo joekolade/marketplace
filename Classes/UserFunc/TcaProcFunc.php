@@ -13,7 +13,7 @@ class TcaProcFunc
         $itemList = [];
         $rows = $this->_getSelectsByPid(188);
         foreach ($rows as $row) {
-            $itemList[] = ['Label of the item', $row->getTitle()];
+            $itemList[] = ['Label of the item: '.$row->getTitle(), $row->getUid()];
         }
         $config['items'] = $itemList;
         return $config;
