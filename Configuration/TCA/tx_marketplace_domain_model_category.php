@@ -161,17 +161,11 @@ return array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_category.parentcategory',
 			'config' => array(
-				'type' => 'inline',
+                'type' => 'select',
+                'renderType' => 'selectSingle',
 				'foreign_table' => 'tx_marketplace_domain_model_category',
-				#'foreign_field' => 'productgroup',
-				'maxitems' => 9999,
-				'appearance' => array(
-					'collapseAll' => 0,
-					'levelLinksPosition' => 'top',
-					'showSynchronizationLink' => 1,
-					'showPossibleLocalizationRecords' => 1,
-					'showAllLocalizationLink' => 1
-				),
+				'minitems' => 0,
+				'maxitems' => 1,
 			),
 		),
 
