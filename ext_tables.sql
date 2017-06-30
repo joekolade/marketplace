@@ -698,6 +698,8 @@ CREATE TABLE tx_marketplace_domain_model_select (
 	options int(11) unsigned DEFAULT '0' NOT NULL,
 	selects int(11) unsigned DEFAULT '0' NOT NULL,
 
+	category int(11) unsigned DEFAULT '0' NOT NULL,
+
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
 	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
@@ -800,13 +802,4 @@ CREATE TABLE tx_marketplace_product_option_mm (
 
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
-);
-
-#
-# Table structure for table 'tx_marketplace_domain_model_select'
-#
-CREATE TABLE tx_marketplace_domain_model_select (
-
-	category int(11) unsigned DEFAULT '0' NOT NULL
-
 );

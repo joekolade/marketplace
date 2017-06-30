@@ -160,12 +160,11 @@ return array(
 
         'products' => array('config' => array('type' => 'passthrough')),
 
-
         'selects' => [
             'exclude' => false,
             'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_category.selects',
             'config' => [
-                'type' => 'select',
+                'type' => 'inline',
                 'foreign_table' => 'tx_marketplace_domain_model_select',
                 'foreign_field' => 'category',
                 'foreign_sortby' => 'sorting',
