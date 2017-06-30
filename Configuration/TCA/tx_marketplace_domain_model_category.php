@@ -20,10 +20,10 @@ return array(
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('marketplace') . 'Resources/Public/Icons/tx_marketplace_domain_model_category.gif'
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, image, products, parentcategory',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, image, products',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, image, products, parentcategory, '),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, image, products, '),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -156,20 +156,6 @@ return array(
 				),
 			),
 
-		),
-		'parentcategory' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_category.parentcategory',
-			'config' => array(
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-				'foreign_table' => 'tx_marketplace_domain_model_category',
-				'minitems' => 0,
-				'maxitems' => 1,
-                'items' => array(
-                    array('--- chose a parent cat if you like ---', 0),
-                ),
-			),
 		),
 
 		'products' => array('config' => array('type' => 'passthrough')),

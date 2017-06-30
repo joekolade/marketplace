@@ -56,14 +56,6 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $products = null;
     
     /**
-     * parentcategory
-     *
-     * @var \JS\Marketplace\Domain\Model\Category
-     * @lazy
-     */
-    protected $parentcategory = null;
-    
-    /**
      * __construct
      */
     public function __construct()
@@ -127,27 +119,6 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setProducts(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $products)
     {
         $this->products = $products;
-    }
-    
-    /**
-     * Returns the parentcategory
-     *
-     * @return \JS\Marketplace\Domain\Model\Category $parentcategory
-     */
-    public function getParentcategory()
-    {
-        return $this->parentcategory;
-    }
-    
-    /**
-     * Sets the productsubgroups
-     *
-     * @param \JS\Marketplace\Domain\Model\Category $parentcategory
-     * @return void
-     */
-    public function setParentcategory(\JS\Marketplace\Domain\Model\Category $parentcategory = NULL)
-    {
-        $this->parentcategory = $parentcategory;
     }
     
     /**

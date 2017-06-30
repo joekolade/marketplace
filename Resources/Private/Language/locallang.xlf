@@ -453,9 +453,6 @@
 			<trans-unit id="tx_marketplace_domain_model_category.products">
 				<source>Products</source>
 			</trans-unit>
-			<trans-unit id="tx_marketplace_domain_model_category.parentcategory">
-				<source>Parent category</source>
-			</trans-unit>
 		</body>
 	</file>
 </xliff>

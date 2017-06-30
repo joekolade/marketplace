@@ -645,7 +645,6 @@ CREATE TABLE tx_marketplace_domain_model_category (
   title varchar(255) DEFAULT '' NOT NULL,
   image int(11) unsigned NOT NULL default '0',
   products int(11) unsigned DEFAULT '0' NOT NULL,
-  parentcategory int(11) unsigned DEFAULT '0' NOT NULL,
 
   tstamp int(11) unsigned DEFAULT '0' NOT NULL,
   crdate int(11) unsigned DEFAULT '0' NOT NULL,

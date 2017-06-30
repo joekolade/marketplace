@@ -12,9 +12,6 @@
 			<trans-unit id="products.description">
 				<source>products</source>
 			</trans-unit>
-			<trans-unit id="parentcategory.description">
-				<source>parentcategory</source>
-			</trans-unit>
 		</body>
 	</file>
 </xliff>
