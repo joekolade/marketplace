@@ -646,6 +646,8 @@ CREATE TABLE tx_marketplace_domain_model_category (
   image int(11) unsigned NOT NULL default '0',
   products int(11) unsigned DEFAULT '0' NOT NULL,
 
+	selects int(11) unsigned DEFAULT '0' NOT NULL,
+
   tstamp int(11) unsigned DEFAULT '0' NOT NULL,
   crdate int(11) unsigned DEFAULT '0' NOT NULL,
   cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
