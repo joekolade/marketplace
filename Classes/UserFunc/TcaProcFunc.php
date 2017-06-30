@@ -30,6 +30,6 @@ class TcaProcFunc
 
     private function _getSelectsByPid($pid = 0)
     {
-        return $this->selectRepository->findByPid($pid);
+        return $this->selectRepository->findAll();
     }
 }
