@@ -185,5 +185,10 @@ return [
                 'type' => 'passthrough',
             ],
         ],
+        'category' => [
+            'config' => [
+                'type' => 'passthrough',
+            ],
+        ],
     ],
 ];
