@@ -125,54 +125,56 @@ return [
                 'renderType' => 'selectSingle',
                 'items' => [
                     ["-- Label--", 0],
-			    ],
-			    'size' => 1,
-			    'maxitems' => 1,
-			    'eval' => ''
-			],
-	    ],
-	    'options' => [
-    'exclude' => false,
-    'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_select.options',
-    'config' => [
-        'type' => 'inline',
-        'foreign_table' => 'tx_marketplace_domain_model_option',
-        'foreign_field' => 'tx_select',
-        'foreign_sortby' => 'sorting',
-        'maxitems' => 9999,
-        'appearance' => [
-            'collapseAll' => 0,
-            'levelLinksPosition' => 'top',
-            'showSynchronizationLink' => 1,
-            'showPossibleLocalizationRecords' => 1,
-            'useSortable' => 1,
-            'showAllLocalizationLink' => 1
+                ],
+                'size' => 1,
+                'maxitems' => 1,
+                'eval' => ''
+            ],
         ],
-    ],
-],
-	    'selects' => [
-    'exclude' => false,
-    'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_select.selects',
-    'config' => [
-        'type' => 'inline',
-        'foreign_table' => 'tx_marketplace_domain_model_select',
-        'foreign_field' => 'tx_select',
-        'foreign_sortby' => 'sorting',
-        'maxitems' => 9999,
-        'appearance' => [
-            'collapseAll' => 0,
-            'levelLinksPosition' => 'top',
-            'showSynchronizationLink' => 1,
-            'showPossibleLocalizationRecords' => 1,
-            'useSortable' => 1,
-            'showAllLocalizationLink' => 1
+        'options' => [
+            'exclude' => false,
+            'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_select.options',
+            'config' => [
+                'type' => 'inline',
+                'foreign_table' => 'tx_marketplace_domain_model_option',
+                'foreign_field' => 'tx_select',
+                'foreign_sortby' => 'sorting',
+                'maxitems' => 9999,
+                'appearance' => [
+                    'collapseAll' => 1,
+                    'expandSingle' => 1,
+                    'levelLinksPosition' => 'top',
+                    'showSynchronizationLink' => 1,
+                    'showPossibleLocalizationRecords' => 1,
+                    'useSortable' => 1,
+                    'showAllLocalizationLink' => 1
+                ],
+            ],
         ],
-    ],
-],
+        'selects' => [
+            'exclude' => false,
+            'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_select.selects',
+            'config' => [
+                'type' => 'inline',
+                'foreign_table' => 'tx_marketplace_domain_model_select',
+                'foreign_field' => 'tx_select',
+                'foreign_sortby' => 'sorting',
+                'maxitems' => 9999,
+                'appearance' => [
+                    'collapseAll' => 1,
+                    'expandSingle' => 1,
+                    'levelLinksPosition' => 'top',
+                    'showSynchronizationLink' => 1,
+                    'showPossibleLocalizationRecords' => 1,
+                    'useSortable' => 1,
+                    'showAllLocalizationLink' => 1
+                ],
+            ],
+        ],
         'tx_select' => [
-    'config' => [
-        'type' => 'passthrough',
-    ],
-],
+            'config' => [
+                'type' => 'passthrough',
+            ],
+        ],
     ],
 ];
