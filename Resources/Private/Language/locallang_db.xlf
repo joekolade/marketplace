@@ -145,7 +145,6 @@
 				<source>Country</source>
 			</trans-unit>
 			<trans-unit id="tx_marketplace_domain_model_filter.productgroup">
-			<trans-unit id="tx_marketplace_domain_model_filter.productgroup">
 				<source>Productgroup</source>
 			</trans-unit>
 			<trans-unit id="tx_marketplace_domain_model_filter.productsubgroup">
