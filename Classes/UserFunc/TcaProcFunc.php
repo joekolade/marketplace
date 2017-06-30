@@ -15,9 +15,12 @@ class TcaProcFunc
         \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($selects);
 
         $itemList = [];
-        $rows = $this->_getSelectsByPid(188);
-        foreach ($rows as $row) {
-            $itemList[] = [$row->getOutput() . ': ' . $row->getTitle(), $row->getUid()];
+        foreach ($selects as $select) {
+
+            foreach ($select->getOptions() as $option) {
+                $itemList[] = [$select->getOutput() . ': ' . $select->getTitle(), $select->getUid()];
+            }
+
         }
         $config['items'] = $itemList;
         return $config;
