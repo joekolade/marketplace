@@ -348,6 +348,7 @@ return array(
                 'maxitems' => 9999,
                 'multiple' => 1,
                 'enableMultiSelectFilterTextfield' => true,
+                'itemsProcFunc' => 'JS\\Marketplace\\UserFunc\\TcaProcFunc->productOptions'
             ],
         ],
 
