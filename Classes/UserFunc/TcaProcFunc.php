@@ -31,7 +31,7 @@ class TcaProcFunc extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     private function _getSelectsByPid($pid = 0)
     {
         $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
-        $this->selectRepository = $objectManager->get('Sp\\Servicelinks\\Domain\\Repository\\ServicelinksRepository');
+        $this->selectRepository = $objectManager->get('JS\\Marketplace\\Domain\\Repository\\SelectRepository');
         $items = $this->selectRepository->findByPid($pid);
         return $items;
     }
