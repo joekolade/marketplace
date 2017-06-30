@@ -26,6 +26,8 @@ class TcaProcFunc
         $selectRepository = $objectManager->get('JS\\Marketplace\\Domain\\Repository\\SelectRepository');
         $items = $selectRepository->findByPid($pid);
 
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($items->toArray());
+        
         return $items->toArray();
     }
 }
