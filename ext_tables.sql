@@ -665,7 +665,8 @@ CREATE TABLE tx_marketplace_domain_model_category (
 
 
 CREATE TABLE tx_marketplace_domain_model_product (
-  categories int(11) unsigned NOT NULL default '0',
+	category int(11) unsigned DEFAULT '0',
+	options int(11) unsigned DEFAULT '0' NOT NULL
 );
 
 #
@@ -786,4 +787,17 @@ CREATE TABLE tx_marketplace_domain_model_select (
 
 	tx_select int(11) unsigned DEFAULT '0' NOT NULL,
 
+);
+
+#
+# Table structure for table 'tx_marketplace_product_option_mm'
+#
+CREATE TABLE tx_marketplace_product_option_mm (
+	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
 );

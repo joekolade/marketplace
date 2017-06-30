@@ -45,6 +45,13 @@
 			<trans-unit id="tx_marketplace_domain_model_product.averagerating">
 				<source>Average rating</source>
 			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.options">
+				<source>Options</source>
+			</trans-unit>
+
 			<trans-unit id="tx_marketplace_domain_model_productgroup">
 				<source>Productgroup</source>
 			</trans-unit>

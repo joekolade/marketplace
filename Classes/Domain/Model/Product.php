@@ -138,6 +138,20 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $averagerating = 0;
 
     /**
+     * category
+     *
+     * @var \JS\Marketplace\Domain\Model\Category
+     */
+    protected $category = null;
+
+    /**
+     * options
+     *
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Option>
+     */
+    protected $options = null;
+
+    /**
      * Returns hidden
      *
      * @return boolean $hidden
@@ -356,6 +370,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->articles = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->ratings = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->options = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
 
     /**
@@ -505,5 +520,70 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 
     public function getAvailablein(){
         return array('Egypt');
+    }
+
+
+    /**
+     * Returns the category
+     *
+     * @return \JS\Marketplace\Domain\Model\Category $category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Sets the category
+     *
+     * @param \JS\Marketplace\Domain\Model\Category $category
+     * @return void
+     */
+    public function setCategory(\JS\Marketplace\Domain\Model\Category $category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * Adds a Option
+     *
+     * @param \JS\Marketplace\Domain\Model\Option $option
+     * @return void
+     */
+    public function addOption(\JS\Marketplace\Domain\Model\Option $option)
+    {
+        $this->options->attach($option);
+    }
+
+    /**
+     * Removes a Option
+     *
+     * @param \JS\Marketplace\Domain\Model\Option $optionToRemove The Option to be removed
+     * @return void
+     */
+    public function removeOption(\JS\Marketplace\Domain\Model\Option $optionToRemove)
+    {
+        $this->options->detach($optionToRemove);
+    }
+
+    /**
+     * Returns the options
+     *
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Option> $options
+     */
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+    /**
+     * Sets the options
+     *
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Option> $options
+     * @return void
+     */
+    public function setOptions(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $options)
+    {
+        $this->options = $options;
     }
 }

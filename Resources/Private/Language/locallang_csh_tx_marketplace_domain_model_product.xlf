@@ -42,6 +42,12 @@
 			<trans-unit id="averagerating.description">
 				<source>Average rating</source>
 			</trans-unit>
+			<trans-unit id="category.description">
+				<source>category</source>
+			</trans-unit>
+			<trans-unit id="options.description">
+				<source>options</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
