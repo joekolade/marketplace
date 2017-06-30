@@ -58,11 +58,11 @@ class SelectRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     public function findByPid($pid)
     {
         $query = $this->createQuery();
-        $query->setRespectStoragePage(FALSE);
+        $query->getQuerySettings()->setRespectStoragePage(FALSE);
         // set the storagePids to respect
 
         if($pid > 0) {
-            $query->setStoragePageIds(array($pid));
+            $query->getQuerySettings()->setStoragePageIds(array($pid));
         }
 
         return $query->execute();
