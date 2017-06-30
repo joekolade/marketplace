@@ -1,16 +1,8 @@
 <?php
 namespace JS\Marketplace\UserFunc;
 
-class TcaProcFunc extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class TcaProcFunc
 {
-
-    /**
-     * selectRepository
-     *
-     * @var \JS\Marketplace\Domain\Repository\SelectRepository
-     * @inject
-     */
-    protected $selectRepository = NULL;
 
     /**
      * @param array $config
