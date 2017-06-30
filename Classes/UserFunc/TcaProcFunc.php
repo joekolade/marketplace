@@ -10,10 +10,11 @@ class TcaProcFunc
      */
     public function productOptions($config)
     {
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($config);
         $itemList = [];
         $rows = $this->_getSelectsByPid(188);
         foreach ($rows as $row) {
-            $itemList[] = ['Label of the item: '.$row->getTitle(), $row->getUid()];
+            $itemList[] = [$row->getOutput() . ': ' . $row->getTitle(), $row->getUid()];
         }
         $config['items'] = $itemList;
         return $config;
