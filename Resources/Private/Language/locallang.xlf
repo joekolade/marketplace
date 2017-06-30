@@ -453,6 +453,31 @@
 			<trans-unit id="tx_marketplace_domain_model_category.products">
 				<source>Products</source>
 			</trans-unit>
+
+			<trans-unit id="tx_marketplace_domain_model_select">
+				<source>Select</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_select.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_select.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_select.options">
+				<source>Options</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_select.selects">
+				<source>Selects</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_option">
+				<source>Option</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_option.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_option.value">
+				<source>Value</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
