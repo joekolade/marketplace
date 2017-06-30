@@ -3,6 +3,7 @@ return [
     'ctrl' => [
         'title' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_option',
         'label' => 'title',
+        'label_alt' => 'tx_select.title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',

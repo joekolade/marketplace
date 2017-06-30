@@ -348,11 +348,6 @@ return array(
                 'maxitems' => 9999,
                 'multiple' => 1,
                 'enableMultiSelectFilterTextfield' => true,
-                'multiSelectFilterItems' => [
-                    ['', ''],
-                    ['foo', 'foo'],
-                    ['bar', 'bar'],
-                ],
             ],
         ],
 
