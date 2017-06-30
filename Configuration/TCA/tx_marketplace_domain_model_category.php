@@ -164,7 +164,8 @@ return array(
             'exclude' => false,
             'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_category.selects',
             'config' => [
-                'type' => 'inline',
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_marketplace_domain_model_select',
                 'foreign_field' => 'category',
                 'foreign_sortby' => 'sorting',
