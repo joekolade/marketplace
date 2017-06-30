@@ -54,6 +54,14 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @lazy
      */
     protected $products = null;
+
+    /**
+     * selects
+     *
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Select>
+     * @cascade remove
+     */
+    protected $selects = null;
     
     /**
      * __construct
@@ -76,6 +84,7 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->products = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->parentcategory = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->selects = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
     
     /**
@@ -161,6 +170,49 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setImage(\TYPO3\CMS\Extbase\Domain\Model\FileReference $image)
     {
         $this->image = $image;
+    }
+
+    /**
+     * Adds a Select
+     *
+     * @param \JS\Marketplace\Domain\Model\Select $select
+     * @return void
+     */
+    public function addSelect(\JS\Marketplace\Domain\Model\Select $select)
+    {
+        $this->selects->attach($select);
+    }
+
+    /**
+     * Removes a Select
+     *
+     * @param \JS\Marketplace\Domain\Model\Select $selectToRemove The Select to be removed
+     * @return void
+     */
+    public function removeSelect(\JS\Marketplace\Domain\Model\Select $selectToRemove)
+    {
+        $this->selects->detach($selectToRemove);
+    }
+
+    /**
+     * Returns the selects
+     *
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Select> $selects
+     */
+    public function getSelects()
+    {
+        return $this->selects;
+    }
+
+    /**
+     * Sets the selects
+     *
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Select> $selects
+     * @return void
+     */
+    public function setSelects(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $selects)
+    {
+        $this->selects = $selects;
     }
 
 }
