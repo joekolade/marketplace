@@ -65,6 +65,6 @@ class SelectRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
             $query->getQuerySettings()->setStoragePageIds(array($pid));
         }
 
-        return $query->execute();
+        return $query->execute()->toArray();
     }
 }
