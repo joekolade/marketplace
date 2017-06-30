@@ -438,6 +438,24 @@
 			<trans-unit id="txt_ratings">
 			    <source>Ratings</source>
 			</trans-unit>
+
+			<!-- Categorization -->
+
+			<trans-unit id="tx_marketplace_domain_model_category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_category.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_category.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_category.products">
+				<source>Products</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_category.parentcategory">
+				<source>Parent category</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

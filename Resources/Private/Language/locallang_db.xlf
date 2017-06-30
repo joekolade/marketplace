@@ -266,7 +266,7 @@
 				<source>Mrs.</source>
 			</trans-unit>
 			<trans-unit id="tx_marketplace_domain_model_category">
-				<source>Productgroup</source>
+				<source>Category</source>
 			</trans-unit>
 			<trans-unit id="tx_marketplace_domain_model_category.title">
 				<source>Title</source>
