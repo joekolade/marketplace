@@ -10,7 +10,7 @@
 <f:section name="select">
     <div class="mp-selectgroup">
         <h2>{select.output}</h2>
-        <f:if condition="{select.selects -> f:count()}">
+        <f:if condition="{select.selects -> f:count()} > 0">
             <!-- has Selects? -->
             <f:then>
                 <f:for each="{select.selects}" as="select2">
