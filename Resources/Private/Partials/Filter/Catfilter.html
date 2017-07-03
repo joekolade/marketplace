@@ -23,7 +23,7 @@
 <f:section name="select">
     <f:if condition="{sub}">
         <f:then>
-            <b>{select.output} ({select.uid})</b>
+            <b>{select.output}</b>
             <br>
             <f:for each="{select.options}" as="option">
                 <f:render section="options" arguments="{option: option}"></f:render>
@@ -34,7 +34,7 @@
                 <div class="panel-heading" role="tab">
                     <h4>
                         <a class="btn btn-block" data-toggle="collapse" href="#collapse-select-{select.uid}">
-                            {select.output} ({select.uid})
+                            {select.output}
                             <i class="fa fa-plus"></i>
                         </a>
                     </h4>
