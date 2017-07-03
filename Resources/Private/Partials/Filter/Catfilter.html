@@ -10,6 +10,7 @@
 <f:section name="select">
     <div class="mp-selectgroup">
         <h2>{select.output}</h2>
+        Options: {select.options}
         <f:if condition="{select.selects -> f:count()} > 0">
             <!-- has Selects? -->
             <f:then>
@@ -20,7 +21,9 @@
 
             <!-- has Options? -->
             <f:else>
-                Options goes here!
+                <f:if condition="{select.options -> f:count()} > 0">
+                    Options goes here!
+                </f:if>
             </f:else>
         </f:if>
 
