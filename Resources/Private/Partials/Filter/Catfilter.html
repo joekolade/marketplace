@@ -19,7 +19,7 @@
     {category.selects -> f:count()}
 
     <f:for each="{category.selects}" as="select">
-        <f:render section="select" arguments="{_all}"></f:render>
+        <f:render section="select" arguments="{select: select, sub: '0'}"></f:render>
     </f:for>
 
 </f:form>
