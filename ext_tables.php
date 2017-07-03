@@ -3,7 +3,7 @@
 defined('TYPO3_MODE') || die('Access denied.');
 
 call_user_func(
-    function($extKey) {
+    function ($extKey) {
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
             'JS.' . $_EXTKEY,
             'Articlesearch',
@@ -53,7 +53,7 @@ call_user_func(
         $TCA['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature] = 'layout,select_key,pages,recursive';
         $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature,
-        'FILE:EXT:' . $_EXTKEY . '/Configuration/Flexform/' . $pluginName . '_settings.xml');
+            'FILE:EXT:' . $_EXTKEY . '/Configuration/Flexform/' . $pluginName . '_settings.xml');
 
 
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript',
@@ -108,15 +108,16 @@ call_user_func(
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_marketplace_domain_model_rating');
 
 
-
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_marketplace_domain_model_category',
             'EXT:marketplace/Resources/Private/Language/locallang_csh_tx_marketplace_domain_model_category.xlf');
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_marketplace_domain_model_category');
 
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_marketplace_domain_model_select', 'EXT:marketplace/Resources/Private/Language/locallang_csh_tx_marketplace_domain_model_select.xlf');
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_marketplace_domain_model_select',
+            'EXT:marketplace/Resources/Private/Language/locallang_csh_tx_marketplace_domain_model_select.xlf');
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_marketplace_domain_model_select');
 
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_marketplace_domain_model_option', 'EXT:marketplace/Resources/Private/Language/locallang_csh_tx_marketplace_domain_model_option.xlf');
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_marketplace_domain_model_option',
+            'EXT:marketplace/Resources/Private/Language/locallang_csh_tx_marketplace_domain_model_option.xlf');
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_marketplace_domain_model_option');
     },
     $_EXTKEY
