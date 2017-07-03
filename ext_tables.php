@@ -27,10 +27,10 @@ call_user_func(
             'Categorylist',
             'List by category'
         );
-        
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($_EXTKEY);
+
 
         $extensionName = strtolower(\TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToUpperCamelCase($_EXTKEY));
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($extensionName);
 
         $pluginName = strtolower('Articlesearch');
         $pluginSignature = $extensionName . '_' . $pluginName;
