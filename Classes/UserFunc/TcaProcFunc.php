@@ -20,7 +20,9 @@ class TcaProcFunc
             }
 
         }
-        $config['items'] = $itemList;
+        if(count($itemList))
+            $config['items'] = $itemList;
+
         return $config;
     }
 
