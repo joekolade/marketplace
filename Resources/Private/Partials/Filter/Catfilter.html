@@ -8,12 +8,12 @@
 <f:section name="select">
     <div class="mp-selectgroup">
         <h2>{select.output}</h2>
-
+        <f:debug>{select}</f:debug>
         <f:if condition="{select.selects -> f:count()}">
             <!-- has Selects? -->
             <f:then>
-                <f:for each="{select.selects}" as="select">
-                    <f:render section="select" arguments="{select: select}"></f:render>
+                <f:for each="{select.selects}" as="select2">
+                    <f:render section="select" arguments="{select: select2}"></f:render>
                 </f:for>
             </f:then>
 
