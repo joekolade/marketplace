@@ -39,19 +39,14 @@
                 <div id="collapseProductgroup"
                      class="panel-collapse collapse in" role="tabpanel">
                     <div class="panel-body">
-                        <div class="no-radios">
-                            Options: {select.options -> f:count()}
-                            <f:for each="{select.options}" as="option">
-                                <div class="checkbox">
+                        <f:for each="{select.options}" as="option">
+                            <div class="checkbox">
+                                <label for="option-{option.uid}">
                                     <f:form.checkbox property="options" id="option-{option.uid}" value="{option.uid}"/>
-                                    <label for="option-{option.uid}">
-                                            <span class="btn btn-default">
-                                        {option.title} <i class="fa fa-chevron-right"></i>
-                                        </span>
-                                    </label>
-                                </div>
-                            </f:for>
-                        </div>
+                                    {option.title} <i class="fa fa-chevron-right"></i>
+                                </label>
+                            </div>
+                        </f:for>
                     </div>
                 </div>
             </div>
