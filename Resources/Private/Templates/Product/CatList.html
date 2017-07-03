@@ -11,29 +11,10 @@
 
     <f:if condition="{products}">
         <f:then>
-            <f:widget.paginate objects="{products}" as="paginatedProducts"
-                               configuration="{itemsPerPage: settings.pagination.itemsPerPage, insertAbove: settings.pagination.insertAbove, insertBelow: settings.pagination.insertBelow, maximumNumberOfLinks: settings.pagination.pageLinks}"
-            >
-                <f:render section="advertise" arguments="{page: bar}" />
-
-                <f:for each="{paginatedProducts}" as="product" iteration="i">
-                    <f:render partial="Product/RatinglistItem" arguments="{product: product}"></f:render>
-                </f:for>
-            </f:widget.paginate>
+            <f:render partial="Product/List" arguments="{_all}"></f:render>
         </f:then>
         <f:else>
-            <p>
-                <b>{f:translate(key: 'productList.noProducts')}</b>
-            </p>
-            <h3>
-                {f:translate(key: 'productList.filterCriteria')}
-            </h3>
-            <p>
-                <!-- Content? -->
-            </p>
-            <p>
-                <f:render partial="Product/Buttons/ProposeProduct" arguments="{_all}"></f:render>
-            </p>
+            <!-- Content? -->
         </f:else>
     </f:if>
 
