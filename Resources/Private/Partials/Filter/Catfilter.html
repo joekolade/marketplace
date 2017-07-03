@@ -50,7 +50,7 @@
                                 </f:for>
                             </f:then>
                             <f:else>
-                                <f:for each="{select.selects}" as="{select2}">
+                                <f:for each="{select.selects}" as="select2">
                                     <f:render section="select" arguments="{select: select2, sub: 'true'}"></f:render>
                                 </f:for>
                             </f:else>
