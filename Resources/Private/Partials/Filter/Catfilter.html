@@ -3,6 +3,7 @@
         {category.title}
     </small>
 </h2>
+
 <!-- TODO: PageUid anpassen -->
 <f:form object="{filter}" pageUid="195" objectName="filter" name="filter" method="GET" action="list" noCacheHash="1">
     <f:comment>
@@ -35,15 +36,13 @@
                         </a>
                     </h4>
                 </div>
-
-                <div id="collapseProductgroup"
-                     class="panel-collapse collapse in" role="tabpanel">
+                <div id="collapseProductgroup" class="panel-collapse collapse in" role="tabpanel">
                     <div class="panel-body">
                         <f:for each="{select.options}" as="option">
                             <div class="checkbox">
                                 <label for="option-{option.uid}">
                                     <f:form.checkbox property="options" id="option-{option.uid}" value="{option.uid}"/>
-                                    {option.title} <i class="fa fa-chevron-right"></i>
+                                    {option.title}
                                 </label>
                             </div>
                         </f:for>
@@ -65,10 +64,8 @@
         </f:for>
     </f:if>
 
-    </div>
 </f:section>
 
 <f:section name="options">
     <h2>{select.output}</h2>
-
 </f:section>
