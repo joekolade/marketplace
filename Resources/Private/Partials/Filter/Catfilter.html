@@ -1,11 +1,10 @@
 <h1>{category.title}</h1>
 
 <f:for each="{category.selects}" as="select">
-    <f:render section="selectgroup" arguments="{_all}"></f:render>
+    <f:render section="select" arguments="{_all}"></f:render>
 </f:for>
 
-
-<f:section name="selectgroup">
+<f:section name="select">
     <div class="mp-selectgroup">
         <h2>{select.output}</h2>
         Options: {select.options}
@@ -14,7 +13,7 @@
             <!-- has Selects? -->
             <f:then>
                 <f:for each="{select.selects}" as="select2">
-                    <f:render section="selectgroup" arguments="{select: select2}"></f:render>
+                    <f:render section="select" arguments="{select: select2}"></f:render>
                 </f:for>
             </f:then>
 
@@ -30,7 +29,7 @@
     </div>
 </f:section>
 
-<f:section name="select">
+<f:section name="options">
     <h2>{select.output}</h2>
 
 </f:section>
