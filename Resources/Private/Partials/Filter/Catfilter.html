@@ -26,7 +26,9 @@
         <f:then>
             <b>{select.output}</b>
             <br>
-            <f:render section="options" arguments="{option: option}"></f:render>
+            <f:for each="{select.options}" as="option">
+                <f:render section="options" arguments="{option: option}"></f:render>
+            </f:for>
         </f:then>
         <f:else>
             <div class="panel panel-default">
