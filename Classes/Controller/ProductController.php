@@ -835,7 +835,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         $this->view->assign('filter', $filter);
         $this->view->assign('category', $category);
         $this->view->assign('products', $this->productRepository->findAll());
-        $this->view->assign('producer', $this->producerRepository->findAll());
+        $this->view->assign('producers', $this->producerRepository->findAll());
 
         // return;
     }
