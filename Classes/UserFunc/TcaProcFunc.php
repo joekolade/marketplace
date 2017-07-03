@@ -10,18 +10,20 @@ class TcaProcFunc
      */
     public function productOptions($config)
     {
-        $selects = $this->_getCategory($config['row']['category'][0])->getSelects();
-        
-        $itemList = [];
-        foreach ($selects as $select) {
+        if($config['row']['category'][0] != NULL) {
+            $selects = $this->_getCategory($config['row']['category'][0])->getSelects();
 
-            foreach ($select->getOptions() as $option) {
-                $itemList[] = [$select->getOutput() . ': ' . $option->getTitle(), $option->getUid()];
+            $itemList = [];
+            foreach ($selects as $select) {
+
+                foreach ($select->getOptions() as $option) {
+                    $itemList[] = [$select->getOutput() . ': ' . $option->getTitle(), $option->getUid()];
+                }
+
             }
-
+            if(count($itemList))
+                $config['items'] = $itemList;
         }
-        if(count($itemList))
-            $config['items'] = $itemList;
 
         return $config;
     }
