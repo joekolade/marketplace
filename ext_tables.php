@@ -2,8 +2,8 @@
 
 defined('TYPO3_MODE') || die('Access denied.');
 
-call_user_func(
-    function ($extKey) {
+//call_user_func(
+//    function ($extKey) {
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
             'JS.' . $_EXTKEY,
             'Articlesearch',
@@ -30,7 +30,6 @@ call_user_func(
 
 
         $extensionName = strtolower(\TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToUpperCamelCase($_EXTKEY));
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($extensionName);
 
         $pluginName = strtolower('Articlesearch');
         $pluginSignature = $extensionName . '_' . $pluginName;
@@ -123,6 +122,6 @@ call_user_func(
             'EXT:marketplace/Resources/Private/Language/locallang_csh_tx_marketplace_domain_model_option.xlf');
 
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_marketplace_domain_model_option');
-    },
-    $_EXTKEY
-);
+//    },
+//    $_EXTKEY
+//);
