@@ -46,6 +46,20 @@ if (!defined('TYPO3_MODE')) {
     )
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'JS.' . $_EXTKEY,
+    'Categorylist',
+    array(
+        // Later w/ "showProductRatings"
+        // 'Product' => 'showProductRatings,catList,rateProduct,sendRating,login,loginForm,showProposeProductForm,proposeProduct,adminProduct',
+        'Product' => 'catList',
+    ),
+    // non-cacheable actions
+    array(
+
+    )
+);
+
 // Register TCA Eval
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tce']['formevals']['Double2With4DecimalsFormat'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('marketplace',
     'Classes/Formevals/Double2With4DecimalsFormat.php');
