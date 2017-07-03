@@ -826,6 +826,10 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
 
         \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($this->settings, 'Settings');
 
+        $category = $this->categoryRepository->findByUid($this->settings('category'));
+
+
+        $this->view->assign('category', $category);
 
         // return;
     }

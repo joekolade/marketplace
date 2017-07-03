@@ -107,6 +107,30 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      */
     protected $feUserGroupRepository = NULL;
 
+    /**
+     * categoryRepository
+     *
+     * @var \JS\Marketplace\Domain\Repository\CategoryRepository
+     * @inject
+     */
+    protected $categoryRepository = NULL;
+
+    /**
+     * selectRepository
+     *
+     * @var \JS\Marketplace\Domain\Repository\SelectRepository
+     * @inject
+     */
+    protected $selectRepository = NULL;
+
+    /**
+     * optionRepository
+     *
+     * @var \JS\Marketplace\Domain\Repository\OptionRepository
+     * @inject
+     */
+    protected $optionRepository = NULL;
+
 
 
     /**
