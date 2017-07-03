@@ -2,7 +2,7 @@
 <f:widget.paginate objects="{products}" as="paginatedProducts"
                    configuration="{itemsPerPage: settings.pagination.itemsPerPage, insertAbove: settings.pagination.insertAbove, insertBelow: settings.pagination.insertBelow, maximumNumberOfLinks: settings.pagination.pageLinks}"
 >
-    <f:render section="advertise" arguments="{page: bar}" />
+    <f:render partial="Advertise" />
 
     <f:for each="{paginatedProducts}" as="product" iteration="i">
         <f:render partial="Product/RatinglistItem" arguments="{product: product}"></f:render>
