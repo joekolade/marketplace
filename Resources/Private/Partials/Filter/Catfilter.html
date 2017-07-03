@@ -30,13 +30,13 @@
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab">
                     <h4>
-                        <a class="btn btn-block" data-toggle="collapse" href="#collapseProductgroup">
+                        <a class="btn btn-block" data-toggle="collapse" href="#collapse-select-{select.uid}">
                             {select.output}
                             <i class="fa fa-plus"></i>
                         </a>
                     </h4>
                 </div>
-                <div id="collapseProductgroup" class="panel-collapse collapse in" role="tabpanel">
+                <div id="collapse-select-{select.uid}" class="panel-collapse collapse in" role="tabpanel">
                     <div class="panel-body">
                         <f:for each="{select.options}" as="option">
                             <div class="checkbox">
