@@ -8,7 +8,7 @@
 </f:section>
 
 <f:section name="main">
-
+    <f:debug>{products}</f:debug>
     <f:if condition="{products}">
         <f:then>
             <f:render partial="Product/List" arguments="{products: products, settings: settings, bar: bar}"></f:render>
