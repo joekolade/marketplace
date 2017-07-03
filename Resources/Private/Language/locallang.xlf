@@ -160,6 +160,12 @@
 			<trans-unit id="tx_marketplace_domain_model_filter.producer">
 				<source>Producer</source>
 			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_filter.category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_filter.options">
+				<source>Options</source>
+			</trans-unit>
 			<trans-unit id="tx_marketplace_domain_model_filter.searchphrase">
 				<source>Searchphrase</source>
 			</trans-unit>

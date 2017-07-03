@@ -15,6 +15,12 @@
 			<trans-unit id="producer.description">
 				<source>producer</source>
 			</trans-unit>
+			<trans-unit id="category.description">
+				<source>category</source>
+			</trans-unit>
+			<trans-unit id="options.description">
+				<source>options</source>
+			</trans-unit>
 			<trans-unit id="searchphrase.description">
 				<source>searchphrase</source>
 			</trans-unit>

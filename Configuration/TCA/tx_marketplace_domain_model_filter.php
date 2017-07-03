@@ -21,10 +21,10 @@ return array(
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('marketplace') . 'Resources/Public/Icons/tx_marketplace_domain_model_filter.gif'
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, country, productgroup, productsubgroup, producer',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, country, productgroup, productsubgroup, producer, category, options',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, country, productgroup, productsubgroup, producer, '),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, country, productgroup, productsubgroup, producer, category, options, '),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -209,6 +209,30 @@ return array(
 				'maxitems' => 1,
 			),
 		),
-		
+		'category' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_filter.category',
+			'config' => array(
+				'type' => 'select',
+				'renderType' => 'selectSingle',
+				'foreign_table' => 'tx_marketplace_domain_model_category',
+				'minitems' => 0,
+				'maxitems' => 1,
+			),
+		),
+        'options' => array(
+            'exclude' => 1,
+            'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_filter.productsubgroup',
+            'config' => array(
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_marketplace_domain_model_options',
+                'MM' => 'tx_marketplace_filter_options_mm',
+                'size' => 10,
+                'autoSizeMax' => 30,
+                'maxitems' => 9999,
+                'multiple' => 0,
+            ),
+        ),
 	),
-);## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
+);
