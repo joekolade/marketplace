@@ -333,9 +333,9 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      *
      * @return void
      */
-    public function sendRatingAction($product, $rating = NULL)
+    public function sendRatingAction($product, $rating = null)
     {
-        
+
 
         $rating->setProduct($product);
 
@@ -784,8 +784,8 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
     {
         $aArt = $a->getArticles();
         $bArt = $b->getArticles();
-        $aLowestPrice = (float) 1000000000;
-        $bLowestPrice = (float) 1000000000;
+        $aLowestPrice = (float)1000000000;
+        $bLowestPrice = (float)1000000000;
 
         foreach ($aArt as $article) {
             $aLowestPrice = min($article->getComparablePrice(), $aLowestPrice);
@@ -794,15 +794,15 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             $bLowestPrice = min($article->getComparablePrice(), $bLowestPrice);
         }
 
-        if(count($aArt) == 0){
+        if (count($aArt) == 0) {
             return 1;
         }
-        if(count($bArt) == 0){
+        if (count($bArt) == 0) {
             return -1;
         }
 
         // Switch/Swap ordering
-        if(!$asc) {
+        if (!$asc) {
             $tmp = $aLowestPrice;
             $aLowestPrice = $bLowestPrice;
             $bLowestPrice = $tmp;
@@ -817,10 +817,17 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
     }
 
 
-
-    public function catListAction()
+    /**
+     * catList Action
+     *
+     * @param \JS\Marketplace\Domain\Model\Filter $filter
+     * @return void
+     */
+    public function catListAction(\JS\Marketplace\Domain\Model\Filter $filter = null)
     {
-        // Todo: Plugin ausgabe
+        if(!$filter){
+            $filter = new Filter();
+        }
 
         \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump('catList', 'Controller Action');
 
@@ -829,6 +836,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         $category = $this->categoryRepository->findByUid($this->settings['category']);
 
 
+        $this->view->assign('filter', $filter);
         $this->view->assign('category', $category);
 
         // return;

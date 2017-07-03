@@ -1,29 +1,74 @@
-<h1>{category.title}</h1>
+<h2>
+    <small>
+        {category.title}
+    </small>
+</h2>
+<!-- TODO: PageUid anpassen -->
+<f:form object="{filter}" pageUid="195" objectName="filter" name="filter" method="GET" action="list" noCacheHash="1">
+    <f:comment>
+        <!-- Search field -->
+        <div class="form-group has-feedback has-clear">
+            <f:form.textfield class="form-control" property="searchphrase"
+                              placeholder="{f:translate(key: 'tx_marketplace_domain_model_filter.searchphrase')}"/>
+            <span class="fa fa-remove form-control-feedback form-control-clear" aria-hidden="true"></span>
+            <span class="sr-only">Clear input content</span>
+        </div>
+    </f:comment>
 
-<f:for each="{category.selects}" as="select">
-    <f:render section="select" arguments="{_all}"></f:render>
-</f:for>
+
+    <f:for each="{category.selects}" as="select">
+        <f:render section="select" arguments="{_all}"></f:render>
+    </f:for>
+
+</f:form>
 
 <f:section name="select">
-    <div class="mp-selectgroup">
-        <h2>{select.output}</h2>
-        Options: {select.options -> f:count()}
 
-        <f:if condition="{select.selects -> f:count()} > 0">
-            <!-- has Selects? -->
-            <f:then>
-                <f:for each="{select.selects}" as="select2">
-                    <f:render section="select" arguments="{select: select2}"></f:render>
-                </f:for>
-            </f:then>
+    <f:if condition="{select.options -> f:count()} > 0">
+        <f:then>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                    <h4>
+                        <a class="btn btn-block" data-toggle="collapse" href="#collapseProductgroup">
+                            {select.output}
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </h4>
+                </div>
 
-            <!-- has Options? -->
-            <f:else>
-                <f:if condition="{select.options -> f:count()} > 0">
-                    Options goes here!
-                </f:if>
-            </f:else>
-        </f:if>
+                <div id="collapseProductgroup"
+                     class="panel-collapse collapse in" role="tabpanel">
+                    <div class="panel-body">
+                        <div class="no-radios">
+                            Options: {select.options -> f:count()}
+                            <f:for each="{select.options}" as="option">
+                                <div class="radio">
+                                    <f:form.radio property="options" id="option-{option.uid}" value="{option.uid}"/>
+                                    <label for="option-{option.uid}">
+                                            <span class="btn btn-default">
+                                        {option.title} <i class="fa fa-chevron-right"></i>
+                                        </span>
+                                    </label>
+                                </div>
+                            </f:for>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </f:then>
+        <f:else>
+            <h3>
+                {select.output}
+            </h3>
+        </f:else>
+    </f:if>
+
+    <f:if condition="{select.selects -> f:count()} > 0">
+        <!-- has Selects? -->
+        <f:for each="{select.selects}" as="select2">
+            <f:render section="select" arguments="{select: select2}"></f:render>
+        </f:for>
+    </f:if>
 
     </div>
 </f:section>
