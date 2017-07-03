@@ -1,15 +1,16 @@
-<f:layout name="FilterLayout" />
+<f:layout name="FilterLayout"/>
 
 
 <f:section name="header">
-    Header
+    <f:if condition="{settings.title}">
+        <h1>{settings.title}</h1>
+    </f:if>
 </f:section>
 
-
 <f:section name="main">
-    Main
+    Main - Liste mit Produkten
 </f:section>
 
 <f:section name="aside">
-    Aside
+
 </f:section>
