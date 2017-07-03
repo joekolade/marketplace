@@ -1,19 +1,20 @@
-{category.title}
+<h1>{category.title}</h1>
 
 <f:for each="{category.selects}" as="select">
-    <f:render section="select" arguments="{_all}"></f:render>
+    <f:render section="selectgroup" arguments="{_all}"></f:render>
 </f:for>
 
 
-<f:section name="select">
+<f:section name="selectgroup">
     <div class="mp-selectgroup">
         <h2>{select.output}</h2>
         Options: {select.options}
+
         <f:if condition="{select.selects -> f:count()} > 0">
             <!-- has Selects? -->
             <f:then>
                 <f:for each="{select.selects}" as="select2">
-                    <f:render section="select" arguments="{select: select2}"></f:render>
+                    <f:render section="selectgroup" arguments="{select: select2}"></f:render>
                 </f:for>
             </f:then>
 
