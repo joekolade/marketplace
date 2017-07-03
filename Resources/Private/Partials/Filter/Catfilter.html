@@ -22,7 +22,6 @@
 </f:form>
 
 <f:section name="select">
-    SUB: {sub}
     <f:if condition="{sub}">
         <f:then>
             <b>{select.output}</b>
@@ -51,6 +50,7 @@
                             </f:then>
                             <f:else>
                                 <f:for each="{select.selects}" as="select2">
+                                    {select2.output}
                                     <f:render section="select" arguments="{select: select2, sub: 'true'}"></f:render>
                                 </f:for>
                             </f:else>
