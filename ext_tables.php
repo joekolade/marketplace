@@ -27,8 +27,11 @@ call_user_func(
             'Categorylist',
             'List by category'
         );
+        
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($_EXTKEY);
 
         $extensionName = strtolower(\TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToUpperCamelCase($_EXTKEY));
+
         $pluginName = strtolower('Articlesearch');
         $pluginSignature = $extensionName . '_' . $pluginName;
         $TCA['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature] = 'layout,select_key,pages,recursive';
@@ -118,6 +121,7 @@ call_user_func(
 
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_marketplace_domain_model_option',
             'EXT:marketplace/Resources/Private/Language/locallang_csh_tx_marketplace_domain_model_option.xlf');
+
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_marketplace_domain_model_option');
     },
     $_EXTKEY
