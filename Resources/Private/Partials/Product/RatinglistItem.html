@@ -3,7 +3,7 @@
 <div class="row list-item">
     <div class="col-xs-3">
         <f:if condition="{product.images}">
-            <f:link.action action="showProductRatings" pageUid="{settings.ratingList.singlePid}" class="" arguments="{product : product}">
+            <f:link.action action="showProductRatings" pluginName="ratingsearch" pageUid="{settings.ratingList.singlePid}" class="" arguments="{product : product}">
                 <f:image src="{product.images.originalResource.originalFile.uid}" width="{settings.productList.image.width}" maxHeight="{settings.productList.image.height}" class="img-responsive"></f:image>
             </f:link.action>
         </f:if>
@@ -35,7 +35,7 @@
             <div class="btn ratingContainer">
                 <f:render partial="Product/OverallRating" arguments="{product: product}"></f:render>
             </div>
-            <f:link.action action="showProductRatings" class="btn btn-default" pageUid="{settings.ratingList.singlePid}" arguments="{product : product}">
+            <f:link.action action="showProductRatings" pluginName="ratingsearch" class="btn btn-default" pageUid="{settings.ratingList.singlePid}" arguments="{product : product}">
                 <f:translate key="0">Show all ratings</f:translate>
                 <i class="fa fa-chevron-right"></i>
             </f:link.action>
