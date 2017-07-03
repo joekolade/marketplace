@@ -22,9 +22,13 @@
 </f:form>
 
 <f:section name="select">
-
-    <f:if condition="{select.options -> f:count()} > 0">
+    <f:if condition="{sub}">
         <f:then>
+            <b>{select.output}</b>
+            <br>
+            <f:render section="options" arguments="{option: option}"></f:render>
+        </f:then>
+        <f:else>
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab">
                     <h4>
@@ -36,25 +40,25 @@
                 </div>
                 <div id="collapse-select-{select.uid}" class="panel-collapse collapse in" role="tabpanel">
                     <div class="panel-body">
-                        <f:for each="{select.options}" as="option">
-                            <div class="checkbox">
-                                <label for="option-{option.uid}">
-                                    <f:form.checkbox property="options" id="option-{option.uid}" value="{option.uid}"/>
-                                    {option.title}
-                                </label>
-                            </div>
-                        </f:for>
+                        <f:if condition="{select.options -> f:count()} > 0">
+                            <f:then>
+
+                                <f:for each="{select.options}" as="option">
+                                    <f:render section="options" arguments="{option: option}"></f:render>
+                                </f:for>
+                            </f:then>
+                            <f:else>
+                                <f:for each="{select.selects}" as="{select2}">
+                                    <f:render section="select" arguments="{select: select2, sub: true}"></f:render>
+                                </f:for>
+                            </f:else>
+                        </f:if>
                     </div>
                 </div>
-            </div>
-        </f:then>
-        <f:else>
-            <h3 class="mp-separator">
-                {select.output}
-            </h3>
         </f:else>
-    </f:if>
 
+        </div>
+    </f:if>
     <f:if condition="{select.selects -> f:count()} > 0">
         <!-- has Selects? -->
         <f:for each="{select.selects}" as="select2">
@@ -65,5 +69,11 @@
 </f:section>
 
 <f:section name="options">
-    <h2>{select.output}</h2>
+    <div class="checkbox">
+        <label for="option-{option.uid}">
+            <f:form.checkbox property="options" id="option-{option.uid}"
+                             value="{option.uid}"/>
+            {option.title}
+        </label>
+    </div>
 </f:section>
