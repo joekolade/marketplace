@@ -815,4 +815,16 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
     {
         return $this->comparePrice($a, $b, false);
     }
+
+
+
+    public function catListAction()
+    {
+        // Todo: Plugin ausgabe
+        
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump('catList', 'Controller Action');
+
+        return;
+    }
+
 }
