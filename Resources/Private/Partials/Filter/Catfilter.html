@@ -23,7 +23,6 @@
         TODO: Filter nach Ländern
     -->
 
-
     <div class="panel panel-default">
         <div class="panel-heading" role="tab">
             <h4 class="panel-title">
@@ -33,16 +32,9 @@
                 </a>
             </h4>
         </div>
-        <div id="collapseProducer" class="panel-collapse collapse in" role="tabpanel">
+        <div id="collapseProducer" class="panel-collapse collapse{f:if(condition: filter.producer, then: ' in')}" role="tabpanel">
             <div class="panel-body">
-                <f:for each="{producers}" as="producer" iteration="it">
-                    <div class="checkbox">
-                        <f:form.checkbox property="producer" id="producer-{producer.uid}" value="{producer.uid}" multiple="true" />
-                        <label for="producer-{producer.uid}">
-                            {producer.name}
-                        </label>
-                    </div>
-                </f:for>
+                <f:form.select property="producer" multiple="TRUE" options="{producers}" optionValueField="uid" optionLabelField="name" class="form-control selectpicker show-tick" data="{live-search: 'true', selected-text-format: 'count'}"></f:form.select>
             </div>
         </div>
     </div>
