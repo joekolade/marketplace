@@ -1,0 +1,33 @@
+<T3DataStructure>
+    <meta type="array">
+    <langChildren>0</langChildren>
+    <langDisable>1</langDisable>
+    </meta>
+    <ROOT>
+        <type>array</type>
+        <el>
+            <settings.title>
+                <TCEforms>
+                  <label>Title of Plugin</label>
+                    <config>
+                       <type>input</type>
+                    </config>
+                </TCEforms>
+            </settings.title>
+            <settings.category>
+                <TCEforms>
+                  <label>Category</label>
+                    <config>
+                        <type>select</type>
+                        <foreign_table>tx_marketplace_domain_model_category</foreign_table>
+                        <minitems>1</minitems>
+                        <maxitems>1</maxitems>
+                        <size>5</size>
+                        <autoSizeMax>10</autoSizeMax>
+                    </config>
+
+                </TCEforms>
+            </settings.category>
+        </el>
+    </ROOT>
+</T3DataStructure>
