@@ -14,10 +14,6 @@
         </div>
     </f:comment>
 
-
-    <f:debug title="cat">{category}</f:debug>
-    {category.selects -> f:count()}
-
     <f:for each="{category.selects}" as="select">
         <f:render section="select" arguments="{select: select, sub: '0'}"></f:render>
     </f:for>
@@ -52,13 +48,10 @@
                                 </f:for>
                             </f:then>
                             <f:else>
-                                <f:comment>
-
-                                    <f:for each="{select.selects}" as="select2">
-                                        <f:render section="select"
-                                                  arguments="{select: select2, sub: 'true'}"></f:render>
-                                    </f:for>
-                                </f:comment>
+                                <f:for each="{select.selects}" as="select2">
+                                    <f:render section="select"
+                                              arguments="{select: select2, sub: 'true'}"></f:render>
+                                </f:for>
                             </f:else>
                         </f:if>
                     </div>
@@ -66,13 +59,6 @@
             </div>
         </f:else>
 
-    </f:if>
-
-    <f:if condition="{select.selects -> f:count()} > 0">
-        <!-- has Selects? -->
-        <f:for each="{select.selects}" as="select2">
-            <f:render section="select" arguments="{select: select2}"></f:render>
-        </f:for>
     </f:if>
 
 </f:section>
