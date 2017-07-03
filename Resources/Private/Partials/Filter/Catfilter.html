@@ -1,7 +1,7 @@
 {category.title}
 
 <f:for each="{category.selects}" as="select">
-    <f:render section="select" arguments="{select: select}"></f:render>
+    <f:render section="select" arguments="{_all}"></f:render>
 
     <f:debug>{select}</f:debug>
 </f:for>
