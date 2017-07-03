@@ -22,6 +22,7 @@
 </f:form>
 
 <f:section name="select">
+    SUB: {sub}
     <f:if condition="{sub}">
         <f:then>
             <b>{select.output}</b>
@@ -45,12 +46,12 @@
                         <f:if condition="{select.options -> f:count()} > 0">
                             <f:then>
                                 <f:for each="{select.options}" as="option">
-                                    <f:render section="options" arguments="{option: option, sub: true}"></f:render>
+                                    <f:render section="options" arguments="{option: option, sub: 'true'}"></f:render>
                                 </f:for>
                             </f:then>
                             <f:else>
                                 <f:for each="{select.selects}" as="{select2}">
-                                    <f:render section="select" arguments="{select: select2, sub: '1'}"></f:render>
+                                    <f:render section="select" arguments="{select: select2, sub: 'true'}"></f:render>
                                 </f:for>
                             </f:else>
                         </f:if>
