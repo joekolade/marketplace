@@ -22,6 +22,12 @@ call_user_func(
             'Register user'
         );
 
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+            'JS.' . $_EXTKEY,
+            'Categorylist',
+            'List by category'
+        );
+
         $extensionName = strtolower(\TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToUpperCamelCase($_EXTKEY));
         $pluginName = strtolower('Articlesearch');
         $pluginSignature = $extensionName . '_' . $pluginName;
