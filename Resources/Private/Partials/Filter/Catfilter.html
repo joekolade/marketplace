@@ -18,6 +18,30 @@
         <f:render section="select" arguments="{select: select, sub: '0'}"></f:render>
     </f:for>
 
+
+    <div class="function">
+        <f:if condition="{filterActive}">
+            <f:link.action action="list" class="btn btn-default btn-reset pull-right">
+                {f:translate(key: 'productList.resetButton')}
+                <i class="fa fa-times-circle"></i>
+            </f:link.action>
+        </f:if>
+
+        <button type="submit" class="btn btn-warning btn-search">
+            {f:translate(key: 'productList.filterButton')}
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+    <!-- Sorting (ausgestellt) -->
+    <f:alias map="{sortbyArray: {0: '{f:translate(key: \'productList.filter.sortby.0\')}', 10: '{f:translate(key: \'productList.filter.sortby.10\')}', 1: '{f:translate(key: \'productList.filter.sortby.1\')}', 2: '{f:translate(key: \'productList.filter.sortby.2\')}', 3: '{f:translate(key: \'productList.filter.sortby.3\')}', 4: '{f:translate(key: \'productList.filter.sortby.4\')}', 5: '{f:translate(key: \'productList.filter.sortby.5\')}', 6: '{f:translate(key: \'productList.filter.sortby.6\')}', 7: '{f:translate(key: \'productList.filter.sortby.7\')}'}}">
+        <div class="sortby-select form-inline">
+            <div class="form-group">
+                <f:translate key="productList.filter.sortbyLabel">Sort by</f:translate>
+                <f:form.select class="form-control selectpicker" property="sortby" options="{sortbyArray}" />
+            </div>
+        </div>
+    </f:alias>
+
 </f:form>
 
 <f:section name="select">
