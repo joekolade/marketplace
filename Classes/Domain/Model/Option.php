@@ -37,7 +37,7 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @var \JS\Marketplace\Domain\Model\Select
      */
-    protected $select = null;
+    protected $optionselect = null;
 
     /**
      * Returns the title
@@ -82,23 +82,23 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the select
+     * Returns the optionselect
      *
-     * @return \JS\Marketplace\Domain\Model\Select $select
+     * @return \JS\Marketplace\Domain\Model\Select $optionselect
      */
-    public function getSelect()
+    public function getOptionselect()
     {
-        return $this->select;
+        return $this->optionselect;
     }
 
     /**
-     * Sets the select
+     * Sets the optionselect
      *
-     * @param \JS\Marketplace\Domain\Model\Select $select
+     * @param \JS\Marketplace\Domain\Model\Select $optionselect
      * @return void
      */
-    public function setSelect(\JS\Marketplace\Domain\Model\Select $select)
+    public function setOptionselect(\JS\Marketplace\Domain\Model\Select $optionselect)
     {
-        $this->select = $select;
+        $this->optionselect = $optionselect;
     }
 }

@@ -126,7 +126,7 @@ return [
                 'eval' => 'trim'
             ],
         ],
-        'select' => [
+        'optionselect' => [
             'config' => [
                 'type' => 'passthrough',
             ],
