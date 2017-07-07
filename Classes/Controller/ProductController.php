@@ -841,7 +841,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         }
 
         // TODO: get producers by products
-        $producers = $this->producerRepository->findAll()
+        $producers = $this->producerRepository->findAll();
 
         $this->view->assignMultiple(array(
             'filter' => $filter,
