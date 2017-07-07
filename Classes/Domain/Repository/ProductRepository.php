@@ -57,6 +57,14 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     protected $articleRepository = NULL;
 
     /**
+     * selectRepository
+     *
+     * @var \JS\Marketplace\Domain\Repository\SelectRepository
+     * @inject
+     */
+    protected $selectRepository = NULL;
+
+    /**
      * findAll
      *
      * @param boolean $needsArticles
@@ -326,6 +334,15 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         // Phrase, Country, Dealer, Continent, Tradebloc
         //
         if(count($filter->getOptions())){
+
+            // group options to get and/or right
+
+            $selects = [];
+            foreach ($filter->getOptions() as $option){
+                $selects[$option->getSelect()->getUid()] = $option->getSelect()->getUid(); 
+            }
+            
+            \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($select, 'Selects');
 
 //            $filteredArticles = $this->articleRepository->findByFilter($filter);
 //
