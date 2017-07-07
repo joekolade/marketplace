@@ -825,11 +825,12 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      */
     public function catListAction(\JS\Marketplace\Domain\Model\Filter $filter = null)
     {
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($filter, 'Filter before init');
         if(!$filter){
             $filter = new Filter();
         }
-        
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($filter, 'Filter');
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($filter, 'Filter after init');
+
 
         $category = $this->categoryRepository->findByUid($this->settings['category']);
 
