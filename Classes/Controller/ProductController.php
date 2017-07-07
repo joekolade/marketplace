@@ -835,10 +835,23 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         $products = $this->productRepository->findByOptions($filter, $category);
 
         // TODO: get options by products
+        $options = [];
         $selects = [];
         foreach ($products as $product) {
-
+            foreach ($product->getOpions() as $option) {
+                if(!in_array($option, $options)) {
+                    $options[] = $option;
+                }
+            }
         }
+        foreach ($options as $option){
+            if(!in_array($option->getOptionselect(), $selects)) {
+                $selects[] = $option->getOptionselect();
+            }
+        }
+
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($options, "options");
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($selects, "selects");
 
         // TODO: get producers by products
         $producers = $this->producerRepository->findAll();
