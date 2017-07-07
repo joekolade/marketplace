@@ -26,6 +26,14 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $filtergroups = null;
 
     /**
+     * title
+     *
+     * @var string
+     * @validate NotEmpty
+     */
+    protected $title = '';
+
+    /**
      * __construct
      */
     public function __construct()
@@ -88,5 +96,26 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setFiltergroups(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $filtergroups)
     {
         $this->filtergroups = $filtergroups;
+    }
+
+    /**
+     * Returns the title
+     *
+     * @return string $title
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Sets the title
+     *
+     * @param string $title
+     * @return void
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
     }
 }

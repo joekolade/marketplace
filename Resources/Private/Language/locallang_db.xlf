@@ -318,6 +318,9 @@
 			<trans-unit id="tx_marketplace_domain_model_category">
 				<source>Category</source>
 			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_category.title">
+				<source>Title</source>
+			</trans-unit>
 			<trans-unit id="tx_marketplace_domain_model_category.filtergroups">
 				<source>Filtergroups</source>
 			</trans-unit>
