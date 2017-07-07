@@ -20,7 +20,7 @@
         </f:comment>
         {select.title}:<br>
         <f:for each="{opts}" as="option">
-            {option.title}<br>
+            <f:render section="options" arguments="{option: option}"></f:render>
         </f:for>
     </f:groupedFor>
 
