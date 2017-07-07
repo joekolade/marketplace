@@ -131,9 +131,6 @@ return [
 	        'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_option.filtergroup',
 	        'config' => [
 			    'type' => 'select',
-                'items' => [
-                    array('0', 'keine Untergruppe')
-                ],
 			    'renderType' => 'selectSingle',
 			    'foreign_table' => 'tx_marketplace_domain_model_filtergroup',
 			    'minitems' => 0,
@@ -145,6 +142,9 @@ return [
 	        'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_option.filtersubgroup',
 	        'config' => [
 			    'type' => 'select',
+                'items' => [
+                    array('0', 'keine Untergruppe')
+                ],
 			    'renderType' => 'selectSingle',
 			    'foreign_table' => 'tx_marketplace_domain_model_filtersubgroup',
 			    'minitems' => 0,
