@@ -839,6 +839,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         //  and countries
         $options = [];
         $producers = [];
+        $countries = [];
         foreach ($products as $product) {
 
             // Options
