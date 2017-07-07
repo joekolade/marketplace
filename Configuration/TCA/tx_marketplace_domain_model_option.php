@@ -136,7 +136,7 @@ return [
 			    'minitems' => 0,
 			    'maxitems' => 1,
                 'items' => [
-                    '0' => 'keine Untergruppe'
+                    ['0' => 'keine Untergruppe']
                 ]
 			],
 	    ],
