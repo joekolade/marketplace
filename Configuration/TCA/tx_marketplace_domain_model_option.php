@@ -143,7 +143,7 @@ return [
 	        'config' => [
 			    'type' => 'select',
                 'items' => [
-                    array('0', 'keine Untergruppe')
+                    array('keine Untergruppe', '0')
                 ],
 			    'renderType' => 'selectSingle',
 			    'foreign_table' => 'tx_marketplace_domain_model_filtersubgroup',
