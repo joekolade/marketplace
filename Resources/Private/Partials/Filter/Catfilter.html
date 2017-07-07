@@ -49,9 +49,6 @@
     </f:groupedFor>
 
 
-    <!--
-        TODO: Filter nach Ländern
-    -->
     <f:if condition="{producers}">
 
         <div class="panel panel-default">
@@ -80,6 +77,46 @@
                                                      value="{producer.uid}"/>
                                     <label for="producer-{producer.uid}">
                                         {producer.name}
+                                    </label>
+                                </div>
+                            </f:for>
+                        </f:else>
+                    </f:if>
+                </div>
+            </div>
+        </div>
+
+    </f:if>
+
+
+    <f:if condition="{countries}">
+
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab">
+                <h4 class="panel-title">
+                    <a class="btn btn-block" data-toggle="collapse" href="#collapseCountries">
+                        {f:translate(key: 'tx_marketplace_domain_model_filter.countries')}
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </h4>
+            </div>
+            <f:comment>
+                <div id="collapseCountries" class="panel-collapse collapse{f:if(condition: filter.countries, then: ' in')}" role="tabpanel">
+            </f:comment>
+
+            <div id="collapseProducer" class="panel-collapse collapse in" role="tabpanel">
+                <div class="panel-body">
+                    <f:if condition="{countries -> f:count()} > 5 ">
+                        <f:then>
+                            <f:form.select property="countries" multiple="TRUE" options="{countries}" optionValueField="uid" optionLabelField="name" class="form-control selectpicker show-tick" data="{live-search: 'true', selected-text-format: 'count'}"></f:form.select>
+                        </f:then>
+                        <f:else>
+                            <f:for each="{countries}" as="country">
+                                <div class="checkbox">
+                                    <f:form.checkbox property="country" id="country-{country.uid}"
+                                                     value="{country.uid}"/>
+                                    <label for="country-{country.uid}">
+                                        {country.name}
                                     </label>
                                 </div>
                             </f:for>
