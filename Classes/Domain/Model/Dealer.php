@@ -59,7 +59,6 @@ class Dealer extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Country in which the dealer is
      *
      * @var \JS\Marketplace\Domain\Model\Country
-     * @lazy
      */
     protected $country = null;
     
