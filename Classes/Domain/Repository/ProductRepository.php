@@ -315,6 +315,35 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
      */
     public function findByOptions($filter, $category)
     {
+        $query = $this->createQuery();
+
+        // Constraints initialisieren
+        $constraints = array();
+        $filterActive = false;
+
+        //
+        // get Products by filter
+        // Phrase, Country, Dealer, Continent, Tradebloc
+        //
+        if(count($filter->getOptions())){
+
+//            $filteredArticles = $this->articleRepository->findByFilter($filter);
+//
+//            if(count($filteredArticles)){
+//                $constraints[] = $query->in('uid', $filteredArticles);
+//            }
+        }
+
+        //
+        // Category
+        //
+        if(count($category)){
+            $constraints[] = $query->equals('category', $category);
+        }
+
+        $result = $query->execute();
+
+        return $result;
 
     }
 }
