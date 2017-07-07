@@ -335,11 +335,12 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         //
         if(count($filter->getOptions())){
 
-//            foreach ($filter->getOptions() as $option){
-//
-//            }
+            $optMatch = [];
+            foreach ($filter->getOptions() as $option){
+                $optMatch[] = $query->contains('options', $option);
+            }
 
-//            $constraints[] = $query->matching($query->logicalOr($filter->getOptions()->toArray()));
+            $constraints[] = $query->matching($query->logicalOr($optMatch[]));
 
 //            $filteredArticles = $this->articleRepository->findByFilter($filter);
 //
