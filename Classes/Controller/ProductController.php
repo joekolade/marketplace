@@ -850,8 +850,9 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             }
 
             // Producer
-            if (!in_array($product->getProducer(), $producers)) {
-                $producers[] = $product->getProducer();
+            $producer = $product->getProducer();
+            if (!in_array($producer, $producers)) {
+                $producers[] = $producer;
                 \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($producers, 'prod');
 
             }
