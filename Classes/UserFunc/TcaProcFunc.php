@@ -18,7 +18,7 @@ class TcaProcFunc
 
             foreach ($selects as $select) {
                 if($select->getSelects()){
-                    $selects = array_merge($selects, $select->getSelects());
+                    $selects = array_merge($selects, $select->getSelects()->toArray());
                 }
             }
 
