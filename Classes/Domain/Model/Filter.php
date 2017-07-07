@@ -77,6 +77,14 @@ class Filter extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject
      * @var int
      */
     protected $sortby = 0;
+
+    /**
+     * options
+     *
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Option>
+     * @cascade remove
+     */
+    protected $options = null;
     
     /**
      * __construct
@@ -100,6 +108,7 @@ class Filter extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject
         $this->country = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->productsubgroup = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
         $this->producer = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->options = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
     
     /**
@@ -298,6 +307,49 @@ class Filter extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject
     public function setSortby($sortby)
     {
         $this->sortby = $sortby;
+    }
+
+    /**
+     * Adds a Option
+     *
+     * @param \JS\Marketplace\Domain\Model\Option $option
+     * @return void
+     */
+    public function addOption(\JS\Marketplace\Domain\Model\Option $option)
+    {
+        $this->options->attach($option);
+    }
+
+    /**
+     * Removes a Option
+     *
+     * @param \JS\Marketplace\Domain\Model\Option $optionToRemove The Option to be removed
+     * @return void
+     */
+    public function removeOption(\JS\Marketplace\Domain\Model\Option $optionToRemove)
+    {
+        $this->options->detach($optionToRemove);
+    }
+
+    /**
+     * Returns the options
+     *
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Option> $options
+     */
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+    /**
+     * Sets the options
+     *
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Option> $options
+     * @return void
+     */
+    public function setOptions(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $options)
+    {
+        $this->options = $options;
     }
 
 }
