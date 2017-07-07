@@ -68,7 +68,7 @@
         <f:then>
             <b>{select.output}</b>
             <br>
-            <f:for each="{select.options}" as="option">
+            <f:for each="{opts}" as="option">
                 <f:render section="options" arguments="{option: option}"></f:render>
             </f:for>
         </f:then>
