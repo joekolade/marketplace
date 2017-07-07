@@ -836,7 +836,6 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
 
         // TODO: get options by products
         $options = [];
-        $selects = [];
         foreach ($products as $product) {
             foreach ($product->getOptions() as $option) {
                 if(!in_array($option, $options)) {
@@ -844,14 +843,8 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
                 }
             }
         }
-        foreach ($options as $option){
-            if(!in_array($option->getOptionselect(), $selects)) {
-                $selects[] = $option->getOptionselect();
-            }
-        }
 
         \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($options, "options");
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($selects, "selects");
 
         // TODO: get producers by products
         $producers = $this->producerRepository->findAll();
@@ -860,7 +853,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             'filter' => $filter,
             'products' => $products,
             'producers' => $producers,
-            'selects' => $selects,
+            'options' => $options,
             'category' => $category
         ));
 
