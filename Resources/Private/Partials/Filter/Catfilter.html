@@ -1,3 +1,4 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
 <h2>
     {category.title}
 </h2>
@@ -37,7 +38,13 @@
                         </f:if>
 
                         <f:for each="{optn}" as="option">
-                            <f:render section="options" arguments="{option: option}"></f:render>
+                            <div class="checkbox">
+                                <f:form.checkbox property="producer" id="producer-{producer.uid}"
+                                                 value="{producer.uid}"/>
+                                <label for="producer-{producer.uid}">
+                                    {producer.title}
+                                </label>
+                            </div>
                         </f:for>
                     </f:groupedFor>
 
