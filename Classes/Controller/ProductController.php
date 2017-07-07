@@ -829,7 +829,6 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             $filter = new Filter();
         }
 
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($filter, 'Filter after init');
 
         $category = $this->categoryRepository->findByUid($this->settings['category']);
         $products = $this->productRepository->findByOptions($filter, $category);
@@ -843,6 +842,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
                 }
             }
         }
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($options, 'Options');
 
         // TODO: get producers by products
         $producers = $this->producerRepository->findAll();
