@@ -832,13 +832,25 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($filter, 'Filter after init');
 
         $category = $this->categoryRepository->findByUid($this->settings['category']);
+        $products = $this->productRepository->findByOptions($filter, $category);
 
-        $this->view->assign('filter', $filter);
-        $this->view->assign('products', $this->productRepository->findByOptions($filter, $category));
-        $this->view->assign('producers', $this->producerRepository->findAll());
-
-        $this->view->assign('category', $category);
         // TODO: get options by products
+        $selects = [];
+        foreach ($products as $product) {
+
+        }
+
+        // TODO: get producers by products
+        $producers = $this->producerRepository->findAll()
+
+        $this->view->assignMultiple(array(
+            'filter' => $filter,
+            'products' => $products,
+            'producers' => $producers,
+            'selects' => $selects,
+            'category' => $category
+        ));
+
     }
 
 }

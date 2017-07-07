@@ -33,6 +33,13 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $value = '';
 
     /**
+     * selects
+     *
+     * @var \JS\Marketplace\Domain\Model\Select
+     */
+    protected $select = null;
+
+    /**
      * Returns the title
      *
      * @return string $title
@@ -72,5 +79,26 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setValue($value)
     {
         $this->value = $value;
+    }
+
+    /**
+     * Returns the select
+     *
+     * @return \JS\Marketplace\Domain\Model\Select $select
+     */
+    public function getSelect()
+    {
+        return $this->select;
+    }
+
+    /**
+     * Sets the select
+     *
+     * @param \JS\Marketplace\Domain\Model\Select $select
+     * @return void
+     */
+    public function setSelect(\JS\Marketplace\Domain\Model\Select $select)
+    {
+        $this->select = $select;
     }
 }

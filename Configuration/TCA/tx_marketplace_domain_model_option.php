@@ -126,6 +126,11 @@ return [
                 'eval' => 'trim'
             ],
         ],
+        'select' => [
+            'config' => [
+                'type' => 'passthrough',
+            ],
+        ],
         'tx_select' => [
             'config' => [
                 'type' => 'passthrough',

@@ -10,6 +10,9 @@ class TcaProcFunc
      */
     public function productOptions($config)
     {
+
+        // Todo: get selects of selects in TCA
+
         if($config['row']['category'][0] != NULL) {
             $selects = $this->_getCategory($config['row']['category'][0])->getSelects();
 

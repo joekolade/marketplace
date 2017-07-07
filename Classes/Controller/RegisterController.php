@@ -219,7 +219,7 @@ class RegisterController extends \JS\Marketplace\Controller\AbstractController
         $this->sendMessage($messageTitle, $messageBody, $severity);
         
         // 
-        // TODO: Forward je nach Aktion vor der Registrierung
+        // Forward je nach Aktion vor der Registrierung
         // 
         $this->view->assignMultiple(array(
             'user' => $user,

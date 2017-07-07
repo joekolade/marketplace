@@ -769,6 +769,7 @@ CREATE TABLE tx_marketplace_domain_model_option (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	tx_select int(11) unsigned DEFAULT '0' NOT NULL,
+	select int(11) unsigned DEFAULT '0' NOT NULL,
 
 	title varchar(255) DEFAULT '' NOT NULL,
 	value varchar(255) DEFAULT '' NOT NULL,
