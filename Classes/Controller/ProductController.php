@@ -863,6 +863,8 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
                 }
             }
         }
+        
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($producers, 'prod');
 
         $this->view->assignMultiple(array(
             'filter' => $filter,
