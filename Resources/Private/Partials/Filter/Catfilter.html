@@ -14,15 +14,20 @@
         </div>
     </f:comment>
 
-    <f:groupedFor each="{options}" as="opts" groupBy="optionselect" groupKey="select">
+    <f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
         <f:comment>
             <f:render section="select" arguments="{select: select, options: opts, sub: '0'}"></f:render>
         </f:comment>
 
-        {select.output}:<br>
-        <f:for each="{opts}" as="option">
-            <f:render section="options" arguments="{option: option}"></f:render>
-        </f:for>
+        {filtergroup.output}:<br>
+        <f:groupedFor each="{opts}" as="optn" groupKey="filtersubgroup" groupKey="filtersubgroup">
+            (SUB) {filtersubgroup.title}<br>
+
+            <f:for each="{optn}" as="option">
+                <f:render section="options" arguments="{option: option}"></f:render>
+            </f:for>
+
+        </f:groupedFor>
     </f:groupedFor>
 
 
