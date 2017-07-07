@@ -14,7 +14,13 @@ class TcaProcFunc
         // Todo: get selects of selects in TCA
 
         if($config['row']['category'][0] != NULL) {
-            $selects = $this->_getCategory($config['row']['category'][0])->getSelects();
+            $selects = $this->_getCategory($config['row']['category'][0])->getSelects()->toArray();
+
+            foreach ($selects as $select) {
+                if($select->getSelects()){
+                    $selects = array_merge($selects, $select->getSelects());
+                }
+            }
 
             $itemList = [];
             foreach ($selects as $select) {
