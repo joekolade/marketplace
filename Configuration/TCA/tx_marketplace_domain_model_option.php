@@ -127,8 +127,14 @@ return [
             ],
         ],
         'optionselect' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_option.optionselect',
             'config' => [
-                'type' => 'passthrough',
+                'type' => 'select',
+                'renderType' => 'selectSingle',
+                'foreign_table' => 'tx_marketplace_domain_model_select',
+                'minitems' => 0,
+                'maxitems' => 1,
             ],
         ],
         'tx_select' => [

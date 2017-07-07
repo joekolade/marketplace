@@ -497,6 +497,9 @@
 			<trans-unit id="tx_marketplace_domain_model_option.value">
 				<source>Value</source>
 			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_option.optionselect">
+				<source>Optionselect</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
