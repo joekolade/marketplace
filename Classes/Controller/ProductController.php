@@ -834,7 +834,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         $category = $this->categoryRepository->findByUid($this->settings['category']);
         $products = $this->productRepository->findByOptions($filter, $category);
 
-        // TODO: get options by products
+        // Get options by filtered products
         $options = [];
         foreach ($products as $product) {
             foreach ($product->getOptions() as $option) {
@@ -843,8 +843,6 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
                 }
             }
         }
-
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($options, "options");
 
         // TODO: get producers by products
         $producers = $this->producerRepository->findAll();
