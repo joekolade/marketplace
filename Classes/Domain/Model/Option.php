@@ -33,11 +33,18 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $value = '';
 
     /**
-     * selects
+     * filtergroup
      *
-     * @var \JS\Marketplace\Domain\Model\Select
+     * @var \JS\Marketplace\Domain\Model\Filtergroup
      */
-    protected $optionselect = null;
+    protected $filtergroup = null;
+
+    /**
+     * filtersubgroup
+     *
+     * @var \JS\Marketplace\Domain\Model\Filtersubgroup
+     */
+    protected $filtersubgroup = null;
 
     /**
      * Returns the title
@@ -82,23 +89,44 @@ class Option extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Returns the optionselect
+     * Returns the filtergroup
      *
-     * @return \JS\Marketplace\Domain\Model\Select $optionselect
+     * @return \JS\Marketplace\Domain\Model\Filtergroup filtergroup
      */
-    public function getOptionselect()
+    public function getFiltergroup()
     {
-        return $this->optionselect;
+        return $this->filtergroup;
     }
 
     /**
-     * Sets the optionselect
+     * Sets the filtergroup
      *
-     * @param \JS\Marketplace\Domain\Model\Select $optionselect
+     * @param \JS\Marketplace\Domain\Model\Filtergroup $filtergroup
      * @return void
      */
-    public function setOptionselect(\JS\Marketplace\Domain\Model\Select $optionselect)
+    public function setFiltergroup(\JS\Marketplace\Domain\Model\Filtergroup $filtergroup)
     {
-        $this->optionselect = $optionselect;
+        $this->filtergroup = $filtergroup;
+    }
+
+    /**
+     * Returns the filtersubgroup
+     *
+     * @return \JS\Marketplace\Domain\Model\Filtersubgroup filtersubgroup
+     */
+    public function getFiltersubgroup()
+    {
+        return $this->filtersubgroup;
+    }
+
+    /**
+     * Sets the filtersubgroup
+     *
+     * @param \JS\Marketplace\Domain\Model\Filtersubgroup $filtersubgroup
+     * @return void
+     */
+    public function setFiltersubgroup(\JS\Marketplace\Domain\Model\Filtersubgroup $filtersubgroup)
+    {
+        $this->filtersubgroup = $filtersubgroup;
     }
 }

@@ -45,12 +45,6 @@
 			<trans-unit id="tx_marketplace_domain_model_product.averagerating">
 				<source>Average rating</source>
 			</trans-unit>
-			<trans-unit id="tx_marketplace_domain_model_product.category">
-				<source>Category</source>
-			</trans-unit>
-			<trans-unit id="tx_marketplace_domain_model_product.options">
-				<source>Options</source>
-			</trans-unit>
 
 			<trans-unit id="tx_marketplace_domain_model_productgroup">
 				<source>Productgroup</source>
@@ -278,39 +272,24 @@
 				<source>Mrs.</source>
 			</trans-unit>
 
-			<trans-unit id="tx_marketplace_domain_model_category">
-				<source>Category</source>
+			<!-- Categorization -->
+			<trans-unit id="tx_marketplace_domain_model_filtergroup">
+				<source>Filtergroup</source>
 			</trans-unit>
-			<trans-unit id="tx_marketplace_domain_model_category.title">
+			<trans-unit id="tx_marketplace_domain_model_filtergroup.title">
 				<source>Title</source>
 			</trans-unit>
-			<trans-unit id="tx_marketplace_domain_model_category.image">
-				<source>Image</source>
-			</trans-unit>
-			<trans-unit id="tx_marketplace_domain_model_category.products">
-				<source>Products</source>
-			</trans-unit>
-			<trans-unit id="tx_marketplace_domain_model_category.selects">
-				<source>Selects</source>
-			</trans-unit>
-
-			<trans-unit id="tx_marketplace_domain_model_select">
-				<source>Select</source>
-			</trans-unit>
-			<trans-unit id="tx_marketplace_domain_model_select.title">
-				<source>Title</source>
-			</trans-unit>
-			<trans-unit id="tx_marketplace_domain_model_select.type">
+			<trans-unit id="tx_marketplace_domain_model_filtergroup.type">
 				<source>Type</source>
 			</trans-unit>
-			<trans-unit id="tx_marketplace_domain_model_select.output">
+			<trans-unit id="tx_marketplace_domain_model_filtergroup.output">
 				<source>Output</source>
 			</trans-unit>
-			<trans-unit id="tx_marketplace_domain_model_select.options">
+			<trans-unit id="tx_marketplace_domain_model_filtergroup.options">
 				<source>Options</source>
 			</trans-unit>
-			<trans-unit id="tx_marketplace_domain_model_select.selects">
-				<source>Selects</source>
+			<trans-unit id="tx_marketplace_domain_model_filtergroup.filtersubgroups">
+				<source>Filtersubgroups</source>
 			</trans-unit>
 			<trans-unit id="tx_marketplace_domain_model_option">
 				<source>Option</source>
@@ -321,8 +300,32 @@
 			<trans-unit id="tx_marketplace_domain_model_option.value">
 				<source>Value</source>
 			</trans-unit>
-			<trans-unit id="tx_marketplace_domain_model_option.optionselect">
-				<source>Optionselect</source>
+			<trans-unit id="tx_marketplace_domain_model_option.filtergroup">
+				<source>Filtergroup</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_option.filtersubgroup">
+				<source>Filtersubgroup</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product">
+				<source>Product</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_product.options">
+				<source>Options</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_category.filtergroups">
+				<source>Filtergroups</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_filtersubgroup">
+				<source>Filtersubgroup</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_domain_model_filtersubgroup.title">
+				<source>Title</source>
 			</trans-unit>
 		</body>
 	</file>

@@ -664,115 +664,18 @@ CREATE TABLE tx_marketplace_domain_model_product (
 
 
 #
-# Table structure for table 'tx_marketplace_domain_model_category'
+# Table structure for table 'tx_marketplace_domain_model_filtergroup'
 #
-CREATE TABLE tx_marketplace_domain_model_category (
-
-  uid int(11) NOT NULL auto_increment,
-  pid int(11) DEFAULT '0' NOT NULL,
-
-  title varchar(255) DEFAULT '' NOT NULL,
-  image int(11) unsigned NOT NULL default '0',
-  products int(11) unsigned DEFAULT '0' NOT NULL,
-
-	selects int(11) unsigned DEFAULT '0' NOT NULL,
-
-  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
-  crdate int(11) unsigned DEFAULT '0' NOT NULL,
-  cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
-  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
-  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
-
-  sys_language_uid int(11) DEFAULT '0' NOT NULL,
-  l10n_parent int(11) DEFAULT '0' NOT NULL,
-  l10n_diffsource mediumblob,
-
-  PRIMARY KEY (uid),
-  KEY parent (pid),
-  KEY language (l10n_parent,sys_language_uid)
-
-);
-
-
-CREATE TABLE tx_marketplace_domain_model_product (
-	category int(11) unsigned DEFAULT '0',
-	options int(11) unsigned DEFAULT '0' NOT NULL
-);
-
-#
-# Table structure for table 'tx_marketplace_product_category_mm'
-#
-CREATE TABLE tx_marketplace_product_category_mm (
-	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
-	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
-	sorting int(11) unsigned DEFAULT '0' NOT NULL,
-	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
-
-	KEY uid_local (uid_local),
-	KEY uid_foreign (uid_foreign)
-);
-
-#
-# Table structure for table 'tx_marketplace_domain_model_select'
-#
-CREATE TABLE tx_marketplace_domain_model_select (
+CREATE TABLE tx_marketplace_domain_model_filtergroup (
 
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
-
-	tx_select int(11) unsigned DEFAULT '0' NOT NULL,
 
 	title varchar(255) DEFAULT '' NOT NULL,
 	type int(11) DEFAULT '0' NOT NULL,
 	output varchar(255) DEFAULT '' NOT NULL,
 	options int(11) unsigned DEFAULT '0' NOT NULL,
-	selects int(11) unsigned DEFAULT '0' NOT NULL,
-
-	category int(11) unsigned DEFAULT '0' NOT NULL,
-
-	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
-	crdate int(11) unsigned DEFAULT '0' NOT NULL,
-	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
-	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
-	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
-	starttime int(11) unsigned DEFAULT '0' NOT NULL,
-	endtime int(11) unsigned DEFAULT '0' NOT NULL,
-
-	t3ver_oid int(11) DEFAULT '0' NOT NULL,
-	t3ver_id int(11) DEFAULT '0' NOT NULL,
-	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
-	t3ver_label varchar(255) DEFAULT '' NOT NULL,
-	t3ver_state tinyint(4) DEFAULT '0' NOT NULL,
-	t3ver_stage int(11) DEFAULT '0' NOT NULL,
-	t3ver_count int(11) DEFAULT '0' NOT NULL,
-	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
-	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
-	sorting int(11) DEFAULT '0' NOT NULL,
-
-	sys_language_uid int(11) DEFAULT '0' NOT NULL,
-	l10n_parent int(11) DEFAULT '0' NOT NULL,
-	l10n_diffsource mediumblob,
-
-	PRIMARY KEY (uid),
-	KEY parent (pid),
-	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
-	KEY language (l10n_parent,sys_language_uid)
-
-);
-
-#
-# Table structure for table 'tx_marketplace_domain_model_option''
-#
-CREATE TABLE tx_marketplace_domain_model_option (
-
-	uid int(11) NOT NULL auto_increment,
-	pid int(11) DEFAULT '0' NOT NULL,
-
-	tx_select int(11) unsigned DEFAULT '0' NOT NULL,
-	optionselect int(11) unsigned DEFAULT '0',
-
-	title varchar(255) DEFAULT '' NOT NULL,
-	value varchar(255) DEFAULT '' NOT NULL,
+	filtersubgroups int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -809,16 +712,182 @@ CREATE TABLE tx_marketplace_domain_model_option (
 #
 CREATE TABLE tx_marketplace_domain_model_option (
 
-	tx_select int(11) unsigned DEFAULT '0' NOT NULL,
+	uid int(11) NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+
+	filtergroup int(11) unsigned DEFAULT '0' NOT NULL,
+
+	title varchar(255) DEFAULT '' NOT NULL,
+	value varchar(255) DEFAULT '' NOT NULL,
+	filtergroup int(11) unsigned DEFAULT '0',
+	filtersubgroup int(11) unsigned DEFAULT '0',
+
+	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+	crdate int(11) unsigned DEFAULT '0' NOT NULL,
+	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
+	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	starttime int(11) unsigned DEFAULT '0' NOT NULL,
+	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+
+	t3ver_oid int(11) DEFAULT '0' NOT NULL,
+	t3ver_id int(11) DEFAULT '0' NOT NULL,
+	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
+	t3ver_label varchar(255) DEFAULT '' NOT NULL,
+	t3ver_state tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_stage int(11) DEFAULT '0' NOT NULL,
+	t3ver_count int(11) DEFAULT '0' NOT NULL,
+	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
+	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
+	sorting int(11) DEFAULT '0' NOT NULL,
+
+	sys_language_uid int(11) DEFAULT '0' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	l10n_diffsource mediumblob,
+
+	PRIMARY KEY (uid),
+	KEY parent (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+	KEY language (l10n_parent,sys_language_uid)
 
 );
 
 #
-# Table structure for table 'tx_marketplace_domain_model_select'
+# Table structure for table 'tx_marketplace_domain_model_product'
 #
-CREATE TABLE tx_marketplace_domain_model_select (
+CREATE TABLE tx_marketplace_domain_model_product (
 
-	tx_select int(11) unsigned DEFAULT '0' NOT NULL,
+	uid int(11) NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+
+	category int(11) unsigned DEFAULT '0',
+	options int(11) unsigned DEFAULT '0' NOT NULL,
+
+	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+	crdate int(11) unsigned DEFAULT '0' NOT NULL,
+	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
+	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	starttime int(11) unsigned DEFAULT '0' NOT NULL,
+	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+
+	t3ver_oid int(11) DEFAULT '0' NOT NULL,
+	t3ver_id int(11) DEFAULT '0' NOT NULL,
+	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
+	t3ver_label varchar(255) DEFAULT '' NOT NULL,
+	t3ver_state tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_stage int(11) DEFAULT '0' NOT NULL,
+	t3ver_count int(11) DEFAULT '0' NOT NULL,
+	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
+	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
+
+	sys_language_uid int(11) DEFAULT '0' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	l10n_diffsource mediumblob,
+
+	PRIMARY KEY (uid),
+	KEY parent (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+	KEY language (l10n_parent,sys_language_uid)
+
+);
+
+#
+# Table structure for table 'tx_marketplace_domain_model_category'
+#
+CREATE TABLE tx_marketplace_domain_model_category (
+
+	uid int(11) NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+
+	filtergroups int(11) unsigned DEFAULT '0' NOT NULL,
+
+	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+	crdate int(11) unsigned DEFAULT '0' NOT NULL,
+	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
+	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	starttime int(11) unsigned DEFAULT '0' NOT NULL,
+	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+
+	t3ver_oid int(11) DEFAULT '0' NOT NULL,
+	t3ver_id int(11) DEFAULT '0' NOT NULL,
+	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
+	t3ver_label varchar(255) DEFAULT '' NOT NULL,
+	t3ver_state tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_stage int(11) DEFAULT '0' NOT NULL,
+	t3ver_count int(11) DEFAULT '0' NOT NULL,
+	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
+	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
+
+	sys_language_uid int(11) DEFAULT '0' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	l10n_diffsource mediumblob,
+
+	PRIMARY KEY (uid),
+	KEY parent (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+	KEY language (l10n_parent,sys_language_uid)
+
+);
+
+#
+# Table structure for table 'tx_marketplace_domain_model_filtersubgroup'
+#
+CREATE TABLE tx_marketplace_domain_model_filtersubgroup (
+
+	uid int(11) NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+
+	filtergroup int(11) unsigned DEFAULT '0' NOT NULL,
+
+	title varchar(255) DEFAULT '' NOT NULL,
+
+	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+	crdate int(11) unsigned DEFAULT '0' NOT NULL,
+	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
+	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	starttime int(11) unsigned DEFAULT '0' NOT NULL,
+	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+
+	t3ver_oid int(11) DEFAULT '0' NOT NULL,
+	t3ver_id int(11) DEFAULT '0' NOT NULL,
+	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
+	t3ver_label varchar(255) DEFAULT '' NOT NULL,
+	t3ver_state tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_stage int(11) DEFAULT '0' NOT NULL,
+	t3ver_count int(11) DEFAULT '0' NOT NULL,
+	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
+	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
+	sorting int(11) DEFAULT '0' NOT NULL,
+
+	sys_language_uid int(11) DEFAULT '0' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	l10n_diffsource mediumblob,
+
+	PRIMARY KEY (uid),
+	KEY parent (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+	KEY language (l10n_parent,sys_language_uid)
+
+);
+
+#
+# Table structure for table 'tx_marketplace_domain_model_option'
+#
+CREATE TABLE tx_marketplace_domain_model_option (
+
+	filtergroup int(11) unsigned DEFAULT '0' NOT NULL,
+
+);
+
+#
+# Table structure for table 'tx_marketplace_domain_model_filtersubgroup'
+#
+CREATE TABLE tx_marketplace_domain_model_filtersubgroup (
+
+	filtergroup int(11) unsigned DEFAULT '0' NOT NULL,
 
 );
 
@@ -836,9 +905,9 @@ CREATE TABLE tx_marketplace_product_option_mm (
 );
 
 #
-# Table structure for table 'tx_marketplace_category_select_mm'
+# Table structure for table 'tx_marketplace_category_filtergroup_mm'
 #
-CREATE TABLE tx_marketplace_category_select_mm (
+CREATE TABLE tx_marketplace_category_filtergroup_mm (
 	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
 	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 	sorting int(11) unsigned DEFAULT '0' NOT NULL,

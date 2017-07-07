@@ -15,7 +15,7 @@ namespace JS\Marketplace\Domain\Model;
 /**
  * Select
  */
-class Select extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class Filtergroup extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
      * title
@@ -33,6 +33,13 @@ class Select extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $type = 0;
 
     /**
+     * output
+     *
+     * @var string
+     */
+    protected $output = '';
+
+    /**
      * options
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Option>
@@ -41,19 +48,12 @@ class Select extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $options = null;
 
     /**
-     * selects
+     * filtersubgroups
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Select>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Filtersubgroup>
      * @cascade remove
      */
-    protected $selects = null;
-
-    /**
-     * output
-     *
-     * @var string
-     */
-    protected $output = '';
+    protected $filtersubgroups = null;
 
     /**
      * __construct
@@ -75,7 +75,7 @@ class Select extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected function initStorageObjects()
     {
         $this->options = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
-        $this->selects = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+        $this->filtersubgroups = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
 
     /**
@@ -164,56 +164,13 @@ class Select extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     }
 
     /**
-     * Adds a Select
-     *
-     * @param \JS\Marketplace\Domain\Model\Select $select
-     * @return void
-     */
-    public function addSelect(\JS\Marketplace\Domain\Model\Select $select)
-    {
-        $this->selects->attach($select);
-    }
-
-    /**
-     * Removes a Select
-     *
-     * @param \JS\Marketplace\Domain\Model\Select $selectToRemove The Select to be removed
-     * @return void
-     */
-    public function removeSelect(\JS\Marketplace\Domain\Model\Select $selectToRemove)
-    {
-        $this->selects->detach($selectToRemove);
-    }
-
-    /**
-     * Returns the selects
-     *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Select> $selects
-     */
-    public function getSelects()
-    {
-        return $this->selects;
-    }
-
-    /**
-     * Sets the selects
-     *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Select> $selects
-     * @return void
-     */
-    public function setSelects(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $selects)
-    {
-        $this->selects = $selects;
-    }
-
-    /**
      * Returns the output
      *
      * @return string $output
      */
     public function getOutput()
     {
-        return $this->output ? $this->output : $this->title;
+        return $this->output;
     }
 
     /**
@@ -225,5 +182,48 @@ class Select extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setOutput($output)
     {
         $this->output = $output;
+    }
+
+    /**
+     * Adds a Selectgroup
+     *
+     * @param \JS\Marketplace\Domain\Model\Filtersubgroup $filtersubgroup
+     * @return void
+     */
+    public function addFiltersubgroup(\JS\Marketplace\Domain\Model\Filtersubgroup $filtersubgroup)
+    {
+        $this->filtersubgroups->attach($filtersubgroup);
+    }
+
+    /**
+     * Removes a Selectgroup
+     *
+     * @param \JS\Marketplace\Domain\Model\Filtersubgroup $filtersubgroupToRemove The Filtersubgroup to be removed
+     * @return void
+     */
+    public function removeFiltersubgroup(\JS\Marketplace\Domain\Model\Filtersubgroup $filtersubgroupToRemove)
+    {
+        $this->filtersubgroups->detach($filtersubgroupToRemove);
+    }
+
+    /**
+     * Returns the filtersubgroups
+     *
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Filtersubgroup> filtersubgroups
+     */
+    public function getFiltersubgroups()
+    {
+        return $this->filtersubgroups;
+    }
+
+    /**
+     * Sets the filtersubgroups
+     *
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Filtersubgroup> $filtersubgroups
+     * @return void
+     */
+    public function setFiltersubgroups(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $filtersubgroups)
+    {
+        $this->filtersubgroups = $filtersubgroups;
     }
 }

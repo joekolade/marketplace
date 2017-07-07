@@ -6,15 +6,6 @@
 			<trans-unit id="title.description">
 				<source>title</source>
 			</trans-unit>
-			<trans-unit id="value.description">
-				<source>value</source>
-			</trans-unit>
-			<trans-unit id="filtergroup.description">
-				<source>filtergroup</source>
-			</trans-unit>
-			<trans-unit id="filtersubgroup.description">
-				<source>filtersubgroup</source>
-			</trans-unit>
 		</body>
 	</file>
 </xliff>

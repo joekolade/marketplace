@@ -1,7 +1,7 @@
 <?php
 return [
     'ctrl' => [
-        'title'	=> 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_option',
+        'title'	=> 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_filtersubgroup',
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -17,14 +17,14 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-		'searchFields' => 'title,value,filtergroup,filtersubgroup',
-        'iconfile' => 'EXT:marketplace/Resources/Public/Icons/tx_marketplace_domain_model_option.gif'
+		'searchFields' => 'title',
+        'iconfile' => 'EXT:marketplace/Resources/Public/Icons/tx_marketplace_domain_model_filtersubgroup.gif'
     ],
     'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, value, filtergroup, filtersubgroup',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title',
     ],
     'types' => [
-		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, value, filtergroup, filtersubgroup, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+		'1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'columns' => [
 		'sys_language_uid' => [
@@ -54,8 +54,8 @@ return [
                 'items' => [
                     ['', 0],
                 ],
-                'foreign_table' => 'tx_marketplace_domain_model_option',
-                'foreign_table_where' => 'AND tx_marketplace_domain_model_option.pid=###CURRENT_PID### AND tx_marketplace_domain_model_option.sys_language_uid IN (-1,0)',
+                'foreign_table' => 'tx_marketplace_domain_model_filtersubgroup',
+                'foreign_table_where' => 'AND tx_marketplace_domain_model_filtersubgroup.pid=###CURRENT_PID### AND tx_marketplace_domain_model_filtersubgroup.sys_language_uid IN (-1,0)',
             ],
         ],
         'l10n_diffsource' => [
@@ -109,43 +109,12 @@ return [
             ],
         ],
         'title' => [
-	        'exclude' => false,
-	        'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_option.title',
+	        'exclude' => true,
+	        'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_filtersubgroup.title',
 	        'config' => [
 			    'type' => 'input',
 			    'size' => 30,
 			    'eval' => 'trim,required'
-			],
-	    ],
-	    'value' => [
-	        'exclude' => false,
-	        'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_option.value',
-	        'config' => [
-			    'type' => 'input',
-			    'size' => 30,
-			    'eval' => 'trim'
-			],
-	    ],
-	    'filtergroup' => [
-	        'exclude' => true,
-	        'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_option.filtergroup',
-	        'config' => [
-			    'type' => 'select',
-			    'renderType' => 'selectSingle',
-			    'foreign_table' => 'tx_marketplace_domain_model_filtergroup',
-			    'minitems' => 0,
-			    'maxitems' => 1,
-			],
-	    ],
-	    'filtersubgroup' => [
-	        'exclude' => true,
-	        'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_option.filtersubgroup',
-	        'config' => [
-			    'type' => 'select',
-			    'renderType' => 'selectSingle',
-			    'foreign_table' => 'tx_marketplace_domain_model_filtersubgroup',
-			    'minitems' => 0,
-			    'maxitems' => 1,
 			],
 	    ],
         'filtergroup' => [
