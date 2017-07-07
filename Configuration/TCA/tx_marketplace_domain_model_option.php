@@ -132,7 +132,7 @@ return [
 	        'config' => [
 			    'type' => 'select',
                 'items' => [
-                    ['0', 'keine Untergruppe']
+                    array('0', 'keine Untergruppe')
                 ],
 			    'renderType' => 'selectSingle',
 			    'foreign_table' => 'tx_marketplace_domain_model_filtergroup',
