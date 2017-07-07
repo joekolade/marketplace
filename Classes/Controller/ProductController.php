@@ -823,7 +823,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      * @param \JS\Marketplace\Domain\Model\Filter $filter
      * @return void
      */
-    public function catListAction(\JS\Marketplace\Domain\Model\Filter $filter = null)
+    public function catListAction($filter = NULL)
     {
         \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($filter, 'Filter before init');
         if(!$filter){
