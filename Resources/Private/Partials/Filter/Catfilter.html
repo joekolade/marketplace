@@ -38,13 +38,7 @@
                         </f:if>
 
                         <f:for each="{optn}" as="option">
-                            <div class="checkbox">
-                                <f:form.checkbox property="producer" id="producer-{producer.uid}"
-                                                 value="{producer.uid}"/>
-                                <label for="producer-{producer.uid}">
-                                    {producer.title}
-                                </label>
-                            </div>
+                            <f:render section="options" arguments="{option: option}"></f:render>
                         </f:for>
                     </f:groupedFor>
 
@@ -77,7 +71,13 @@
                         </f:then>
                         <f:else>
                             <f:for each="{producers}" as="producer">
-                                <f:render section="options" arguments="{option: producer}"></f:render>
+                                <div class="checkbox">
+                                    <f:form.checkbox property="producer" id="producer-{producer.uid}"
+                                                     value="{producer.uid}"/>
+                                    <label for="producer-{producer.uid}">
+                                        {producer.title}
+                                    </label>
+                                </div>
                             </f:for>
                         </f:else>
                     </f:if>
