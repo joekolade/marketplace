@@ -831,10 +831,9 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
 
         $category = $this->categoryRepository->findByUid($this->settings['category']);
 
-
         $this->view->assign('filter', $filter);
         $this->view->assign('category', $category);
-        $this->view->assign('products', $this->productRepository->findByCategory($category));
+        $this->view->assign('products', $this->productRepository->findByOptions($filter, $category));
         $this->view->assign('producers', $this->producerRepository->findAll());
 
         // return;

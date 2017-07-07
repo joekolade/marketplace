@@ -308,4 +308,13 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
       return $query->execute();
     }
 
+
+    /**
+     * @param \JS\Marketplace\Domain\Model\Filter $filter
+     * @param \JS\Marketplace\Domain\Model\Category $category
+     */
+    public function findByOptions($filter, $category)
+    {
+
+    }
 }
