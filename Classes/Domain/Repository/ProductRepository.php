@@ -335,14 +335,11 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         //
         if(count($filter->getOptions())){
 
-            // group options to get and/or right
+//            foreach ($filter->getOptions() as $option){
+//
+//            }
 
-            $selects = [];
-            foreach ($filter->getOptions() as $option){
-                $selects[$option->getSelect()->getUid()] = $option->getSelect()->getUid(); 
-            }
-            
-            \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($select, 'Selects');
+            $constraints[] = $query->matching($query->logicalOr($filter->getOptions()));
 
 //            $filteredArticles = $this->articleRepository->findByFilter($filter);
 //

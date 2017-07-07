@@ -825,21 +825,20 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      */
     public function catListAction($filter = NULL)
     {
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($filter, 'Filter before init');
         if(!$filter){
             $filter = new Filter();
         }
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($filter, 'Filter after init');
 
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($filter, 'Filter after init');
 
         $category = $this->categoryRepository->findByUid($this->settings['category']);
 
         $this->view->assign('filter', $filter);
-        $this->view->assign('category', $category);
         $this->view->assign('products', $this->productRepository->findByOptions($filter, $category));
         $this->view->assign('producers', $this->producerRepository->findAll());
 
-        // return;
+        $this->view->assign('category', $category);
+        // TODO: get options by products
     }
 
 }
