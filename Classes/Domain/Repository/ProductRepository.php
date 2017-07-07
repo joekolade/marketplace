@@ -338,7 +338,15 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         // Category
         //
         if(count($category)){
-            $constraints[] = $query->equals('category', $category->getUid());
+            $constraints[] = $query->equals('category', $category);
+        }
+
+        //
+        // Use given constraints
+        // -------------------------------------------
+        //
+        if(count($constraints)){
+            $query->matching($query->logicalAnd($constraints));
         }
 
         $result = $query->execute();
