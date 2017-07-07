@@ -15,7 +15,13 @@
     </f:comment>
 
     <f:groupedFor each="{options}" as="opts" groupBy="optionselect" groupKey="select">
-        <f:render section="select" arguments="{select: select, options: opts, sub: '0'}"></f:render>
+        <f:comment>
+            <f:render section="select" arguments="{select: select, options: opts, sub: '0'}"></f:render>
+        </f:comment>
+        {select.title}:<br>
+        <f:for each="{opts}" as="option">
+            {option.title}<br>
+        </f:for>
     </f:groupedFor>
 
 
