@@ -69,7 +69,9 @@
                             <f:form.select property="producer" multiple="TRUE" options="{producers}" optionValueField="uid" optionLabelField="name" class="form-control selectpicker show-tick" data="{live-search: 'true', selected-text-format: 'count'}"></f:form.select>
                         </f:then>
                         <f:else>
-                            <f:form.select property="producer" multiple="TRUE" options="{producers}" optionValueField="uid" optionLabelField="name" class="form-control show-tick"></f:form.select>
+                            <f:for each="{producers}" as="producer">
+                                <f:render section="options" arguments="{option: producer}"></f:render>
+                            </f:for>
                         </f:else>
                     </f:if>
                 </div>
