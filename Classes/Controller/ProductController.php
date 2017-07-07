@@ -829,28 +829,46 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             $filter = new Filter();
         }
 
-
+        /** @var  \JS\Marketplace\Domain\Model\Category $category */
         $category = $this->categoryRepository->findByUid($this->settings['category']);
+        /** @var  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Product> $products */
         $products = $this->productRepository->findByOptions($filter, $category);
 
         // Get options by filtered products
+        //  and producers
+        //  and countries
         $options = [];
+        $producers = [];
         foreach ($products as $product) {
+
+            // Options
             foreach ($product->getOptions() as $option) {
                 if(!in_array($option, $options)) {
                     $options[] = $option;
                 }
             }
-        }
 
-        // TODO: get producers by products
-        $producers = $this->producerRepository->findAll();
+            // Producer
+            if(!in_array($product->getProducer(), $producers)){
+                $producers[] = $product->getProducer();
+
+                // Countries
+            }
+
+            foreach ($product->getArticles() as $article) {
+                $country = $article->getDealer()->getCountry();
+                if(!in_array($country, $countries)){
+                    $countries[] = $country;
+                }
+            }
+        }
 
         $this->view->assignMultiple(array(
             'filter' => $filter,
             'products' => $products,
             'producers' => $producers,
             'options' => $options,
+            'countries' => $countries,
             'category' => $category
         ));
 
