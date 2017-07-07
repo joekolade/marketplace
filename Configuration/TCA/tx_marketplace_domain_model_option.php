@@ -135,6 +135,9 @@ return [
 			    'foreign_table' => 'tx_marketplace_domain_model_filtergroup',
 			    'minitems' => 0,
 			    'maxitems' => 1,
+                'items' => [
+                    '0' => 'keine Untergruppe'
+                ]
 			],
 	    ],
 	    'filtersubgroup' => [
