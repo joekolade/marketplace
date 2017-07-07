@@ -109,7 +109,6 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * producer
      *
      * @var \JS\Marketplace\Domain\Model\Producer
-     * @lazy
      */
     protected $producer = null;
 
