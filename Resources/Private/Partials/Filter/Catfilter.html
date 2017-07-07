@@ -14,13 +14,15 @@
         </div>
     </f:comment>
 
+    <!-- TODO: Reset filter -->
+
     <f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
 
 
         <div class="panel panel-default">
             <div class="panel-heading" role="tab">
                 <h4>
-                    <a class="btn btn-block" data-toggle="collapse" href="#collapse-select-{select.uid}">
+                    <a class="btn btn-block" data-toggle="collapse" href="#collapse-select-{filtergroup.uid}">
                         {filtergroup.output}
                         <i class="fa fa-plus"></i>
                     </a>

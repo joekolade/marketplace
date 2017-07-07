@@ -842,7 +842,6 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
                 }
             }
         }
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($options, 'Options');
 
         // TODO: get producers by products
         $producers = $this->producerRepository->findAll();
