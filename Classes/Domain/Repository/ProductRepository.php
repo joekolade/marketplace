@@ -339,7 +339,7 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 //
 //            }
 
-            $constraints[] = $query->matching($query->logicalOr($filter->getOptions()->toArray()));
+//            $constraints[] = $query->matching($query->logicalOr($filter->getOptions()->toArray()));
 
 //            $filteredArticles = $this->articleRepository->findByFilter($filter);
 //
