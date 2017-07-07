@@ -502,7 +502,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             $sender = array($emailSettings['sender'] => $emailSettings['senderName']);
             $arguments = array(
                 'settings' => $this->settings,
-//                'user' => $user,
+                'user' => $user,
                 'hash' => $hash,
                 'product' => $product,
             );
