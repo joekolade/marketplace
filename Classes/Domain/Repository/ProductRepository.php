@@ -342,11 +342,6 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 
             $constraints[] = $query->logicalOr($optMatch);
 
-//            $filteredArticles = $this->articleRepository->findByFilter($filter);
-//
-//            if(count($filteredArticles)){
-//                $constraints[] = $query->in('uid', $filteredArticles);
-//            }
         }
 
         //
