@@ -325,14 +325,14 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         // get Products by filter
         // Phrase, Country, Dealer, Continent, Tradebloc
         //
-//        if(count($filter->getOptions())){
+        if(count($filter->getOptions())){
 
 //            $filteredArticles = $this->articleRepository->findByFilter($filter);
 //
 //            if(count($filteredArticles)){
 //                $constraints[] = $query->in('uid', $filteredArticles);
 //            }
-//        }
+        }
 
         //
         // Category

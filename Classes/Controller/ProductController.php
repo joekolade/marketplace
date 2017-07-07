@@ -828,6 +828,8 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         if(!$filter){
             $filter = new Filter();
         }
+        
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($filter, 'Filter');
 
         $category = $this->categoryRepository->findByUid($this->settings['category']);
 
