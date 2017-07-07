@@ -838,7 +838,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         $options = [];
         $selects = [];
         foreach ($products as $product) {
-            foreach ($product->getOpions() as $option) {
+            foreach ($product->getOptions() as $option) {
                 if(!in_array($option, $options)) {
                     $options[] = $option;
                 }
