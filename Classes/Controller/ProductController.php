@@ -823,9 +823,9 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      * @param \JS\Marketplace\Domain\Model\Filter $filter
      * @return void
      */
-    public function catListAction($filter = NULL)
+    public function catListAction($filter = null)
     {
-        if(!$filter){
+        if (!$filter) {
             $filter = new Filter();
         }
 
@@ -844,27 +844,27 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
 
             // Options
             foreach ($product->getOptions() as $option) {
-                if(!in_array($option, $options)) {
+                if (!in_array($option, $options)) {
                     $options[] = $option;
                 }
             }
 
             // Producer
-            if(!in_array($product->getProducer(), $producers)){
+            if (!in_array($product->getProducer(), $producers)) {
                 $producers[] = $product->getProducer();
+                \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($producers, 'prod');
 
-                // Countries
             }
 
+            // Countries
             foreach ($product->getArticles() as $article) {
                 $country = $article->getDealer()->getCountry();
-                if(!in_array($country, $countries)){
+                if (!in_array($country, $countries)) {
                     $countries[] = $country;
                 }
             }
         }
-        
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($producers, 'prod');
+
 
         $this->view->assignMultiple(array(
             'filter' => $filter,
