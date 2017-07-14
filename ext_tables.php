@@ -2,6 +2,10 @@
 
 defined('TYPO3_MODE') || die('Access denied.');
 
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
+    'tt_content.pi_flexform.categorylist', 'ext:' . $_extkey . '/resources    /private/language/locallang_csh_flexforms.xlf');
+
+
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'JS.' . $_EXTKEY,
     'Articlesearch',
