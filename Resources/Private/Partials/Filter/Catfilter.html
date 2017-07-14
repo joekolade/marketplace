@@ -75,7 +75,7 @@
                 <div class="panel-body">
                     <f:if condition="{producers -> f:count()} > 5 ">
                         <f:then>
-                            <f:form.select property="producer" multiple="TRUE" options="{producers}" optionValueField="uid" optionLabelField="name" class="form-control selectpicker show-tick" data="{live-search: 'true', noneSelectedText: 'Click to select', selected-text-format: 'values'}"></f:form.select>
+                            <f:form.select property="producer" multiple="TRUE" options="{producers}" optionValueField="uid" optionLabelField="name" class="form-control selectpicker show-tick" data="{live-search: 'true', noneSelectedText: 'Click to select', selected-text-format: 'count > 3'}"></f:form.select>
                         </f:then>
                         <f:else>
                             <f:for each="{producers}" as="producer">
@@ -115,7 +115,7 @@
                 <div class="panel-body">
                     <f:if condition="{countries -> f:count()} > 5 ">
                         <f:then>
-                            <f:form.select property="country" multiple="TRUE" options="{countries}" optionValueField="uid" optionLabelField="name" class="form-control selectpicker show-tick" data="{live-search: 'true', noneSelectedText: 'Click to select', selected-text-format: 'values'}"></f:form.select>
+                            <f:form.select property="country" multiple="TRUE" options="{countries}" optionValueField="uid" optionLabelField="name" class="form-control selectpicker show-tick" data="{live-search: 'true', noneSelectedText: 'Click to select', selected-text-format: 'count > 3'}"></f:form.select>
                         </f:then>
                         <f:else>
                             <f:for each="{countries}" as="country">
