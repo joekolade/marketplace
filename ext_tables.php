@@ -56,7 +56,7 @@ $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_
     'FILE:EXT:' . $_EXTKEY . '/Configuration/Flexform/' . $pluginName . '_settings.xml');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
-    'tt_content.pi_flexform.marketplace_categorylist.list',
+    'tt_content.pi_flexform.' . $pluginSignature . '.list',
     'EXT:marketplace/Resources/Private/Language/locallang_csh_flexform_catlist.xlf'
 );
 
