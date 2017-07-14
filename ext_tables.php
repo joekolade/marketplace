@@ -3,7 +3,7 @@
 defined('TYPO3_MODE') || die('Access denied.');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
-    'tt_content.pi_flexform.marketplace_categorylist.list',
+    'tt_content.pi_flexform.marketplace_categorylist',
     'EXT:marketplace/Resources/Private/Language/locallang_csh_flexform_catlist.xlf'
 );
 
