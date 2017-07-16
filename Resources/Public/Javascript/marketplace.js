@@ -97,8 +97,8 @@ $(function () {
 
             // No closing for active groups
             $filter.on('click', '.panel.disabled a[data-toggle="collapse"]', function (e) {
+                e.preventDefault();
                 e.stopPropagation();
-                //e.preventDefault();
 
                 $(this).addClass('no-no');
                 setTimeout(function () {
