@@ -28,13 +28,13 @@ $star-shadow: rgba(0, 0, 0, 0.3);
 /* The animation code */
 @keyframes nono {
   0% {
-    left: 0px;
+    transform: translate(0, 0);
   }
   25% {
-    left: 10px;
+    transform: translate(-10px, 0);
   }
   75% {
-    left: -10px;
+    transform: translate(10px, 0);
   }
 }
 .nono {
@@ -141,8 +141,7 @@ $star-shadow: rgba(0, 0, 0, 0.3);
         i.fa.fa-plus {
 
           &:before {
-            color: $color-dgrau;
-            content: "x";
+            color: $color-hgrau;
           }
         }
       }
