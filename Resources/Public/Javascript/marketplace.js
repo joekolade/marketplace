@@ -100,8 +100,8 @@ $(function () {
                 e.preventDefault();
                 e.stopPropagation();
 
-                $(this).removeClass('no-no');
-                $(this).addClass('no-no');
+                $(this).removeClass('nono');
+                $(this).addClass('nono');
                 // setTimeout(function () {
                 // }, 300);
             });
