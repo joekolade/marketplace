@@ -102,7 +102,7 @@ $(function () {
                 clearTimeout(time);
 
                 $(this).addClass('nono');
-                time = setTimeout(function () {
+                time = setTimeout(function() {
                     $(this).removeClass('nono');
                 }, 10);
 
