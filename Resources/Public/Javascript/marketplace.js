@@ -98,12 +98,15 @@ $(function () {
             // No closing for active groups
             $filter.on('click', '.panel.disabled a[data-toggle="collapse"]', function (e) {
                 e.preventDefault();
-                e.stopPropagation();
+
+                console.log($(this));
 
                 $(this).removeClass('nono');
                 setTimeout(function () {
                     $(this).addClass('nono');
                 }, 10);
+
+                e.stopPropagation();
             });
         },
 
