@@ -101,9 +101,9 @@ $(function () {
                 e.stopPropagation();
 
                 $(this).removeClass('nono');
-                $(this).addClass('nono');
-                // setTimeout(function () {
-                // }, 300);
+                setTimeout(function () {
+                    $(this).addClass('nono');
+                }, 10);
             });
         },
 
