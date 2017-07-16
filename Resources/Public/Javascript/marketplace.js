@@ -73,7 +73,7 @@ $(function () {
         $sortBy = $('.sortby-select select', $wrapper),
 
         // Catfilter
-        $filterpanel = $('.panel', $filter),
+        // $filterpanel = $('.panel', $filter),
 
         // Open close for panels
         bindPanelEvents = function () {
@@ -105,8 +105,17 @@ $(function () {
                     $(this).removeClass('no-no');
                 }, 300);
             });
+        },
+
+        // Initialise
+        init = function () {
+            if($filter.length){
+                bindPanelEvents();
+            }
         }
     ;
+
+    init();
 
     // If rating stars are on the page
     if ($ratingStars.length) {
