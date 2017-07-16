@@ -100,10 +100,10 @@ $(function () {
                 e.preventDefault();
                 e.stopPropagation();
 
+                $(this).removeClass('no-no');
                 $(this).addClass('no-no');
-                setTimeout(function () {
-                    $(this).removeClass('no-no');
-                }, 300);
+                // setTimeout(function () {
+                // }, 300);
             });
         },
 
