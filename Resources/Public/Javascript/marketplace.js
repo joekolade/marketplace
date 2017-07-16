@@ -78,6 +78,7 @@ $(function () {
         // Open close for panels
         bindPanelEvents = function () {
             var
+                time,
                 $checkboxes = $('.checkbox input[type="checkbox"]')
             ;
 
@@ -98,11 +99,10 @@ $(function () {
             // No closing for active groups
             $filter.on('click', '.panel.disabled a[data-toggle="collapse"]', function (e) {
                 e.preventDefault();
+                clearTimeout(time);
 
-                console.log($(this));
-
-                $(this).removeClass('nono');
-                setTimeout(function () {
+                $(this).addClass('nono');
+                time = setTimeout(function () {
                     $(this).addClass('nono');
                 }, 10);
 
