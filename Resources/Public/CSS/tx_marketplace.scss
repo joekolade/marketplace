@@ -25,6 +25,25 @@ $star-shadow: rgba(0, 0, 0, 0.3);
 
 @import 'stars';
 
+/* The animation code */
+@keyframes nono {
+  0% {
+    left: 0px;
+  }
+  25% {
+    left: 10px;
+  }
+  75% {
+    left: -10px;
+  }
+}
+.nono {
+  position: relative;
+  animation-name: nono;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
 // Customs
 .top-buffer {
   margin-top: 2em;
@@ -116,6 +135,18 @@ $star-shadow: rgba(0, 0, 0, 0.3);
         }
       }
     }
+    &.disabled {
+      .panel-heading {
+
+        i.fa.fa-plus {
+
+          &:before {
+            color: $color-dgrau;
+            content: "x";
+          }
+        }
+      }
+    }
 
     .panel-heading {
       position: relative;
@@ -128,6 +159,10 @@ $star-shadow: rgba(0, 0, 0, 0.3);
 
       [data-toggle="collapse"] {
         text-align: left;
+
+        &.nono {
+
+        }
       }
     }
 

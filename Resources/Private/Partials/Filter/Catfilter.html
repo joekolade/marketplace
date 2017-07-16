@@ -22,7 +22,9 @@
         </div>
     </f:comment>
 
-    <!-- TODO: Reset filter -->
+    <f:comment>
+        <!-- TODO: Reset filter -->
+    </f:comment>
 
     <f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
 
@@ -36,6 +38,7 @@
                     </a>
                 </h4>
             </div>
+            <!--TODO: "in" only for groups w/ options-->
             <div id="collapse-select-{filtergroup.uid}" class="panel-collapse collapse in" role="tabpanel">
                 <div class="panel-body">
 
@@ -68,11 +71,8 @@
                     </a>
                 </h4>
             </div>
-            <f:comment>
-                <div id="collapseProducer" class="panel-collapse collapse{f:if(condition: filter.producer, then: ' in')}" role="tabpanel">
-            </f:comment>
 
-            <div id="collapseProducer" class="panel-collapse collapse in" role="tabpanel">
+            <div id="collapseProducer" class="panel-collapse collapse{f:if(condition: filter.producer, then: ' in')}" role="tabpanel">
                 <div class="panel-body">
                     <f:if condition="{producers -> f:count()} > 5 ">
                         <f:then>
@@ -108,11 +108,8 @@
                     </a>
                 </h4>
             </div>
-            <f:comment>
-                <div id="collapseCountries" class="panel-collapse collapse{f:if(condition: filter.countries, then: ' in')}" role="tabpanel">
-            </f:comment>
 
-            <div id="collapseCountries" class="panel-collapse collapse in" role="tabpanel">
+            <div id="collapseCountries" class="panel-collapse collapse{f:if(condition: filter.countries, then: ' in')}" role="tabpanel">
                 <div class="panel-body">
                     <f:if condition="{countries -> f:count()} > 5 ">
                         <f:then>
