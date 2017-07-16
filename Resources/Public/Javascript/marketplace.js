@@ -100,14 +100,13 @@ $(function () {
             $filter.on('click', '.panel.disabled a[data-toggle="collapse"]', function (e) {
                 e.preventDefault();
 
-                var $f = $(this);
                 clearTimeout(time);
 
-                $f.addClass('nono');
+                $(this).addClass('nono');
 
-                time = setTimeout(function($f) {
-                    $f.removeClass('nono');
-                }, 10);
+                setTimeout(function() {
+                    $('.panel.disabled a[data-toggle="collapse"].nono').removeClass('nono');
+                }, 600);
 
                 e.stopPropagation();
             });
