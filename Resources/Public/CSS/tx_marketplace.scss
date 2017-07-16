@@ -25,24 +25,29 @@ $star-shadow: rgba(0, 0, 0, 0.3);
 
 @import 'stars';
 
-/* The animation code */
-@keyframes nono {
-  0% {
-    transform: translate(0, 0);
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
   }
-  25% {
-    transform: translate(-10px, 0);
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
   }
-  75% {
-    transform: translate(10px, 0);
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
   }
 }
 .nono {
-  position: relative;
-  animation-name: nono;
-  animation-duration: 0.2s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 // Customs
