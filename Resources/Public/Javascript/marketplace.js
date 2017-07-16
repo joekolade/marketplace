@@ -103,7 +103,7 @@ $(function () {
 
                 $(this).addClass('nono');
                 time = setTimeout(function () {
-                    $(this).addClass('nono');
+                    $(this).removeClass('nono');
                 }, 10);
 
                 e.stopPropagation();
