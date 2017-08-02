@@ -816,6 +816,10 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         return $this->comparePrice($a, $b, false);
     }
 
+    public function initializeCatListAction()
+    {
+        ($GLOBALS['TSFE']->beUserLogin) || die('Access denied. Please log in!');
+    }
 
     /**
      * catList Action
@@ -823,13 +827,11 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      * @param \JS\Marketplace\Domain\Model\Filter $filter
      * @return void
      */
-    public function catListAction($filter = NULL)
+    public function catListAction($filter = null)
     {
         if (!$filter) {
             $filter = new Filter();
         }
-        
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($filter);
 
         /** @var  \JS\Marketplace\Domain\Model\Category $category */
         $category = $this->categoryRepository->findByUid($this->settings['category']);
@@ -860,7 +862,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
 
             // Countries
             foreach ($product->getArticles() as $article) {
-                if(!empty($article->getDealer())){
+                if (!empty($article->getDealer())) {
                     $country = $article->getDealer()->getCountry();
                     if (!in_array($country, $countries)) {
                         $countries[] = $country;
@@ -869,6 +871,8 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             }
         }
 
+        // CHECK: Are there filter options lost, when only rendering results, that fit?
+        // => Render fitting and selected!
 
         $this->view->assignMultiple(array(
             'filter' => $filter,
