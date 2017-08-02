@@ -13,9 +13,9 @@ namespace JS\Marketplace\Domain\Repository;
      ***/
 
     /**
-     * The repository for Selects
+     * The repository for Filtergroups
      */
-class SelectRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class FiltergroupRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
     /**
      * @var array

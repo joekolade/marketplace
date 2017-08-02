@@ -46,11 +46,24 @@ class MigrationController extends \JS\Marketplace\Controller\AbstractController
         // Clear data
         $productsCleared = $this->clearData($products);
 
+        $categoriesSelected = 0;
+
         // Set Categories by Productgroups
         foreach ($migrationHelper->getProductGroupsToCategories() as $pcMap){
+
             foreach ($products as $product) {
-                \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($product->getProductgroup()->getUid());
-                return;
+                /**
+                 * @var \JS\Marketplace\Domain\Model\Product $product
+                 */
+                $cat = $pcMap[$product->getProductgroup()->getUid()];
+                if(!empty($cat)){
+                    $product->setCategory($this->categoryRepository->findByUid($cat));
+
+                    $categoriesSelected++:
+                    
+                    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($product);  
+                    return;
+                }
             }
         }
 
