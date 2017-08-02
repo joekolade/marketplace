@@ -40,6 +40,8 @@ class TcaProcFunc
         $objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
         $categoryRepository = $objectManager->get('JS\\Marketplace\\Domain\\Repository\\CategoryRepository');
         $category = $categoryRepository->findByUid($id);
+        
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($category);
 
         return $category;
     }
