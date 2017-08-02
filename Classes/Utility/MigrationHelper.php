@@ -22,13 +22,12 @@ class MigrationHelper
 
         /*
          * Categories
-            Solar-Home-Systems = 1
-            Solar Power Systems = 2
-            Appliances = 3
-            Light = 4
-            Components = 5
-            Panels = 6
-            Batteries = 7
+            Systems = 1
+            Appliances = 2
+            Light = 3
+            Components = 4
+            Panels = 5
+            Batteries = 6
          */
         /*
          * Options
@@ -63,8 +62,6 @@ class MigrationHelper
             25 => 0,    // PAYG (component)     =>  n/a
             26 => 1,    // SHS  <12V            =>  Solar-Home-Systems
         );
-
-        $this->productSubGroupsToCategories = Array(
 
         $this->productSubGroupsToOptions = Array(
             14 => 0,    // 21Wp - 50Wp          =>
