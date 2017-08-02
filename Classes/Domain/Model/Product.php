@@ -535,10 +535,10 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * Sets the category
      *
-     * @param \JS\Marketplace\Domain\Model\Category $category
+     * @param \JS\Marketplace\Domain\Model\Category|NULL $category
      * @return void
      */
-    public function setCategory(\JS\Marketplace\Domain\Model\Category $category)
+    public function setCategory($category)
     {
         $this->category = $category;
     }
