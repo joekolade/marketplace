@@ -6,17 +6,18 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 /**
  * MigrationHelper
  */
-class MigrationHelper extends \JS\Marketplace\Controller\AbstractController
+class MigrationHelper
 {
 
+    /*
+     * @var array
+     */
     protected $productGroupsToCategories;
 
-    protected $productGroupsToOptions;
-
-    protected $productSubGroupsToCategories;
-
+    /*
+     * @var array
+     */
     protected $productSubGroupsToOptions;
-
 
     function __construct()
     {
@@ -88,36 +89,22 @@ class MigrationHelper extends \JS\Marketplace\Controller\AbstractController
         );
     }
 
-    /*
-     * Migrate the data based on given mappings
-     *
+    /**
+     * @return array
      */
-    public function migrateData()
+    public function getProductGroupsToCategories()
     {
-        // Todo: Migration - 1. Clear data
-        $this->clearData();
-
-        // Todo: Migration - 2. productgroup => category
-
-        // Todo: Migration - 3. productgroup/productsubgroups => options
-
-        return false;
+        return $this->productGroupsToCategories;
     }
 
-    /*
-     * Clear before migrated data
-     *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Product> $products
+    /**
+     * @return array
      */
-    public function clearData($products)
+    public function getProductSubGroupsToOptions()
     {
-        foreach ($products as $product){
-            $product->setCategory(NULL);
-            $product->setOptions(new ObjectStorage());
-
-            $this->productRepository->update($product);
-
-            return;
-        }
+        return $this->productSubGroupsToOptions;
     }
+
+
+
 }

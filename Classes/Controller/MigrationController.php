@@ -42,8 +42,25 @@ class MigrationController extends \JS\Marketplace\Controller\AbstractController
         $migrationHelper = new MigrationHelper();
 
         // Clear data
-        $migrationHelper->clearData($this->productRepository->findAll());
+        $this->clearData($this->productRepository->findAll());
 
+    }
+
+    /*
+     * Clear before migrated data
+     *
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Product> $products
+     */
+    public function clearData($products)
+    {
+        foreach ($products as $product){
+            $product->setCategory(NULL);
+            $product->setOptions(new ObjectStorage());
+
+            $this->productRepository->update($product);
+
+            return;
+        }
     }
 
 }
