@@ -182,14 +182,20 @@ $star-shadow: rgba(0, 0, 0, 0.3);
   /*
     Produktliste
    */
-  &.tx-marketplace-list {
+  &.tx-marketplace- {
     .list-item {
       border-bottom: thin solid $border-color;
       width: 100%;
       margin-bottom: 2.2em;
-      padding-bottom: 1em;
+      padding-top: 0.75em;
+      padding-bottom: 0.75em;
 
       float: left;
+      background: rgba(219, 216, 189, 0.2);
+
+      &:nth-child(odd){
+        background: rgba(219, 216, 189, 0.5);
+      }
 
       p {
         margin-bottom: 0;
@@ -596,6 +602,8 @@ div.rating-md {
 }
 
 .paginator {
+  margin-top: 1.8em;
+
   .btn {
     padding: 6px 12px;
     i.fa {
