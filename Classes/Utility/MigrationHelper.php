@@ -111,6 +111,8 @@ class MigrationHelper
     {
         foreach ($products as $product){
             $product->setCategory(NULL);
+            \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($product);
+            return;
         }
     }
 }
