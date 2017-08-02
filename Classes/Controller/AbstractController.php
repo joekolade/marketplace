@@ -147,7 +147,7 @@ class AbstractController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
      *
      * It will also respect the @validate annotation on the action method name.
      *
-     * THIS METHOD WILL NOT CHECK A @dontvalidate ANNOTATION. Thus, it should NOT be used
+     * THIS METHOD WILL NOT check A @dontvalidate ANNOTATION. Thus, it should NOT be used
      * for displaying a form, but instead be used for SAVING data.
      *
      * @param string $argumentName The name of the argument where the partial validator should be registered for.
