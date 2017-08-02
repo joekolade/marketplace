@@ -53,6 +53,7 @@ if (!defined('TYPO3_MODE')) {
                 // Later w/ "showProductRatings"
                 // 'Product' => 'showProductRatings,catList,rateProduct,sendRating,login,loginForm,showProposeProductForm,proposeProduct,adminProduct',
                 'Product' => 'catList',
+                'Migration' => 'migration',
             ),
             // non-cacheable actions
             array(
