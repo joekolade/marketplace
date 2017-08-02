@@ -823,11 +823,13 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
      * @param \JS\Marketplace\Domain\Model\Filter $filter
      * @return void
      */
-    public function catListAction($filter = null)
+    public function catListAction($filter = NULL)
     {
         if (!$filter) {
             $filter = new Filter();
         }
+        
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($filter);
 
         /** @var  \JS\Marketplace\Domain\Model\Category $category */
         $category = $this->categoryRepository->findByUid($this->settings['category']);
