@@ -37,6 +37,10 @@ class MigrationController extends \JS\Marketplace\Controller\AbstractController
 
     public function migrationAction()
     {
+        if (!defined('TYPO3_MODE')) {
+            die('Access denied. Please log into Backend');
+        }
+
         \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump('Migration start');
 
         $migrationHelper = new MigrationHelper();
