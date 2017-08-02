@@ -147,7 +147,7 @@ return [
                 ],
 			    'renderType' => 'selectSingle',
 			    'foreign_table' => 'tx_marketplace_domain_model_filtersubgroup',
-                'foreign_table_where' => 'AND tx_marketplace_domain_model_filtersubgroup.pid = ###CURRENT_PID###',
+                'foreign_table_where' => 'AND tx_marketplace_domain_model_filtersubgroup.pid=###CURRENT_PID###',
 			    'minitems' => 0,
 			    'maxitems' => 1,
 			],
