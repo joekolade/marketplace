@@ -47,6 +47,7 @@ class MigrationController extends \JS\Marketplace\Controller\AbstractController
         $productsCleared = $this->clearData($products);
 
         $categoriesSelected = 0;
+        $optionsSelected = 0;
 
 
         foreach ($products as $product) {
@@ -72,25 +73,23 @@ class MigrationController extends \JS\Marketplace\Controller\AbstractController
             //
             // Set Options by Subgroup
             if(!empty($product->getProductsubgroup())){
-                $opt = $pcMap[$product->getProductsubgroup()->getUid()];
+                $opt = $soMap[$product->getProductsubgroup()->getUid()];
 
                 if(!empty($opt)) {
                     $product->addOption($this->optionRepository->findByUid($opt));
+                    $optionsSelected++;
                 }
             }
 
             if($product->_isDirty()){
-                \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($product);
                 $this->productRepository->update($product);
-                return;
             }
 
         }
 
-        // Set Categories by Productgroups
-//        foreach ($migrationHelper->getProductGroupsToCategories() as $pcMap){
-//
-//        }
+        $message = $categoriesSelected.' Categories and ' . $optionsSelected  . ' Options have been set to products';
+        
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($message, 'Migration Finished!');
 
     }
 
