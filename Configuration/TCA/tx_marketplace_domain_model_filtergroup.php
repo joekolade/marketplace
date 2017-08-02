@@ -150,7 +150,8 @@ return [
 			    'foreign_sortby' => 'sorting',
 			    'maxitems' => 9999,
 			    'appearance' => [
-			        'collapseAll' => 0,
+			        'collapseAll' => 1,
+                    'expandSingle' => 1,
 			        'levelLinksPosition' => 'top',
 			        'showSynchronizationLink' => 1,
 			        'showPossibleLocalizationRecords' => 1,
@@ -169,7 +170,8 @@ return [
 			    'foreign_sortby' => 'sorting',
 			    'maxitems' => 9999,
 			    'appearance' => [
-			        'collapseAll' => 0,
+			        'collapseAll' => 1,
+                    'expandSingle' => 1,
 			        'levelLinksPosition' => 'top',
 			        'showSynchronizationLink' => 1,
 			        'showPossibleLocalizationRecords' => 1,
