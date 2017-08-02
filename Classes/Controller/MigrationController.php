@@ -52,6 +52,8 @@ class MigrationController extends \JS\Marketplace\Controller\AbstractController
         foreach ($migrationHelper->getProductGroupsToCategories() as $pcMap){
 
             foreach ($products as $product) {
+                \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($product);
+                return;
                 /**
                  * @var \JS\Marketplace\Domain\Model\Product $product
                  */
