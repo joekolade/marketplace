@@ -48,10 +48,15 @@ class MigrationController extends \JS\Marketplace\Controller\AbstractController
 
         $categoriesSelected = 0;
 
-        // Set Categories by Productgroups
-        $pcMap = $migrationHelper->getProductGroupsToCategories();
 
         foreach ($products as $product) {
+
+            //
+            // Set Categories by Productgroups
+
+            $pcMap = $migrationHelper->getProductGroupsToCategories();
+            $soMap = $migrationHelper->getProductSubGroupsToOptions();
+
             /**
              * @var \JS\Marketplace\Domain\Model\Product $product
              */
@@ -60,13 +65,25 @@ class MigrationController extends \JS\Marketplace\Controller\AbstractController
             if(!empty($cat)){
                 $product->setCategory($this->categoryRepository->findByUid($cat));
 
-                $this->productRepository->update($product);
 
                 $categoriesSelected++;
+            }
 
+            //
+            // Set Options by Subgroup
+
+            $opt = $pcMap[$product->getProductsubgroup()->getUid()];
+
+            if(!empty($opt)) {
+                $product->addOption($this->optionRepository->findByUid($opt));
+            }
+
+            if($product->_isDirty()){
                 \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($product);
+                $this->productRepository->update($product);
                 return;
             }
+
         }
 
         // Set Categories by Productgroups
