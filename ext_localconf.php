@@ -2,62 +2,86 @@
 if (!defined('TYPO3_MODE')) {
     die('Access denied.');
 }
+call_user_func(
+    function($extKey) {
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+            'JS.' . $extKey,
+            'Articlesearch',
+            array(
+                'Product' => 'list, show, showProductRatings, ratinglist, rateProduct, sendRating, login, loginForm, showProposeProductForm, proposeProduct, adminProduct',
+                'Article' => 'contact, sendlead',
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'JS.' . $_EXTKEY,
-    'Articlesearch',
-    array(
-        'Product' => 'list, show, showProductRatings, ratinglist, rateProduct, sendRating, login, loginForm, showProposeProductForm, proposeProduct, adminProduct',
-        'Article' => 'contact, sendlead',
+            ),
+            // non-cacheable actions
+            array(
+                'Product' => 'list, show, showProductRatings, ratinglist, rateProduct, sendRating, login, loginForm, showProposeProductForm, proposeProduct, adminProduct',
+                'Article' => 'sendlead',
 
-    ),
-    // non-cacheable actions
-    array(
-        'Product' => 'list, show, showProductRatings, ratinglist, rateProduct, sendRating, login, loginForm, showProposeProductForm, proposeProduct, adminProduct',
-        'Article' => 'sendlead',
+            )
+        );
 
-    )
-);
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+            'JS.' . $extKey,
+            'Ratingsearch',
+            array(
+                'Product' => 'showProductRatings,ratinglist,rateProduct,sendRating,login,loginForm,showProposeProductForm,proposeProduct,adminProduct',
+                'Rating' => 'reportRating, sendReport',
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'JS.' . $_EXTKEY,
-    'Ratingsearch',
-    array(
-        'Product' => 'showProductRatings,ratinglist,rateProduct,sendRating,login,loginForm,showProposeProductForm,proposeProduct,adminProduct',
-        'Rating' => 'reportRating, sendReport',
+            ),
+            // non-cacheable actions
+            array(
+                'Product' => 'showProductRatings,ratinglist,rateProduct,sendRating,login,loginForm,showProposeProductForm,proposeProduct,adminProduct',
+                'Rating' => 'reportRating, sendReport',
+            )
+        );
 
-    ),
-    // non-cacheable actions
-    array(
-        'Product' => 'showProductRatings,ratinglist,rateProduct,sendRating,login,loginForm,showProposeProductForm,proposeProduct,adminProduct',
-        'Rating' => 'reportRating, sendReport',
-    )
-);
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+            'JS.' . $extKey,
+            'Registeruser',
+            array(
+                'Register' => 'showRegisterForm,registerUser,confirmUser',
+            ),
+            // non-cacheable actions
+            array(
+                'Register' => 'showRegisterForm,registerUser,confirmUser',
+            )
+        );
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'JS.' . $_EXTKEY,
-    'Registeruser',
-    array(
-        'Register' => 'showRegisterForm,registerUser,confirmUser',
-    ),
-    // non-cacheable actions
-    array(
-        'Register' => 'showRegisterForm,registerUser,confirmUser',
-    )
-);
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+            'JS.' . $extKey,
+            'Categorylist',
+            array(
+                // Later w/ "showProductRatings"
+                // 'Product' => 'showProductRatings,catList,rateProduct,sendRating,login,loginForm,showProposeProductForm,proposeProduct,adminProduct',
+                'Product' => 'catList',
+            ),
+            // non-cacheable actions
+            array(
+                'Product' => 'catList',
+            )
+        );
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'JS.' . $_EXTKEY,
-    'Categorylist',
-    array(
-        // Later w/ "showProductRatings"
-        // 'Product' => 'showProductRatings,catList,rateProduct,sendRating,login,loginForm,showProposeProductForm,proposeProduct,adminProduct',
-        'Product' => 'catList',
-    ),
-    // non-cacheable actions
-    array(
-        'Product' => 'catList',
-    )
+        // wizards
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+            'mod {
+			wizards.newContentElement.wizardItems.plugins {
+				elements {
+					projectlist {
+						icon = ' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($extKey) . 'Resources/Public/Icons/user_plugin_categorylist.svg
+						title = LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_plugin_categorylist
+						description = LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_plugin_categorylist.description
+						tt_content_defValues {
+							CType = list
+							list_type = marketplace_categorylist
+						}
+					}
+				}
+				show = *
+			}
+	   }'
+        );
+    },
+    $_EXTKEY
 );
 
 // Register TCA Eval

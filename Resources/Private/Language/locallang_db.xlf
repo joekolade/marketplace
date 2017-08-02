@@ -330,6 +330,12 @@
 			<trans-unit id="tx_marketplace_domain_model_filtersubgroup.title">
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="tx_marketplace_plugin_categorylist">
+				<source>Category list</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_plugin_categorylist.description">
+				<source>New Category list</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
