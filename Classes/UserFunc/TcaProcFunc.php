@@ -16,7 +16,7 @@ class TcaProcFunc
         if($config['row']['category'][0] != NULL) {
             $filtergroups = $this->_getCategory($config['row']['category'][0])->getFiltergroups()->toArray();
             
-            \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($filtergroups);
+            \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($config['row']);
 
             $itemList = [];
             foreach ($filtergroups as $filtergroup) {
