@@ -860,9 +860,11 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
 
             // Countries
             foreach ($product->getArticles() as $article) {
-                $country = $article->getDealer()->getCountry();
-                if (!in_array($country, $countries)) {
-                    $countries[] = $country;
+                if(!empty($article->getDealer())){
+                    $country = $article->getDealer()->getCountry();
+                    if (!in_array($country, $countries)) {
+                        $countries[] = $country;
+                    }
                 }
             }
         }
