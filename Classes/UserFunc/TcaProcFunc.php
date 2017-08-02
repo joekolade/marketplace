@@ -12,6 +12,8 @@ class TcaProcFunc
     {
 
         // Todo: get selects of selects in TCA
+        
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump('Aloha');
 
         if($config['row']['category'][0] != NULL) {
             $filtergroups = $this->_getCategory($config['row']['category'][0])->getFiltergroups()->toArray();
