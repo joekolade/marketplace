@@ -6,7 +6,7 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 /**
  * MigrationHelper
  */
-class MigrationHelper
+class MigrationHelper extends \JS\Marketplace\Controller\AbstractController
 {
 
     protected $productGroupsToCategories;
@@ -114,7 +114,9 @@ class MigrationHelper
         foreach ($products as $product){
             $product->setCategory(NULL);
             $product->setOptions(new ObjectStorage());
-            \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($product);
+
+            $this->productRepository->update($product);
+
             return;
         }
     }
