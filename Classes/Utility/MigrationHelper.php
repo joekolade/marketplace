@@ -109,6 +109,8 @@ class MigrationHelper
      */
     public function clearData($products)
     {
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump(count($products));
+        foreach ($products as $product){
+            $product->setCategory(NULL);
+        }
     }
 }
