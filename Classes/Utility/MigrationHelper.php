@@ -18,99 +18,82 @@ class MigrationHelper
 
     function __construct()
     {
-        // Todo: Mappings für Migration
-
         /*
-         * Categories
-            Systems = 1
-            Appliances = 2
-            Light = 3
-            Components = 4
-            Panels = 5
-            Batteries = 6
-         */
-        /*
-         * Options
-            TODO: Options erweitern (DB/TYPO3)
+         * Productgroups => Categories
          */
         $this->productGroupsToCategories = Array(
-            1 => 2,     // Power kits           =>  Solar Power Systems
-            2 => 4,     // Solar lanterns       =>  Light
-            14 => 1,    // SHS 12V              =>  Solar-Home-Systems
-            16 => 4,    // LED                  =>  Light
-            17 => 3,    // Fans                 =>  Appliances
-            18 => 3,    // Fridges              =>  Appliances
-            19 => 3,    // Pumps                =>  Appliances
-            24 => 3,    // Various appliances   =>  Appliances
-            20 => 3,    // Radios               =>  Appliances
-            21 => 3,    // TV                   =>  Appliances
+            1 => 1,     // Power kits           =>  Systems
+            2 => 3,     // Solar lanterns       =>  Light
+            14 => 1,    // SHS 12V              =>  Systems
+            16 => 3,    // LED                  =>  Light
+            17 => 2,    // Fans                 =>  Appliances
+            18 => 2,    // Fridges              =>  Appliances
+            19 => 2,    // Pumps                =>  Appliances
+            24 => 2,    // Various appliances   =>  Appliances
+            20 => 2,    // Radios               =>  Appliances
+            21 => 2,    // TV                   =>  Appliances
             25 => 0,    // PAYG (component)     =>  n/a
-            26 => 1,    // SHS  <12V            =>  Solar-Home-Systems
+            26 => 1,    // SHS  <12V            =>  Systems
         );
 
-        $this->productGroupsToOptions = Array(
-            1 => 2,     // Power kits           =>
-            2 => 4,     // Solar lanterns       =>  Light
-            14 => 1,    // SHS 12V              =>  Solar-Home-Systems
-            16 => 4,    // LED                  =>  Light
-            17 => 3,    // Fans                 =>  Appliances
-            18 => 3,    // Fridges              =>  Appliances
-            19 => 3,    // Pumps                =>  Appliances
-            24 => 3,    // Various appliances   =>  Appliances
-            20 => 3,    // Radios               =>  Appliances
-            21 => 3,    // TV                   =>  Appliances
-            25 => 0,    // PAYG (component)     =>  n/a
-            26 => 1,    // SHS  <12V            =>  Solar-Home-Systems
-        );
-
+        /*
+         * Productsubgroups => Options
+         */
         $this->productSubGroupsToOptions = Array(
-            14 => 0,    // 21Wp - 50Wp          =>
-            15 => 0,    // 1Wp - 20Wp           =>
-            16 => 0,    // 51Wp -100Wp          =>
-            17 => 0,    // Table                =>
-            18 => 0,    // Ceiling              =>
-            19 => 0,    // < 1W                 =>
-            20 => 0,    // 1W                   =>
-            21 => 0,    // 2W                   =>
-            22 => 0,    // 3W                   =>
-            23 => 0,    // 4W                   =>
-            24 => 0,    // 5W                   =>
-            25 => 0,    // > 5W                 =>
-            26 => 0,    // up to 20''           =>
-            27 => 0,    // > 20''               =>
+            14 => 23,    // 21Wp - 50Wp          =>
+            15 => 23,    // 1Wp - 20Wp           =>
+            16 => 24,    // 51Wp -100Wp          =>
+            17 => 36,    // Table                =>
+            18 => 37,    // Ceiling              =>
+            19 => 79,    // < 1W                 =>
+            20 => 80,    // 1W                   =>
+            21 => 81,    // 2W                   =>
+            22 => 82,    // 3W                   =>
+            23 => 83,    // 4W                   =>
+            24 => 84,    // 5W                   =>
+            25 => 85,    // > 5W                 =>
+            26 => 44,    // up to 20''           =>
+            27 => 45,    // > 20''               =>
             //28 => 0,  // Cloth dryers         =>
-            29 => 0,    // Egg incubators       =>
-            30 => 0,    // Electric fences      =>
-            31 => 0,    // Hand drills          =>
-            32 => 0,    // Kettles              =>
-            33 => 0,    // Sewing machines      =>
+            29 => 58,    // Egg incubators       =>
+            30 => 59,    // Electric fences      =>
+            31 => 60,    // Hand drills          =>
+            32 => 61,    // Kettles              =>
+            33 => 62,    // Sewing machines      =>
             //34 => 0,  // Spinning wheels      =>
-            35 => 0,    // Washing machines     =>
-            36 => 0,    // > 100Wp              =>
-            37 => 0,    // Stand                =>
-            38 => 0,    // Surface              =>
-            39 => 0,    // Submersible          =>
-            40 => 0,    // Portable             =>
-            41 => 0,    // Iron                 =>
-            42 => 0,    // Hair dryer           =>
-            43 => 0,    // Mosquito repellent   =>
-            44 => 0,    // Cooker/Stove         =>
-            45 => 0,    // <12V                 =>
-            46 => 0,    // 12V                  =>
-            47 => 0,    // 24V                  =>
-            48 => 0,    // 48V                  =>
-            49 => 0,    // Refrigerators/Freezers   =>
-            50 => 0,    // Medical Fridges/Freezers =>
-            51 => 0,    // Mobile/Portable      =>
-            52 => 0,    // Refrigerators        =>
-            53 => 0,    // Freezers             =>
+            35 => 63,    // Washing machines     =>
+            36 => 25,    // > 100Wp              =>
+            37 => 35,    // Stand                =>
+            38 => 41,    // Surface              =>
+            39 => 40,    // Submersible          =>
+            40 => 46,    // Portable             =>
+
+            41 => 57,    // Iron                 =>
+            42 => 56,    // Hair dryer           =>
+            43 => 55,    // Mosquito repellent   =>
+            44 => 54,    // Cooker/Stove         =>
+
+            45 => 2,    // <12V                 =>
+            46 => 3,    // 12V                  =>
+            47 => 4,    // 24V                  =>
+            48 => 5,    // 48V                  =>
+
+            49 => 53,    // Refrigerators/Freezers   =>
+            50 => 50,    // Medical Fridges/Freezers =>
+            51 => 51,    // Mobile/Portable      =>
+            52 => 52,    // Refrigerators        =>
+            53 => 49,    // Freezers             =>
         );
     }
 
+    /*
+     * Migrate the data based on given mappings
+     *
+     */
     public function migrateData()
     {
-
         // Todo: Migration - 1. Clear data
+        $this->clearData();
 
         // Todo: Migration - 2. productgroup => category
 
@@ -119,4 +102,13 @@ class MigrationHelper
         return false;
     }
 
+    /*
+     * Clear before migrated data
+     *
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Product> $products
+     */
+    public function clearData($products)
+    {
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump(count($products));
+    }
 }
