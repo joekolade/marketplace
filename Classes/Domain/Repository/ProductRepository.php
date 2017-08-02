@@ -57,14 +57,6 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     protected $articleRepository = NULL;
 
     /**
-     * selectRepository
-     *
-     * @var \JS\Marketplace\Domain\Repository\SelectRepository
-     * @inject
-     */
-    protected $selectRepository = NULL;
-
-    /**
      * findAll
      *
      * @param boolean $needsArticles
