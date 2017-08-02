@@ -140,32 +140,32 @@ return [
 			    'eval' => 'trim'
 			],
 	    ],
+        'filtersubgroups' => [
+            'exclude' => false,
+            'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_filtergroup.filtersubgroups',
+            'config' => [
+                'type' => 'inline',
+                'foreign_table' => 'tx_marketplace_domain_model_filtersubgroup',
+                'foreign_field' => 'filtergroup',
+                'foreign_sortby' => 'sorting',
+                'maxitems' => 9999,
+                'appearance' => [
+                    'collapseAll' => 1,
+                    'expandSingle' => 1,
+                    'levelLinksPosition' => 'top',
+                    'showSynchronizationLink' => 1,
+                    'showPossibleLocalizationRecords' => 1,
+                    'useSortable' => 1,
+                    'showAllLocalizationLink' => 1
+                ],
+            ],
+        ],
 	    'options' => [
 	        'exclude' => false,
 	        'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_filtergroup.options',
 	        'config' => [
 			    'type' => 'inline',
 			    'foreign_table' => 'tx_marketplace_domain_model_option',
-			    'foreign_field' => 'filtergroup',
-			    'foreign_sortby' => 'sorting',
-			    'maxitems' => 9999,
-			    'appearance' => [
-			        'collapseAll' => 1,
-                    'expandSingle' => 1,
-			        'levelLinksPosition' => 'top',
-			        'showSynchronizationLink' => 1,
-			        'showPossibleLocalizationRecords' => 1,
-			        'useSortable' => 1,
-			        'showAllLocalizationLink' => 1
-			    ],
-			],
-	    ],
-	    'filtersubgroups' => [
-	        'exclude' => false,
-	        'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_filtergroup.filtersubgroups',
-	        'config' => [
-			    'type' => 'inline',
-			    'foreign_table' => 'tx_marketplace_domain_model_filtersubgroup',
 			    'foreign_field' => 'filtergroup',
 			    'foreign_sortby' => 'sorting',
 			    'maxitems' => 9999,

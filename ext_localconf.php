@@ -2,10 +2,9 @@
 if (!defined('TYPO3_MODE')) {
     die('Access denied.');
 }
-call_user_func(
-    function($extKey) {
+
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-            'JS.' . $extKey,
+            'JS.' . $_EXTKEY,
             'Articlesearch',
             array(
                 'Product' => 'list, show, showProductRatings, ratinglist, rateProduct, sendRating, login, loginForm, showProposeProductForm, proposeProduct, adminProduct',
@@ -21,7 +20,7 @@ call_user_func(
         );
 
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-            'JS.' . $extKey,
+            'JS.' . $_EXTKEY,
             'Ratingsearch',
             array(
                 'Product' => 'showProductRatings,ratinglist,rateProduct,sendRating,login,loginForm,showProposeProductForm,proposeProduct,adminProduct',
@@ -36,7 +35,7 @@ call_user_func(
         );
 
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-            'JS.' . $extKey,
+            'JS.' . $_EXTKEY,
             'Registeruser',
             array(
                 'Register' => 'showRegisterForm,registerUser,confirmUser',
@@ -48,7 +47,7 @@ call_user_func(
         );
 
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-            'JS.' . $extKey,
+            'JS.' . $_EXTKEY,
             'Categorylist',
             array(
                 // Later w/ "showProductRatings"
@@ -67,7 +66,7 @@ call_user_func(
 			wizards.newContentElement.wizardItems.plugins {
 				elements {
 					projectlist {
-						icon = ' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($extKey) . 'Resources/Public/Icons/user_plugin_categorylist.svg
+						icon = ' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/user_plugin_categorylist.svg
 						title = LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_plugin_categorylist
 						description = LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_plugin_categorylist.description
 						tt_content_defValues {
@@ -80,9 +79,6 @@ call_user_func(
 			}
 	   }'
         );
-    },
-    $_EXTKEY
-);
 
 // Register TCA Eval
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tce']['formevals']['Double2With4DecimalsFormat'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('marketplace',
