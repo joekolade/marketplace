@@ -41,8 +41,23 @@ class MigrationController extends \JS\Marketplace\Controller\AbstractController
 
         $migrationHelper = new MigrationHelper();
 
+        $products = $this->productRepository->findAll();
+
         // Clear data
-        $this->clearData($this->productRepository->findAll());
+        $productsCleared = $this->clearData($products);
+
+        // Set Categories by Productgroups
+        foreach ($migrationHelper->getProductGroupsToCategories() as $pcMap){
+            foreach ($products as $product) {
+                \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($pcMap[$product->getProductgroup()->getUid()]);
+                return;
+            }
+        }
+
+        // Set Categories by Productgroups
+//        foreach ($migrationHelper->getProductGroupsToCategories() as $pcMap){
+//
+//        }
 
     }
 
@@ -50,17 +65,21 @@ class MigrationController extends \JS\Marketplace\Controller\AbstractController
      * Clear before migrated data
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Product> $products
+     *
+     * @return integer
      */
     public function clearData($products)
     {
+        $i = 0;
         foreach ($products as $product){
             $product->setCategory(NULL);
             $product->setOptions(new ObjectStorage());
 
             $this->productRepository->update($product);
-
-            return;
+            $i++;
         }
+
+        return $i;
     }
 
 }
