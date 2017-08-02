@@ -36,6 +36,7 @@ class MigrationController extends \JS\Marketplace\Controller\AbstractController
 {
     public function initializeAction()
     {
+        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($GLOBALS['TSFE']->loginUser);
 
         ($GLOBALS['TSFE']->loginUser) || die('Access denied. Please log in!');
 
