@@ -59,9 +59,9 @@ class MigrationController extends \JS\Marketplace\Controller\AbstractController
                 if(!empty($cat)){
                     $product->setCategory($this->categoryRepository->findByUid($cat));
 
-                    $categoriesSelected++:
+                    $categoriesSelected++;
                     
-                    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($product);  
+                    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($product);
                     return;
                 }
             }
