@@ -872,7 +872,10 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             'producers' => $producers,
             'options' => $options,
             'countries' => $countries,
-            'category' => $category
+            'category' => $category,
+
+            // View
+            'view' => 'list',
         ));
 
     }
