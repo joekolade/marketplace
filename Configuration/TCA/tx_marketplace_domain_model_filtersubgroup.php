@@ -3,7 +3,7 @@ return [
     'ctrl' => [
         'title'	=> 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_filtersubgroup',
         'label' => 'title',
-        'label_alt' => 'filtergroup.title',
+        'label_alt' => 'filtergroup',
         'label_alt_force' => 1,
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
