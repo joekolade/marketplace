@@ -20,7 +20,7 @@ plugin.tx_marketplace_articlesearch {
             JS\Marketplace\Domain\Model\Rating.newRecordStoragePid = {$plugin.tx_marketplace_articlesearch.settings.storagePids.rating}
 
             # Die folgenden Zeilen gehen nicht!
-            # Todo: Fix StoragePID für neue User
+            # FIXME: Fix StoragePID für neue User
             JS\Markeplace\Domain\Model\User.newRecordStoragePid = 153
             TYPO3\CMS\Extbase\Domain\Model\FrontendUser.newRecordStoragePid = 153
         }

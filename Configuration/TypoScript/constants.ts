@@ -122,7 +122,6 @@ plugin.tx_marketplace_articlesearch {
             subjectReceiver = Confirm your registration
         }
 
-        # Todo: noch nicht eingebundnen ts constants
         pagination {
             # How many items per page
             itemsPerPage = 7
