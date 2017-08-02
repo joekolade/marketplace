@@ -49,7 +49,7 @@ class MigrationController extends \JS\Marketplace\Controller\AbstractController
         // Set Categories by Productgroups
         foreach ($migrationHelper->getProductGroupsToCategories() as $pcMap){
             foreach ($products as $product) {
-                \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($pcMap[$product->getProductgroup()->getUid()]);
+                \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($product->getProductgroup()->getUid());
                 return;
             }
         }
