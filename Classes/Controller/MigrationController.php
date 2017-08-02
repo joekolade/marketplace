@@ -71,11 +71,12 @@ class MigrationController extends \JS\Marketplace\Controller\AbstractController
 
             //
             // Set Options by Subgroup
+            if(!empty($product->getProductsubgroup())){
+                $opt = $pcMap[$product->getProductsubgroup()->getUid()];
 
-            $opt = $pcMap[$product->getProductsubgroup()->getUid()];
-
-            if(!empty($opt)) {
-                $product->addOption($this->optionRepository->findByUid($opt));
+                if(!empty($opt)) {
+                    $product->addOption($this->optionRepository->findByUid($opt));
+                }
             }
 
             if($product->_isDirty()){
