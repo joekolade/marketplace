@@ -56,6 +56,7 @@ class MigrationController extends \JS\Marketplace\Controller\AbstractController
              * @var \JS\Marketplace\Domain\Model\Product $product
              */
             $cat = $pcMap[$product->getProductgroup()->getUid()];
+            \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($product->getUid());
             \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($cat);
             return;
 
