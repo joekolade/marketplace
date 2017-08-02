@@ -49,24 +49,23 @@ class MigrationController extends \JS\Marketplace\Controller\AbstractController
         $categoriesSelected = 0;
 
         // Set Categories by Productgroups
-        foreach ($migrationHelper->getProductGroupsToCategories() as $pcMap){
+        $pcMap = $migrationHelper->getProductGroupsToCategories();
 
-            foreach ($products as $product) {
-                /**
-                 * @var \JS\Marketplace\Domain\Model\Product $product
-                 */
-                $cat = $pcMap[$product->getProductgroup()->getUid()];
-                \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($cat);
+        foreach ($products as $product) {
+            /**
+             * @var \JS\Marketplace\Domain\Model\Product $product
+             */
+            $cat = $pcMap[$product->getProductgroup()->getUid()];
+            \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($cat);
+            return;
+
+            if(!empty($cat)){
+                $product->setCategory($this->categoryRepository->findByUid($cat));
+
+                $categoriesSelected++;
+
+                \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($product);
                 return;
-
-                if(!empty($cat)){
-                    $product->setCategory($this->categoryRepository->findByUid($cat));
-
-                    $categoriesSelected++;
-                    
-                    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($product);
-                    return;
-                }
             }
         }
 
