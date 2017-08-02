@@ -51,13 +51,14 @@ if (!defined('TYPO3_MODE')) {
             'Categorylist',
             array(
                 // Later w/ "showProductRatings"
-                // 'Product' => 'showProductRatings,catList,rateProduct,sendRating,login,loginForm,showProposeProductForm,proposeProduct,adminProduct',
-                'Product' => 'catList',
+                'Product' => 'catList, list, show, showProductRatings, ratinglist, rateProduct, sendRating, login, loginForm, showProposeProductForm, proposeProduct, adminProduct',
+                'Article' => 'contact, sendlead',
                 'Migration' => 'migration',
             ),
             // non-cacheable actions
             array(
-                'Product' => 'catList',
+                'Product' => 'catList, list, show, showProductRatings, ratinglist, rateProduct, sendRating, login, loginForm, showProposeProductForm, proposeProduct, adminProduct',
+                'Article' => 'sendlead',
                 'Migration' => 'migration',
             )
         );
