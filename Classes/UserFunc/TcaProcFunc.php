@@ -25,7 +25,6 @@ class TcaProcFunc
                     $subgroup = $option->getFiltersubgroup() ? ' - '.$option->getFiltersubgroup()->getTitle() : '';
                     $itemList[] = [$filtergroup->getOutput() . $subgroup . ': ' . $option->getTitle(), $option->getUid()];
                 }
-
             }
             if(count($itemList))
                 $config['items'] = $itemList;
