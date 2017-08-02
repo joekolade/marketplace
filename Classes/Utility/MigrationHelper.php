@@ -1,7 +1,6 @@
 <?php
 namespace JS\Marketplace\Utility;
 
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * MigrationHelper
