@@ -844,14 +844,19 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         $options = [];
         $producers = [];
         $countries = [];
+        foreach ($category->getFiltergroups() as $filtergroup) {
+            foreach ($filtergroup->getOptions() as $option) {
+                $options[] = $option;
+            }
+        }
         foreach ($products as $product) {
 
-            // Options
-            foreach ($product->getOptions() as $option) {
-                if (!in_array($option, $options)) {
-                    $options[] = $option;
-                }
-            }
+            // Options - show only available options
+            //            foreach ($product->getOptions() as $option) {
+            //                if (!in_array($option, $options)) {
+            //                    $options[] = $option;
+            //                }
+            //            }
 
             // Producer
             $producer = $product->getProducer();
