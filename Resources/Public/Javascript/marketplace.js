@@ -89,10 +89,14 @@ $(function () {
                 if (this.checked) {
                     // Disable parent toggle
                     $panel.removeClass('active').addClass('disabled');
+					addToUrl($(this).val());
                 }
                 else {
-                    $panel.removeClass('active').removeClass('disabled').addClass('active');
+                    $panel.removeClass('disabled').addClass('active');
+					removeFromUrl($(this).val());
                 }
+
+                updateList();
             });
 
             // No closing for active groups
@@ -108,6 +112,64 @@ $(function () {
                 e.stopPropagation();
             });
         },
+
+
+        // UpdateList
+        updateList = function() {
+            showLoader();
+
+            // Fire AJAX
+            // callback: hideLoader()
+
+            setTimeout(function () {
+                hideLoader();
+			}, 820);
+        },
+
+        // show/hideLoader
+        showLoader = function() {
+            var $loader = $('> .loader', $wrapper);
+            if(! $loader.length){
+				$wrapper.append(function () {
+					$loader = $('<div class="loader" />');
+                   return $loader;
+				});
+            }
+            setTimeout(function(){
+                $wrapper.addClass('loading');
+            }, 20);
+        },
+        hideLoader = function() {
+			setTimeout(function(){
+				$wrapper.removeClass('loading');
+			}, 20);
+        },
+
+        // addToUrl
+        addToUrl = function(segment) {
+            var
+                h = hash.get("find"),
+                hs = h.split("|")
+            ;
+            $.each(hs, function (item) {
+                console.log(item);
+                if(item == segment){
+                    return false;
+                }
+			});
+            if(hs.length) {
+                segment = h + "+" + segment;
+            }
+            hash.add({find: segment});
+			return true;
+        },
+        // removeFromUrl
+		removeFromUrl = function(segment) {
+
+		},
+
+        // URL to request
+        requestByUrl = function() {},
 
         // Initialise
         init = function () {
@@ -199,5 +261,6 @@ $(function () {
     $(".panel .collapse.in").each(function () {
         $(this).closest('.panel').addClass('active');
     });
+
 
 });

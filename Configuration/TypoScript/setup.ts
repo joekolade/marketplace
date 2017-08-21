@@ -146,8 +146,12 @@ page.includeCSS {
     tx_marketplace = EXT:marketplace/Resources/Public/CSS/tx_marketplace.scss
 }
 
+page.includeJSFooterlibs {
+    hash = EXT:marketplace/Resources/Public/Javascript/hash.min.js
+
+}
 page.includeJSFooter {
-    tx_marketplace = EXT:marketplace/Resources/Public/Javascript/marketplace.js
+    tx_marketplace = EXT:marketplace/Resources/Public/Javascript/marketplace.min.js
 }
 
 plugin.tx_marketplace._CSS_DEFAULT_STYLE (

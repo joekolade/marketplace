@@ -1,5 +1,5 @@
 $gutter-width: 15px;
-$border-color: #CDD0D0;
+$border-color: #cdd0d0;
 
 $color-blau: #223a81;
 $color-blau-hell: #223a81;
@@ -7,13 +7,13 @@ $color-blau-helli: #0070c0;
 $color-braun-dunkel: #a1a07a;
 $color-braun: #dbd8bd;
 $color-rot: #a71719;
-$color-orange: #E49D01;
+$color-orange: #e49d01;
 $color-dgrau: #6a6a6a;
 $color-hgrau: rgba($color-dgrau, 0.05);
-$color-gelb: #FAAE07;
+$color-gelb: #faae07;
 
 $stars-color: #fff;
-$stars-color-before: #FFE63D;
+$stars-color-before: #ffe63d;
 $stars-color-actual: #ffe65b;
 
 $red: #a94442;
@@ -25,26 +25,26 @@ $star-shadow: rgba(0, 0, 0, 0.3);
 
 @import 'stars';
 
-
 @keyframes shake {
   10%, 90% {
-    transform: translate3d(-1px, 0, 0);
+	transform: translate3d(-1px, 0, 0);
   }
 
   20%, 80% {
-    transform: translate3d(2px, 0, 0);
+	transform: translate3d(2px, 0, 0);
   }
 
   30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
+	transform: translate3d(-4px, 0, 0);
   }
 
   40%, 60% {
-    transform: translate3d(4px, 0, 0);
+	transform: translate3d(4px, 0, 0);
   }
 }
+
 .nono {
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
@@ -62,55 +62,57 @@ $star-shadow: rgba(0, 0, 0, 0.3);
 .has-feedback.has-clear {
   /* Remove Internet Explorer native clear button */
   input::-ms-clear {
-    display: none;
+	display: none;
   }
 
   .form-control-clear {
-    color: #bbb;
-    color: rgba(0, 0, 0, 0.4);
-    line-height: 32px;
+	color: #bbb;
+	color: rgba(0, 0, 0, 0.4);
+	line-height: 32px;
 
-    /*
-     * Enable pointer events as they have been disabled since Bootstrap 3.3
-     * See https://github.com/twbs/bootstrap/pull/14104
-     */
-    pointer-events: auto;
+	/*
+	 * Enable pointer events as they have been disabled since Bootstrap 3.3
+	 * See https://github.com/twbs/bootstrap/pull/14104
+	 */
+	pointer-events: auto;
 
-    &:hover {
-      color: #777;
-      color: rgba(0, 0, 0, 0.7);
-      cursor: pointer;
-    }
+	&:hover {
+	  color: #777;
+	  color: rgba(0, 0, 0, 0.7);
+	  cursor: pointer;
+	}
   }
 
   &.has-empty-value {
-    /* Do not display clear button if field has empty value */
-    .form-control-clear {
-      display: none;
-    }
+	/* Do not display clear button if field has empty value */
+	.form-control-clear {
+	  display: none;
+	}
   }
 }
 
 .f3-form-error {
   input&, textarea&, button {
-    border-color: $red;
-    background-color: $red-light;
+	border-color: $red;
+	background-color: $red-light;
   }
   + label {
-    color: $red;
+	color: $red;
   }
   &.ratingContainer {
-    label {
-      color: $red;
-    }
+	label {
+	  color: $red;
+	}
 
-    .caption {
-      // margin-top: 0.4em;
-    }
+	.caption {
+	  // margin-top: 0.4em;
+	}
   }
 }
 
 .tx-marketplace {
+
+  position: relative;
 
   // .checkbx input[type="checkbox"],
   // .checkbox input[type="checkbox"] {
@@ -123,165 +125,165 @@ $star-shadow: rgba(0, 0, 0, 0.3);
   // }
 
   h3 {
-    margin-top: 1.5em;
-    margin-bottom: 0;
+	margin-top: 1.5em;
+	margin-bottom: 0;
   }
 
   // Toggle panel (bs collapse)
   .panel {
-    &.active {
+	&.active {
 
-      .panel-heading {
+	  .panel-heading {
 
-        i.fa.fa-plus {
+		i.fa.fa-plus {
 
-          &:before {
-            content: "";
-          }
-        }
-      }
-    }
-    &.disabled {
-      .panel-heading {
+		  &:before {
+			content: "";
+		  }
+		}
+	  }
+	}
+	&.disabled {
+	  .panel-heading {
 
-        i.fa.fa-plus {
+		i.fa.fa-plus {
 
-          &:before {
-            color: $color-hgrau;
-          }
-        }
-      }
-    }
+		  &:before {
+			color: $color-hgrau;
+		  }
+		}
+	  }
+	}
 
-    .panel-heading {
-      position: relative;
+	.panel-heading {
+	  position: relative;
 
-      i.fa {
-        position: absolute;
-        right: 15px;
-        top: 0.9em;
-      }
+	  i.fa {
+		position: absolute;
+		right: 15px;
+		top: 0.9em;
+	  }
 
-      [data-toggle="collapse"] {
-        text-align: left;
+	  [data-toggle="collapse"] {
+		text-align: left;
 
-        &.nono {
+		&.nono {
 
-        }
-      }
-    }
+		}
+	  }
+	}
 
-    margin-bottom: 10px;
+	margin-bottom: 10px;
   }
 
   .producerLogo {
-    margin-bottom: 8px;
-    position: relative;
+	margin-bottom: 8px;
+	position: relative;
   }
 
   /*
     Produktliste
    */
   &.tx-marketplace-list {
-    .list-item-top {
-      margin-right: 0;
-    }
-    .list-item {
-      border-bottom: thin solid $border-color;
-      width: 100%;
-      margin-bottom: 2.2em;
-      padding-top: 0.75em;
-      padding-bottom: 0.75em;
+	.list-item-top {
+	  margin-right: 0;
+	}
+	.list-item {
+	  border-bottom: thin solid $border-color;
+	  width: 100%;
+	  margin-bottom: 2.2em;
+	  padding-top: 0.75em;
+	  padding-bottom: 0.75em;
 
-      float: left;
-      background: rgba(219, 216, 189, 0.2);
+	  float: left;
+	  background: rgba(219, 216, 189, 0.2);
 
-      &:nth-child(odd){
-        background: rgba(219, 216, 189, 0.5);
-      }
+	  &:nth-child(odd) {
+		background: rgba(219, 216, 189, 0.5);
+	  }
 
-      p {
-        margin-bottom: 0;
-      }
-      .img-responsive {
+	  p {
+		margin-bottom: 0;
+	  }
+	  .img-responsive {
 
-        p {
-          white-space: normal;
-          width: 100%;
-        }
+		p {
+		  white-space: normal;
+		  width: 100%;
+		}
 
-        img {
-          width: auto;
-        }
-      }
-    }
+		img {
+		  width: auto;
+		}
+	  }
+	}
   }
 
   /*
     Produktdetail
   */
   &.tx-marketplace-detail {
-    .filter .image {
-      margin-top: 1em;
-    }
+	.filter .image {
+	  margin-top: 1em;
+	}
   }
 
   /*
     Toggle Product description
    */
   .buttonText-show {
-    .text-show {
-      display: block;
-    }
-    .text-unshow {
-      display: none;
-    }
+	.text-show {
+	  display: block;
+	}
+	.text-unshow {
+	  display: none;
+	}
   }
   .buttonText-unshow {
-    .text-show {
-      display: none;
-    }
-    .text-unshow {
-      display: block;
-    }
+	.text-show {
+	  display: none;
+	}
+	.text-unshow {
+	  display: block;
+	}
   }
 
   /*
     Filter
    */
   .filter {
-    background: $color-hgrau;
+	background: $color-hgrau;
 
-    // Productgroup
+	// Productgroup
 
-    // Productsubgroup
-    .subgroups {
-      margin-left: 1em;
+	// Productsubgroup
+	.subgroups {
+	  margin-left: 1em;
 
-      .checkbox {
-        i.fa-minus {
-          display: none;
-        }
+	  .checkbox {
+		i.fa-minus {
+		  display: none;
+		}
 
-        input:checked + label {
+		input:checked + label {
 
-          color: $color-primary;
+		  color: $color-primary;
 
-          i.fa-plus {
-            display: none;
-          }
-          i.fa-minus {
-            display: inline-block;
-          }
-        }
-      }
-    }
+		  i.fa-plus {
+			display: none;
+		  }
+		  i.fa-minus {
+			display: inline-block;
+		  }
+		}
+	  }
+	}
   }
   /*
     Filter reset
    */
   .reset {
-    display: none;
+	display: none;
   }
 
   // Ratinglist items
@@ -289,61 +291,61 @@ $star-shadow: rgba(0, 0, 0, 0.3);
   // that has to get some special
   // treatment
   .ratingBlock {
-    text-align: center;
+	text-align: center;
 
-    padding: 0;
+	padding: 0;
 
-    .btn {
-      width: 100%;
-      padding-left: 0;
-      padding-right: 0;
-      text-align: center;
+	.btn {
+	  width: 100%;
+	  padding-left: 0;
+	  padding-right: 0;
+	  text-align: center;
 
-      .lead {
-        white-space: normal;
-      }
-    }
-    .btn-primary {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+	  .lead {
+		white-space: normal;
+	  }
+	}
+	.btn-primary {
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
 
-      i {
-        position: relative;
-        top: 2px;
-      }
-    }
+	  i {
+		position: relative;
+		top: 2px;
+	  }
+	}
 
-    @media screen and (min-width: 768px) {
-      text-align: left;
-    }
-    @media screen and (min-width: 768px) and (max-width: 1090px) {
-      max-width: 100%;
-      clear: both;
+	@media screen and (min-width: 768px) {
+	  text-align: left;
+	}
+	@media screen and (min-width: 768px) and (max-width: 1090px) {
+	  max-width: 100%;
+	  clear: both;
 
-      .btn-group-vertical {
-        padding-top: 10px;
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-    @media screen and (min-width: 768px) and (max-width: 870px) {
-      .btn-group-vertical {
-      }
-    }
+	  .btn-group-vertical {
+		padding-top: 10px;
+		display: flex;
+		justify-content: space-between;
+	  }
+	}
+	@media screen and (min-width: 768px) and (max-width: 870px) {
+	  .btn-group-vertical {
+	  }
+	}
   }
 }
 
 @media screen and (min-width: 768px) {
   .tx-marketplace {
-    /*
-      Produktliste
-     */
-    &.tx-marketplace-list {
-      .list-item {
-        // min-height: 120px;
-      }
-    }
+	/*
+	  Produktliste
+	 */
+	&.tx-marketplace-list {
+	  .list-item {
+		// min-height: 120px;
+	  }
+	}
   }
 }
 
@@ -354,10 +356,10 @@ $star-shadow: rgba(0, 0, 0, 0.3);
   margin-bottom: 18px;
 
   > tbody > tr > td, > tbody > tr > th, > tfoot > tr > td, > tfoot > tr > th, > thead > tr > td, > thead > tr > th {
-    padding: 8px;
-    line-height: 1.4;
-    vertical-align: top;
-    border-top: 1px solid $border-color;
+	padding: 8px;
+	line-height: 1.4;
+	vertical-align: top;
+	border-top: 1px solid $border-color;
   }
 }
 
@@ -370,17 +372,17 @@ $star-shadow: rgba(0, 0, 0, 0.3);
 
   .checkbox,
   .radio {
-    padding-left: 0;
+	padding-left: 0;
 
-    label {
+	label {
 
-      left: 0;
-      padding-left: 0;
+	  left: 0;
+	  padding-left: 0;
 
-      &:before, &:after {
-        display: none;
-      }
-    }
+	  &:before, &:after {
+		display: none;
+	  }
+	}
   }
 }
 
@@ -388,74 +390,74 @@ $star-shadow: rgba(0, 0, 0, 0.3);
   float: left;
   &:not(:checked) {
 
-    > input {
-      position: absolute;
-      top: -9999px;
-      clip: rect(0, 0, 0, 0);
+	> input {
+	  position: absolute;
+	  top: -9999px;
+	  clip: rect(0, 0, 0, 0);
 
-      &:checked ~ label {
-        color: $stars-color-before;
-        //text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
-      }
-    }
+	  &:checked ~ label {
+		color: $stars-color-before;
+		//text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+	  }
+	}
 
-    > label {
-      float: right;
-      width: 1em;
-      padding: 0 .1em;
-      overflow: hidden;
-      white-space: nowrap;
-      font-size: 200%;
-      line-height: 1.2;
-      color: $stars-color;
-      text-shadow: 1px 1px 0 #515151,
-      -1px -1px 0 #515151,
-      -1px 1px 0 #515151,
-      1px -1px 0 #515151;
-      text-shadow: 1px 1px 1px $star-shadow,
-      1px -1px 1px $star-shadow,
-      -1px 1px 1px $star-shadow,
-      -1px -1px 1px $star-shadow;
+	> label {
+	  float: right;
+	  width: 1em;
+	  padding: 0 .1em;
+	  overflow: hidden;
+	  white-space: nowrap;
+	  font-size: 200%;
+	  line-height: 1.2;
+	  color: $stars-color;
+	  text-shadow: 1px 1px 0 #515151,
+	  -1px -1px 0 #515151,
+	  -1px 1px 0 #515151,
+	  1px -1px 0 #515151;
+	  text-shadow: 1px 1px 1px $star-shadow,
+	  1px -1px 1px $star-shadow,
+	  -1px 1px 1px $star-shadow,
+	  -1px -1px 1px $star-shadow;
 
-      &:before {
-        content: '★ ';
-      }
-    }
-    &:not(.overallRating) {
-      > label:hover,
-      > label:hover ~ label {
-        cursor: pointer;
-        color: $stars-color-actual;
-      }
-    }
+	  &:before {
+		content: '★ ';
+	  }
+	}
+	&:not(.overallRating) {
+	  > label:hover,
+	  > label:hover ~ label {
+		cursor: pointer;
+		color: $stars-color-actual;
+	  }
+	}
   }
 
   &:not(.overallRating) {
-    > input:checked + label:hover,
-    > input:checked + label:hover ~ label,
-    > input:checked ~ label:hover,
-    > input:checked ~ label:hover ~ label,
-    > label:hover ~ input:checked ~ label {
-      color: lighten($stars-color-actual, 10%);
-    }
+	> input:checked + label:hover,
+	> input:checked + label:hover ~ label,
+	> input:checked ~ label:hover,
+	> input:checked ~ label:hover ~ label,
+	> label:hover ~ input:checked ~ label {
+	  color: lighten($stars-color-actual, 10%);
+	}
   }
 
   > label:active {
-    position: relative;
-    top: 2px;
-    left: 2px;
+	position: relative;
+	top: 2px;
+	left: 2px;
   }
 }
 
 // Rating Sonnen
 div.rating-container {
   .filled-stars {
-    color: $stars-color-actual;
+	color: $stars-color-actual;
   }
   i.fa {
-    // width: 15px;
-    // height: 15px;
-    // font-size: 15px;
+	// width: 15px;
+	// height: 15px;
+	// font-size: 15px;
   }
 }
 
@@ -470,28 +472,28 @@ div.rating-md {
   align-items: center;
 
   br {
-    width: 100%;
+	width: 100%;
   }
 
   .rating-count {
-    margin-left: .5em;
+	margin-left: .5em;
   }
 
   &.btn {
-    padding: 0;
-    padding-bottom: .5em;
+	padding: 0;
+	padding-bottom: .5em;
   }
   &.overAllRating {
-    font-size: 1.7em;
-    margin-bottom: 1em;
+	font-size: 1.7em;
+	margin-bottom: 1em;
 
-    // in sidebar
-    .aside & {
-      font-size: 1em;
-      &.pull-right {
-        float: none !important;
-      }
-    }
+	// in sidebar
+	.aside & {
+	  font-size: 1em;
+	  &.pull-right {
+		float: none !important;
+	  }
+	}
   }
 }
 
@@ -507,10 +509,10 @@ div.rating-md {
   margin: 1em 0 2em;
 
   > :first-child {
-    margin-top: 1em;
+	margin-top: 1em;
   }
   > :last-child {
-    margin-bottom: 1em;
+	margin-bottom: 1em;
   }
 }
 
@@ -527,26 +529,26 @@ div.rating-md {
   transition: background-color 0.5s linear;
 
   .fa {
-    position: relative;
-    top: -1px;
+	position: relative;
+	top: -1px;
   }
 
   .slide-out {
-    display: inline-block;
-    max-width: 0;
-    overflow: hidden;
-    transition: max-width 0.5s linear;
-    margin-right: 12px;
-    font-weight: normal;
+	display: inline-block;
+	max-width: 0;
+	overflow: hidden;
+	transition: max-width 0.5s linear;
+	margin-right: 12px;
+	font-weight: normal;
   }
 
   &:hover {
-    color: white;
-    background-color: $color-rot;
+	color: white;
+	background-color: $color-rot;
 
-    .slide-out {
-      max-width: 100vh;
-    }
+	.slide-out {
+	  max-width: 100vh;
+	}
   }
 }
 
@@ -556,7 +558,7 @@ div.rating-md {
 .btn.btn {
   // All
   &-proposeProduct, &-backToRatingList, &-search, &-reset, &-toggle {
-    margin-bottom: 1em;
+	margin-bottom: 1em;
   }
   // Filter search
   &-search {
@@ -567,40 +569,40 @@ div.rating-md {
 
   // Toggle button
   &-toggle {
-    margin-top: 1em;
+	margin-top: 1em;
   }
 
   // Propose Product
   &-proposeProduct {
   }
   .pull-right &-proposeProduct {
-    margin-right: -15px;
+	margin-right: -15px;
   }
   // Back to rating
   &-backToRatingList {
-    padding-left: 0;
+	padding-left: 0;
   }
 }
 
 .btn {
   // If icon is used
   i.fa {
-    margin-left: 1em;
+	margin-left: 1em;
 
-    &.fa-chevron-left {
-      margin-left: 0;
-      margin-right: 1em;
-    }
+	&.fa-chevron-left {
+	  margin-left: 0;
+	  margin-right: 1em;
+	}
 
-    .btn-group &.fa-certificate,
-    .btn-group-vertical &.fa-certificate {
-      margin-left: 0;
-    }
+	.btn-group &.fa-certificate,
+	.btn-group-vertical &.fa-certificate {
+	  margin-left: 0;
+	}
   }
   // If icon is left
   &.icon-left i.fa {
-    margin-left: 0;
-    margin-right: 0.5em;
+	margin-left: 0;
+	margin-right: 0.5em;
   }
 }
 
@@ -608,11 +610,11 @@ div.rating-md {
   margin-top: 1.8em;
 
   .btn {
-    padding: 6px 12px;
-    i.fa {
-      margin-left: 0;
-      line-height: 18px;
-    }
+	padding: 6px 12px;
+	i.fa {
+	  margin-left: 0;
+	  line-height: 18px;
+	}
   }
 }
 
@@ -620,8 +622,8 @@ div.rating-md {
 
   // Filter / aside
   .filter {
-    padding-top: $gutter-width;
-    padding-bottom: $gutter-width;
+	padding-top: $gutter-width;
+	padding-bottom: $gutter-width;
   }
 
   //
@@ -629,78 +631,160 @@ div.rating-md {
   // Product detail
   //
   .ratingsListContainer {
-    margin-top: 2em;
+	margin-top: 2em;
   }
 
   .list-group {
-    border-top: thin solid $border-color;
-    margin-top: 1.2em;
+	border-top: thin solid $border-color;
+	margin-top: 1.2em;
 
-    // Row in rating liste
-    .list-item {
-      border-bottom: thin solid $border-color;
-      width: 100%;
-      margin-bottom: 2.2em;
-      padding: 1.2em 0.5em 1em;
-    }
+	// Row in rating liste
+	.list-item {
+	  border-bottom: thin solid $border-color;
+	  width: 100%;
+	  margin-bottom: 2.2em;
+	  padding: 1.2em 0.5em 1em;
+	}
 
-    // Heading
-    .list-group-item-heading {
-      padding-bottom: 1em;
-      position: relative;
-    }
+	// Heading
+	.list-group-item-heading {
+	  padding-bottom: 1em;
+	  position: relative;
+	}
   }
 
   .list {
 
-    h1 {
-      position: relative;
-      z-index: 8;
-      margin-top: 1em;
-    }
+	h1 {
+	  position: relative;
+	  z-index: 8;
+	  margin-top: 1em;
+	}
 
-    .imageSlider {
-      text-align: center;
-      img.img-responsive {
-        display: inline-block;
-        width: auto;
-        max-width: 100%;
-      }
-    }
+	.imageSlider {
+	  text-align: center;
+	  img.img-responsive {
+		display: inline-block;
+		width: auto;
+		max-width: 100%;
+	  }
+	}
   }
   //
   // Rate product
   //
   .ratingForm {
 
-    // Size of stars
-    // div.rating-md {
-    //   font-size
-    // }
-    .ratingContainer.overAllRating {
-      label {
-        font-size: 0.7em;
+	// Size of stars
+	// div.rating-md {
+	//   font-size
+	// }
+	.ratingContainer.overAllRating {
+	  label {
+		font-size: 0.7em;
 
-        position: relative;
-        top: 4px;
-        display: block;
-        text-align: right;
+		position: relative;
+		top: 4px;
+		display: block;
+		text-align: right;
 
-        &.text-left {
-          text-align: left;
-        }
-      }
-    }
+		&.text-left {
+		  text-align: left;
+		}
+	  }
+	}
   }
 }
 
 // Sortby
 @media screen and (min-width: 768px) {
   .sortby-select {
-    position: absolute;
-    left: 100%;
-    width: 100%;
-    top: 0;
-    padding-left: 5.2em;
+	position: absolute;
+	left: 100%;
+	width: 100%;
+	top: 0;
+	padding-left: 5.2em;
   }
+}
+
+/**
+ * Ajax Loading
+ */
+.tx-marketplace {
+
+  .loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: -(2 * $gutter-width);
+	width: calc(100% + #{$gutter-width} + #{$gutter-width} + #{$gutter-width} + #{$gutter-width});
+	height: calc(100% + #{$gutter-width} + #{$gutter-width});
+
+	transition: 0.3s linear;
+	overflow: hidden;
+	z-index: -1;
+
+	opacity: 0;
+
+	&:after {
+	  content: ' ';
+
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 200%;
+	  height: 100%;
+
+	  /*
+	  $color-blau: #223a81;
+	  $color-blau-hell: #223a81;
+	  $color-blau-helli: #0070c0;
+	  $color-braun-dunkel: #a1a07a;
+	  $color-braun: #dbd8bd;
+	  $color-rot: #a71719;
+	  $color-orange: #e49d01;
+	  $color-dgrau: #6a6a6a;
+	  $color-hgrau: rgba($color-dgrau, 0.05);
+	  $color-gelb: #faae07;
+
+	  $stars-color: #fff;
+	  $stars-color-before: #ffe63d;
+	  $stars-color-actual: #ffe65b;
+
+	  $red: #a94442;
+	  $red-light: #f2dede;
+
+	  $color-primary: #337ab7;
+	   */
+	  $color-animate-1: lighten($color-blau-hell, 25%);
+	  $color-animate-2: lighten($color-hgrau, 20%);
+
+	  opacity: 0.5;
+
+	  background-color: $color-animate-1;
+	  background-image: repeating-linear-gradient(65deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px);
+	  //background-size: 50px 50px;
+
+	  background-repeat: repeat;
+
+	  animation-name: load;
+	  animation-duration: 1s;
+	  animation-iteration-count: infinite;
+	  animation-timing-function: linear;
+	}
+
+  }
+
+  &.loading > .loader {
+	z-index: 79;
+	opacity: 1;
+	//max-width: calc(100% + #{$gutter-width} + #{$gutter-width} + #{$gutter-width} + #{$gutter-width});
+	//max-height: calc(100% + #{$gutter-width} + #{$gutter-width});
+
+  }
+}
+
+@keyframes load {
+  from {  transform: translateX(0px)    }
+  to   {  transform: translateX(-78px) }
 }
