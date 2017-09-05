@@ -894,8 +894,6 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
 
             // TBD
             $categories = $this->categoryRepository->findAll();
-            $this->view->assign('categories', $categories);
-
         }
 
 
@@ -910,6 +908,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             'options' => $options,
             'countries' => $countries,
             'category' => $category,
+            'categories', $categories,
 
             // View
             'view' => 'list',
