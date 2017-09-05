@@ -16,14 +16,14 @@
             </div>
         </div>
     </div>
-    
+
     <f:if condition="{products}">
         <f:then>
             <f:render partial="Product/List" arguments="{_all}"></f:render>
         </f:then>
         <f:else>
             <!-- Content? -->
-            No products for this cat...
+            No products.<br>Please try other properties or categories.
         </f:else>
     </f:if>
 
