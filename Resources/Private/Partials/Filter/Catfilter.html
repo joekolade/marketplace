@@ -25,7 +25,7 @@
 		<!-- TODO: Reset filter -->
 		<!-- CHECK: Live-/Ajax-Search -->
 	</f:comment>
-
+	<f:debug>{options}</f:debug>
 	<f:if condition="{options -> f:count()}">
 		<f:then>
 			<f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
