@@ -893,4 +893,10 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
 
     }
 
+
+    public function listrecent(){
+        $products = $this->productRepository->findRecentWithLimit(5);
+
+        $this->view->assign('products', $products);
+    }
 }

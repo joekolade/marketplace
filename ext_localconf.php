@@ -68,7 +68,7 @@ if (!defined('TYPO3_MODE')) {
             'Recentlist',
             array(
                 // Later w/ "showProductRatings"
-                'Product' => 'list, listrecent, show, showProductRatings',
+                'Product' => 'listrecent, list, show, showProductRatings',
             ),
             // non-cacheable actions
             array(

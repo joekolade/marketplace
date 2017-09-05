@@ -356,4 +356,13 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         return $result;
 
     }
+
+    public function findRecentWithLimit($limit = 0)
+    {
+        $query = $this->createQuery();
+
+        $query->getQuerySettings()->setLimit($limit);
+
+        return $query->execute();
+    }
 }
