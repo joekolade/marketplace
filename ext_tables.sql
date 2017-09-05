@@ -17,7 +17,7 @@ CREATE TABLE tx_marketplace_domain_model_product (
 	articles int(11) unsigned DEFAULT '0' NOT NULL,
 	producer int(11) unsigned DEFAULT '0',
 	ratings int(11) unsigned DEFAULT '0',
-  
+
   proposinguser int(11) unsigned DEFAULT '0' NOT NULL,
   averagerating double(11,4) DEFAULT NULL,
 
@@ -623,7 +623,7 @@ CREATE TABLE tx_marketplace_domain_model_rating (
 	position varchar(255) DEFAULT '' NOT NULL,
 	ratingtext text NOT NULL,
 	legals tinyint(4) unsigned DEFAULT '0' NOT NULL,
-	
+
   tstamp int(11) unsigned DEFAULT '0' NOT NULL,
   crdate int(11) unsigned DEFAULT '0' NOT NULL,
   cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
@@ -802,6 +802,7 @@ CREATE TABLE tx_marketplace_domain_model_category (
 
 	title varchar(255) DEFAULT '' NOT NULL,
 	filtergroups int(11) unsigned DEFAULT '0' NOT NULL,
+	listpid int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,

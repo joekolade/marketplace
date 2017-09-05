@@ -157,5 +157,13 @@ return [
                 ],
             ],
         ],
+        'listpid' => [
+            'exclude' => false,
+            'label' => 'LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_domain_model_category.listpid',
+            'config' => [
+                'type' => 'input',
+                'renderType' => 'inputLink',
+            ],
+        ],
     ],
 ];

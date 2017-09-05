@@ -34,6 +34,14 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $title = '';
 
     /**
+     * listpid
+     *
+     * @var int
+     * @validate NotEmpty
+     */
+    protected $listpid;
+
+    /**
      * __construct
      */
     public function __construct()
@@ -117,5 +125,21 @@ class Category extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setTitle($title)
     {
         $this->title = $title;
+    }
+
+    /**
+     * @return int
+     */
+    public function getListpid()
+    {
+        return $this->listpid;
+    }
+
+    /**
+     * @param int $listpid
+     */
+    public function setListpid($listpid)
+    {
+        $this->listpid = $listpid;
     }
 }

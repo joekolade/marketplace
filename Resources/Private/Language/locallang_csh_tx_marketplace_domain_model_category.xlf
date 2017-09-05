@@ -9,6 +9,9 @@
 			<trans-unit id="filtergroups.description">
 				<source>filtergroups</source>
 			</trans-unit>
+			<trans-unit id="listpid.description">
+				<source>pid of list</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
