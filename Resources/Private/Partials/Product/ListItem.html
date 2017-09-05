@@ -3,7 +3,7 @@
     <div class="col-xs-10 col-sm-3">
             <f:if condition="{product.images}">
                 <f:then>
-                    <f:link.action action="show" pluginName="categorylist" class="btn btn-default" pageUid="{settings.productDetail.pid}"
+                    <f:link.action action="show" pluginName="articlesearch" class="btn btn-default" pageUid="{settings.productDetail.pid}"
                                    arguments="{product : product}">
                     <f:image src="{product.images.originalResource.originalFile.uid}"
                              width="{settings.productList.image.width}" maxHeight="{settings.productList.image.height}"
