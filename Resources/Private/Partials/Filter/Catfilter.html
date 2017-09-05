@@ -25,7 +25,7 @@
 		<!-- TODO: Reset filter -->
 		<!-- CHECK: Live-/Ajax-Search -->
 	</f:comment>
-	<f:debug>{options}</f:debug>
+
 	<f:if condition="{options -> f:count()}">
 		<f:then>
 			<f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
@@ -115,7 +115,7 @@
 	</f:if>
 
 
-	<f:if condition="{0countries}">
+	<f:if condition="{countries}">
 
 		<div class="panel panel-default">
 			<div class="panel-heading" role="tab">
@@ -185,8 +185,6 @@
 
 
 <f:section name="options">
-	<f:debug>{option}</f:debug>
-	<f:comment>
 
 	<div class="checkbox">
 		<f:form.checkbox property="options" id="option-{option.uid}"
@@ -195,5 +193,4 @@
 			{option.title}
 		</label>
 	</div>
-	</f:comment>
 </f:section>

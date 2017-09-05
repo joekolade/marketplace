@@ -858,29 +858,24 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
 
             foreach ($products as $product) {
 
-                // Options - show only available options
-                //            foreach ($product->getOptions() as $option) {
-                //                if (!in_array($option, $options)) {
-                //                    $options[] = $option;
-                //                }
-                //            }
-
                 // Producer
-                $producer = $product->getProducer();
-                if (!in_array($producer, $producers)) {
-                    $producers[] = $producer;
-
-                }
+//                $producer = $product->getProducer();
+//                if (!in_array($producer, $producers)) {
+//                    $producers[] = $producer;
+//
+//                }
+                $producers = $this->producerRepository->findAll();
 
                 // Countries
-                foreach ($product->getArticles() as $article) {
-                    if (!empty($article->getDealer())) {
-                        $country = $article->getDealer()->getCountry();
-                        if (!in_array($country, $countries)) {
-                            $countries[] = $country;
-                        }
-                    }
-                }
+//                foreach ($product->getArticles() as $article) {
+//                    if (!empty($article->getDealer())) {
+//                        $country = $article->getDealer()->getCountry();
+//                        if (!in_array($country, $countries)) {
+//                            $countries[] = $country;
+//                        }
+//                    }
+//                }
+                $countries = $this->countryRepository->findAll();
             }
         }
         else {
