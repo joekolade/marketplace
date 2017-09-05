@@ -64,12 +64,10 @@
         <f:else>
             <!-- Cat Links -->
             <f:for each="{categories}" as="cat">
-                <div class="form-control">
-                    <f:link.page pageUid="{cat.listpid}" class="btn btn-primary">
+                    <f:link.page pageUid="{cat.listpid}" class="btn btn-primary btn-block">
                         {cat.title}
                         <i class="fa fa-chevron-right"></i>
                     </f:link.page>
-                </div>
             </f:for>
         </f:else>
     </f:if>
