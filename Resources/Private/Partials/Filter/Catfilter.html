@@ -30,7 +30,6 @@
 		<f:then>
 			<f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
 
-
 				<div class="panel panel-default">
 					<div class="panel-heading" role="tab">
 						<h4>
@@ -40,6 +39,7 @@
 							</a>
 						</h4>
 					</div>
+
 					<!--TODO: "in" only for groups w/ selected options-->
 					<div id="collapse-select-{filtergroup.uid}" class="panel-collapse collapse in" role="tabpanel">
 						<div class="panel-body">
@@ -185,6 +185,9 @@
 
 
 <f:section name="options">
+	<f:debug>{option}</f:debug>
+	<f:comment>
+
 	<div class="checkbox">
 		<f:form.checkbox property="options" id="option-{option.uid}"
 						 value="{option.uid}"/>
@@ -192,4 +195,5 @@
 			{option.title}
 		</label>
 	</div>
+	</f:comment>
 </f:section>
