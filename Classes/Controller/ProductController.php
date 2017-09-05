@@ -909,7 +909,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             'options' => $options,
             'countries' => $countries,
             'category' => $category,
-            'categories', $categories,
+            'categories' => $categories,
 
             // View
             'view' => 'list',
