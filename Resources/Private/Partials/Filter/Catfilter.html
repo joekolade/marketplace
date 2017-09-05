@@ -169,19 +169,18 @@
 				<i class="fa fa-search"></i>
 			</button>
 		</div>
-	</f:if>
 
-	<!-- Sorting (ausgestellt) -->
-	<f:alias
-			map="{sortbyArray: {0: '{f:translate(key: \'productList.filter.sortby.0\')}', 1: '{f:translate(key: \'productList.filter.sortby.1\')}', 2: '{f:translate(key: \'productList.filter.sortby.2\')}', 3: '{f:translate(key: \'productList.filter.sortby.3\')}', 4: '{f:translate(key: \'productList.filter.sortby.4\')}', 5: '{f:translate(key: \'productList.filter.sortby.5\')}', 6: '{f:translate(key: \'productList.filter.sortby.6\')}', 7: '{f:translate(key: \'productList.filter.sortby.7\')}'}}">
-		<div class="sortby-select form-inline">
-			<div class="form-group">
-				<f:translate key="productList.filter.sortbyLabel">Sort by</f:translate>
-				<f:form.select class="form-control selectpicker" property="sortby" options="{sortbyArray}"/>
+		<!-- Sorting (ausgestellt) -->
+		<f:alias
+				map="{sortbyArray: {0: '{f:translate(key: \'productList.filter.sortby.0\')}', 1: '{f:translate(key: \'productList.filter.sortby.1\')}', 2: '{f:translate(key: \'productList.filter.sortby.2\')}', 3: '{f:translate(key: \'productList.filter.sortby.3\')}', 4: '{f:translate(key: \'productList.filter.sortby.4\')}', 5: '{f:translate(key: \'productList.filter.sortby.5\')}', 6: '{f:translate(key: \'productList.filter.sortby.6\')}', 7: '{f:translate(key: \'productList.filter.sortby.7\')}'}}">
+			<div class="sortby-select form-inline">
+				<div class="form-group">
+					<f:translate key="productList.filter.sortbyLabel">Sort by</f:translate>
+					<f:form.select class="form-control selectpicker" property="sortby" options="{sortbyArray}"/>
+				</div>
 			</div>
-		</div>
-	</f:alias>
-
+		</f:alias>
+	</f:if>
 </f:form>
 
 
