@@ -853,42 +853,45 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
                     $options[] = $option;
                 }
             }
+
+            foreach ($products as $product) {
+
+                // Options - show only available options
+                //            foreach ($product->getOptions() as $option) {
+                //                if (!in_array($option, $options)) {
+                //                    $options[] = $option;
+                //                }
+                //            }
+
+                // Producer
+                $producer = $product->getProducer();
+                if (!in_array($producer, $producers)) {
+                    $producers[] = $producer;
+
+                }
+
+                // Countries
+                foreach ($product->getArticles() as $article) {
+                    if (!empty($article->getDealer())) {
+                        $country = $article->getDealer()->getCountry();
+                        if (!in_array($country, $countries)) {
+                            $countries[] = $country;
+                        }
+                    }
+                }
+            }
         }
         else {
             // Filter holds categories
 
             // TBD
             $categories = $this->categoryRepository->findAll();
+            \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($categories);
             $this->view->assign('categories', $categories);
 
         }
 
-        foreach ($products as $product) {
 
-            // Options - show only available options
-            //            foreach ($product->getOptions() as $option) {
-            //                if (!in_array($option, $options)) {
-            //                    $options[] = $option;
-            //                }
-            //            }
-
-            // Producer
-            $producer = $product->getProducer();
-            if (!in_array($producer, $producers)) {
-                $producers[] = $producer;
-
-            }
-
-            // Countries
-            foreach ($product->getArticles() as $article) {
-                if (!empty($article->getDealer())) {
-                    $country = $article->getDealer()->getCountry();
-                    if (!in_array($country, $countries)) {
-                        $countries[] = $country;
-                    }
-                }
-            }
-        }
 
         // CHECK: Are there filter options lost, when only rendering results, that fit?
         // => Render fitting and selected!
