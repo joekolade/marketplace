@@ -63,6 +63,19 @@ if (!defined('TYPO3_MODE')) {
             )
         );
 
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+            'JS.' . $_EXTKEY,
+            'Recentlist',
+            array(
+                // Later w/ "showProductRatings"
+                'Product' => 'list, listrecent, show, showProductRatings',
+            ),
+            // non-cacheable actions
+            array(
+                'Product' => '',
+            )
+        );
+
         // wizards
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
             'mod {
@@ -75,6 +88,15 @@ if (!defined('TYPO3_MODE')) {
 						tt_content_defValues {
 							CType = list
 							list_type = marketplace_categorylist
+						}
+					}
+					recentlist {
+						icon = ' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/user_plugin_recentlist.svg
+						title = LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_plugin_recentlist
+						description = LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_plugin_recentlist.description
+						tt_content_defValues {
+							CType = list
+							list_type = marketplace_recentlist
 						}
 					}
 				}

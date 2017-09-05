@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2016-04-26T22:01:51Z" product-name="marketplace">
+        <header/>
+        <body>
+            <trans-unit id="settings.filtertitle">
+                <source>If set this text will be shown above the filter, otherwise the selected category will be shown.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

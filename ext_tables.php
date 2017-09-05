@@ -26,6 +26,12 @@ defined('TYPO3_MODE') || die('Access denied.');
     'List by category'
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'JS.' . $_EXTKEY,
+    'Recentlist',
+    'List recent products'
+);
+
 
 $extensionName = strtolower(\TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToUpperCamelCase($_EXTKEY));
 
@@ -57,7 +63,19 @@ $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
     'tt_content.pi_flexform.' . $pluginSignature . '.list',
-    'EXT:marketplace/Resources/Private/Language/locallang_csh_flexform_catlist.xlf'
+    'EXT:marketplace/Resources/Private/Language/locallang_csh_flexform_' . $pluginname . '.xlf'
+);
+
+$pluginName = strtolower('Recentlist');
+$pluginSignature = $extensionName . '_' . $pluginName;
+$TCA['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature] = 'layout,select_key,pages,recursive';
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature,
+    'FILE:EXT:' . $_EXTKEY . '/Configuration/Flexform/' . $pluginName . '_settings.xml');
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr(
+    'tt_content.pi_flexform.' . $pluginSignature . '.list',
+    'EXT:marketplace/Resources/Private/Language/locallang_csh_flexform_' . $pluginname . '.xlf'
 );
 
 

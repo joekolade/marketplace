@@ -336,6 +336,12 @@
 			<trans-unit id="tx_marketplace_plugin_categorylist.description">
 				<source>New Category list</source>
 			</trans-unit>
+			<trans-unit id="tx_marketplace_plugin_categorylist">
+				<source>List recent products</source>
+			</trans-unit>
+			<trans-unit id="tx_marketplace_plugin_categorylist.description">
+				<source>List recent products by filter</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
