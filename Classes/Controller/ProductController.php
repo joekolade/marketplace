@@ -885,10 +885,11 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         }
         else {
 
-            $limit = 0;
+            $limit = 5;
 
             /** @var  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Product> $products */
-            $products = $this->productRepository->findByOptions($filter, $category, $limit);
+            //$products = $this->productRepository->findByOptions($filter, $category, $limit);
+            $products = $this->productRepository->findByOptions($filter, $category);
 
             // Filter holds categories
 
