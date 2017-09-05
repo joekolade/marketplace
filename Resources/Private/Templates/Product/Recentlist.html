@@ -1,0 +1,34 @@
+<f:layout name="Default"/>
+
+
+<f:section name="header">
+    <f:if condition="{settings.title}">
+        <h1>{settings.title}</h1>
+    </f:if>
+</f:section>
+
+<f:section name="main">
+    <f:flashMessages renderMode="div" />
+    <div class="row list-item-top">
+        <div class="col-xs-12">
+            <div class="pull-right">
+                <f:render partial="Product/Buttons/ProposeProduct" arguments="{_all}"></f:render>
+            </div>
+        </div>
+    </div>
+
+    <f:if condition="{products}">
+        <f:then>
+            <f:render partial="Product/List" arguments="{_all}"></f:render>
+        </f:then>
+        <f:else>
+            <!-- Content? -->
+            No products for this cat...
+        </f:else>
+    </f:if>
+
+</f:section>
+
+<f:section name="aside">
+    <f:render partial="Filter/Catfilter" arguments="{_all}"></f:render>
+</f:section>
