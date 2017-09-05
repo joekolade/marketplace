@@ -160,6 +160,7 @@ plugin.tx_marketplace._CSS_DEFAULT_STYLE (
 plugin.tx_marketplace_ratingsearch < plugin.tx_marketplace_articlesearch
 plugin.tx_marketplace_registeruser < plugin.tx_marketplace_articlesearch
 plugin.tx_marketplace_categorylist < plugin.tx_marketplace_articlesearch
+plugin.tx_marketplace_recentlist < plugin.tx_marketplace_articlesearch
 
 lib.emailCloser = COA
 lib.emailCloser {
