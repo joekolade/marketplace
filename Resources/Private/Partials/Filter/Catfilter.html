@@ -26,7 +26,7 @@
         <!-- CHECK: Live-/Ajax-Search -->
     </f:comment>
 
-    <f:if condition="{options}">
+    <f:if condition="{options -> f:count()}">
         <f:then>
             <f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
 
