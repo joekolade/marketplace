@@ -174,7 +174,8 @@ $(function () {
         // Initialise
         init = function () {
             if($filter.length){
-                bindPanelEvents();
+                // no ajax at the time
+                //bindPanelEvents();
             }
         }
     ;
