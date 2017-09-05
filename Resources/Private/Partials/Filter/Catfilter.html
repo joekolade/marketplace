@@ -26,38 +26,50 @@
         <!-- CHECK: Live-/Ajax-Search -->
     </f:comment>
 
-    <f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
+    <f:condition if="{options}">
+        <f:then>
+            <f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
 
 
 
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab">
-                <h4>
-                    <a class="btn btn-block" data-toggle="collapse" href="#collapse-select-{filtergroup.uid}">
-                        {filtergroup.output}
-                        <i class="fa fa-plus"></i>
-                    </a>
-                </h4>
-            </div>
-            <!--TODO: "in" only for groups w/ selected options-->
-            <div id="collapse-select-{filtergroup.uid}" class="panel-collapse collapse in" role="tabpanel">
-                <div class="panel-body">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4>
+                            <a class="btn btn-block" data-toggle="collapse" href="#collapse-select-{filtergroup.uid}">
+                                {filtergroup.output}
+                                <i class="fa fa-plus"></i>
+                            </a>
+                        </h4>
+                    </div>
+                    <!--TODO: "in" only for groups w/ selected options-->
+                    <div id="collapse-select-{filtergroup.uid}" class="panel-collapse collapse in" role="tabpanel">
+                        <div class="panel-body">
 
-                    <f:groupedFor each="{opts}" as="optn" groupBy="filtersubgroup" groupKey="filtersubgroup">
-                        <f:if condition="{filtersubgroup}">
-                            <b>{filtersubgroup.title}</b><br>
-                        </f:if>
+                            <f:groupedFor each="{opts}" as="optn" groupBy="filtersubgroup" groupKey="filtersubgroup">
+                                <f:if condition="{filtersubgroup}">
+                                    <b>{filtersubgroup.title}</b><br>
+                                </f:if>
 
-                        <f:for each="{optn}" as="option">
-                            <f:render section="options" arguments="{option: option}"></f:render>
-                        </f:for>
-                    </f:groupedFor>
+                                <f:for each="{optn}" as="option">
+                                    <f:render section="options" arguments="{option: option}"></f:render>
+                                </f:for>
+                            </f:groupedFor>
 
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-    </f:groupedFor>
+            </f:groupedFor>
+        </f:then>
+        <f:else>
+            <!-- Cat Links -->
+            <f:for each="{categories}" as="category">
+                {category.title}
+            </f:for>
+        </f:else>
+    </f:condition>
+
+
 
     <hr>
 

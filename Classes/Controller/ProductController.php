@@ -858,6 +858,8 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             // Filter holds categories
 
             // TBD
+            $categories = $this->categoryRepository->findAll();
+            $this->view->assign('categories', $categories);
 
         }
 
