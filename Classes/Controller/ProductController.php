@@ -818,7 +818,7 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
 
     public function initializeCatListAction()
     {
-        ($GLOBALS['TSFE']->beUserLogin) || die('Access denied. Please log in!');
+        //($GLOBALS['TSFE']->beUserLogin) || die('Access denied. Please log in!');
     }
 
     /**
