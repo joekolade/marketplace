@@ -361,7 +361,7 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     {
         $query = $this->createQuery();
 
-        $query->getQuerySettings()->setLimit($limit);
+        $query->setLimit($limit);
 
         return $query->execute();
     }
