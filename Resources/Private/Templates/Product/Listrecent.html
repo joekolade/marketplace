@@ -9,13 +9,6 @@
 
 <f:section name="main">
     <f:flashMessages renderMode="div" />
-    <div class="row list-item-top">
-        <div class="col-xs-12">
-            <div class="pull-right">
-                <f:render partial="Product/Buttons/ProposeProduct" arguments="{_all}"></f:render>
-            </div>
-        </div>
-    </div>
 
     <f:if condition="{products}">
         <f:then>
@@ -27,8 +20,4 @@
         </f:else>
     </f:if>
 
-</f:section>
-
-<f:section name="aside">
-    <f:render partial="Filter/Catfilter" arguments="{_all}"></f:render>
 </f:section>
