@@ -1,188 +1,196 @@
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+<html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers" xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <h2>
-    <f:if condition="{settings.filtertitle}">
-        <f:then>
-            {settings.filtertitle}
-        </f:then>
-        <f:else>
-            {category.title}
-        </f:else>
-    </f:if>
+	<f:if condition="{settings.filtertitle}">
+		<f:then>
+			{settings.filtertitle}
+		</f:then>
+		<f:else>
+			{category.title}
+		</f:else>
+	</f:if>
 </h2>
 
 <f:form object="{filter}" objectName="filter" name="filter" method="POST" action="catList" noCacheHash="1">
-    <f:comment>
-        <!-- Search field -->
-        <div class="form-group has-feedback has-clear">
-            <f:form.textfield class="form-control" property="searchphrase"
-                              placeholder="{f:translate(key: 'tx_marketplace_domain_model_filter.searchphrase')}"/>
-            <span class="fa fa-remove form-control-feedback form-control-clear" aria-hidden="true"></span>
-            <span class="sr-only">Clear input content</span>
-        </div>
-    </f:comment>
+	<f:comment>
+		<!-- Search field -->
+		<div class="form-group has-feedback has-clear">
+			<f:form.textfield class="form-control" property="searchphrase"
+							  placeholder="{f:translate(key: 'tx_marketplace_domain_model_filter.searchphrase')}"/>
+			<span class="fa fa-remove form-control-feedback form-control-clear" aria-hidden="true"></span>
+			<span class="sr-only">Clear input content</span>
+		</div>
+	</f:comment>
 
-    <f:comment>
-        <!-- TODO: Reset filter -->
-        <!-- CHECK: Live-/Ajax-Search -->
-    </f:comment>
+	<f:comment>
+		<!-- TODO: Reset filter -->
+		<!-- CHECK: Live-/Ajax-Search -->
+	</f:comment>
 
-    <f:if condition="{options -> f:count()}">
-        <f:then>
-            <f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
-
-
-
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab">
-                        <h4>
-                            <a class="btn btn-block" data-toggle="collapse" href="#collapse-select-{filtergroup.uid}">
-                                {filtergroup.output}
-                                <i class="fa fa-plus"></i>
-                            </a>
-                        </h4>
-                    </div>
-                    <!--TODO: "in" only for groups w/ selected options-->
-                    <div id="collapse-select-{filtergroup.uid}" class="panel-collapse collapse in" role="tabpanel">
-                        <div class="panel-body">
-
-                            <f:groupedFor each="{opts}" as="optn" groupBy="filtersubgroup" groupKey="filtersubgroup">
-                                <f:if condition="{filtersubgroup}">
-                                    <b>{filtersubgroup.title}</b><br>
-                                </f:if>
-
-                                <f:for each="{optn}" as="option">
-                                    <f:render section="options" arguments="{option: option}"></f:render>
-                                </f:for>
-                            </f:groupedFor>
-
-                        </div>
-                    </div>
-                </div>
-
-            </f:groupedFor>
-        </f:then>
-        <f:else>
-            <!-- Cat Links -->
-            <f:for each="{categories}" as="cat">
-                    <f:link.page pageUid="{cat.listpid}" class="btn btn-primary btn-block">
-                        {cat.title}
-                        <i class="fa fa-chevron-right"></i>
-                    </f:link.page>
-                <br>
-            </f:for>
-        </f:else>
-    </f:if>
-
-    <hr>
-
-    <f:if condition="{producers}">
-
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab">
-                <h4>
-                    <a class="btn btn-block" data-toggle="collapse" href="#collapseProducer">
-                        {f:translate(key: 'tx_marketplace_domain_model_filter.producer')}
-                        <i class="fa fa-plus"></i>
-                    </a>
-                </h4>
-            </div>
-
-            <div id="collapseProducer" class="panel-collapse collapse{f:if(condition: filter.producer, then: ' in')}" role="tabpanel">
-                <div class="panel-body">
-                    <f:if condition="{producers -> f:count()} > 5 ">
-                        <f:then>
-                            <f:form.select property="producer" multiple="TRUE" options="{producers}" optionValueField="uid" optionLabelField="name" class="form-control selectpicker show-tick" data="{actions-box: 'true', live-search: 'true', none-selected-text: 'Click to select', selected-text-format: 'count > 3'}"></f:form.select>
-                        </f:then>
-                        <f:else>
-                            <f:for each="{producers}" as="producer">
-                                <div class="checkbox">
-                                    <f:form.checkbox property="producer" id="producer-{producer.uid}"
-                                                     value="{producer.uid}"/>
-                                    <label for="producer-{producer.uid}">
-                                        {producer.name}
-                                    </label>
-                                </div>
-                            </f:for>
-                        </f:else>
-                    </f:if>
-                </div>
-            </div>
-        </div>
-
-    </f:if>
+	<f:if condition="{options -> f:count()}">
+		<f:then>
+			<f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
 
 
-    <f:if condition="{countries}">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab">
+						<h4>
+							<a class="btn btn-block" data-toggle="collapse" href="#collapse-select-{filtergroup.uid}">
+								{filtergroup.output}
+								<i class="fa fa-plus"></i>
+							</a>
+						</h4>
+					</div>
+					<!--TODO: "in" only for groups w/ selected options-->
+					<div id="collapse-select-{filtergroup.uid}" class="panel-collapse collapse in" role="tabpanel">
+						<div class="panel-body">
 
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab">
-                <h4>
-                    <a class="btn btn-block" data-toggle="collapse" href="#collapseCountries">
-                        {f:translate(key: 'tx_marketplace_domain_model_filter.country')}
-                        <i class="fa fa-plus"></i>
-                    </a>
-                </h4>
-            </div>
+							<f:groupedFor each="{opts}" as="optn" groupBy="filtersubgroup" groupKey="filtersubgroup">
+								<f:if condition="{filtersubgroup}">
+									<b>{filtersubgroup.title}</b><br>
+								</f:if>
 
-            <div id="collapseCountries" class="panel-collapse collapse{f:if(condition: filter.countries, then: ' in')}" role="tabpanel">
-                <div class="panel-body">
-                    <f:if condition="{countries -> f:count()} > 5 ">
-                        <f:then>
-                            <f:form.select property="country" multiple="TRUE" options="{countries}" optionValueField="uid" optionLabelField="name" class="form-control selectpicker show-tick" data="{actions-box: 'true', live-search: 'true', none-selected-text: 'Click to select', selected-text-format: 'count > 3'}"></f:form.select>
-                        </f:then>
-                        <f:else>
-                            <f:for each="{countries}" as="country">
-                                <div class="checkbox">
-                                    <f:form.checkbox property="country" id="country-{country.uid}"
-                                                     value="{country.uid}"/>
-                                    <label for="country-{country.uid}">
-                                        {country.name}
-                                    </label>
-                                </div>
-                            </f:for>
-                        </f:else>
-                    </f:if>
-                </div>
-            </div>
-        </div>
+								<f:for each="{optn}" as="option">
+									<f:render section="options" arguments="{option: option}"></f:render>
+								</f:for>
+							</f:groupedFor>
 
-    </f:if>
+						</div>
+					</div>
+				</div>
 
-    <div class="function">
-        <f:if condition="{filterActive}">
-            <f:link.action action="ratinglist" class="btn btn-default btn-reset pull-right">
-                {f:translate(key: 'productList.resetButton')}
-                <i class="fa fa-times-circle"></i>
-            </f:link.action>
-        </f:if>
+			</f:groupedFor>
+		</f:then>
+		<f:else>
+			<!-- Cat Links -->
+			<f:for each="{categories}" as="cat">
+				<f:link.page pageUid="{cat.listpid}" class="btn btn-primary btn-block">
+					{cat.title}
+					<i class="fa fa-chevron-right"></i>
+				</f:link.page>
+				<br>
+			</f:for>
+		</f:else>
+	</f:if>
 
-        <button type="submit" class="btn btn-warning btn-search">
-            {f:translate(key: 'productList.filterButton')}
-            <i class="fa fa-search"></i>
-        </button>
-    </div>
+	<hr>
 
-    <!-- Sorting (ausgestellt) -->
-    <f:alias map="{sortbyArray: {0: '{f:translate(key: \'productList.filter.sortby.0\')}', 1: '{f:translate(key: \'productList.filter.sortby.1\')}', 2: '{f:translate(key: \'productList.filter.sortby.2\')}', 3: '{f:translate(key: \'productList.filter.sortby.3\')}', 4: '{f:translate(key: \'productList.filter.sortby.4\')}', 5: '{f:translate(key: \'productList.filter.sortby.5\')}', 6: '{f:translate(key: \'productList.filter.sortby.6\')}', 7: '{f:translate(key: \'productList.filter.sortby.7\')}'}}">
-        <div class="sortby-select form-inline">
-            <div class="form-group">
-                <f:translate key="productList.filter.sortbyLabel">Sort by</f:translate>
-                <f:form.select class="form-control selectpicker" property="sortby" options="{sortbyArray}" />
-            </div>
-        </div>
-    </f:alias>
+	<f:if condition="{producers}">
+
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab">
+				<h4>
+					<a class="btn btn-block" data-toggle="collapse" href="#collapseProducer">
+						{f:translate(key: 'tx_marketplace_domain_model_filter.producer')}
+						<i class="fa fa-plus"></i>
+					</a>
+				</h4>
+			</div>
+
+			<div id="collapseProducer" class="panel-collapse collapse{f:if(condition: filter.producer, then: ' in')}"
+				 role="tabpanel">
+				<div class="panel-body">
+					<f:if condition="{producers -> f:count()} > 5 ">
+						<f:then>
+							<f:form.select property="producer" multiple="TRUE" options="{producers}"
+										   optionValueField="uid" optionLabelField="name"
+										   class="form-control selectpicker show-tick"
+										   data="{actions-box: 'true', live-search: 'true', none-selected-text: 'Click to select', selected-text-format: 'count > 3'}"></f:form.select>
+						</f:then>
+						<f:else>
+							<f:for each="{producers}" as="producer">
+								<div class="checkbox">
+									<f:form.checkbox property="producer" id="producer-{producer.uid}"
+													 value="{producer.uid}"/>
+									<label for="producer-{producer.uid}">
+										{producer.name}
+									</label>
+								</div>
+							</f:for>
+						</f:else>
+					</f:if>
+				</div>
+			</div>
+		</div>
+
+	</f:if>
+
+
+	<f:if condition="{countries}">
+
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab">
+				<h4>
+					<a class="btn btn-block" data-toggle="collapse" href="#collapseCountries">
+						{f:translate(key: 'tx_marketplace_domain_model_filter.country')}
+						<i class="fa fa-plus"></i>
+					</a>
+				</h4>
+			</div>
+
+			<div id="collapseCountries" class="panel-collapse collapse{f:if(condition: filter.countries, then: ' in')}"
+				 role="tabpanel">
+				<div class="panel-body">
+					<f:if condition="{countries -> f:count()} > 5 ">
+						<f:then>
+							<f:form.select property="country" multiple="TRUE" options="{countries}"
+										   optionValueField="uid" optionLabelField="name"
+										   class="form-control selectpicker show-tick"
+										   data="{actions-box: 'true', live-search: 'true', none-selected-text: 'Click to select', selected-text-format: 'count > 3'}"></f:form.select>
+						</f:then>
+						<f:else>
+							<f:for each="{countries}" as="country">
+								<div class="checkbox">
+									<f:form.checkbox property="country" id="country-{country.uid}"
+													 value="{country.uid}"/>
+									<label for="country-{country.uid}">
+										{country.name}
+									</label>
+								</div>
+							</f:for>
+						</f:else>
+					</f:if>
+				</div>
+			</div>
+		</div>
+
+	</f:if>
+
+	<f:if condition="{options -> f:count()}">
+		<div class="function">
+			<f:if condition="{filterActive}">
+				<f:link.action action="ratinglist" class="btn btn-default btn-reset pull-right">
+					{f:translate(key: 'productList.resetButton')}
+					<i class="fa fa-times-circle"></i>
+				</f:link.action>
+			</f:if>
+
+			<button type="submit" class="btn btn-warning btn-search">
+				{f:translate(key: 'productList.filterButton')}
+				<i class="fa fa-search"></i>
+			</button>
+		</div>
+	</f:if>
+
+	<!-- Sorting (ausgestellt) -->
+	<f:alias
+			map="{sortbyArray: {0: '{f:translate(key: \'productList.filter.sortby.0\')}', 1: '{f:translate(key: \'productList.filter.sortby.1\')}', 2: '{f:translate(key: \'productList.filter.sortby.2\')}', 3: '{f:translate(key: \'productList.filter.sortby.3\')}', 4: '{f:translate(key: \'productList.filter.sortby.4\')}', 5: '{f:translate(key: \'productList.filter.sortby.5\')}', 6: '{f:translate(key: \'productList.filter.sortby.6\')}', 7: '{f:translate(key: \'productList.filter.sortby.7\')}'}}">
+		<div class="sortby-select form-inline">
+			<div class="form-group">
+				<f:translate key="productList.filter.sortbyLabel">Sort by</f:translate>
+				<f:form.select class="form-control selectpicker" property="sortby" options="{sortbyArray}"/>
+			</div>
+		</div>
+	</f:alias>
 
 </f:form>
 
 
-
-
 <f:section name="options">
-    <div class="checkbox">
-            <f:form.checkbox property="options" id="option-{option.uid}"
-                             value="{option.uid}"/>
-        <label for="option-{option.uid}">
-            {option.title}
-        </label>
-    </div>
+	<div class="checkbox">
+		<f:form.checkbox property="options" id="option-{option.uid}"
+						 value="{option.uid}"/>
+		<label for="option-{option.uid}">
+			{option.title}
+		</label>
+	</div>
 </f:section>
