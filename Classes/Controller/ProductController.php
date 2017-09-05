@@ -897,7 +897,6 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
     public function listrecentAction(){
         $products = $this->productRepository->findRecentWithLimit(5);
 
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($products);
         $this->view->assign('products', $products);
     }
 }
