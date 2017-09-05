@@ -89,7 +89,7 @@ if (!defined('TYPO3_MODE')) {
 							CType = list
 							list_type = marketplace_categorylist
 						}
-					}
+					},
 					recentlist {
 						icon = ' . \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/user_plugin_recentlist.svg
 						title = LLL:EXT:marketplace/Resources/Private/Language/locallang_db.xlf:tx_marketplace_plugin_recentlist
