@@ -886,7 +886,6 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
 
             // TBD
             $categories = $this->categoryRepository->findAll();
-            \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($categories);
             $this->view->assign('categories', $categories);
 
         }
