@@ -11,7 +11,7 @@
                     </f:link.action>
                 </f:then>
                 <f:else>
-                    <f:link.action action="show" class="btn btn-default img-responsive" pageUid="{settings.productDetail.pid}"
+                    <f:link.action action="show" pluginName="articlesearch" class="btn btn-default img-responsive" pageUid="{settings.productDetail.pid}"
                                    arguments="{product : product}">
                     <f:image src="{settings.productDummyImage}"
                              width="{settings.productList.image.width}" maxHeight="{settings.productList.image.height}"
@@ -53,7 +53,7 @@
                 <f:render partial="Product/OverallRating" arguments="{product: product}"/>
             </div>
 
-            <f:link.action action="show" class="btn btn-default" pageUid="{settings.productDetail.pid}"
+            <f:link.action action="show" pluginName="articlesearch" class="btn btn-default" pageUid="{settings.productDetail.pid}"
                            arguments="{product : product}">
                 <f:if condition="{product.articles -> f:count()}">
                     <js:pricerange articles="{product.articles}">
