@@ -19,7 +19,7 @@ plugin.tx_marketplace_articlesearch {
     }
 
     settings {
-        sitename = Sendea.biz
+        sitename = mangoo marketplace
 
         currencySign = USD
         currencyDefaultUid = 1
@@ -106,8 +106,8 @@ plugin.tx_marketplace_articlesearch {
 
             receiverName = Sendea Inbox (Admin)
 
-            sender = no-reply@sendea.biz
-            senderName = Sendea - Product rating and marketplace
+            sender = no-reply@mangoo.org
+            senderName = mangoo marketplace
 
             subjectReceiver = New contact for
             subjectDealer = Contact - Article
@@ -136,12 +136,12 @@ plugin.tx_marketplace_articlesearch {
         adminster {
             adminPid = 161
             email {
-                receiverName = Sendea Admin Team
-                subjectReceiver = Sendea: New product proposed
+                receiverName = mangoo marketplace admin team
+                subjectReceiver = mangoo marketplace: New product proposed
 
                 #sender = noreply@sendea.biz
-                sender = no-reply@sendea.biz
-                senderName = Sendea-Automator-Service
+                sender = no-reply@mangoo.org
+                senderName = Mangoo-Automator-Service
             }
         }
 
