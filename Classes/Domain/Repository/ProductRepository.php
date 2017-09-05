@@ -308,12 +308,14 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
       return $query->execute();
     }
 
-
     /**
      * @param \JS\Marketplace\Domain\Model\Filter $filter
      * @param \JS\Marketplace\Domain\Model\Category $category
+     * @param \int $limit
+     *
+     * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      */
-    public function findByOptions($filter, $category)
+    public function findByOptions($filter, $category, $limit = 0)
     {
         $query = $this->createQuery();
 
@@ -350,6 +352,8 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         if(count($constraints)){
             $query->matching($query->logicalAnd($constraints));
         }
+
+        $query->setLimit($limit);
 
         $result = $query->execute();
 

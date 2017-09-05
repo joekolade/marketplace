@@ -837,8 +837,6 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             /** @var  \JS\Marketplace\Domain\Model\Category $category */
             $category = $this->categoryRepository->findByUid($this->settings['category']);
         }
-        /** @var  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Product> $products */
-        $products = $this->productRepository->findByOptions($filter, $category);
 
         // Get options by filtered products
         //  and producers
@@ -848,6 +846,10 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
         $countries = [];
 
         if(!empty($category)) {
+
+            /** @var  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Product> $products */
+            $products = $this->productRepository->findByOptions($filter, $category);
+
             foreach ($category->getFiltergroups() as $filtergroup) {
                 foreach ($filtergroup->getOptions() as $option) {
                     $options[] = $option;
@@ -882,6 +884,12 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             }
         }
         else {
+
+            $limit = 5;
+
+            /** @var  \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JS\Marketplace\Domain\Model\Product> $products */
+            $products = $this->productRepository->findByOptions($filter, $category, $limit);
+
             // Filter holds categories
 
             // TBD
