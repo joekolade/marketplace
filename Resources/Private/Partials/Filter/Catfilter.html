@@ -86,7 +86,7 @@
 				</h4>
 			</div>
 
-			<div id="collapseProducer" class="panel-collapse collapse{f:if(condition: filter.producer, then: ' in')}"
+			<div id="collapseProducer" class="panel-collapse collapse{f:if(condition: '\{filter.producer ->f:count()\}', then: ' in')}"
 				 role="tabpanel">
 				<div class="panel-body">
 					<f:if condition="{producers -> f:count()} > 5 ">
@@ -126,7 +126,6 @@
 					</a>
 				</h4>
 			</div>
-			<f:debug>{filter}</f:debug>
 			<div id="collapseCountries" class="panel-collapse collapse{f:if(condition: '\{filter.countries -> f:count()\}', then: ' in')}"
 				 role="tabpanel">
 				<div class="panel-body">
