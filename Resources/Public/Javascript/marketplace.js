@@ -89,11 +89,11 @@ $(function () {
                 if (this.checked) {
                     // Disable parent toggle
                     $panel.removeClass('active').addClass('disabled');
-					addToUrl($(this).val());
+					//addToUrl($(this).val());
                 }
                 else {
                     $panel.removeClass('disabled').addClass('active');
-					removeFromUrl($(this).val());
+					//removeFromUrl($(this).val());
                 }
 
                 updateList();
@@ -120,6 +120,7 @@ $(function () {
 
             // Fire AJAX
             // callback: hideLoader()
+			$filter.closest('form').first().submit();
 
             setTimeout(function () {
                 hideLoader();
@@ -175,7 +176,7 @@ $(function () {
         init = function () {
             if($filter.length){
                 // no ajax at the time
-                //bindPanelEvents();
+                bindPanelEvents();
             }
         }
     ;
