@@ -855,28 +855,6 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
                     $options[] = $option;
                 }
             }
-
-            foreach ($products as $product) {
-
-                // Producer
-//                $producer = $product->getProducer();
-//                if (!in_array($producer, $producers)) {
-//                    $producers[] = $producer;
-//
-//                }
-                $producers = $this->producerRepository->findAll();
-
-                // Countries
-//                foreach ($product->getArticles() as $article) {
-//                    if (!empty($article->getDealer())) {
-//                        $country = $article->getDealer()->getCountry();
-//                        if (!in_array($country, $countries)) {
-//                            $countries[] = $country;
-//                        }
-//                    }
-//                }
-                $countries = $this->countryRepository->findAll();
-            }
         }
         else {
 
@@ -892,6 +870,29 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             $categories = $this->categoryRepository->findAll();
         }
 
+
+
+        foreach ($products as $product) {
+
+            // Producer
+//                $producer = $product->getProducer();
+//                if (!in_array($producer, $producers)) {
+//                    $producers[] = $producer;
+//
+//                }
+            $producers = $this->producerRepository->findAll();
+
+            // Countries
+//                foreach ($product->getArticles() as $article) {
+//                    if (!empty($article->getDealer())) {
+//                        $country = $article->getDealer()->getCountry();
+//                        if (!in_array($country, $countries)) {
+//                            $countries[] = $country;
+//                        }
+//                    }
+//                }
+            $countries = $this->countryRepository->findAll();
+        }
 
 
         // CHECK: Are there filter options lost, when only rendering results, that fit?
