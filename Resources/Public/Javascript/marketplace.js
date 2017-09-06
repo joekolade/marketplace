@@ -120,7 +120,7 @@ $(function () {
 
             // Fire AJAX
             // callback: hideLoader()
-			$filter.closest('form').first().submit();
+			$filter.find('form').first().submit();
 
             setTimeout(function () {
                 hideLoader();
