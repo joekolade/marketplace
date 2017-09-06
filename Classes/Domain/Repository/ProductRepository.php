@@ -311,17 +311,22 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     /**
      * @param \JS\Marketplace\Domain\Model\Filter $filter
      * @param \JS\Marketplace\Domain\Model\Category $category
-     * @param \int $limit
+     * @param int $offset
+     * @param int $limit
      *
      * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      */
-    public function findByOptions($filter, $category, $limit = 0)
+    public function findByOptions(
+        $filter,
+        $category,
+        $offset= 0,
+        $limit = 0
+    )
     {
         $query = $this->createQuery();
 
         // Constraints initialisieren
         $constraints = array();
-        $filterActive = false;
 
         //
         // get Products by filter
@@ -463,9 +468,8 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
             $query->matching($query->logicalAnd($constraints));
         }
 
-        if($limit > 0) {
-            $query->setLimit($limit);
-        }
+        if($offset) $query->setOffset($offset);
+        if($limit) $query->setLimit($limit);
 
         $result = $query->execute();
 
