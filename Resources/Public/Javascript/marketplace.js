@@ -122,9 +122,9 @@ $(function () {
             // callback: hideLoader()
 			$filter.find('form').first().submit();
 
-            setTimeout(function () {
-                hideLoader();
-			}, 820);
+			// setTimeout(function () {
+             //    hideLoader();
+			// }, 820);
         },
 
         // show/hideLoader
