@@ -346,6 +346,116 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         }
 
         //
+        // Country
+        //
+        if(count($filter->getCountry())){
+            $filterActive = true;
+
+            $filteredArticles = $this->articleRepository->findByFilter($filter);
+
+            if(count($filteredArticles)){
+                $constraints[] = $query->in('uid', $filteredArticles);
+            }
+        }
+
+        //
+        // Filter by producer
+        // -------------------------------------------
+        //
+        if(count($filter->getProducer())){
+            $filterActive = true;
+            $constraints[] = $query->in('producer', $filter->getProducer());
+        }
+
+
+        //
+        // Filter by searchphrase
+        // -------------------------------------------
+        //
+        if ($filter->getSearchphrase() != '') {
+            $columns = 'title,teaser,description,producer.name';
+
+            foreach (explode(',', $columns) as $key => $col) {
+                foreach (explode(' ', $filter->getSearchphrase()) as $text) {
+                    $c[] = $query->like($col, '%' . $text . '%');
+                }
+                $t[] = $query->logicalOr($query->logicalOr($c));
+            }
+            $constraints[] = $query->logicalOr($t);
+        }
+
+
+
+        //
+        // Sort by
+        // -------------------------------------------
+        //
+        switch($filter->getSortby()) {
+            case 0:
+                // Sort by article count
+                $query->setOrderings(array(
+                    'articles' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING,
+                    'title' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING,
+                    'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+                ));
+                break;
+            case 1:
+                // titel desc
+                $query->setOrderings(array(
+                    'title' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING,
+                    'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+                ));
+                break;
+            case 2:
+                // Overall rating
+                $query->setOrderings(array(
+                    'averagerating' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING,
+                    'title' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
+                    'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+                ));
+                break;
+            case 3:
+                // Ratings count -- sorting in Controller, since no corresponding field is available
+                $query->setOrderings(array(
+                    // 'ratings' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING,
+                    'title' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
+                    'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+                ));
+                break;
+            case 4:
+                // Producer title
+                $query->setOrderings(array(
+                    'producer.name' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
+                    'title' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
+                    'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+                ));
+                break;
+            case 5:
+                // Producer title (Z-A)
+                $query->setOrderings(array(
+                    'producer.name' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING,
+                    'title' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING,
+                    'sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+                ));
+                break;
+            case 6:
+                // Sort by price (asc)
+                // handled in controller
+                break;
+            case 7:
+                // Sort by price (desc)
+                // handled in controller
+                break;
+            default:
+                break;
+            #
+            # Sorting
+            # 0: no sorting (alphabetical)
+            # 1: rating
+            # 2: alphabet
+        }
+
+        //
         // Use given constraints
         // -------------------------------------------
         //
