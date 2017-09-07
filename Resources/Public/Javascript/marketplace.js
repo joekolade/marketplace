@@ -73,13 +73,13 @@ $(function () {
         $sortBy = $('.sortby-select select', $wrapper),
 
         // Catfilter
-        // $filterpanel = $('.panel', $filter),
+		$panels = $(".panel", $filter),
 
         // Open close for panels
         bindPanelEvents = function () {
             var
                 $checkboxes = $('.checkbox input[type="checkbox"]')
-            ;
+                            ;
 
             $checkboxes.change(function () {
                 var
@@ -111,6 +111,29 @@ $(function () {
 
                 e.stopPropagation();
             });
+
+			$panels.on("show.bs.collapse hide.bs.collapse", function (e) {
+				if (e.type == 'show') {
+					$(this).addClass('active');
+				} else {
+					$(this).removeClass('active');
+				}
+			});
+
+			$panels.each(function () {
+				if($(this).find('.checkbox input[type="checkbox"]:checked').length){
+					$('.panel-collapse', $(this)).collapse('show');
+				}
+			});
+
+			$panels.filter(".collapse.in").each(function () {
+				$(this).closest('.panel').addClass('active');
+			});
+
+			// Sort by select
+			$sortBy.on('change', function () {
+				$(this).closest('form').submit();
+			});
         },
 
 
@@ -238,11 +261,6 @@ $(function () {
         $input.trigger('cleared');
     });
 
-    // Sort by select
-    $sortBy.on('change', function () {
-        $(this).closest('form').submit();
-    });
-
     // Filter is available
     if ($filter.length) {
 
@@ -252,17 +270,6 @@ $(function () {
             $('form', $filter).first().submit();
         });
     }
-
-    $(".panel").on("show.bs.collapse hide.bs.collapse", function (e) {
-        if (e.type == 'show') {
-            $(this).addClass('active');
-        } else {
-            $(this).removeClass('active');
-        }
-    });
-    $(".panel .collapse.in").each(function () {
-        $(this).closest('.panel').addClass('active');
-    });
 
 
 });
