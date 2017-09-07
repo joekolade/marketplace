@@ -101,7 +101,7 @@
 			</div>
 
 			<div id="collapseProducer"
-				 class="panel-collapse collapse{f:if(condition: '\{filter.producer ->f:count()\}', then: ' in')}"
+				 class="panel-collapse collapse{f:if(condition: filter.producer, then: ' in')}"
 				 role="tabpanel">
 				<div class="panel-body">
 					<f:if condition="{producers -> f:count()} > 5 ">
