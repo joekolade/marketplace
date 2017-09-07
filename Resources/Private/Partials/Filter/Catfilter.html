@@ -141,6 +141,8 @@
 					</a>
 				</h4>
 			</div>
+			<f:debug>{filter.countries}</f:debug>
+			<f:debug>{filter.countries -> f:count()}</f:debug>
 			<div id="collapseCountries"
 				 class="panel-collapse collapse{f:if(condition: '\{filter.countries -> f:count()\} > 0', then: ' in')}"
 				 role="tabpanel">
