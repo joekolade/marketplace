@@ -26,6 +26,27 @@
 		<!-- CHECK: Live-/Ajax-Search -->
 	</f:comment>
 
+
+	<!-- Cat Links -->
+	<div class="panel panel-default">
+		<div class="panel-heading" role="tab">
+			Categories
+		</div>
+		<div id="collapse-select-{filtergroup.uid}" class="panel-collapse collapse{f:if(condition: '\{options -> f:count()\}', then: '', else: ' in')}" role="tabpanel">
+			<div class="panel-body">
+			<f:for each="{categories}" as="cat">
+				<f:link.page pageUid="{cat.listpid}" class="btn btn-primary btn-block">
+					{cat.title}
+					<i class="fa fa-chevron-right"></i>
+				</f:link.page>
+				<br>
+			</f:for>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+
 	<f:if condition="{options -> f:count()}">
 		<f:then>
 			<f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
@@ -60,16 +81,6 @@
 
 			</f:groupedFor>
 		</f:then>
-		<f:else>
-			<!-- Cat Links -->
-			<f:for each="{categories}" as="cat">
-				<f:link.page pageUid="{cat.listpid}" class="btn btn-primary btn-block">
-					{cat.title}
-					<i class="fa fa-chevron-right"></i>
-				</f:link.page>
-				<br>
-			</f:for>
-		</f:else>
 	</f:if>
 
 	<hr>
