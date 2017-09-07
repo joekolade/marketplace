@@ -144,7 +144,7 @@
 			<f:debug>{filter.countries}</f:debug>
 			<f:debug>{filter.countries -> f:count()}</f:debug>
 			<div id="collapseCountries"
-				 class="panel-collapse collapse{f:if(condition: '\{filter.countries -> f:count()\} > 0', then: ' in')}"
+				 class="panel-collapse collapse{f:if(condition: filter.countries, then: ' in')}"
 				 role="tabpanel">
 				<div class="panel-body">
 					<f:if condition="{countries -> f:count()} > 5 ">
