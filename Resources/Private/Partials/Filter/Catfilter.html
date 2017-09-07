@@ -37,7 +37,7 @@
 				</a>
 			</h4>
 		</div>
-		<div id="collapse-select-cats" class="panel-collapse collapse{f:if(condition: '\{options -> f:count()\}', then: ' options')}" role="tabpanel">
+		<div id="collapse-select-cats" class="panel-collapse collapse{f:if(condition: category, then: '', else: ' in')}" role="tabpanel">
 			<div class="panel-body">
 			<f:for each="{categories}" as="cat">
 				<f:link.page pageUid="{cat.listpid}" class="btn btn-primary btn-block">
