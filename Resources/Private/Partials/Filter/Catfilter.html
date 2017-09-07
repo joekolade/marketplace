@@ -50,9 +50,8 @@
 		</div>
 	</div>
 
-	{f:if(condition: category, then: '<hr>')}
-
 	<f:if condition="{options -> f:count()}">
+		<hr>
 		<f:then>
 			<f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
 
@@ -88,9 +87,9 @@
 		</f:then>
 	</f:if>
 
-	<hr>
 
 	<f:if condition="{producers}">
+		<hr>
 
 		<div class="panel panel-default">
 			<div class="panel-heading" role="tab">
