@@ -864,12 +864,11 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             //$products = $this->productRepository->findByOptions($filter, $category, $limit);
             $products = $this->productRepository->findByOptions($filter, $category);
 
-            // Filter holds categories
 
-            // TBD
-            $categories = $this->categoryRepository->findAll();
         }
 
+        // Filter holds categories
+        $categories = $this->categoryRepository->findAll();
 
 
         foreach ($products as $product) {
