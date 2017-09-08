@@ -58,13 +58,11 @@
 	<f:if condition="{options -> f:count()}">
 		<hr>
 
-		<f:render partial="Filter/Reset" arguments="{_all}"></f:render>
-		<div class="clearfix"></div>
+		<f:render partial="Filter/Function" arguments="{_all}"></f:render>
 
 		<div class="level1-box">
 			<h2 class="btn btn-level1">
 				{category.title}
-				<i class="fa fa-minus"></i>
 			</h2>
 			<f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
 
@@ -186,14 +184,7 @@
 
 	</f:if>
 
-	<div class="function">
-		<f:render partial="Filter/Reset" arguments="{_all}"></f:render>
-
-		<button type="submit" class="btn btn-warning btn-search">
-			{f:translate(key: 'productList.filterButton')}
-			<i class="fa fa-search"></i>
-		</button>
-	</div>
+	<f:render partial="Filter/Function" arguments="{_all}"></f:render>
 
 	<!-- Sorting (ausgestellt) -->
 	<f:alias

@@ -283,10 +283,10 @@
 				<source>search</source>
 			</trans-unit>
 			<trans-unit id="productList.resetButton">
-				<source>reset</source>
+				<source>clear</source>
 			</trans-unit>
 			<trans-unit id="productList.filterResetButton">
-				<source>Reset selection</source>
+				<source>Clear selection</source>
 			</trans-unit>
 			<trans-unit id="productShow.backToList">
 				<source>Go back to list</source>
