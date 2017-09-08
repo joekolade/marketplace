@@ -879,7 +879,6 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
 //                    $producers[] = $producer;
 //
 //                }
-            $producers = $this->producerRepository->findAll();
 
             // Countries
 //                foreach ($product->getArticles() as $article) {
@@ -890,8 +889,10 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
 //                        }
 //                    }
 //                }
-            $countries = $this->countryRepository->findAll();
         }
+
+        $producers = $this->producerRepository->findAll();
+        $countries = $this->countryRepository->findAll();
 
 
         // CHECK: Are there filter options lost, when only rendering results, that fit?
