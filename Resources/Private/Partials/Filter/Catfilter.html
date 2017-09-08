@@ -5,7 +5,7 @@
 			{settings.filtertitle}
 		</f:then>
 		<f:else>
-			Category: {category.title}
+			{category.title}
 		</f:else>
 	</f:if>
 </h2>
@@ -100,7 +100,7 @@
 	<f:if condition="{producers}">
 		<hr>
 		<h2>Companies</h2>
-		<div class="panel panel-default">
+		<div class="panel panel-default{f:if(condition: filter.producer, then: ' active')}">
 			<div class="panel-heading" role="tab">
 				<h4>
 					<a class="btn btn-block" data-toggle="collapse" href="#collapseProducer">
@@ -144,7 +144,7 @@
 		<hr>
 		<h2>Countries</h2>
 
-		<div class="panel panel-default">
+		<div class="panel panel-default{f:if(condition: filter.countries, then: ' active')}">
 			<div class="panel-heading" role="tab">
 				<h4>
 					<a class="btn btn-block" data-toggle="collapse" href="#collapseCountries">
