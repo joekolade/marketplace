@@ -139,13 +139,11 @@
 
 	</f:if>
 
-<f:debug>{filter}</f:debug>
-<f:debug>{filter.countries}</f:debug>
 	<f:if condition="{countries}">
 		<hr>
 		<h2>Countries</h2>
 
-		<div class="panel panel-default{f:if(condition: filter.countries, then: ' active')}">
+		<div class="panel panel-default{f:if(condition: filter.country, then: ' active')}">
 			<div class="panel-heading" role="tab">
 				<h4>
 					<a class="btn btn-block" data-toggle="collapse" href="#collapseCountries">
@@ -155,7 +153,7 @@
 				</h4>
 			</div>
 			<div id="collapseCountries"
-				 class="panel-collapse collapse{f:if(condition: filter.countries, then: ' in')}"
+				 class="panel-collapse collapse{f:if(condition: filter.country, then: ' in')}"
 				 role="tabpanel">
 				<div class="panel-body">
 					<f:if condition="{countries -> f:count()} > 5 ">
