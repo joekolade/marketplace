@@ -155,19 +155,6 @@ $star-shadow: rgba(0, 0, 0, 0.3);
 	  }
 	}
 
-	.level1-box & {
-	  .panel-heading {
-		background: white;
-
-		a, i {
-		  color: $color-blau;
-		  &:before {
-			color: inherit;
-		  }
-		}
-	  }
-	}
-
 	&.panel-inverted {
 	  .panel-heading {
 		background: $color-orange;
@@ -620,30 +607,6 @@ div.rating-md {
   &-backToRatingList {
 	padding-left: 0;
   }
-
-  // Filter-buttons
-  &-level1 {
-	background: $color-primary;
-	color: white;
-
-	a,i {
-		color: white;
-	}
-  }
-}
-
-h2 {
-  &.btn-level1 {
-	display: block;
-	text-align: left;
-
-	&:hover {
-	  color: inherit;
-	}
-  }
-}
-.level1-box {
-  background: $color-orange;
 }
 
 .btn {
@@ -852,5 +815,46 @@ h2 {
   }
   to {
 	transform: translateX(-78px)
+  }
+}
+
+// New Colors for Filter
+
+.btn.btn {
+  // Filter-buttons
+  &-level1 {
+	background: $color-primary;
+	color: white;
+
+	a,i {
+	  color: white;
+	}
+  }
+}
+
+h2 {
+  &.btn-level1 {
+	display: block;
+	text-align: left;
+
+	&:hover {
+	  color: inherit;
+	}
+  }
+}
+.level1-box {
+  background: $color-orange;
+}
+
+.level1-box .panel {
+  .panel-heading {
+	background: white;
+
+	a, i {
+	  color: $color-blau;
+	  &:before {
+		color: inherit;
+	  }
+	}
   }
 }
