@@ -357,7 +357,7 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
             $filterActive = true;
 
             $filteredArticles = $this->articleRepository->findByFilter($filter);
-
+            \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($filteredArticles, 'filteredArticles');
             if(count($filteredArticles)){
                 $constraints[] = $query->in('uid', $filteredArticles);
             }
