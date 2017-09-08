@@ -362,6 +362,7 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
                 $optMatch = [];
                 foreach ($filter->getExtras() as $option) {
                     $optMatch[] = $query->equals('uid', $option->getProduct()->getUid());
+                    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($option->getProduct()->getUid());
                 }
                 \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($opts);
                 $constraints[] = $query->logicalOr($opts);
