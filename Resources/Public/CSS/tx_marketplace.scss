@@ -158,7 +158,13 @@ $star-shadow: rgba(0, 0, 0, 0.3);
 	&.panel-inverted {
 	  .panel-heading {
 		background: $color-orange;
-		color: black;
+
+		a, i {
+		  color: $color-blau;
+		  &:before {
+			color: inherit;
+		  }
+		}
 	  }
 	}
 
