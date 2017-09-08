@@ -619,6 +619,19 @@ div.rating-md {
   }
 }
 
+h2 {
+  &.btn-level1 {
+	display: block;
+
+	&:hover {
+	  color: inherit;
+	}
+  }
+}
+.level1-box {
+  background: $color-orange;
+}
+
 .btn {
   // If icon is used
   i.fa {

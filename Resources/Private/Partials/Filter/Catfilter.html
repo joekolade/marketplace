@@ -62,42 +62,44 @@
 	</div>
 
 	<f:if condition="{options -> f:count()}">
-		<hr>
-		<h2 class="btn btn-level1">
-			{category.title}
-			<i class="fa fa-minus"></i>
-		</h2>
-		<f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
+		<div class="level1-box">
+			<hr>
+			<h2 class="btn btn-level1">
+				{category.title}
+				<i class="fa fa-minus"></i>
+			</h2>
+			<f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
 
-			<div class="panel panel-default">
-				<div class="panel-heading" role="tab">
-					<h4>
-						<a class="btn btn-block" data-toggle="collapse" href="#collapse-select-{filtergroup.uid}">
-							{filtergroup.output}
-							<i class="fa fa-plus"></i>
-						</a>
-					</h4>
-				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab">
+						<h4>
+							<a class="btn btn-block" data-toggle="collapse" href="#collapse-select-{filtergroup.uid}">
+								{filtergroup.output}
+								<i class="fa fa-plus"></i>
+							</a>
+						</h4>
+					</div>
 
-				<!--TODO: "in" only for groups w/ selected options-->
-				<div id="collapse-select-{filtergroup.uid}" class="panel-collapse collapse" role="tabpanel">
-					<div class="panel-body">
+					<!--TODO: "in" only for groups w/ selected options-->
+					<div id="collapse-select-{filtergroup.uid}" class="panel-collapse collapse" role="tabpanel">
+						<div class="panel-body">
 
-						<f:groupedFor each="{opts}" as="optn" groupBy="filtersubgroup" groupKey="filtersubgroup">
-							<f:if condition="{filtersubgroup}">
-								<b>{filtersubgroup.title}</b><br>
-							</f:if>
+							<f:groupedFor each="{opts}" as="optn" groupBy="filtersubgroup" groupKey="filtersubgroup">
+								<f:if condition="{filtersubgroup}">
+									<b>{filtersubgroup.title}</b><br>
+								</f:if>
 
-							<f:for each="{optn}" as="option">
-								<f:render section="options" arguments="{option: option}"></f:render>
-							</f:for>
-						</f:groupedFor>
+								<f:for each="{optn}" as="option">
+									<f:render section="options" arguments="{option: option}"></f:render>
+								</f:for>
+							</f:groupedFor>
 
+						</div>
 					</div>
 				</div>
-			</div>
 
-		</f:groupedFor>
+			</f:groupedFor>
+		</div>
 	</f:if>
 
 
