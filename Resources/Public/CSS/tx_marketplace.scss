@@ -155,6 +155,19 @@ $star-shadow: rgba(0, 0, 0, 0.3);
 	  }
 	}
 
+	.level1-box {
+	  .panel-heading {
+		background: white;
+
+		a, i {
+		  color: $color-blau;
+		  &:before {
+			color: inherit;
+		  }
+		}
+	  }
+	}
+
 	&.panel-inverted {
 	  .panel-heading {
 		background: $color-orange;
@@ -622,6 +635,7 @@ div.rating-md {
 h2 {
   &.btn-level1 {
 	display: block;
+	text-align: left;
 
 	&:hover {
 	  color: inherit;
