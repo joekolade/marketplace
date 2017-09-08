@@ -63,8 +63,9 @@
 
 	<f:if condition="{options -> f:count()}">
 		<hr>
-		<h2>
+		<h2 class="btn btn-level1">
 			{category.title}
+			<i class="fa fa-minus"></i>
 		</h2>
 		<f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
 
