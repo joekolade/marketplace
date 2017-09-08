@@ -155,12 +155,14 @@ $star-shadow: rgba(0, 0, 0, 0.3);
 	  }
 	}
 
-	.panel-heading {
-	  position: relative;
-
-	  &.panel-heading-inverted {
+	&.panel-inverted {
+	  .panel-heading {
 		background: $color-orange;
 	  }
+	}
+
+	.panel-heading {
+	  position: relative;
 
 	  i.fa {
 		position: absolute;
@@ -775,7 +777,7 @@ div.rating-md {
 	  opacity: 0.5;
 
 	  background-color: $color-animate-1;
-	  background-image: repeating-linear-gradient(65deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px);
+	  background-image: repeating-linear-gradient(65deg, transparent, transparent 35px, rgba(255, 255, 255, .5) 35px, rgba(255, 255, 255, .5) 70px);
 	  //background-size: 50px 50px;
 
 	  background-repeat: repeat;
@@ -798,6 +800,10 @@ div.rating-md {
 }
 
 @keyframes load {
-  from {  transform: translateX(0px)    }
-  to   {  transform: translateX(-78px) }
+  from {
+	transform: translateX(0px)
+  }
+  to {
+	transform: translateX(-78px)
+  }
 }
