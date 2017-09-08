@@ -908,15 +908,28 @@ class ProductController extends \JS\Marketplace\Controller\AbstractController
             'categories' => $categories,
 
             // View
+            'filterActive' => $this->filterActive($filter),
             'view' => 'list',
         ));
 
     }
 
-
-    public function listrecentAction(){
+    /**
+     * listrecentAction
+     */
+    public function listrecentAction()
+    {
         $products = $this->productRepository->findRecentWithLimit(5);
 
         $this->view->assign('products', $products);
+    }
+
+    /**
+     * @param $filter
+     * @return bool
+     */
+    protected function filterActive($filter)
+    {
+        return true;
     }
 }
