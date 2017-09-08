@@ -21,12 +21,6 @@
 		</div>
 	</f:comment>
 
-	<f:comment>
-		<!-- TODO: Reset filter -->
-		<!-- CHECK: Live-/Ajax-Search -->
-	</f:comment>
-
-
 	<!-- Cat Links -->
 	<div class="panel panel-default panel-inverted{f:if(condition: category, then: '', else: ' active')}">
 		<div class="panel-heading" role="tab">
@@ -62,6 +56,9 @@
 	</div>
 
 	<f:if condition="{options -> f:count()}">
+
+		<f:render partial="Filter/Reset" arguments="{_all}"></f:render>
+
 		<hr>
 		<div class="level1-box">
 			<h2 class="btn btn-level1">
