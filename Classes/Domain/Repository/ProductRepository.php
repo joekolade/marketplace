@@ -364,8 +364,8 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
                     $optMatch[] = $query->equals('uid', $article->getProduct()->getUid());
                     \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($article->getProduct()->getUid());
                 }
-                \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($opts);
-                $constraints[] = $query->logicalOr($opts);
+                \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($optMatch);
+                $constraints[] = $query->logicalOr($optMatch);
             }
         }
 
