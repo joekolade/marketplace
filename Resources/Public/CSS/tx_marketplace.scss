@@ -607,6 +607,16 @@ div.rating-md {
   &-backToRatingList {
 	padding-left: 0;
   }
+
+  // Filter-buttons
+  &-level1 {
+	background: $color-primary;
+	color: white;
+
+	a,i {
+		color: white;
+	}
+  }
 }
 
 .btn {
