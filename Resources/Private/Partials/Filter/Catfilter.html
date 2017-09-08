@@ -5,7 +5,7 @@
 			{settings.filtertitle}
 		</f:then>
 		<f:else>
-			{category.title}
+			Products
 		</f:else>
 	</f:if>
 </h2>
@@ -62,6 +62,9 @@
 	</div>
 
 	<f:if condition="{options -> f:count()}">
+		<h2>
+			{category.title}
+		</h2>
 		<hr>
 		<f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
 
