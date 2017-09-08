@@ -62,10 +62,10 @@
 	</div>
 
 	<f:if condition="{options -> f:count()}">
+		<hr>
 		<h2>
 			{category.title}
 		</h2>
-		<hr>
 		<f:groupedFor each="{options}" as="opts" groupBy="filtergroup" groupKey="filtergroup">
 
 			<div class="panel panel-default">
