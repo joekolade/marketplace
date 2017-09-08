@@ -335,8 +335,8 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         if(count($filter->getOptions())){
 
             $optMatch = [];
-            foreach ($filter->getOptions() as $option){
-                $optMatch[] = $query->contains('options', $option);
+            foreach ($filter->getOptions() as $article){
+                $optMatch[] = $query->contains('options', $article);
             }
 
             $constraints[] = $query->logicalOr($optMatch);
@@ -360,9 +360,9 @@ class ProductRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
             \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($filteredArticles, 'filteredArticles');
             if(count($filteredArticles)){
                 $optMatch = [];
-                foreach ($filter->getExtras() as $option) {
-                    $optMatch[] = $query->equals('uid', $option->getProduct()->getUid());
-                    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($option->getProduct()->getUid());
+                forea$filteredArticles as $article) {
+                    $optMatch[] = $query->equals('uid', $article->getProduct()->getUid());
+                    \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($article->getProduct()->getUid());
                 }
                 \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($opts);
                 $constraints[] = $query->logicalOr($opts);
