@@ -826,7 +826,7 @@ div.rating-md {
 	background: $color-primary;
 	color: white;
 
-	a,i {
+	a, i {
 	  color: white;
 	}
   }
@@ -842,19 +842,22 @@ h2 {
 	}
   }
 }
+
 .level1-box {
   background: $color-orange;
-}
+	> .panel {
+	  padding: .5em;
+	}
+  .panel {
+	.panel-body,
+	.panel-heading {
+	  background: white;
 
-.level1-box .panel {
-  .panel-body,
-  .panel-heading {
-	background: white;
-
-	a, i {
-	  color: $color-blau;
-	  &:before {
-		color: inherit;
+	  a, i {
+		color: $color-blau;
+		&:before {
+		  color: inherit;
+		}
 	  }
 	}
   }
